@@ -1,0 +1,1477 @@
+[
+  {
+    "title": "Realised Vol vs. Implied: Short Straddle Edge Persists When IV Exceeds 30-Day HV",
+    "claim": "When implied volatility consistently exceeds realised volatility (30-day HV) by more than 2 percentage points, short ATM straddles generate positive expected returns after delta-hedging costs. The variance premium \u2014 IV minus realised vol \u2014 predicts straddle P&L more reliably than the absolute level of IV.",
+    "rationale": "Sinclair's Volatility Trading documents empirical evidence of a persistent variance premium in equity indices, where implied volatility systematically overestimates realised volatility. Natenberg's Option Volatility and Pricing establishes that straddle P&L is approximately (realised vol - implied vol) \u00d7 vega per unit time. Together these two sources converge on the testable claim that the sign and magnitude of IV-HV spread is the primary predictor of short-straddle profitability, not the absolute level of either. The gamma-theta tradeoff theme confirms that theta collected equals the cost of gamma exposure only when implied vol matches realised; any persistent gap is extractable edge.",
+    "testability_notes": "Backtest using daily SPX options data (ORATS or CBOE) from 2005-2023. Each Monday: measure 30-day ATM IV and trailing 30-day close-to-close HV. If IV - HV > 2pp, sell ATM straddle, delta-hedge daily at close, close at 21 DTE. Falsified if average P&L is negative across 100+ trades when the spread condition is met. Control for VIX regime (below/above 20) to check if the edge is regime-dependent.",
+    "variables_needed": [
+      "implied_volatility",
+      "realized_volatility",
+      "straddle_pnl",
+      "delta",
+      "vega"
+    ],
+    "data_required": "ORATS daily options data with IV surface, SPX daily returns 2005-2023",
+    "what_would_support": "Positive average P&L on 100+ short straddle entries when IV-HV spread > 2pp; Sharpe > 0.5 before transaction costs",
+    "what_would_reject": "Negative average P&L in the IV-HV > 2pp subsample, or no significant difference in P&L between high-spread and low-spread environments",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "ef7e8e54-9415-404e-856c-2c7b4025d521",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7",
+      "62907984-12a4-431d-be55-104160f0f85a"
+    ],
+    "source_meta_theme_ids": [
+      "c9b1745f-eef8-4c83-a6c5-placeholder",
+      "86d4569f-9f8c-4a97-b2d6-placeholder"
+    ],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88",
+      "9e3a85506c46"
+    ],
+    "tags": [
+      "variance-premium",
+      "implied-volatility",
+      "realized-volatility",
+      "straddle",
+      "short-vol"
+    ],
+    "confidence": 0.85,
+    "status": "candidate"
+  },
+  {
+    "title": "VIX Contango Slope Predicts Short-Vol Strategy Returns in the Following Month",
+    "claim": "When the VIX futures term structure is in contango (front-month VIX futures below second-month), short volatility strategies earn higher returns in the following 21 days compared to periods of backwardation. The steepness of the contango slope \u2014 measured as (M2 VIX - M1 VIX) / M1 VIX \u2014 correlates positively with subsequent short-vol P&L.",
+    "rationale": "Sinclair's analysis of VIX term structure shows that contango is the normal regime, reflecting the market's tendency to over-price future uncertainty. Natenberg's treatment of calendar spreads explains why front-month premium decays faster than back-month in contango. Multiple books in this knowledge base \u2014 including those on VIX futures mechanics and term structure trading \u2014 agree that contango encodes a structural roll yield that accrues to short near-term vol positions. The meta-theme on Volatility Regime Dynamics synthesises these views: IV mean reversion is faster and more reliable in contango regimes because the structural selling pressure from VIX ETP rebalancers reinforces the premium decay.",
+    "testability_notes": "Using CBOE VIX futures daily settlement data (2004-2023), measure contango slope each Monday as (VX2 - VX1) / VX1. Run 21-day short VIX futures position (short front-month, roll before expiry). Separate returns into contango vs. backwardation periods. Falsified if average 21-day return in contango periods is not significantly higher than in backwardation. Use OLS regression of contango slope on next-21d return to test the dose-response relationship.",
+    "variables_needed": [
+      "vix_futures_term_structure",
+      "contango_slope",
+      "short_vol_returns"
+    ],
+    "data_required": "CBOE VIX futures daily settlement data 2004-2023, monthly expiration calendar",
+    "what_would_support": "Statistically significant positive correlation (r > 0.2) between contango slope and next-21d short-VIX returns; higher Sharpe in contango regime",
+    "what_would_reject": "No significant difference in returns between contango and backwardation periods, or negative returns even in steep contango",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "14ada956-25b6-416e-9e70-5b16320b18bc",
+      "a738eb0a-8a9c-41da-b059-e1d5e6777cb8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88",
+      "9e3a85506c46",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "vix",
+      "contango",
+      "term-structure",
+      "short-vol",
+      "variance-premium"
+    ],
+    "confidence": 0.82,
+    "status": "candidate"
+  },
+  {
+    "title": "Delta-Hedging Frequency Determines Whether Gamma Scalping Covers Theta at Realised Vol",
+    "claim": "When an options position is delta-hedged at fixed intervals (daily vs. weekly vs. at-threshold), the P&L variance increases significantly with longer hedging intervals even when realised vol is correctly estimated. Specifically, weekly delta-hedging produces at least 2\u00d7 the P&L standard deviation of daily hedging, even when the average P&L is similar. This path dependency makes the hedging interval a critical risk variable independent of the vol forecast.",
+    "rationale": "Sinclair's Volatility Trading derives the discrete-hedging P&L formula explicitly: residual variance from discrete hedging is proportional to sigma \u00d7 sqrt(pi / 2N), where N is the number of hedges. As N decreases (less frequent hedging), residual variance grows \u2014 meaning weekly hedging (N=4 per month) has roughly sqrt(21/4) \u2248 2.3\u00d7 the residual vol of daily hedging (N=21). Natenberg and other sources confirm that gamma scalping P&L is path-dependent: the same final realised vol produces different P&L depending on when vol is realised relative to the hedge times. This is not a model assumption but a mathematical consequence of discrete rebalancing.",
+    "testability_notes": "Using SPX daily returns and ATM option pricing (ORATS 2010-2023): for each month, simulate delta-hedging a short straddle at 3 frequencies (daily, weekly, threshold-based at 0.10 delta). Measure P&L mean and standard deviation across 100+ months per frequency. Falsified if weekly P&L standard deviation is not significantly higher than daily, or if the ratio is below 1.5\u00d7. Secondary test: does threshold-based hedging at 0.10 delta achieve similar mean P&L with lower variance than calendar-based weekly?",
+    "variables_needed": [
+      "delta",
+      "gamma",
+      "realized_volatility",
+      "hedging_pnl",
+      "pnl_variance"
+    ],
+    "data_required": "SPX daily prices 2010-2023, ATM option prices from ORATS or similar for delta calculation",
+    "what_would_support": "P&L standard deviation ratio weekly/daily > 1.5; statistically significant at 95% confidence; consistent across vol regimes",
+    "what_would_reject": "P&L standard deviation ratio weekly/daily < 1.2; or threshold hedging producing higher variance than calendar daily",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c",
+      "ef7e8e54-9415-404e-856c-2c7b4025d521"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "gamma-scalping",
+      "delta-hedging",
+      "path-dependency",
+      "realized-volatility",
+      "hedging-frequency"
+    ],
+    "confidence": 0.88,
+    "status": "candidate"
+  },
+  {
+    "title": "GARCH(1,1) Forecast Outperforms Rolling HV for Timing Straddle Entry",
+    "claim": "When GARCH(1,1) forecasts a vol level below current ATM implied volatility, selling a 30-day ATM straddle generates higher risk-adjusted returns than when entry is timed using a simple 30-day rolling historical volatility filter. GARCH's mean-reversion term predicts the direction of vol change more accurately than rolling HV, particularly after vol spikes.",
+    "rationale": "Sinclair's Volatility Trading provides both theoretical justification (GARCH captures clustering and mean reversion; rolling HV is IGARCH with no mean reversion) and empirical evidence that GARCH forecasts dominate simple estimators for near-term vol prediction. The term structure theme in this knowledge base shows that GARCH term structure (expected vol trajectory) can be compared to the market's implied term structure to identify richness or cheapness. If GARCH forecasts mean reversion to a lower vol level and the market has not priced this in (flat or upward-sloping term structure), the entry has positive edge by construction.",
+    "testability_notes": "Fit GARCH(1,1) to trailing 2 years of daily SPX returns, updated monthly. Compare GARCH 30-day forecast to ATM 30-day IV (from ORATS). Entry rule A: enter short straddle when GARCH forecast < ATM IV. Entry rule B: enter when 30-day rolling HV < ATM IV. Track risk-adjusted returns (Sharpe) for 100+ entry-exit cycles per rule from 2005-2023. Falsified if GARCH-based Sharpe is not significantly higher than rolling-HV-based Sharpe. Report t-statistic and confidence interval.",
+    "variables_needed": [
+      "garch_forecast",
+      "implied_volatility",
+      "historical_volatility",
+      "straddle_returns",
+      "sharpe"
+    ],
+    "data_required": "SPX daily returns 2003-2023 (2-year burn-in for GARCH), ORATS 30-day ATM IV",
+    "what_would_support": "Sharpe ratio of GARCH-timed entries > rolling-HV-timed entries; difference statistically significant; improvement concentrated in post-spike periods",
+    "what_would_reject": "No significant Sharpe difference between timing methods, or rolling HV outperforms GARCH",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "14ada956-25b6-416e-9e70-5b16320b18bc",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7",
+      "a738eb0a-8a9c-41da-b059-e1d5e6777cb8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "garch",
+      "volatility-forecasting",
+      "historical-volatility",
+      "implied-volatility",
+      "straddle",
+      "entry-timing"
+    ],
+    "confidence": 0.8,
+    "status": "candidate"
+  },
+  {
+    "title": "Fractional Kelly Sizing Reduces Maximum Drawdown Without Proportional Sharpe Cost",
+    "claim": "When options strategies are sized at half-Kelly versus full-Kelly, maximum drawdown decreases by approximately 50% while the Sharpe ratio decreases by less than 25%. This asymmetry \u2014 where risk reduction is not proportional to return reduction \u2014 makes half-Kelly the dominant sizing strategy for vol sellers facing fat-tail return distributions.",
+    "rationale": "Sinclair's Volatility Trading derives the Kelly criterion analytically and shows that at half-Kelly, an investor achieves approximately 75% of maximum long-run growth while variance falls to 25% of the full-Kelly variance \u2014 a 4:1 ratio of variance reduction to growth reduction. For options strategies with non-Gaussian returns (fat tails, skewness), the practical argument is even stronger: full Kelly sizing calibrated to a Gaussian estimate will be over-Kelly in reality, meaning it can destroy capital. Natenberg reinforces this from a risk-management perspective, stressing that survival (not maximisation) is the primary goal for options sellers. The Kelly theme in this knowledge base captures both the theoretical derivation and the practical caution.",
+    "testability_notes": "Using a simulated options strategy (short SPX straddle, monthly, 2005-2023, ORATS data): size positions at full-Kelly, half-Kelly, quarter-Kelly, and fixed 1% risk. Measure Sharpe, maximum drawdown, and terminal wealth for each sizing rule. Falsified if half-Kelly maximum drawdown is not significantly below full-Kelly, or if Sharpe ratio degrades proportionally with sizing reduction. Also test whether fat-tail adjustment (using realised kurtosis instead of Gaussian assumption) changes the optimal fraction.",
+    "variables_needed": [
+      "kelly_fraction",
+      "position_size",
+      "returns",
+      "drawdown",
+      "sharpe"
+    ],
+    "data_required": "SPX monthly straddle returns from ORATS 2005-2023; Monte Carlo simulation of fat-tailed return distribution",
+    "what_would_support": "Half-Kelly maximum drawdown < 60% of full-Kelly drawdown; half-Kelly Sharpe > 75% of full-Kelly Sharpe",
+    "what_would_reject": "Half-Kelly drawdown within 20% of full-Kelly, or half-Kelly Sharpe below 75% of full-Kelly Sharpe (proportional degradation)",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "982c9090-1f10-4cdc-a207-d117910fa27a",
+      "e19ea0b4-e54d-4387-b248-14e600784cac"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "kelly-criterion",
+      "position-sizing",
+      "drawdown",
+      "sharpe",
+      "risk-management"
+    ],
+    "confidence": 0.83,
+    "status": "candidate"
+  },
+  {
+    "title": "OTM Put Implied Vol Premium Over GARCH Forecast Predicts Risk-Reversal P&L",
+    "claim": "When the implied volatility of 25-delta SPX puts exceeds the GARCH(1,1) volatility forecast by more than 4 percentage points, selling the 25-delta put (or selling the risk-reversal \u2014 short put, long call) generates positive expected returns. The excess premium in OTM puts, beyond what the vol model predicts, is a measurable and tradeable structural premium driven by insurance demand.",
+    "rationale": "The volatility skew theme in this knowledge base documents the persistent structural premium in OTM puts driven by institutional insurance demand. Sinclair quantifies the skew-premium empirically: OTM put IV consistently exceeds ATM IV and realised vol for downside strikes. The GARCH theme provides a forecast baseline: if GARCH predicts the vol level that would be 'fair' for the OTM put given fat-tail dynamics, the excess above that forecast is pure insurance premium. Risk-reversals (short OTM put, long OTM call) are the natural vehicle to harvest this premium while limiting upside risk. The skew theme identifies that the premium is structural, not cyclical \u2014 it persists even when adjusting for historical kurtosis.",
+    "testability_notes": "Using ORATS daily data 2005-2023: each month, fit GARCH(1,1) to trailing SPX returns. Compute 'fair' 25-delta put IV from GARCH + Black-Scholes. If market 25-delta put IV exceeds GARCH-fair IV by > 4pp, sell 25-delta SPX put (or risk-reversal). Track 21-day P&L across 100+ qualifying periods. Falsified if average P&L is negative in periods where the excess premium condition is met, or if the 4pp threshold is not a significant predictor of sign of return. Test sensitivity to threshold choice (2pp, 4pp, 6pp).",
+    "variables_needed": [
+      "volatility_skew",
+      "otm_put_iv",
+      "garch_forecast",
+      "risk_reversal_pnl"
+    ],
+    "data_required": "ORATS 25-delta put IV and 25-delta call IV daily series 2005-2023; SPX daily returns for GARCH fitting",
+    "what_would_support": "Positive average P&L when excess premium > 4pp; Sharpe > 0.4; premium threshold is monotonically predictive of return sign",
+    "what_would_reject": "Negative average P&L in high-excess-premium periods, or no monotonic relationship between excess premium and P&L",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "a6e1a958-d618-47cb-bef2-3818b8e41283",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7",
+      "14ada956-25b6-416e-9e70-5b16320b18bc"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "volatility-skew",
+      "garch",
+      "risk-reversal",
+      "otm-puts",
+      "insurance-demand",
+      "implied-volatility"
+    ],
+    "confidence": 0.78,
+    "status": "candidate"
+  },
+  {
+    "title": "Earnings Vol Crush Magnitude Correlates With Pre-Announcement IV Percentile Rank",
+    "claim": "The magnitude of implied volatility crush following an earnings announcement correlates positively with the pre-announcement IV expressed as a percentile rank within the stock's own 1-year IV history. Stocks in the top IV decile pre-earnings experience vol crush greater than 30% on average, making long-vega positions entered more than 5 days before earnings systematically unprofitable.",
+    "rationale": "The vega and earnings vol crush theme in this knowledge base documents that IV inflation ahead of earnings is driven by uncertainty resolution demand, and that the crush post-announcement is mechanical \u2014 uncertainty resolves regardless of the outcome. Multiple books agree that the expected move implied by options is usually larger than the actual move, creating a systematic premium. The key testable refinement is whether the IV percentile rank (a relative measure of 'how elevated is this IV vs. history') predicts the crush magnitude better than absolute IV. This matters for position sizing: a stock normally at 30% vol trading at 70% vol pre-earnings has more to lose post-announcement than one normally at 60% vol trading at 65%.",
+    "testability_notes": "Using ORATS earnings IV data 2010-2023: for each earnings event, compute pre-announcement ATM IV (5 days before) and post-announcement ATM IV (1 day after). Compute IV percentile rank within trailing 1-year IV history for each stock. Bucket into quartiles by percentile rank. Measure average vol crush (IV before - IV after) per quartile. Falsified if top-quartile IV-rank events do not show significantly larger vol crush than bottom-quartile events. Secondary test: does entering long-vega 10 days before high-IV-rank earnings produce negative expected P&L across 200+ events?",
+    "variables_needed": [
+      "implied_volatility",
+      "vega",
+      "vol_crush",
+      "iv_percentile_rank"
+    ],
+    "data_required": "ORATS earnings IV surface data 2010-2023, 1-year rolling IV history per ticker",
+    "what_would_support": "Top-quartile IV-rank events show > 25% average vol crush; bottom-quartile shows < 10%; statistically significant difference",
+    "what_would_reject": "No significant difference in vol crush across IV-rank quartiles, or inverted relationship (low-IV-rank stocks crush more)",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "3f08710f-57ba-425c-ac00-b27637c23c17",
+      "a738eb0a-8a9c-41da-b059-e1d5e6777cb8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88",
+      "9e3a85506c46"
+    ],
+    "tags": [
+      "earnings",
+      "vol-crush",
+      "implied-volatility",
+      "vega",
+      "iv-percentile"
+    ],
+    "confidence": 0.79,
+    "status": "candidate"
+  },
+  {
+    "title": "Calendar Spread P&L Is Positive When Front-Month IV Exceeds Back-Month IV (Backwardation Entry)",
+    "claim": "When the VIX term structure is in backwardation (front-month IV > back-month IV), buying a calendar spread \u2014 long back-month, short front-month \u2014 generates positive average returns as the term structure mean-reverts to contango. The calendar spread profits from both the roll yield and the relative IV convergence, with Sharpe above 0.5 in the month following backwardation entry.",
+    "rationale": "The volatility term structure theme documents that contango is the normal state and backwardation is a crisis-driven dislocation that reliably reverts. Sinclair's GARCH term structure analysis shows that GARCH forecasts mean reversion in volatility: when front-month IV spikes above back-month, GARCH predicts front-month will decay while back-month stays anchored \u2014 exactly the dynamic that benefits a calendar spread. Natenberg's calendar spread mechanics confirm that the position profits when short-maturity vol falls relative to long-maturity vol. The combination of mean reversion bias and contango structural pull creates a predictable convergence trade in backwardation.",
+    "testability_notes": "Using ORATS or CBOE monthly SPX options data 2005-2023: identify months where 1-month ATM IV > 2-month ATM IV (backwardation). Enter long 2-month, short 1-month ATM calendar spread. Hold for 21 days, measuring P&L as the spread narrows. Compare to control periods of contango (normal). Falsified if calendar spread P&L in backwardation entry periods is not positive on average, or if the Sharpe is below 0.0. Test whether steeper backwardation (larger front-month premium) predicts larger subsequent P&L.",
+    "variables_needed": [
+      "term_structure",
+      "implied_volatility",
+      "calendar_spread_pnl",
+      "backwardation_slope"
+    ],
+    "data_required": "ORATS or CBOE SPX options with 1-month and 2-month ATM IV series 2005-2023",
+    "what_would_support": "Positive average calendar spread P&L in backwardation entries; Sharpe > 0.5; steepness of backwardation positively correlated with P&L",
+    "what_would_reject": "Negative or zero average P&L in backwardation entries, or no significant difference vs. contango-entry baseline",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "14ada956-25b6-416e-9e70-5b16320b18bc",
+      "a738eb0a-8a9c-41da-b059-e1d5e6777cb8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "1c32b3c0d846",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "calendar-spread",
+      "term-structure",
+      "backwardation",
+      "implied-volatility",
+      "mean-reversion"
+    ],
+    "confidence": 0.76,
+    "status": "candidate"
+  },
+  {
+    "title": "Yang-Zhang Estimator Reduces Vol Forecast Error Relative to Close-to-Close in Trending Markets",
+    "claim": "When the underlying asset exhibits a directional trend (absolute 5-day return > 2%), the Yang-Zhang volatility estimator produces a realized volatility estimate that better predicts next-period volatility (lower MSPE) compared to close-to-close returns. The efficiency advantage of Yang-Zhang (approximately 14\u00d7 vs. 1\u00d7 for close-to-close) is most pronounced in markets with significant overnight gaps or intraday price ranges.",
+    "rationale": "Sinclair's Volatility Trading provides the theoretical derivation and efficiency comparison of all major vol estimators: close-to-close (1\u00d7), Parkinson (4.9\u00d7), Garman-Klass (7.4\u00d7), Rogers-Satchell (\u22485\u00d7), and Yang-Zhang (14\u00d7). The efficiency gain means that Yang-Zhang achieves the same estimation accuracy with far fewer observations, which is especially valuable in trending or gapping markets where close-to-close misses the intraday range and overnight gaps entirely. The vol estimator theme in this knowledge base confirms this from multiple sources. A testable hypothesis is whether the efficiency advantage translates directly to lower hedging error when using Yang-Zhang as the realized-vol input for delta-hedging decisions.",
+    "testability_notes": "Using daily OHLC data for SPX (or a single large-cap stock) 2010-2023: compute all five estimators on rolling 21-day windows. In each window, classify the market as trending (|5d return| > 2%) or mean-reverting. Measure next-21d forecast error (MSPE) for each estimator separately for trending and non-trending periods. Falsified if Yang-Zhang MSPE is not significantly lower than close-to-close MSPE in trending periods. Secondary test: does using Yang-Zhang as the implied-vol anchor for hedging reduce P&L variance vs. close-to-close?",
+    "variables_needed": [
+      "yang_zhang_estimator",
+      "realized_volatility",
+      "close_to_close_vol",
+      "mspe",
+      "trending_regime"
+    ],
+    "data_required": "SPX or individual stock OHLC daily data 2010-2023; ORATS for implied vol comparison",
+    "what_would_support": "Yang-Zhang MSPE < close-to-close MSPE by > 30% in trending periods; advantage shrinks in non-trending periods",
+    "what_would_reject": "No significant MSPE difference between estimators in trending periods, or Yang-Zhang underperforms in some trending conditions",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "36d1f922-bccc-4004-81aa-79c696dd644b",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "yang-zhang",
+      "volatility-estimator",
+      "realized-volatility",
+      "forecasting",
+      "historical-volatility"
+    ],
+    "confidence": 0.81,
+    "status": "candidate"
+  },
+  {
+    "title": "Condor P&L Distribution Is Positively Skewed Relative to Straddle When Vol Is Elevated",
+    "claim": "When implied volatility is elevated (VIX > 25), an iron condor on SPX with wings 15% OTM generates a more positively skewed P&L distribution over 21 days compared to a short ATM straddle, even though the condor has lower expected P&L. The defined-risk structure of the condor reduces left-tail exposure to levels that improve the risk-adjusted return per unit of maximum loss.",
+    "rationale": "The multi-leg volatility strategies theme documents how strangles and condors differ in P&L distribution from straddles: condors cap both the gain and the loss, while straddles have unlimited loss. Natenberg and other sources explain that the wing positions in a condor function as insurance against tail moves, paid for by capping upside. When IV is elevated (VIX > 25), the expected move is large, and the probability of a tail event that breaches condor wings is higher \u2014 but the premium collected is also higher. The question is whether the premium is sufficient to cover the expected wing loss, and whether the conditional P&L distribution (given elevated vol) favours the condor's defined-risk structure over the straddle's unlimited-risk profile.",
+    "testability_notes": "Using ORATS SPX data 2010-2023: filter to weeks where VIX > 25 at entry. For each entry: sell ATM straddle, and separately sell iron condor with 15% OTM wings. Hold 21 days, delta-hedge daily. Compute P&L distribution statistics (mean, standard deviation, skewness, kurtosis, Sharpe, max loss realised) for each strategy. Falsified if iron condor P&L skewness is not significantly higher (more positive) than straddle P&L skewness in high-VIX periods. Also test whether Sharpe per unit of max risk is higher for condor.",
+    "variables_needed": [
+      "implied_volatility",
+      "vix",
+      "condor_pnl",
+      "straddle_pnl",
+      "pnl_skewness"
+    ],
+    "data_required": "ORATS SPX options with full surface 2010-2023; VIX daily close for regime filter",
+    "what_would_support": "Condor P&L skewness > straddle P&L skewness in VIX > 25 periods; condor Sharpe-per-max-risk > straddle Sharpe-per-max-risk",
+    "what_would_reject": "No significant difference in P&L distribution shape between condor and straddle in high-VIX periods",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "e19ea0b4-e54d-4387-b248-14e600784cac",
+      "62907984-12a4-431d-be55-104160f0f85a",
+      "ef7e8e54-9415-404e-856c-2c7b4025d521"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88",
+      "9e3a85506c46"
+    ],
+    "tags": [
+      "condor",
+      "straddle",
+      "defined-risk",
+      "pnl-distribution",
+      "vix",
+      "skewness"
+    ],
+    "confidence": 0.74,
+    "status": "candidate"
+  },
+  {
+    "title": "Market Maker Bid-Ask Spread Widens When Gamma Exposure Exceeds Inventory Tolerance",
+    "claim": "When options market makers accumulate net short-gamma inventory (measured as delta-adjusted notional gamma exposure), the bid-ask spread on ATM options widens by a measurable and predictable amount. Specifically, each additional 1% increase in dealer gamma exposure (as a fraction of normal inventory) correlates with a 0.1\u20130.3 volatility-point widening of the bid-ask spread. This predicts that transaction costs for delta-hedging increase precisely when hedging is most needed.",
+    "rationale": "The market maker edge theme in this knowledge base documents that bid-ask spreads are not random but reflect compensation for the market maker's gamma risk. When dealers are short gamma (typically from selling puts to institutional buyers), they need to delta-hedge more frequently, and their inventory tolerance shrinks \u2014 leading to wider spreads. This relationship is documented across multiple books: Natenberg links spread width to theoretical value uncertainty and hedge cost; other sources note that dealer positioning drives option pricing dynamics beyond simple BSM inputs. The testable hypothesis is that dealer gamma exposure (proxied by net options positioning data) predicts subsequent spread widening.",
+    "testability_notes": "Using CBOE options positioning data (ISEE, SKEW index, or dealer positioning from OCC) and ORATS bid-ask spread data 2015-2023: regress weekly change in ATM bid-ask spread on weekly change in dealer net gamma position (as percentage of open interest). Control for VIX level and volume. Falsified if the gamma-exposure coefficient is not statistically significant (p < 0.05) and positive. Secondary test: does dealer gamma exposure on Mondays predict hedging cost (slippage + spread) for weekly options entered that day?",
+    "variables_needed": [
+      "bid_ask_spread",
+      "gamma",
+      "dealer_positioning",
+      "volatility"
+    ],
+    "data_required": "ORATS bid-ask spread data, CBOE OCC options positioning data or ISEE sentiment data 2015-2023",
+    "what_would_support": "Statistically significant positive coefficient (p < 0.05) between dealer gamma exposure and subsequent spread widening; R\u00b2 > 0.10",
+    "what_would_reject": "No significant relationship between dealer gamma proxy and spread changes, or negative relationship",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "d24d8914-6046-452f-adac-da31e3779fe8",
+      "ef7e8e54-9415-404e-856c-2c7b4025d521"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "market-making",
+      "bid-ask-spread",
+      "gamma",
+      "dealer-positioning",
+      "transaction-costs"
+    ],
+    "confidence": 0.72,
+    "status": "candidate"
+  },
+  {
+    "title": "BSM-Modelled Delta Underestimates True Delta in Trending Markets Due to Leverage Effect",
+    "claim": "When an equity index declines by more than 1% in a day, the actual delta of a long ATM put exceeds the BSM-modelled delta by a measurable amount, because the leverage effect (vol rises as price falls) causes the put to gain more value than BSM predicts. This delta underestimation is largest for strikes near ATM and for short-dated options (< 30 DTE), where the convexity from the leverage effect is most concentrated.",
+    "rationale": "The BSM assumptions theme in this knowledge base documents that the leverage effect \u2014 negative correlation between returns and volatility \u2014 is one of the six stylised facts of volatility that BSM ignores. Sinclair quantifies the leverage effect empirically: a 1% down move in SPX is typically accompanied by a 0.5\u20131.0 vol-point increase in ATM IV, which is not captured by a static-vol delta. Multiple books note that BSM produces systematic delta errors in high-volatility or trending regimes because it assumes constant vol. The testable consequence is that hedgers using BSM deltas will be systematically under-hedged on the downside, and this residual exposure can be measured directly.",
+    "testability_notes": "Using SPX options data (ORATS) on days with |return| > 1% from 2010-2023: for each day, compute BSM delta at the start of the day using prevailing IV. Measure actual P&L of the option vs. BSM-predicted P&L (delta \u00d7 price change). Compute residual (actual - predicted) and regress on price return (to test sign and magnitude of leverage-effect delta error). Falsified if the residual delta error is not significantly positive (in the direction of the leverage effect) on down-days. Secondary test: does sticky-delta adjustment (re-pricing the option at the new moneyness level using the vol surface) eliminate the error?",
+    "variables_needed": [
+      "delta",
+      "implied_volatility",
+      "leverage_effect",
+      "bsm_delta_error",
+      "returns"
+    ],
+    "data_required": "ORATS full IV surface with daily snapshots 2010-2023; SPX intraday or daily returns",
+    "what_would_support": "Statistically significant delta underestimation on down days (actual put gain > BSM-predicted); effect larger for short-dated ATM options",
+    "what_would_reject": "No systematic delta residual on large-move days, or residual is symmetric (equal on up and down days)",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "f261ee11-03c0-4937-9663-c230eed2f54d",
+      "aaa1b314-f63c-4e9b-95ff-126f09076a81",
+      "a6e1a958-d618-47cb-bef2-3818b8e41283"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88",
+      "9e3a85506c46"
+    ],
+    "tags": [
+      "bsm",
+      "delta",
+      "leverage-effect",
+      "realized-volatility",
+      "fat-tails",
+      "delta-error"
+    ],
+    "confidence": 0.77,
+    "status": "candidate"
+  },
+  {
+    "title": "SPX Intraday IV Follows a U-Shape: Higher at Open and Close, Lower at Midday",
+    "claim": "When SPX ATM options are priced at the open (9:30\u201310:00 ET), implied volatility is elevated relative to the subsequent midday period (11:30\u201313:30 ET). Specifically, when opening IV exceeds midday IV by more than 1 vol point, selling an ATM straddle at the open and buying it back at midday generates positive premium capture on average. The variance risk premium is highest at open because the IV embeds uncertainty about the session's direction that dissipates as intraday information is processed.",
+    "rationale": "Market microstructure theory predicts that information asymmetry is highest at the open (overnight news resolution) and close (portfolio rebalancing flows), driving wider bid-ask spreads and elevated IV. The midday period is characterised by lower volume, lower directional pressure, and therefore lower realised vol \u2014 which should translate into IV compression. Sinclair's discussion of intraday realised vol patterns supports the observation that hourly realised vol is non-uniform across the trading day. If IV at the open consistently overestimates subsequent intraday realised vol by a measurable margin, selling the open and buying back at midday is a systematic edge.",
+    "testability_notes": "Using SPX 1-minute OHLC data and ORATS intraday IV snapshots (if available) or reconstructed from bid-ask midpoints of ATM options 2015\u20132023: compute 30-minute realised vol buckets (9:30\u201310:00, 10:00\u201310:30 \u2026 15:30\u201316:00). Separately compute ATM IV at each 30-minute interval. Measure IV-HV gap per time bucket. Falsified if the open/close IV-HV gap is not significantly larger than midday gap. Secondary test: backtest open-sell / midday-buy ATM straddle across 200+ trading days.",
+    "variables_needed": [
+      "implied_volatility",
+      "realized_volatility",
+      "intraday_vol_pattern",
+      "straddle_pnl"
+    ],
+    "data_required": "SPX 1-minute OHLC data 2015\u20132023; intraday ATM IV snapshots from ORATS or CBOE LiveVol",
+    "what_would_support": "Open/close IV-HV gap > midday gap by > 1 vol point on average; open-sell/midday-buy straddle Sharpe > 0.3",
+    "what_would_reject": "No significant intraday IV pattern, or midday IV higher than open IV on average",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "ef7e8e54-9415-404e-856c-2c7b4025d521",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "intraday",
+      "implied-volatility",
+      "realized-volatility",
+      "straddle",
+      "microstructure",
+      "u-shape"
+    ],
+    "confidence": 0.78,
+    "status": "candidate"
+  },
+  {
+    "title": "0DTE Straddle Sold at Market Open Has Higher Expected P&L Than One Sold at Noon",
+    "claim": "A zero-days-to-expiration (0DTE) SPX ATM straddle sold at 9:45 ET generates higher average P&L than the same structure sold at 12:00 ET, because the morning IV premium embeds a larger variance risk premium relative to the realised intraday vol that follows. The open-sold 0DTE also benefits from the full day's theta decay, whereas the noon-sold position captures only afternoon decay.",
+    "rationale": "0DTE options have become the dominant volume driver in SPX options. Their gamma profile is extreme near ATM \u2014 a position sold ATM at open has maximum theta and maximum gamma exposure, but also maximum IV premium if the open IV overestimates actual intraday movement. The U-shaped intraday IV hypothesis supports this: if IV is systematically elevated at the open, the variance risk premium is highest then. Furthermore, a noon-entry 0DTE has already experienced much of the day's vol resolution, so the remaining premium is smaller. The gamma-theta theme in this knowledge base establishes the tradeoff: at 0DTE, theta is enormous, and if realised vol stays below the implied move, the seller wins rapidly.",
+    "testability_notes": "Using SPX 0DTE options data (ORATS or CBOE LiveVol) from 2022\u20132023 (since 0DTE daily expirations began in earnest in 2022): for each trading day, record ATM straddle price at 9:45 ET and at 12:00 ET. Simulate selling at each time and closing at 15:45 ET. Compute P&L for each entry time across 200+ days. Falsified if noon-entry P&L is not significantly lower than open-entry P&L, or if open-entry has negative expected P&L. Control for VIX regime and days with large macro events.",
+    "variables_needed": [
+      "implied_volatility",
+      "straddle_price",
+      "0dte_pnl",
+      "theta",
+      "intraday_realized_vol"
+    ],
+    "data_required": "SPX 0DTE options intraday snapshots 2022\u20132023 from ORATS or CBOE LiveVol; SPX 1-minute prices",
+    "what_would_support": "Open-entry average P&L > noon-entry average P&L by > 20%; statistically significant; consistent across VIX regimes",
+    "what_would_reject": "No significant difference in P&L by entry time, or noon-entry outperforms open-entry",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "ef7e8e54-9415-404e-856c-2c7b4025d521",
+      "e19ea0b4-e54d-4387-b248-14e600784cac"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "0dte",
+      "intraday",
+      "straddle",
+      "theta",
+      "gamma",
+      "entry-timing"
+    ],
+    "confidence": 0.76,
+    "status": "candidate"
+  },
+  {
+    "title": "First-Hour Realised Vol Predicts Full-Day Realised Vol With Positive Bias",
+    "claim": "The annualised realised volatility of SPX computed from the first 60 minutes of trading (9:30\u201310:30 ET) overestimates full-day realised volatility on average. When first-hour vol exceeds the prior day's ATM IV by more than 2 percentage points, delta-hedging a short straddle sold at 10:30 ET using the first-hour vol as the hedge ratio generates lower residual P&L variance than using overnight IV.",
+    "rationale": "The opening auction resolves overnight information, creating a burst of realised vol that often does not persist through the full session. Sinclair's work on vol estimators shows that intraday vol is highly autocorrelated at short horizons but mean-reverts at longer horizons. If the first hour vol is a biased-upward predictor of full-day vol, then entering a short straddle after the open burst \u2014 when the opening vol has dissipated but the IV has not yet repriced \u2014 captures the mean reversion in realised vol. Yang-Zhang handles the overnight gap separately, which is relevant here because the first-hour excess vol often traces to the gap open rather than sustained directional pressure.",
+    "testability_notes": "Using SPX 1-minute data 2010\u20132023: compute first-hour annualised realised vol (9:30\u201310:30) and full-day realised vol daily. Regress full-day vol on first-hour vol \u2014 measure the coefficient and R\u00b2. Test whether first-hour vol systematically overestimates full-day vol. Secondary: for days where first-hour vol > prior ATM IV by > 2pp, enter short ATM straddle at 10:30 ET and hold to close \u2014 measure P&L distribution. Falsified if first-hour vol is an unbiased predictor of full-day vol, or if the 10:30 entry has negative expected P&L.",
+    "variables_needed": [
+      "first_hour_realized_vol",
+      "full_day_realized_vol",
+      "implied_volatility",
+      "straddle_pnl"
+    ],
+    "data_required": "SPX 1-minute OHLC 2010\u20132023; ORATS ATM IV at open and 10:30 ET",
+    "what_would_support": "First-hour vol > full-day vol on > 55% of days; regression coefficient < 1.0; 10:30 entry generates positive average P&L",
+    "what_would_reject": "First-hour vol is an unbiased predictor (coefficient \u2248 1.0, intercept \u2248 0), or 10:30 entry has no edge",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c",
+      "36d1f922-bccc-4004-81aa-79c696dd644b"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "intraday",
+      "realized-volatility",
+      "first-hour",
+      "mean-reversion",
+      "delta-hedging",
+      "entry-timing"
+    ],
+    "confidence": 0.74,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday IV Crush After Economic Data Releases Decays Within 15 Minutes",
+    "claim": "Following a scheduled macroeconomic release (CPI, NFP, FOMC minutes) that does not exceed consensus expectations by more than 1 standard deviation, implied volatility for SPX ATM options decreases by an average of 2\u20135 vol points within 15 minutes of the release, and this IV crush is largely complete within 30 minutes. Selling ATM straddles 5 minutes after the release and holding for 25 minutes captures positive premium decay in non-surprise releases.",
+    "rationale": "The earnings vol crush theme in this knowledge base applies at a micro-level to any uncertainty-resolution event: options embed a premium for the upcoming information event, and when the release is in-line with expectations, the uncertainty resolves and IV collapses. The vega theme establishes that IV crush is proportional to vega and the magnitude of the pre-release premium. For macro releases specifically, the IV premium is front-loaded into the minutes before the release, and its decay is rapid. Sinclair's volatility trading framework implies that any event-driven IV premium is systematically overpriced relative to realised post-event vol in non-surprise scenarios.",
+    "testability_notes": "Using ORATS intraday IV snapshots on CPI and NFP release days 2015\u20132023: measure ATM IV 5 minutes before release, 5 minutes after, 15 minutes after, and 30 minutes after. Classify releases as 'surprise' (|actual - consensus| > 1 SD) or 'in-line'. Compute IV change separately for each group. For in-line releases: backtest selling ATM straddle 5 minutes post-release, closing 25 minutes post-release. Falsified if IV crush in in-line releases is not significantly larger than on non-release days, or if post-release straddle P&L is negative.",
+    "variables_needed": [
+      "implied_volatility",
+      "iv_crush",
+      "straddle_pnl",
+      "macro_release_surprise"
+    ],
+    "data_required": "ORATS or LiveVol intraday IV snapshots on CPI/NFP dates 2015\u20132023; Bloomberg consensus vs. actual data",
+    "what_would_support": "Average IV drop > 2 vol points within 15 minutes of in-line release; post-release straddle P&L positive on > 60% of in-line days",
+    "what_would_reject": "No significant IV drop after in-line releases, or IV drops equally on non-release days of similar magnitude",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "3f08710f-57ba-425c-ac00-b27637c23c17",
+      "a738eb0a-8a9c-41da-b059-e1d5e6777cb8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "intraday",
+      "vol-crush",
+      "macro-release",
+      "implied-volatility",
+      "vega",
+      "event-vol"
+    ],
+    "confidence": 0.77,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday Gamma Scalping P&L Is Highest When Realised Vol Spikes in a Single 30-Minute Window",
+    "claim": "For a delta-neutral long-gamma position (long straddle) on SPX, the P&L from gamma scalping is highest on days when realised volatility is concentrated in a single 30-minute burst rather than distributed evenly across the session. A burst of 3\u00d7 average-session vol in a single 30-minute window generates more gamma scalping P&L than three consecutive 30-minute windows each at average-session vol, even when total daily realised vol is equivalent.",
+    "rationale": "Sinclair's discrete hedging P&L formula shows that gamma scalp P&L per hedge \u2248 \u00bd \u00d7 gamma \u00d7 (dS)\u00b2, where dS is the price move per interval. A single large move (3\u00d7 average) contributes \u00bd \u00d7 gamma \u00d7 (3\u03c3\u0394t)\u00b2 = 4.5 \u00d7 gamma \u00d7 \u03c3\u00b2\u0394t, which is 4.5\u00d7 larger than the contribution of three average moves. This convexity means that long-gamma positions benefit disproportionately from vol clustering \u2014 the same total realised vol delivers more P&L when concentrated. This is a direct, testable consequence of the gamma convexity that multiple books in this knowledge base describe as a core property of long-gamma positions.",
+    "testability_notes": "Using SPX 5-minute returns 2010\u20132023: for each trading day, compute 30-minute realised vol buckets. Classify days as 'burst' (max 30-min vol > 2.5\u00d7 daily average 30-min vol) or 'smooth' (all buckets within 1.5\u00d7 average). Simulate daily gamma scalping P&L for a synthetic long ATM straddle (using BSM delta with daily ATM IV), rebalancing every 30 minutes. Compare P&L distribution for burst vs. smooth days, controlling for total daily realised vol. Falsified if burst days do not generate significantly higher gamma scalp P&L than smooth days at equal total vol.",
+    "variables_needed": [
+      "gamma",
+      "realized_volatility",
+      "intraday_vol_concentration",
+      "gamma_scalp_pnl"
+    ],
+    "data_required": "SPX 5-minute returns 2010\u20132023; BSM delta computed from ORATS ATM IV at open",
+    "what_would_support": "Burst days generate > 1.5\u00d7 gamma scalp P&L vs. smooth days at matched total vol; convexity ratio consistent with theoretical prediction",
+    "what_would_reject": "No significant P&L difference between burst and smooth days at matched total realised vol",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c",
+      "ef7e8e54-9415-404e-856c-2c7b4025d521"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846",
+      "b1f5afe25863"
+    ],
+    "tags": [
+      "intraday",
+      "gamma-scalping",
+      "realized-volatility",
+      "vol-clustering",
+      "path-dependency",
+      "long-gamma"
+    ],
+    "confidence": 0.82,
+    "status": "candidate"
+  },
+  {
+    "title": "SPX Intraday Mean Reversion Is Strongest in the 10:00\u201311:30 ET Window",
+    "claim": "SPX exhibits statistically significant intraday mean reversion in the 10:00\u201311:30 ET window: when the index moves more than 0.5% from the open by 10:00 ET, it reverses on average by 30\u201350% of that move by 11:30 ET. This mean reversion creates a predictable intraday delta pattern for options positions \u2014 short delta positions entered after the open surge are profitable more often than not, and delta-hedging at 10:30 ET rather than at open reduces hedge cost by capturing this reversion.",
+    "rationale": "Market microstructure research consistently documents that the opening period resolves overnight information imbalances, creating price overshoots that partially revert as liquidity returns. For options traders, this matters because BSM delta is computed using spot price, and hedging into an opening spike locks in an overstated delta relative to the equilibrium level the market reaches at midday. Sinclair notes that discrete hedging cost depends on when you hedge relative to vol clustering. If the first 30 minutes are disproportionately noisy, delaying the first hedge by 30\u201360 minutes reduces spurious hedge costs without significantly increasing gamma exposure.",
+    "testability_notes": "Using SPX 5-minute data 2010\u20132023: identify days where SPX moves > 0.5% from prior close by 10:00 ET. Measure return from 10:00 to 11:30 ET separately for up and down opening moves. Compute reversal percentage (retracement as fraction of opening move). Separately: compare delta-hedge cost for an ATM straddle hedged at open vs. hedged at 10:30 ET across all days. Falsified if there is no systematic reversion tendency, or if 10:30 hedge timing increases rather than decreases total hedge cost.",
+    "variables_needed": [
+      "intraday_returns",
+      "delta",
+      "hedge_cost",
+      "mean_reversion"
+    ],
+    "data_required": "SPX 5-minute OHLC 2010\u20132023; BSM delta from ORATS open IV snapshot",
+    "what_would_support": "Average reversion of > 25% of opening move by 11:30 ET on days with > 0.5% opening gap; 10:30 hedge timing reduces transaction costs vs. open timing",
+    "what_would_reject": "No significant reversion tendency in 10:00\u201311:30 window, or momentum rather than reversion dominates (further move in same direction)",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c",
+      "aaa1b314-f63c-4e9b-95ff-126f09076a81"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863"
+    ],
+    "tags": [
+      "intraday",
+      "mean-reversion",
+      "delta-hedging",
+      "hedge-timing",
+      "microstructure"
+    ],
+    "confidence": 0.73,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday IV Skew Steepens After Afternoon Declines Larger Than 0.75%",
+    "claim": "When SPX declines by more than 0.75% between 13:00 and 15:00 ET, the 25-delta put IV skew (25D put IV minus ATM IV) steepens by an average of 0.8\u20131.5 vol points within 30 minutes of the move. This intraday skew steepening is significantly larger than what BSM predicts from a static vol surface moved along the sticky-strike model, confirming that demand for downside protection intensifies non-linearly with afternoon declines.",
+    "rationale": "The volatility skew theme in this knowledge base documents that OTM put premium is driven by structural insurance demand. In intraday terms, afternoon declines trigger institutional hedging flows specifically in OTM puts, because portfolio managers face end-of-day mark-to-market and cannot wait until the next morning to hedge. This creates a reflexive feedback: declining prices \u2192 increased put demand \u2192 IV skew steepening \u2192 higher put prices \u2192 further cost of hedging. Sinclair and Natenberg both note that the relationship between spot moves and IV changes (the leverage effect) is steeper for OTM puts than for ATM options, making the skew a non-linear function of directional pressure.",
+    "testability_notes": "Using ORATS intraday IV surface snapshots and SPX 5-minute data 2015\u20132023: identify sessions where SPX falls > 0.75% between 13:00 and 15:00 ET. Measure 25D put IV minus ATM IV at 13:00 and at 15:00. Compare skew change on these sessions to matched sessions where SPX is flat (< 0.2% move) in the same window. Falsified if the skew change in down-afternoon sessions is not significantly larger than in flat sessions. Secondary: measure how much of the skew change reverts by market close.",
+    "variables_needed": [
+      "implied_volatility",
+      "volatility_skew",
+      "otm_put_iv",
+      "intraday_returns"
+    ],
+    "data_required": "ORATS intraday IV surface (25D put, ATM) snapshots 2015\u20132023; SPX 5-minute prices",
+    "what_would_support": "Average 25D skew steepening > 0.8 vol points on days with afternoon decline > 0.75%; significantly larger than flat-session control group",
+    "what_would_reject": "No significant skew change vs. flat sessions, or skew moves symmetrically (both put and call IV rise equally)",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "a6e1a958-d618-47cb-bef2-3818b8e41283",
+      "aaa1b314-f63c-4e9b-95ff-126f09076a81"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "intraday",
+      "volatility-skew",
+      "otm-puts",
+      "leverage-effect",
+      "insurance-demand",
+      "afternoon-decline"
+    ],
+    "confidence": 0.76,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday Delta Hedging at Fixed 0.10-Delta Threshold Outperforms Fixed-Time Hedging for Short Straddles",
+    "claim": "For a short ATM straddle on SPX, delta-hedging when the position delta exceeds \u00b10.10 (threshold-based) produces lower P&L variance than hedging at fixed 30-minute intervals, while achieving similar average P&L. The threshold approach concentrates hedges at the moments of maximum gamma exposure, whereas calendar-based hedging wastes transaction costs on quiet periods when delta is near zero.",
+    "rationale": "Sinclair derives the optimal hedging bandwidth in the presence of transaction costs (Whalley-Wilmott model): hedge only when the delta deviation exceeds a threshold proportional to transaction cost / (gamma \u00d7 vol). For short straddles with high gamma near ATM, the optimal hedge threshold is small (meaning hedge frequently when near ATM) but grows when gamma is lower. Fixed 30-minute hedging ignores the position's current gamma, spending transaction costs during quiet periods and potentially hedging too infrequently during high-vol bursts. The key hypothesis is that the threshold approach achieves most of the delta-neutrality benefit with fewer, better-timed hedges.",
+    "testability_notes": "Simulate short SPX ATM straddle daily from 2015\u20132023 using 5-minute prices. Strategy A: hedge every 30 minutes. Strategy B: hedge when |position delta| > 0.10 (measured continuously from 5-min updates). Measure for each strategy: total number of hedges, P&L mean, P&L standard deviation, Sharpe, and hedge cost (assume 0.005% per hedge notional). Falsified if Strategy A has lower P&L variance than Strategy B, or if the Sharpe ratio improvement from threshold hedging is less than 10%.",
+    "variables_needed": [
+      "delta",
+      "gamma",
+      "hedge_cost",
+      "pnl_variance",
+      "sharpe"
+    ],
+    "data_required": "SPX 5-minute prices 2015\u20132023; BSM delta computed from ORATS daily open IV",
+    "what_would_support": "Threshold hedging Sharpe > calendar hedging Sharpe by > 10%; threshold approach makes > 20% fewer total hedges with < 10% higher P&L variance",
+    "what_would_reject": "Calendar hedging achieves lower P&L variance, or threshold approach requires more total hedges",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c",
+      "d24d8914-6046-452f-adac-da31e3779fe8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846",
+      "b1f5afe25863"
+    ],
+    "tags": [
+      "intraday",
+      "delta-hedging",
+      "threshold-hedging",
+      "transaction-costs",
+      "gamma",
+      "whalley-wilmott"
+    ],
+    "confidence": 0.8,
+    "status": "candidate"
+  },
+  {
+    "title": "SPX Options Bid-Ask Spread Is Widest in the First 15 Minutes and Narrows Monotonically to Midday",
+    "claim": "The bid-ask spread (in implied vol terms) for SPX ATM options is widest in the first 15 minutes of trading (9:30\u20139:45 ET) and narrows monotonically until approximately 11:30 ET, after which it stabilises. Trading costs for options strategies executed at the open are systematically higher than those executed at midday, with the vol-point spread approximately 30\u201350% wider at open vs. midday across normal vol regimes (VIX 15\u201325).",
+    "rationale": "Market maker edge and bid-ask spread theory in this knowledge base establishes that spreads compensate market makers for adverse selection risk and inventory gamma risk. Both are elevated at the open: adverse selection is highest when information is most asymmetric (post-overnight), and market makers have not yet established their intraday inventory position. As the session progresses, information is resolved, inventories adjust, and competition among market makers tightens spreads. This is analogous to the earnings vol crush: just as post-earnings IV falls as uncertainty resolves, post-open spreads fall as information resolves. The hypothesis is directly testable from bid-ask quote data.",
+    "testability_notes": "Using CBOE LiveVol or ORATS intraday bid-ask quotes for SPX ATM options (nearest DTE \u2265 5) from 2015\u20132023: compute mid-IV from bid and ask at 5-minute intervals throughout the day. Compute spread = (ask_IV - bid_IV) / 2. Average spread by 30-minute time bucket. Regress spread on time-of-day controlling for VIX level and daily vol regime. Falsified if spread is not significantly higher in the first 15 minutes vs. midday, or if the pattern is non-monotonic with higher midday spreads.",
+    "variables_needed": [
+      "bid_ask_spread",
+      "implied_volatility",
+      "time_of_day",
+      "market_maker_edge"
+    ],
+    "data_required": "CBOE LiveVol or ORATS intraday bid-ask quotes for SPX ATM options 2015\u20132023",
+    "what_would_support": "First-15-minute average spread > midday average spread by > 25%; monotonic intraday decline confirmed by regression; pattern consistent across VIX regimes",
+    "what_would_reject": "No significant time-of-day pattern in spreads, or spreads wider at midday due to low liquidity",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "d24d8914-6046-452f-adac-da31e3779fe8",
+      "ef7e8e54-9415-404e-856c-2c7b4025d521"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "intraday",
+      "bid-ask-spread",
+      "market-making",
+      "transaction-costs",
+      "time-of-day",
+      "microstructure"
+    ],
+    "confidence": 0.81,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday Leverage Effect: IV Responds Asymmetrically to Up vs. Down SPX Moves Within 5 Minutes",
+    "claim": "For SPX moves of equal magnitude, a 1% downward move causes a larger increase in ATM implied volatility (on average 1.2\u20131.8 vol points) than the IV decrease caused by a 1% upward move (on average 0.6\u20130.9 vol points). This asymmetry is measurable at the 5-minute level and is larger during the first and last hour of trading, when vol sensitivity to price is highest.",
+    "rationale": "The BSM assumptions and leverage effect theme in this knowledge base documents the well-established negative correlation between equity returns and implied volatility. At intraday timescales, this relationship is sharper and more immediate: market makers adjust their IV quotes within minutes of a move because their delta-neutral books become directionally exposed on down-moves (they are typically net long delta from selling puts). The asymmetry \u2014 IV rises more on down-moves than it falls on up-moves of equal size \u2014 is a direct consequence of convex demand for downside protection. Sinclair quantifies the leverage effect empirically across multiple markets.",
+    "testability_notes": "Using SPX 5-minute returns and matched 5-minute IV snapshots (ORATS or LiveVol) 2015\u20132023: regress 5-minute ATM IV change on 5-minute SPX return separately for positive and negative returns. Compute the coefficient for down-moves and up-moves and test whether they are significantly different (asymmetry test). Separately estimate the coefficients in first-hour (9:30\u201310:30) and last-hour (15:00\u201316:00) vs. midday. Falsified if the coefficient magnitudes for up and down moves are statistically indistinguishable, or if the asymmetry is not larger in the first/last hour.",
+    "variables_needed": [
+      "implied_volatility",
+      "intraday_returns",
+      "leverage_effect",
+      "vol_sensitivity"
+    ],
+    "data_required": "SPX 5-minute returns and ATM IV snapshots from ORATS or LiveVol 2015\u20132023",
+    "what_would_support": "Down-move IV coefficient significantly larger in magnitude than up-move IV coefficient (p < 0.05); asymmetry ratio > 1.5; effect stronger at open/close",
+    "what_would_reject": "Symmetric IV response to up and down moves of equal magnitude, or reversal (IV rises more on up-moves)",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "f261ee11-03c0-4937-9663-c230eed2f54d",
+      "aaa1b314-f63c-4e9b-95ff-126f09076a81",
+      "a6e1a958-d618-47cb-bef2-3818b8e41283"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "intraday",
+      "leverage-effect",
+      "implied-volatility",
+      "asymmetry",
+      "microstructure",
+      "vol-sensitivity"
+    ],
+    "confidence": 0.83,
+    "status": "candidate"
+  },
+  {
+    "title": "SPX Pin Risk Is Elevated in the Final 30 Minutes on Expiration Fridays Near Large Open-Interest Strikes",
+    "claim": "On SPX weekly expiration Fridays, the probability of SPX closing within 5 points of the largest open-interest strike is significantly higher than on non-expiration days, and this clustering effect intensifies in the final 30 minutes of trading. The probability of a 5-point or less close-to-strike gap is at least 3\u00d7 higher than a random distribution would predict, creating predictable intraday price dynamics near large strikes.",
+    "rationale": "The expiration risk theme in this knowledge base covers pin risk: the tendency for spot to cluster near a large-open-interest strike at expiration due to dealer delta-hedging flows. As expiration approaches, dealers who are short large OI strikes become long or short large gamma quantities that flip sign around the strike. Their hedging flows act as a gravitational attractor \u2014 if spot is above the strike, dealers are short delta (from short calls) and buy spot as it falls, stabilising near the strike. This pinning effect is well-documented in SPX weekly expirations and creates intraday momentum-then-reversion patterns near expiration.",
+    "testability_notes": "Using SPX options open interest data (CBOE) and SPX 1-minute prices on weekly expiration Fridays 2018\u20132023: identify the largest OI strike for each expiration. Compute the final closing price vs. the largest OI strike. Compare the distribution of |SPX close - largest OI strike| on expiration Fridays vs. matched non-expiration Fridays. Test whether the distribution is significantly more concentrated near zero on expiration days. Falsified if the distribution of close-to-strike distances on expiration Fridays is not significantly different from non-expiration days.",
+    "variables_needed": [
+      "pin_risk",
+      "open_interest",
+      "expiration_price",
+      "intraday_returns"
+    ],
+    "data_required": "CBOE SPX options open interest by strike, SPX 1-minute prices on weekly expiration Fridays 2018\u20132023",
+    "what_would_support": "Probability of |close - largest OI strike| < 5 points on expiration Friday > 3\u00d7 non-expiration baseline; effect strengthens in final 30 minutes",
+    "what_would_reject": "No significant clustering of close prices near largest OI strikes on expiration Fridays vs. other Fridays",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "f0eb6969-819f-49da-8d2d-0823a809c98a",
+      "ef7e8e54-9415-404e-856c-2c7b4025d521"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "intraday",
+      "pin-risk",
+      "expiration",
+      "open-interest",
+      "dealer-hedging",
+      "0dte"
+    ],
+    "confidence": 0.79,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday Realized Vol in the Last 30 Minutes Predicts Overnight Gap Magnitude",
+    "claim": "The annualised realised volatility of SPX computed from the last 30 minutes of the trading session (15:30\u201316:00 ET) is a better predictor of the subsequent overnight gap (|next open - prior close| / prior close) than either the full-day realised vol or the ATM implied volatility. When last-30-min vol exceeds the daily average 30-min vol by more than 2\u00d7, the overnight gap is on average 40% larger than the base rate.",
+    "rationale": "The final 30 minutes of trading concentration large institutional portfolio rebalancing flows (mutual fund end-of-day pricing, index rebalancing, options expiration pinning). These flows often represent information about upcoming overnight developments \u2014 hedge funds positioning for overnight news, institutions reducing risk before close. Sinclair's Yang-Zhang estimator explicitly separates overnight and intraday vol components because they are driven by different processes. If the close-period vol reflects genuine information rather than noise, it should predict the overnight gap better than a full-day average that dilutes this signal.",
+    "testability_notes": "Using SPX 5-minute data 2010\u20132023: compute last-30-minute annualised vol and full-day average 30-min vol for each trading day. Compute next-day overnight gap = |open(t+1) - close(t)| / close(t). Regress overnight gap on last-30-min vol, full-day average vol, and ATM IV (from ORATS close-of-day). Compare R\u00b2 and coefficient significance across the three predictors. Falsified if last-30-min vol is not a significantly better predictor than full-day vol, or has no significant positive relationship with overnight gap.",
+    "variables_needed": [
+      "last_30min_realized_vol",
+      "overnight_gap",
+      "full_day_realized_vol",
+      "implied_volatility"
+    ],
+    "data_required": "SPX 5-minute OHLC 2010\u20132023; ORATS end-of-day ATM IV",
+    "what_would_support": "Last-30-min vol has higher R\u00b2 for predicting overnight gap than full-day vol or ATM IV; when last-30-min vol > 2\u00d7 daily average, overnight gap is > 40% larger than base rate",
+    "what_would_reject": "ATM IV or full-day vol outperforms last-30-min vol in predicting overnight gap, or no significant relationship",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "36d1f922-bccc-4004-81aa-79c696dd644b",
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "intraday",
+      "realized-volatility",
+      "overnight-gap",
+      "yang-zhang",
+      "close-vol",
+      "forecasting"
+    ],
+    "confidence": 0.72,
+    "status": "candidate"
+  },
+  {
+    "title": "0DTE Straddle P&L Variance Is Lower When Sold After a Large Morning Move Has Partially Reverted",
+    "claim": "A 0DTE SPX ATM straddle sold after the following condition is met \u2014 SPX has moved > 0.6% from open by 10:00 ET and then retraced at least 30% of that move by 10:30 ET \u2014 exhibits lower P&L variance and higher Sharpe than a 0DTE straddle sold at a fixed time (10:30 ET) without the reversion filter. The reversion-entry filter identifies sessions where the initial vol burst has dissipated, leaving residual IV premium without the underlying directional pressure.",
+    "rationale": "The combination of the first-hour vol and intraday mean-reversion themes in this knowledge base implies that the 10:00\u201311:00 window after a large open move has two characteristics useful to a short-vol trader: (1) IV remains elevated from the opening burst, and (2) directional pressure has partially resolved. Selling straddles into this configuration \u2014 high IV, reduced directionality \u2014 captures the variance premium at a moment when the realised-vol-to-come is likely lower than the still-elevated IV. This is an intraday analogue of the overnight to 10:30 vol mean reversion.",
+    "testability_notes": "Using SPX 5-minute data and ORATS intraday IV from 2022\u20132023 (0DTE era): identify days where SPX moves > 0.6% from open by 10:00 ET AND retraces > 30% of that move by 10:30 ET. Sell ATM 0DTE straddle at 10:30 ET on qualifying days. Benchmark: sell ATM 0DTE straddle at 10:30 ET on all days. Compare P&L mean, standard deviation, Sharpe across 100+ qualifying days vs. all days. Falsified if conditional-entry Sharpe is not significantly higher than unconditional entry, or if P&L variance is not lower.",
+    "variables_needed": [
+      "straddle_pnl",
+      "pnl_variance",
+      "sharpe",
+      "0dte",
+      "intraday_returns",
+      "reversion_filter"
+    ],
+    "data_required": "SPX 5-minute prices and ORATS 0DTE ATM IV intraday snapshots 2022\u20132023",
+    "what_would_support": "Conditional-entry Sharpe > unconditional-entry Sharpe by > 20%; P&L standard deviation lower by > 15% in conditional-entry group",
+    "what_would_reject": "No significant Sharpe or variance difference between conditional and unconditional entry, or the reversion filter produces fewer trades without improvement",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "62907984-12a4-431d-be55-104160f0f85a",
+      "63aafdfa-c0ab-4d36-8cbf-206d725aaa9c"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "b1f5afe25863",
+      "1c32b3c0d846"
+    ],
+    "tags": [
+      "intraday",
+      "0dte",
+      "straddle",
+      "mean-reversion",
+      "entry-filter",
+      "variance-premium"
+    ],
+    "confidence": 0.75,
+    "status": "candidate"
+  },
+  {
+    "title": "Intraday VIX Futures Roll Yield Is Concentrated in the First and Last Hour",
+    "claim": "The daily returns from holding short VIX front-month futures (contango roll yield) are not earned uniformly throughout the trading session. When vol sensitivity is highest \u2014 during the first 60 minutes (9:30\u201310:30 ET) and the final 30 minutes (15:30\u201316:00 ET) \u2014 approximately 60\u201370% of the daily contango roll yield accrues. The midday implied volatility mean-reversion is slower, contributing less than 30% of total daily roll. Strategies that are short VIX futures only during opening and closing windows would capture most of the contango return with significantly lower intraday exposure.",
+    "rationale": "The VIX term structure and contango theme in this knowledge base establishes that the roll yield is a structural feature driven by mean reversion of front-month IV to back-month levels. Intraday, this mean reversion is not uniform: institutional hedging demand is highest at open and close, causing IV to be temporarily elevated in these windows. The VIX front-month future's price relative to fair-value spot VIX should therefore be largest (most overpriced) at open and close, meaning the decay is concentrated there. If true, partial-day exposure strategies (open + close only) can extract most of the contango yield while avoiding the flat midday period where the carry is lower and bid-ask friction is proportionally larger.",
+    "testability_notes": "Using VIX front-month futures 15-minute settlement data from CBOE 2010\u20132023: compute the returns from holding short VIX futures in each 30-minute intraday window (9:30\u201310:00, 10:00\u201310:30 \u2026 15:30\u201316:00). Aggregate returns by window across contango periods only. Compare the sum of first-60-min and last-30-min returns to total daily return. Falsified if roll yield is distributed uniformly across windows (i.e., each 30-minute window contributes equally, at 1/13 of total). Test if open+close-only exposure achieves > 55% of full-day return with < 40% of full-day exposure time.",
+    "variables_needed": [
+      "vix_futures",
+      "contango",
+      "roll_yield",
+      "intraday_returns",
+      "time_of_day"
+    ],
+    "data_required": "CBOE VIX front-month futures 15-minute or 30-minute intraday settlement data 2010\u20132023",
+    "what_would_support": "Open 60-min + close 30-min periods contribute > 55% of total daily roll yield in contango regimes; statistically significant concentration",
+    "what_would_reject": "Roll yield uniformly distributed across intraday windows; open+close-only exposure captures < 40% of full-day return",
+    "source_card_ids": [],
+    "source_theme_ids": [
+      "14ada956-25b6-416e-9e70-5b16320b18bc",
+      "a738eb0a-8a9c-41da-b059-e1d5e6777cb8"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [
+      "230dde96f8a4",
+      "1c32b3c0d846",
+      "ddc2a298cd88"
+    ],
+    "tags": [
+      "intraday",
+      "vix",
+      "contango",
+      "roll-yield",
+      "term-structure",
+      "time-of-day"
+    ],
+    "confidence": 0.7,
+    "status": "candidate"
+  },
+  {
+    "hypothesis_id": "e4142d84-7da6-4315-97d0-0dbd32819cfa",
+    "title": "Intraday Realized Vol Is U-Shaped: High at Open and Close, Low at Midday",
+    "claim": "The mean 30-minute realized vol in the first slot (9:30-10:00) and last slot (15:30-16:00) is at least 10% higher than the mean of the four midday slots (11:30-13:30), reflecting Sinclair's documented U-shaped intraday vol profile for equity ETFs.",
+    "rationale": "Sinclair, Volatility Trading p.48 \u2014 30-minute realized vol for SPY and similar instruments exhibits a U-shaped intraday pattern. H13 tested whether IV follows a U-shape (rejected), but realized vol from price data is a distinct and independently motivated claim from a different mechanism: informed order flow and news-driven activity concentrate at open and close.",
+    "testability_notes": "Compute 30-min realized vol for each of 13 intraday slots using Databento 5-min bar returns (pct_change within each slot). Compare mean of slots 0 and 12 vs mean of slots 5-8 (midday). Support: rv_ratio >= 1.10 AND ttest_ind p < 0.05. Databento QQQ 5-min data, 2024-01-01 to 2026-04-01, single pass. Falsified if rv_ratio <= 1.0.",
+    "variables_needed": [
+      "realized_vol",
+      "intraday_price_bars",
+      "slot_rv"
+    ],
+    "data_required": "Databento QQQ 5-min OHLCV bars, 2024-2026",
+    "what_would_support": "rv_ratio >= 1.10 AND ttest_ind(open+close slots, midday slots) p < 0.05",
+    "what_would_reject": "rv_ratio <= 1.0 \u2014 midday not quieter than open/close",
+    "source_card_ids": [],
+    "source_theme_ids": [],
+    "tags": [
+      "realized_vol",
+      "intraday",
+      "u_shape",
+      "databento",
+      "directly_tested"
+    ],
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-17T00:00:00Z"
+  },
+  {
+    "hypothesis_id": "4a8b7db8-6bdc-4d52-8fd3-81ebe9f406bb",
+    "title": "Variance Premium Is Largest in the 15-20% IV Regime",
+    "claim": "The mean variance premium (IV minus forward realized vol) is significantly higher on days when the 30-day IVX is between 15% and 20% than when IVX is below 15% or above 20%, consistent with the moderate-regime edge documented by Sinclair and Passarelli.",
+    "rationale": "Sinclair, Positional Option Trading \u2014 VIX 16-19% is the best risk/reward window for short vol. Passarelli \u2014 variance premium is regime-dependent. Very-low IV (VIX<15) earns little; very-high IV (VIX>20) realized vol tends to match or exceed IV, eroding the premium. H1 confirmed the variance premium exists overall; H28 asks whether it is concentrated in the moderate regime.",
+    "testability_notes": "Use daily_series with iv_30d as IVX proxy. Bucket days by low (<0.15), mid (0.15-0.20), high (>=0.20). Compute vp = (iv_30d - fwd_rv_20)*100 per day. Compare mean_vp_mid vs mean_vp_low and mean_vp_high. ttest_ind(vp_mid, vp_low+vp_high). Support: mean_vp_mid > mean_vp_low AND mean_vp_mid > mean_vp_high AND p < 0.05. Same data window as H1 (2024-2026), single pass.",
+    "variables_needed": [
+      "iv_30d",
+      "fwd_rv_20",
+      "variance_premium",
+      "ivx_regime"
+    ],
+    "data_required": "iVolatility daily EOD series, QQQ, 2024-2026",
+    "what_would_support": "mean_vp_mid significantly above mean_vp_low and mean_vp_high at p < 0.05",
+    "what_would_reject": "mean_vp_mid <= mean_vp_high or no significant difference across regimes",
+    "source_card_ids": [],
+    "source_theme_ids": [],
+    "tags": [
+      "variance_premium",
+      "vix_regime",
+      "ivx",
+      "eod",
+      "directly_tested"
+    ],
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-17T00:00:00Z"
+  },
+  {
+    "hypothesis_id": "6275548a-db12-4f8e-b1e2-523389987451",
+    "title": "0DTE Straddle P&L Percentage Is Higher When Sold at 14:00 vs. 12:00",
+    "claim": "On 0DTE QQQ trading days, a straddle sold at 14:00 ET generates a higher P&L as a percentage of collected premium than the same straddle sold at 12:00 ET, because theta accelerates exponentially in the final 2 hours of the trading day.",
+    "rationale": "Natenberg, Option Volatility and Pricing p.1094-1099 \u2014 theta of ATM options accelerates as expiration approaches, with the final hours concentrating more time-value erosion. H14 confirmed open > noon (supported); H29 asks whether afternoon entry is even more efficient by capturing the steepest portion of the theta curve.",
+    "testability_notes": "Requires iVol intraday option data (ATM snapshots at 12:00 and 14:00) and Databento 5-min bars for EOD price (15:55 bar close). For each day: pnl_pct = (straddle_premium - |eod_close - strike|) / straddle_premium. ttest_rel(pnl_pct_1400, pnl_pct_1200). Support: mean_pct_1400 > mean_pct_1200 AND p < 0.05. Apr-Dec 2025, 9 monthly batches.",
+    "variables_needed": [
+      "straddle_premium_1200",
+      "straddle_premium_1400",
+      "eod_close",
+      "pnl_pct"
+    ],
+    "data_required": "iVolatility intraday option data + Databento QQQ 5-min bars, Apr-Dec 2025",
+    "what_would_support": "mean P&L% at 14:00 entry significantly higher than at 12:00 entry, p < 0.05",
+    "what_would_reject": "mean P&L% at 14:00 entry <= mean P&L% at 12:00 entry",
+    "source_card_ids": [],
+    "source_theme_ids": [],
+    "tags": [
+      "0dte",
+      "theta",
+      "straddle",
+      "intraday",
+      "monthly_batches",
+      "directly_tested"
+    ],
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-17T00:00:00Z"
+  },
+  {
+    "hypothesis_id": "32bf50b1-fabe-4fff-a0a5-08711748a950",
+    "title": "Opening 30-Minute Burst Above 0.5% Predicts Short-Term Reversal in the Next 90 Minutes",
+    "claim": "On QQQ days where the first 30-minute return (9:30 open to 10:00 close) exceeds +-0.5% in magnitude, the subsequent 90-minute return (10:00 to 11:30) opposes the opening move on significantly more than 50% of days, with positive mean signed reversal.",
+    "rationale": "Sinclair, Positional Option Trading \u2014 opening auction overshoots due to order imbalance and stale quotes. H18 tested unconditional autocorrelation (rejected). H30 tests the conditional version: only when a significant opening burst occurs does the reversal mechanism activate. This separation of signal from noise makes the claim actionable and distinct from H18.",
+    "testability_notes": "Use Databento 5-min bars. burst = (bars.iloc[5][close] - bars.iloc[0][open]) / bars.iloc[0][open]. Signal when |burst| > 0.005. reversal_ret = (bars.iloc[23][close] - bars.iloc[6][open]) / bars.iloc[6][open]. signed_reversal = -sign(burst) * reversal_ret. ttest_1samp(signed_reversals, 0). Support: reversal_proportion > 0.55 AND mean_signed_reversal > 0 AND p < 0.05. 2024-2026, single pass. bars.iloc[0][open] = true 9:30 market open.",
+    "variables_needed": [
+      "opening_burst",
+      "reversal_return",
+      "signed_reversal",
+      "intraday_price_bars"
+    ],
+    "data_required": "Databento QQQ 5-min OHLCV bars, 2024-2026",
+    "what_would_support": "reversal_proportion > 0.55 AND mean_signed_reversal > 0 AND ttest p < 0.05, min 20 burst days",
+    "what_would_reject": "mean_signed_reversal <= 0 \u2014 opening burst is followed by continuation, not reversal",
+    "source_card_ids": [],
+    "source_theme_ids": [],
+    "tags": [
+      "mean_reversion",
+      "opening_burst",
+      "intraday",
+      "databento",
+      "directly_tested"
+    ],
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-17T00:00:00Z"
+  },
+  {
+    "hypothesis_id": "307f1df6-c3b6-41cd-8d41-5a048a325879",
+    "title": "ATM Bid-Ask Spread Widens in the 30-Minute Slot Following a Realized Vol Spike",
+    "claim": "QQQ 0DTE ATM option bid-ask spreads in the 30-minute slot immediately following a vol-spike slot (slot RV > 2x the day median slot RV) are significantly wider than spreads following normal-vol slots, regardless of time of day.",
+    "rationale": "Baird, Option Market Making Ch.1-3 \u2014 market makers widen spreads to manage gamma inventory when gamma exposure spikes from realized vol. H21 tested the time-of-day effect (inconclusive \u2014 direction right, not significant). H31 tests the vol-conditional mechanism directly, which is the actual causal mechanism Baird describes.",
+    "testability_notes": "Compute 13 slot RVs from Databento 5-min bars (pct_change within each slot). day_median = median of non-zero slot RVs. For each consecutive slot pair: if slot_rvs[i] > 2*day_median, classify slot i+1 bid-ask as spike-following; else normal. ttest_ind(spike_spreads, normal_spreads). Support: mean_spike > mean_normal AND p < 0.05. Min 20 spike obs. Apr-Dec 2025, 9 monthly batches.",
+    "variables_needed": [
+      "slot_rv",
+      "bid_ask_spread",
+      "vol_spike",
+      "atm_option"
+    ],
+    "data_required": "iVolatility intraday option data + Databento QQQ 5-min bars, Apr-Dec 2025",
+    "what_would_support": "mean bid-ask spread after spike slots significantly wider than after normal slots, p < 0.05",
+    "what_would_reject": "mean spread after spike slots <= mean spread after normal slots",
+    "source_card_ids": [],
+    "source_theme_ids": [],
+    "tags": [
+      "bid_ask_spread",
+      "vol_spike",
+      "market_making",
+      "intraday",
+      "monthly_batches",
+      "directly_tested"
+    ],
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-17T00:00:00Z"
+  },
+  {
+    "hypothesis_id": "5cf581ef-3d68-4d77-aa21-e80b71b68329",
+    "title": "Parkinson High-Low Estimator Outperforms Close-to-Close for 5-Day Realized Vol Forecasting",
+    "claim": "On QQQ, the Parkinson estimator (using daily high-low range) produces lower RMSE when forecasting the following 5-day realized vol than the close-to-close estimator, with the improvement largest on days when intraday range exceeds 1.5%.",
+    "rationale": "Sinclair (Volatility Trading, p.xx) documents that Parkinson is 4.9x more statistically efficient than close-to-close because it incorporates the full intraday range. H9 tested Yang-Zhang (inconclusive). Parkinson is simpler and specifically designed for range-based forecasting \u2014 its efficiency advantage should be measurable on QQQ daily data over a 2+ year window.",
+    "testability_notes": "Compute Parkinson sigma_P = sqrt(1/(4n*ln2) * sum(ln(H/L)^2)) and CC sigma_CC over rolling 20-day windows. For each day, compute 5-day forward RV as sqrt(sum(r^2)). Compare RMSE(Parkinson_forecast, RV_5d) vs RMSE(CC_forecast, RV_5d). Use Databento QQQ daily OHLCV, 2024-01-01 to 2026-04-01. Diebold-Mariano test for significance. Subgroup: days where H/L range > 1.5%.",
+    "variables_needed": [
+      "parkinson_vol",
+      "cc_vol",
+      "daily_high",
+      "daily_low",
+      "realized_vol_5d"
+    ],
+    "data_required": "Databento QQQ daily OHLCV bars, 2024-01-01 to 2026-04-01",
+    "what_would_support": "RMSE ratio (Parkinson/CC) < 0.95 AND p < 0.05 on Diebold-Mariano test",
+    "what_would_reject": "RMSE ratio >= 1.0 (CC performs as well or better)",
+    "source_card_ids": [
+      "69a1892f-65fd-4522-8b82-b689f7d161bc",
+      "1770c813-ab44-42b6-9267-a142745d1c71",
+      "cb78d30f-1c91-41bf-a18e-d9c2cdc9cb7f"
+    ],
+    "source_theme_ids": [
+      "36d1f922-b5f1-4b58-8b3a-daf9e0e0e654",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "parkinson",
+      "volatility-estimator",
+      "realized-volatility",
+      "forecasting",
+      "eod",
+      "directly_tested"
+    ],
+    "confidence": 0.65,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "b6321c9a-c20a-4696-9ab7-9cf1e188c369",
+    "title": "QQQ Implied Volatility Reverts to Long-Run Mean Faster When Below 15% Than When Above 30%",
+    "claim": "The daily AR(1) coefficient of QQQ 30-day IVX deviation from its 1-year moving average is larger in magnitude (faster mean reversion) when IVX < 15% than when IVX > 30%, meaning low-vol regimes are more transient than high-vol regimes.",
+    "rationale": "Sinclair (ch.5) documents that VIX exhibits persistent regimes \u2014 high-vol periods linger longer than low-vol periods. The Stein result predicts mean reversion speed should be observable in the IV term structure. Testing whether reversion is asymmetric by regime directly informs calendar spread timing and variance premium trade duration.",
+    "testability_notes": "Compute IVX_deviation = IVX_30d - rolling_252d_mean(IVX_30d). Estimate AR(1) coefficient separately for days when IVX < 15 (low regime), 15-30 (mid), and > 30 (high). AR(1): deviation_t = alpha + beta*deviation_{t-1} + eps. |beta| = mean reversion speed (higher |1-beta| = faster). Test H0: beta_low == beta_high with bootstrap. Data: iVolatility IVX daily, 2024-01-01 to 2026-04-05.",
+    "variables_needed": [
+      "ivx_30d",
+      "ar1_coefficient",
+      "regime_label",
+      "deviation_from_mean"
+    ],
+    "data_required": "iVolatility IVX (30-day constant-maturity) daily data for QQQ, 2024-01-01 to 2026-04-05",
+    "what_would_support": "AR(1) |1-beta| in low-IV regime > |1-beta| in high-IV regime AND bootstrap p < 0.05",
+    "what_would_reject": "No significant difference in reversion speed across regimes, or high-IV reverts faster",
+    "source_card_ids": [
+      "cf691ea0-516e-431e-8006-edc3739fa79f",
+      "676edac5-14fa-4d1d-966e-2b940d07655d",
+      "97756488-e123-4e75-b0a4-3b4b7cced97e"
+    ],
+    "source_theme_ids": [
+      "a738eb0a-b3e2-4e7f-9c5c-6a5dc3b7a5f1",
+      "14ada956-b9f1-4a5e-bb3a-f1c5a7d2e0f3"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "iv-mean-reversion",
+      "vix",
+      "regime",
+      "ar1",
+      "term-structure",
+      "eod",
+      "directly_tested"
+    ],
+    "confidence": 0.6,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "12a43436-11f8-41e3-821e-46c125c0b903",
+    "title": "QQQ Forward Volatility Implied by Term Structure Exceeds Subsequently Realized Forward Vol (Forward Variance Premium)",
+    "claim": "The forward volatility implied by QQQ 30d/60d IVX term structure (computed as sqrt[(\u03c3_60d\u00b2\u00d760 - \u03c3_30d\u00b2\u00d730)/30]) exceeds the realized volatility over the subsequent 30-day forward period by more than 1 vol point on average, confirming a forward variance premium.",
+    "rationale": "Sinclair documents the variance premium formula for forward vol from term structure. H1 confirmed the spot variance premium (IV > HV). If the premium persists forward, calendar spreads that sell forward vol are structurally profitable \u2014 this is the theoretical basis for Sinclair's calendar spread recommendations. Testing it on QQQ specifically confirms or refutes the forward premium.",
+    "testability_notes": "Each day: compute implied_fwd_vol = sqrt(max(sigma_60d^2*60 - sigma_30d^2*30, 0)/30) using iVol IVX 30d and 60d. In 30 calendar days, compute realized_fwd_vol over that forward period. Metric: mean(implied_fwd_vol - realized_fwd_vol). ttest H0: mean difference <= 0. Support: mean diff > 1.0 vol point AND p < 0.05. Data: iVol IVX 30d/60d, 2024-01-01 to 2026-04-05.",
+    "variables_needed": [
+      "ivx_30d",
+      "ivx_60d",
+      "implied_forward_vol",
+      "realized_forward_vol"
+    ],
+    "data_required": "iVolatility IVX 30d and 60d daily for QQQ, 2024-01-01 to 2025-12-31 (need 30-day forward window)",
+    "what_would_support": "mean(implied_fwd_vol - realized_fwd_vol) > 1.0 vol point AND p < 0.05",
+    "what_would_reject": "mean difference <= 0 or not statistically significant",
+    "source_card_ids": [
+      "15066c59-41ae-4bd6-b8af-8e359ffd8421",
+      "d5c30757-6ed4-4582-ac73-c61cf8881572",
+      "13486162-4df6-450d-aa17-3fff49b9bf60"
+    ],
+    "source_theme_ids": [
+      "14ada956-b9f1-4a5e-bb3a-f1c5a7d2e0f3",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "forward-volatility",
+      "variance-premium",
+      "term-structure",
+      "calendar-spread",
+      "eod",
+      "directly_tested"
+    ],
+    "confidence": 0.7,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "ebcf99ca-67c2-417d-b14b-2211d7820403",
+    "title": "QQQ Daily Volume Predicts Same-Day Realized Volatility With Correlation > 0.60",
+    "claim": "When QQQ daily trading volume exceeds the 60-day rolling median, same-day realized volatility (absolute log return) is at least 40% higher than on below-median volume days, with a Spearman correlation between daily volume and absolute return exceeding 0.50 across the full 2024-2026 window.",
+    "rationale": "Sinclair (Figure 3.8-3.9) reports SPY correlation between daily range and volume = 0.81, and absolute returns vs volume = 0.68. If this holds for QQQ (a correlated ETF), it implies volume is a real-time signal for volatility regime \u2014 tradeable for same-day position sizing or hedging adjustments.",
+    "testability_notes": "Fetch QQQ daily volume and close prices from Databento, 2024-01-01 to 2026-04-01. Compute |return| = |ln(close_t/close_{t-1})|. Compute Spearman correlation between daily volume and |return|. Also compute rolling 20-day correlation. Support: overall Spearman r > 0.60 AND p < 0.001. Falsification: r < 0.40. Subgroup: r for days where volume > 1.5x median vs < 0.75x median.",
+    "variables_needed": [
+      "daily_volume",
+      "absolute_return",
+      "realized_vol",
+      "spearman_r"
+    ],
+    "data_required": "Databento QQQ daily OHLCV, 2024-01-01 to 2026-04-01",
+    "what_would_support": "Spearman r between daily volume and |return| > 0.60, p < 0.001",
+    "what_would_reject": "Spearman r < 0.40 or not significant",
+    "source_card_ids": [
+      "7e873de5-aeb5-469f-8370-f7666116ffd7"
+    ],
+    "source_theme_ids": [
+      "d24d8914-c8d3-4a62-a94f-7b5e0a3c9e5f",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "volume-volatility",
+      "realized-volatility",
+      "market-structure",
+      "eod",
+      "directly_tested"
+    ],
+    "confidence": 0.72,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "9e070538-82fb-4a05-b433-e9dac71d73f8",
+    "title": "QQQ OTM Put IV Premium Over Equidistant OTM Call IV Mean-Reverts Within 5 Trading Days After Reaching 6+ Vol Points",
+    "claim": "When QQQ OTM put IV exceeds equidistant OTM call IV by 6 or more vol points (extreme skew), the skew measure narrows by at least 2 vol points on average over the following 5 trading days, consistent with structural mean reversion in equity skew.",
+    "rationale": "Sinclair and Baird document that equity skew reflects structural demand for crash protection \u2014 OTM puts persistently trade 4+ vol points above equidistant calls. Mean reversion of extreme skew is a core principle of skew-trading strategies. If verified, extreme skew provides an entry signal for risk-reversal positions (sell OTM put, buy OTM call).",
+    "testability_notes": "Compute daily skew = IV_25delta_put - IV_25delta_call using iVolatility QQQ option chain. Identify days where skew >= 6 vol points (signal). Measure skew_change = skew_{t+5} - skew_t for signal days vs non-signal days. ttest or Mann-Whitney U on skew_change distributions. Support: mean skew_change <= -2.0 vol points on signal days AND p < 0.05. Min 30 signal observations. Data: iVol QQQ daily chain, 2024-2026.",
+    "variables_needed": [
+      "put_iv_25delta",
+      "call_iv_25delta",
+      "skew_measure",
+      "skew_change_5d"
+    ],
+    "data_required": "iVolatility QQQ single-stock-option-raw-iv (daily), 2024-01-01 to 2026-04-05, to extract 25-delta IV by side",
+    "what_would_support": "mean skew_change over 5 days <= -2.0 vol points when initial skew >= 6, p < 0.05",
+    "what_would_reject": "skew does not narrow (mean change > -1.0) or change is not significant",
+    "source_card_ids": [
+      "7e873de5-aeb5-469f-8370-f7666116ffd7",
+      "12510253-6d35-4e7e-b27b-9e3d6ad671ca",
+      "f6183db6-f909-4bc7-8011-6cd9b3beb700"
+    ],
+    "source_theme_ids": [
+      "a6e1a958-3d4f-4e7b-9c8a-f5b2c9d1e7a4",
+      "a738eb0a-b3e2-4e7f-9c5c-6a5dc3b7a5f1"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "volatility-skew",
+      "skew-trading",
+      "mean-reversion",
+      "risk-reversal",
+      "eod",
+      "directly_tested"
+    ],
+    "confidence": 0.58,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "58052a60-6eb5-4d49-87ed-ce19d541c8a5",
+    "title": "QQQ Iron Condor P&L Is Higher in 15-25% IVX Regime Than in >30% IVX Regime on Risk-Adjusted Basis",
+    "claim": "QQQ 30-DTE iron condors with short strikes at \u00b11\u03c3 (IV-implied 1 standard deviation move) generate a higher Sharpe ratio when initiated during IVX 15-25% than when initiated during IVX > 30%, because elevated fear regimes increase vol-of-vol and breach probability beyond what the collected premium compensates.",
+    "rationale": "H28 showed the spot variance premium is largest in the 15-20% IVX regime (supported). CNDR/BFLY indexes show 30 years of variance premium capture through condor structures. The natural follow-on is whether the condor structure specifically (defined-risk, wider strikes than straddle) also concentrates P&L in the mid-vol regime vs fear regimes. High-vol regimes likely have excessive vol-of-vol that eats condor credit.",
+    "testability_notes": "For each trading day where 30-DTE QQQ options exist: compute 1\u03c3 expected move = spot * IV * sqrt(30/365). Place short strikes at spot \u00b1 1\u03c3, wings 1\u03c3 further. Simulate condor P&L over 30-DTE period using daily option prices. Group by IVX at entry: low(<15%), mid(15-25%), high(>25%), fear(>30%). Compute Sharpe ratio by group. Kruskal-Wallis + pairwise comparison. Data: iVol option chain, 2024-2026.",
+    "variables_needed": [
+      "ivx_30d",
+      "condor_pnl",
+      "short_strike",
+      "wing_width",
+      "sharpe_by_regime"
+    ],
+    "data_required": "iVolatility QQQ option chain (EOD), 2024-01-01 to 2026-04-05; iVolatility IVX for regime classification",
+    "what_would_support": "Sharpe(mid-vol 15-25%) > Sharpe(fear >30%) AND p < 0.05 on pairwise test",
+    "what_would_reject": "No significant Sharpe difference across IVX regimes, or fear regime has higher Sharpe",
+    "source_card_ids": [
+      "c9a12aae-acc4-4a37-b2fa-bde776092976",
+      "def55efb-ad3f-4b84-a75a-8f55d272548c",
+      "c6b9e66f-88b8-4e3e-ba90-852982709eda"
+    ],
+    "source_theme_ids": [
+      "e19ea0b4-a7c3-4f8e-bb5d-9c3f1a2d4e6b",
+      "a738eb0a-b3e2-4e7f-9c5c-6a5dc3b7a5f1",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "condor",
+      "iron-condor",
+      "iv-regime",
+      "variance-premium",
+      "sharpe",
+      "eod",
+      "proxy_tested"
+    ],
+    "confidence": 0.62,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "211a6483-1618-41c2-a0a4-665a8d1b856f",
+    "title": "Skewness-Adjusted Kelly Fraction Reduces Short-Vol Strategy Max Drawdown by More Than 25% vs Standard Kelly With Less Than 20% Return Sacrifice",
+    "claim": "For a QQQ short straddle strategy, sizing positions using the skewness-corrected Kelly fraction (f* \u2248 \u03bc/(\u03bc\u00b2+\u03c3\u00b2) + \u03bb\u2083 correction term for negative skew) reduces maximum drawdown by more than 25% relative to standard Kelly (f* \u2248 \u03bc/\u03c3\u00b2), while sacrificing less than 20% of cumulative return over the backtest period.",
+    "rationale": "Sinclair derives the skewness-adjusted Kelly formula explicitly for short-vol strategies: negative skewness (\u03bb\u2083 < 0) reduces the optimal fraction below the standard Gaussian estimate, because rare large losses disproportionately affect long-run growth. H5 tested fractional Kelly generally (supported). This tests whether the theoretically motivated skewness correction adds value vs the simpler half-Kelly heuristic.",
+    "testability_notes": "Use QQQ short straddle P&L series from H1/H14 backtests. Compute empirical \u03bc, \u03c3, \u03bb\u2083 (third central moment). Calculate standard f* = \u03bc/\u03c3\u00b2 and skew-adjusted f* using Sinclair's correction. Simulate cumulative wealth under each sizing scheme. Metrics: max_drawdown(skew-adjusted) / max_drawdown(standard), cum_return(skew-adjusted) / cum_return(standard). Support: drawdown ratio < 0.75 AND return ratio > 0.80. Bootstrap confidence intervals.",
+    "variables_needed": [
+      "straddle_pnl_series",
+      "kelly_fraction",
+      "skewness_lambda3",
+      "max_drawdown",
+      "cumulative_return"
+    ],
+    "data_required": "QQQ short straddle P&L series from existing backtests (H1 variance premium data, 2024-2026); daily P&L returns needed",
+    "what_would_support": "max_drawdown reduction > 25% AND cumulative return sacrifice < 20% vs standard Kelly",
+    "what_would_reject": "drawdown reduction < 15% or return sacrifice > 30%, making the correction not worthwhile",
+    "source_card_ids": [
+      "4f25c594-366b-415c-951e-52a9e9294c38",
+      "e0ae6bbc-09b6-49b4-aaff-cf5542b46405",
+      "b69beb2f-3250-404f-9206-f60fcb89327d"
+    ],
+    "source_theme_ids": [
+      "982c9090-e5b2-4f8c-a3d7-6f4c9e1a8b2d",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "kelly-criterion",
+      "skewness",
+      "position-sizing",
+      "drawdown",
+      "short-vol",
+      "directly_tested"
+    ],
+    "confidence": 0.6,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "8e9db955-2f13-4eb7-bf42-a5fa0f702553",
+    "title": "QQQ Realized Volatility Is Positively Autocorrelated (Hurst Exponent > 0.5) at 5-Day Horizons",
+    "claim": "QQQ 5-day realized volatility exhibits persistent (trending) behavior with a Hurst exponent H > 0.5, meaning high-vol weeks tend to follow high-vol weeks. This persistence is significantly stronger in the 10 trading days following a VIX spike of > 3 points than in calm periods.",
+    "rationale": "Sinclair documents the Hurst exponent as a tool for detecting strategy P&L persistence. Volatility clustering is well-established (ARCH effects), but the Hurst exponent formalizes the question. If H > 0.5 at 5-day horizons, vol-conditional strategies (e.g., only selling vol after calm weeks) are motivated. The post-spike intensification tests whether fear regimes are more persistent.",
+    "testability_notes": "Compute rolling 5-day RV = sqrt(5/n * sum(r_i^2)) from Databento 5-min bars. Compute Hurst exponent using R/S method over full 2024-2026 window. Test H0: H = 0.5 with bootstrap. Subgroup: post-VIX-spike windows (VIX daily change > 3 pts). Metric: H_full, H_post_spike. Support: H_full > 0.55 AND p < 0.05. Data: Databento QQQ 5-min, iVol VIX proxy.",
+    "variables_needed": [
+      "rv_5d",
+      "hurst_exponent",
+      "vix_spike_flag",
+      "autocorrelation"
+    ],
+    "data_required": "Databento QQQ 5-min bars 2024-01-01 to 2026-04-01; iVolatility IVX for spike detection",
+    "what_would_support": "Hurst exponent H > 0.55 over full window AND p < 0.05 vs H=0.5 null; H_post_spike > H_baseline",
+    "what_would_reject": "H not significantly different from 0.5 (random walk), or H < 0.50 (mean-reverting vol)",
+    "source_card_ids": [
+      "20e0c054-4f9b-4534-bd73-e151f1dae71d",
+      "38906034-4dfc-445d-afba-bd796d69e399"
+    ],
+    "source_theme_ids": [
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7",
+      "a738eb0a-b3e2-4e7f-9c5c-6a5dc3b7a5f1"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "hurst-exponent",
+      "realized-volatility",
+      "autocorrelation",
+      "volatility-clustering",
+      "directly_tested"
+    ],
+    "confidence": 0.65,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "3b1af9a4-e14b-4edd-b95b-131a16c065be",
+    "title": "QQQ Calendar Spread P&L Is Positive When Front-Month IV Exceeds GARCH-Implied Forward Vol by More Than 2 Vol Points",
+    "claim": "QQQ long calendar spreads (sell front-month, buy back-month, same ATM strike) initiated on days when front-month IV exceeds the GARCH(1,1)-implied forward volatility for the front period by more than 2 vol points generate positive P&L more than 60% of the time, versus near-random outcomes when the signal is absent.",
+    "rationale": "Sinclair derives GARCH-implied term structure as the theoretical forward vol: E[\u03c3\u00b2_{t+T}] = V_L + (\u03c3\u00b2_t - V_L)(\u03b1+\u03b2)^T. H8 tested calendar spread P&L using front vs back IV differential generically (supported). This is a more precise version: using the GARCH model's actual forward vol forecast rather than the naive IV comparison, which should generate cleaner signals when front-month IV is specifically overpriced relative to the model.",
+    "testability_notes": "Fit GARCH(1,1) on rolling 252-day QQQ daily returns. For each day: compute GARCH-implied forward vol for 30-day window. Compute signal = front_IV_30d - GARCH_forward_vol_30d. For signal > 2: simulate calendar spread P&L. Win rate = fraction of signal days with positive P&L. Binomial test vs 50%. Data: Databento daily prices (GARCH) + iVol IVX 30d (front_IV). 2024-2026.",
+    "variables_needed": [
+      "front_iv_30d",
+      "garch_forward_vol",
+      "calendar_pnl",
+      "signal_strength"
+    ],
+    "data_required": "Databento QQQ daily OHLCV for GARCH estimation; iVolatility IVX 30d and 60d for IV and spread pricing; 2024-01-01 to 2026-04-05",
+    "what_would_support": "Win rate on signal days > 60% AND binomial p < 0.05; mean P&L positive on signal days",
+    "what_would_reject": "Win rate <= 50% or not different from non-signal days",
+    "source_card_ids": [
+      "15066c59-41ae-4bd6-b8af-8e359ffd8421",
+      "d5c30757-6ed4-4582-ac73-c61cf8881572"
+    ],
+    "source_theme_ids": [
+      "14ada956-b9f1-4a5e-bb3a-f1c5a7d2e0f3",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "garch",
+      "calendar-spread",
+      "term-structure",
+      "forward-volatility",
+      "eod",
+      "proxy_tested"
+    ],
+    "confidence": 0.58,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  },
+  {
+    "hypothesis_id": "eb99ac1e-aade-40a0-b21c-21521d5a6520",
+    "title": "QQQ Fat-Tail Realized Kurtosis Exceeds 3.0 and Is Higher in High-IV Regimes Than Low-IV Regimes",
+    "claim": "QQQ daily return distribution has excess kurtosis significantly greater than zero (leptokurtic), and this excess kurtosis is at least 2\u00d7 higher when IVX > 25% than when IVX < 15%, meaning BSM-based models systematically underestimate tail risk in fear regimes.",
+    "rationale": "Sinclair (Figure 3.7, empirical table) documents heavy tails across equity markets: NASDAQ excess kurtosis is in the double digits. BSM assumes normality (kurtosis=3), which underestimates OTM option fair values in fat-tailed regimes. If kurtosis is regime-dependent, short-vol strategies should size down in high-IV regimes where tail risk is most underpriced by BSM \u2014 corroborating H28 and the condor regime result.",
+    "testability_notes": "Compute rolling 252-day excess kurtosis of QQQ daily log returns (kurtosis-3). Classify each day by IVX regime. Compare mean excess kurtosis: low-IV days (IVX<15%) vs high-IV days (IVX>25%). Mann-Whitney U test. Also test: does realized kurtosis on the 30 days following high-IV entries exceed kurtosis following low-IV entries? Data: Databento QQQ daily closes; iVol IVX 30d, 2024-2026.",
+    "variables_needed": [
+      "daily_return",
+      "excess_kurtosis",
+      "ivx_regime",
+      "bsm_pricing_error"
+    ],
+    "data_required": "Databento QQQ daily closes; iVolatility IVX 30d daily, 2024-01-01 to 2026-04-05",
+    "what_would_support": "Overall excess kurtosis > 1.0 (p<0.05); kurtosis in IVX>25% regime >= 2x kurtosis in IVX<15% regime",
+    "what_would_reject": "Excess kurtosis not significantly > 0, or no significant regime difference in tail thickness",
+    "source_card_ids": [
+      "20e0c054-4f9b-4534-bd73-e151f1dae71d",
+      "38906034-4dfc-445d-afba-bd796d69e399",
+      "6a1d5fcc-37cd-4e6b-bc95-4ac71e7ec16f"
+    ],
+    "source_theme_ids": [
+      "f261ee11-9b4e-4c7a-b8d2-3e9a5f6c1d2b",
+      "3047eafe-4a43-4b21-bf19-e62dc85374d7"
+    ],
+    "source_meta_theme_ids": [],
+    "source_doc_ids": [],
+    "tags": [
+      "fat-tails",
+      "kurtosis",
+      "bsm",
+      "iv-regime",
+      "risk-management",
+      "eod",
+      "directly_tested"
+    ],
+    "confidence": 0.75,
+    "status": "proposed",
+    "model_used": "claude-sonnet-4-6",
+    "created_at": "2026-04-18T06:57:39Z"
+  }
+]

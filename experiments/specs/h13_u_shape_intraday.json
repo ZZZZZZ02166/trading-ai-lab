@@ -1,0 +1,17 @@
+{
+  "hypothesis_number": "H13",
+  "title": "U-Shape IV Intraday",
+  "universe": ["QQQ"],
+  "dte_buckets": [0, 1],
+  "contract_selection": "atm_call",
+  "call_put_filter": "C",
+  "data_requirements": ["intraday_chain"],
+  "entry_rule": "measure_atm_iv_by_session_bucket_across_trading_day",
+  "exit_rule": "n_a",
+  "metric_name": "u_shape_open_minus_mid_vpts",
+  "support_threshold": 0.0,
+  "reject_threshold": -0.5,
+  "test_type": "provisional",
+  "cost_model": null,
+  "notes": "Requires intraday IV data at 1-min resolution. Intraday chain endpoint is PROVISIONAL — may return INSUFFICIENT_DATA if subscription tier does not include intraday access. Contract selection: nearest ATM 0-1 DTE call per day. Session buckets: open (9:30-10:00), mid (11:30-14:00), close (15:30-16:00). U-shape confirmed if open_iv > mid_iv AND close_iv > mid_iv, both statistically significant (p < 0.05, paired t-test across days). Proxy fallback: EOD IVX level only — very degraded test, labeled proxy_tested."
+}

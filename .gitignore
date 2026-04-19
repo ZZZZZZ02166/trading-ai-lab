@@ -1,0 +1,12 @@
+.env
+.env.local
+.venv/
+venv/
+__pycache__/
+node_modules/
+dist/
+build/
+.DS_Store
+.cursor/
+.claude/
+options_SPX_9327_20211019.csv

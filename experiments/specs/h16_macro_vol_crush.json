@@ -1,0 +1,17 @@
+{
+  "hypothesis_number": "H16",
+  "title": "Macro Release Vol Crush",
+  "universe": ["QQQ"],
+  "dte_buckets": null,
+  "contract_selection": null,
+  "call_put_filter": null,
+  "data_requirements": ["ivx"],
+  "entry_rule": "pre_fomc_window_5_trading_days",
+  "exit_rule": "first_trading_day_after_fomc_announcement",
+  "metric_name": "mean_iv_drop_post_fomc_vpts",
+  "support_threshold": 1.0,
+  "reject_threshold": -0.5,
+  "test_type": "proxy_tested",
+  "cost_model": null,
+  "notes": "Uses QQQ 30d IVX as proxy for options IV level. A direct test would require tracking a specific short-vol position (e.g. short straddle) across FOMC dates — that requires options chain data and fill modeling. This proxy test is labeled proxy_tested throughout. Verdict: SUPPORTED if mean pre-FOMC IVX percentile rank >= 0.40 AND mean IV drop >= 1 vol-pt AND p-value < 0.05. Event window: 5 trading days before FOMC (pre-window) vs 1 trading day after (post-window). FOMC dates from calendar.py (hardcoded 2024-2025)."
+}

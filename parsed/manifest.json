@@ -1,0 +1,238 @@
+{
+  "b1f5afe25863": {
+    "doc_id": "b1f5afe25863",
+    "file_name": "My Learnings - Trading Options as a Professional.pdf",
+    "book_title": "My Learnings   Trading Options As A Professional",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": false,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 382,
+      "poor_quality_pages": 27,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 855,
+      "chunk_count_summary": 322,
+      "card_count": 99,
+      "card_errors": 0,
+      "vision_pages": 91
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:05:55.830208+00:00",
+      "chunked_at": "2026-04-15T11:42:15.462120+00:00",
+      "cards_generated_at": null,
+      "indexed_at": "2026-04-15T11:52:00.088878+00:00",
+      "study_notes_generated_at": "2026-04-15T12:03:42.669693+00:00",
+      "vault_exported_at": "2026-04-15T11:52:54.209027+00:00"
+    },
+    "errors": []
+  },
+  "9e3a85506c46": {
+    "doc_id": "9e3a85506c46",
+    "file_name": "Option Volatility and Pricing.pdf",
+    "book_title": "Option Volatility and Pricing: Advanced Trading Strategies and Techniques, 2nd Edition",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": false,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 4058,
+      "poor_quality_pages": 432,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 1547,
+      "chunk_count_summary": 522,
+      "card_count": 93,
+      "card_errors": 0,
+      "vision_pages": 522,
+      "card_error_count": 0
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:05:58.640989+00:00",
+      "chunked_at": "2026-04-14T16:17:33.557050+00:00",
+      "cards_generated_at": "2026-04-15T13:57:21.772299Z",
+      "indexed_at": "2026-04-15T13:57:43.374982+00:00",
+      "study_notes_generated_at": "2026-04-15T14:04:28.609877Z",
+      "vault_exported_at": "2026-04-15T14:04:28.610007Z"
+    },
+    "errors": []
+  },
+  "ddc2a298cd88": {
+    "doc_id": "ddc2a298cd88",
+    "file_name": "Option-Market-Making-Trading-and-Risk-Analysis-for-the-Baird-Allen-Jan-WeLib-org.pdf",
+    "book_title": "Option Market Making Trading And Risk Analysis For The Baird Allen Jan Welib Org",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": false,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 205,
+      "poor_quality_pages": 120,
+      "extraction_quality": "poor",
+      "chunk_count_retrieval": 236,
+      "chunk_count_summary": 96,
+      "card_count": 88,
+      "card_errors": 0,
+      "vision_pages": 92
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:06:01.074977+00:00",
+      "chunked_at": "2026-04-15T05:31:43.156822+00:00",
+      "cards_generated_at": "2026-04-15T05:56:02.727747+00:00",
+      "indexed_at": "2026-04-15T06:05:54.859645+00:00",
+      "study_notes_generated_at": "2026-04-15T07:00:00.000000+00:00",
+      "vault_exported_at": "2026-04-15T06:17:58.137135+00:00"
+    },
+    "errors": []
+  },
+  "1c32b3c0d846": {
+    "doc_id": "1c32b3c0d846",
+    "file_name": "Volatility Trading, + Website-Wiley (2013).pdf",
+    "book_title": "Volatility Trading, + Website Wiley (2013)",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": false,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 298,
+      "poor_quality_pages": 8,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 751,
+      "chunk_count_summary": 312,
+      "card_count": 76,
+      "card_errors": 0,
+      "vision_pages": 123
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:06:02.273855+00:00",
+      "chunked_at": "2026-04-14T16:17:33.471635+00:00",
+      "cards_generated_at": null,
+      "indexed_at": "2026-04-15T14:40:06.964472+00:00",
+      "study_notes_generated_at": null,
+      "vault_exported_at": "2026-04-15T15:31:48.577576+00:00",
+      "cards_generated": "2026-04-15T14:39:44.046844Z",
+      "study_notes_generated": "2026-04-15T15:31:55.789301Z",
+      "vault_exported": "2026-04-15T15:31:55.789301Z"
+    },
+    "errors": []
+  },
+  "a24baf7c9499": {
+    "doc_id": "a24baf7c9499",
+    "file_name": "_OceanofPDF.com_Positional_Option_Trading_An_Advanced_Guide_-_Euan_Sinclair.pdf",
+    "book_title": "Positional Option Trading (Wiley Trading)",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": false,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 287,
+      "poor_quality_pages": 5,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 590,
+      "chunk_count_summary": 166,
+      "card_count": 51,
+      "card_errors": 0,
+      "vision_pages": 143
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:06:03.512799+00:00",
+      "chunked_at": "2026-04-15T07:40:51.470652+00:00",
+      "cards_generated_at": "2026-04-15T07:00:00.098610+00:00",
+      "indexed_at": "2026-04-15T07:50:00.934357+00:00",
+      "study_notes_generated_at": "2026-04-15T09:17:32.059940Z",
+      "vault_exported_at": "2026-04-15T09:17:43.212486+00:00"
+    },
+    "errors": []
+  },
+  "c813cdf45b1e": {
+    "doc_id": "c813cdf45b1e",
+    "file_name": "trading-and-exchanges-market-microstructure-for-practitioners-financial-management-association-survey-and-synthesis-0195144708-9780195144703.pdf",
+    "book_title": "Trading And Exchanges Market Microstructure For Practitioners Financial Management Association Survey And Synthesis 0195144708 9780195144703",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": false,
+      "indexed": false,
+      "study_notes_generated": false,
+      "hypotheses_generated": false,
+      "vault_exported": false
+    },
+    "stats": {
+      "total_pages": 656,
+      "poor_quality_pages": 656,
+      "extraction_quality": "poor",
+      "chunk_count_retrieval": 0,
+      "chunk_count_summary": 0,
+      "card_count": 0,
+      "card_errors": 0,
+      "vision_pages": 656
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:06:18.606423+00:00",
+      "chunked_at": "2026-04-14T16:17:33.600302+00:00",
+      "cards_generated_at": null,
+      "indexed_at": null,
+      "study_notes_generated_at": null,
+      "vault_exported_at": null
+    },
+    "errors": []
+  },
+  "230dde96f8a4": {
+    "doc_id": "230dde96f8a4",
+    "file_name": "trading-options-greeks-how-time-volatility-and-other-pricing-factors-drive-profits-2nbsped-9781118133163-9781118225127-9781118263228-9781118238615-2012019462_compress.pdf",
+    "book_title": "Trading Option Greeks 2e",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": false,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 345,
+      "poor_quality_pages": 5,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 894,
+      "chunk_count_summary": 258,
+      "card_count": 107,
+      "card_errors": 0,
+      "vision_pages": 133
+    },
+    "timestamps": {
+      "extracted_at": "2026-04-15T10:06:19.630523+00:00",
+      "chunked_at": "2026-04-15T10:19:32.308417+00:00",
+      "cards_generated_at": null,
+      "indexed_at": "2026-04-15T11:16:23.428554+00:00",
+      "study_notes_generated_at": "2026-04-15T11:25:54.957908+00:00",
+      "vault_exported_at": "2026-04-15T11:25:58.297865+00:00",
+      "cards_generated": "2026-04-15T11:15:41.487175+00:00"
+    },
+    "errors": []
+  }
+}

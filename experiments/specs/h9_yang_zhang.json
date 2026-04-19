@@ -1,0 +1,17 @@
+{
+  "hypothesis_number": "H9",
+  "title": "Yang-Zhang Outperforms Close-to-Close HV",
+  "universe": ["QQQ"],
+  "dte_buckets": null,
+  "contract_selection": null,
+  "call_put_filter": null,
+  "data_requirements": ["eod_prices"],
+  "entry_rule": "always_on",
+  "exit_rule": "n_a",
+  "metric_name": "rmse_ratio_yz_vs_cc",
+  "support_threshold": 0.99,
+  "reject_threshold": 1.01,
+  "test_type": "direct_test",
+  "cost_model": null,
+  "notes": "Pure math test on daily OHLCV. Compares Yang-Zhang HV vs close-to-close HV estimator accuracy against 20-day forward realized vol. No options data needed. No DTE scope applies. Verdict: SUPPORTED if YZ RMSE < CC RMSE by more than 1% (ratio < 0.99), REJECTED if ratio > 1.01, INCONCLUSIVE otherwise."
+}
