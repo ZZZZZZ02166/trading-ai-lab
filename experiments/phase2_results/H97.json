@@ -1,0 +1,89 @@
+{
+  "hypothesis_number": "H97",
+  "hypothesis_title": "IV Velocity (5-Day Pct Change) \u2192 Next-Session Range",
+  "classification": "hybrid",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "diff=0.0068 > 0.003, p=0.0000 < 0.1, consistent",
+  "n_rising": 125,
+  "n_falling": 123,
+  "intraday_windows": {
+    "range_30m": {
+      "n_a": 125,
+      "n_b": 123,
+      "stat": 11223.0,
+      "p": 1.943031888404636e-10,
+      "cliff_d": 0.45990243902439026,
+      "median_a": 0.0068555343684735814,
+      "median_b": 0.0048857724496720765,
+      "diff": 0.001969761918801505
+    },
+    "range_60m": {
+      "n_a": 125,
+      "n_b": 123,
+      "stat": 11577.0,
+      "p": 2.8837876506762307e-12,
+      "cliff_d": 0.5059512195121951,
+      "median_a": 0.00889708897088982,
+      "median_b": 0.0062352093836813925,
+      "diff": 0.0026618795872084284
+    },
+    "range_session": {
+      "n_a": 125,
+      "n_b": 123,
+      "stat": 11552.0,
+      "p": 3.931717367584895e-12,
+      "cliff_d": 0.5026991869918699,
+      "median_a": 0.016754148772599575,
+      "median_b": 0.00990505376638313,
+      "diff": 0.006849095006216445
+    }
+  },
+  "walk_forward_session": {
+    "splits": {
+      "full": {
+        "n_a": 125,
+        "n_b": 123,
+        "stat": 11552.0,
+        "p": 3.931717367584895e-12,
+        "cliff_d": 0.5026991869918699,
+        "median_a": 0.016754148772599575,
+        "median_b": 0.00990505376638313,
+        "diff": 0.006849095006216445
+      },
+      "train": {
+        "n_a": 49,
+        "n_b": 54,
+        "stat": 1921.0,
+        "p": 3.979433347700138e-05,
+        "cliff_d": 0.4520030234315949,
+        "median_a": 0.013492282541771854,
+        "median_b": 0.009554752449186743,
+        "diff": 0.003937530092585111
+      },
+      "val": {
+        "n_a": 62,
+        "n_b": 63,
+        "stat": 3049.0,
+        "p": 3.161259191650232e-08,
+        "cliff_d": 0.5611879160266257,
+        "median_a": 0.018909082648327885,
+        "median_b": 0.010124498405185634,
+        "diff": 0.008784584243142251
+      },
+      "holdout": {
+        "n_a": 14,
+        "n_b": 6,
+        "stat": 52.0,
+        "p": 0.22208462332301343,
+        "cliff_d": 0.23809523809523808,
+        "median_a": 0.017457253579256794,
+        "median_b": 0.014590457866653542,
+        "diff": 0.0028667957126032526
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "phase1_alignment": "confirmed",
+  "notes": "Phase 1 used EOD daily range. Phase 2 validates velocity signal vs 1m intraday range windows."
+}

@@ -1,0 +1,76 @@
+{
+  "hypothesis_number": "H53",
+  "hypothesis_title": "Pattern 4 (IV Rising, RV Flat) \u2192 Next-Session Range Expansion",
+  "classification": "hybrid",
+  "phase2_verdict": "inconclusive",
+  "phase2_verdict_reason": "diff=0.0008, p=0.1551, inconsistent",
+  "n_pattern4_days": 111,
+  "full_session": {
+    "n_a": 111,
+    "n_b": 451,
+    "stat": 26586.0,
+    "p": 0.1551359030404404,
+    "cliff_d": 0.06214418409540361,
+    "median_a": 0.012252591894439115,
+    "median_b": 0.011451756631211656,
+    "diff": 0.0008008352632274587
+  },
+  "full_60m": {
+    "n_a": 111,
+    "n_b": 451,
+    "stat": 25152.0,
+    "p": 0.4685347576915231,
+    "cliff_d": 0.004854078024809732,
+    "median_a": 0.007111730869792447,
+    "median_b": 0.007134579991365764,
+    "diff": -2.284912157331665e-05
+  },
+  "walk_forward_session": {
+    "splits": {
+      "full": {
+        "n_a": 111,
+        "n_b": 451,
+        "stat": 26586.0,
+        "p": 0.1551359030404404,
+        "cliff_d": 0.06214418409540361,
+        "median_a": 0.012252591894439115,
+        "median_b": 0.011451756631211656,
+        "diff": 0.0008008352632274587
+      },
+      "train": {
+        "n_a": 54,
+        "n_b": 198,
+        "stat": 6110.0,
+        "p": 0.05390790578829332,
+        "cliff_d": 0.1429105873550318,
+        "median_a": 0.01232317008109144,
+        "median_b": 0.010999040884841615,
+        "diff": 0.0013241291962498257
+      },
+      "val": {
+        "n_a": 43,
+        "n_b": 207,
+        "stat": 4485.0,
+        "p": 0.468596785681204,
+        "cliff_d": 0.007751937984496124,
+        "median_a": 0.011360080659180339,
+        "median_b": 0.011633534184181803,
+        "diff": -0.00027345352500146407
+      },
+      "holdout": {
+        "n_a": 14,
+        "n_b": 46,
+        "stat": 304.0,
+        "p": 0.6267797272655702,
+        "cliff_d": -0.055900621118012424,
+        "median_a": 0.012968753432935572,
+        "median_b": 0.014870090507170603,
+        "diff": -0.0019013370742350308
+      }
+    },
+    "consistency": "inconsistent",
+    "n_positive_splits": 1
+  },
+  "phase1_alignment": "partial",
+  "notes": "Pattern 4 (Passarelli): iv rising while rv flat signals hidden demand for vol. Phase 2 tests against actual intraday 1m range."
+}

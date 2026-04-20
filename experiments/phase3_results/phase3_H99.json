@@ -1,0 +1,81 @@
+{
+  "hypothesis_number": "H99",
+  "signal_strength_tier": "core-fragile",
+  "tier_rationale": "Phase 2 rho=0.304; caution overlay interpretation, not directional",
+  "role": "premarket_framing_caution_overlay",
+  "signal_availability": "pre_open",
+  "signal": "rolling 60d rank of (ask-bid)/close (continuous [0,1])",
+  "primary_outcome": "w150_range",
+  "outcome_type": "liquidity_premium_caution",
+  "h99_interpretation_note": "Primary interpretation: CAUTION OVERLAY. High spread_pct_rank (>0.75) flags liquidity-constrained days. Directional interpretation (w150_return) is SECONDARY and only reported if range effect is clearly established first. Do not default to direction framing.",
+  "n_total": 543,
+  "n_caution_days": 136,
+  "caution_days_pct": 0.25,
+  "primary_spearman_range": {
+    "rho": 0.3003035589781326,
+    "p_nw": 3.7472087323111204e-08,
+    "n": 543
+  },
+  "secondary_spearman_direction": {
+    "rho": -0.01373582147772158,
+    "p_nw": 0.7423818735860396,
+    "n": 543
+  },
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.3003035589781326,
+        "p_nw": 3.7472087323111204e-08,
+        "n": 543
+      },
+      "train": {
+        "rho": 0.1582044362472608,
+        "p_nw": 0.06399206835114017,
+        "n": 232
+      },
+      "val": {
+        "rho": 0.40254777023703703,
+        "p_nw": 9.312549691275437e-08,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.34043467080129175,
+        "p_nw": 0.0013393912863668086,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "window_rhos": {
+    "w30": {
+      "rho": 0.3380717325725044,
+      "p_nw": 1.0977522016257685e-11,
+      "n": 543
+    },
+    "w60": {
+      "rho": 0.31622119818914485,
+      "p_nw": 8.897996431113552e-10,
+      "n": 543
+    },
+    "w120": {
+      "rho": 0.303870647101541,
+      "p_nw": 1.5522792567301335e-08,
+      "n": 543
+    },
+    "w150": {
+      "rho": 0.3003035589781326,
+      "p_nw": 3.7472087323111204e-08,
+      "n": 543
+    },
+    "w210": {
+      "rho": 0.3101507719520799,
+      "p_nw": 1.007899834430697e-08,
+      "n": 543
+    }
+  },
+  "peak_window": "w30",
+  "early_enough_for_style": true,
+  "phase3_verdict": "supported_trading_useful",
+  "verdict_reason": "rho_range=0.300, p_nw=0.0000, peak=w30, sign_ok=True"
+}

@@ -1,0 +1,97 @@
+{
+  "hypothesis_number": "H44",
+  "hypothesis_title": "IV Term Structure Backwardation \u2192 Next-Session Intraday Range",
+  "classification": "hybrid",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "diff=0.0058 > 0.003, p=0.0000 < 0.1, consistent",
+  "intraday_windows": {
+    "range_30m": {
+      "n_a": 188,
+      "n_b": 374,
+      "stat": 54068.0,
+      "p": 1.0891877273981347e-25,
+      "cliff_d": 0.5379451587211287,
+      "median_a": 0.007067242754881641,
+      "median_b": 0.004526122903144061,
+      "diff": 0.0025411198517375803
+    },
+    "range_60m": {
+      "n_a": 188,
+      "n_b": 374,
+      "stat": 53711.0,
+      "p": 8.427092565535006e-25,
+      "cliff_d": 0.5277904198429856,
+      "median_a": 0.008807373477427268,
+      "median_b": 0.005932646485828219,
+      "diff": 0.0028747269915990487
+    },
+    "range_120m": {
+      "n_a": 188,
+      "n_b": 374,
+      "stat": 53994.0,
+      "p": 1.6697653730757351e-25,
+      "cliff_d": 0.5358402548640346,
+      "median_a": 0.011370997585487935,
+      "median_b": 0.007434633855786847,
+      "diff": 0.003936363729701088
+    },
+    "range_session": {
+      "n_a": 188,
+      "n_b": 374,
+      "stat": 54515.0,
+      "p": 7.962812924894895e-27,
+      "cliff_d": 0.5506599158038458,
+      "median_a": 0.01619897328946395,
+      "median_b": 0.010356992535767964,
+      "diff": 0.005841980753695988
+    }
+  },
+  "walk_forward_range_session": {
+    "splits": {
+      "full": {
+        "n_a": 188,
+        "n_b": 374,
+        "stat": 54515.0,
+        "p": 7.962812924894895e-27,
+        "cliff_d": 0.5506599158038458,
+        "median_a": 0.01619897328946395,
+        "median_b": 0.010356992535767964,
+        "diff": 0.005841980753695988
+      },
+      "train": {
+        "n_a": 71,
+        "n_b": 181,
+        "stat": 8743.0,
+        "p": 4.267382306931177e-06,
+        "cliff_d": 0.36067232122013854,
+        "median_a": 0.0134907251264755,
+        "median_b": 0.010745466756212282,
+        "diff": 0.002745258370263218
+      },
+      "val": {
+        "n_a": 84,
+        "n_b": 166,
+        "stat": 11990.0,
+        "p": 7.66535595801261e-21,
+        "cliff_d": 0.7197360872059667,
+        "median_a": 0.018909082648327885,
+        "median_b": 0.009612450246580107,
+        "diff": 0.009296632401747778
+      },
+      "holdout": {
+        "n_a": 33,
+        "n_b": 27,
+        "stat": 627.0,
+        "p": 0.0035783636743825487,
+        "cliff_d": 0.4074074074074074,
+        "median_a": 0.015956926089084635,
+        "median_b": 0.010758213173191249,
+        "diff": 0.005198712915893387
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "phase1_alignment": "confirmed",
+  "notes": "Phase 1 used daily_series EOD range. Phase 2 validates against 1m intraday range windows."
+}

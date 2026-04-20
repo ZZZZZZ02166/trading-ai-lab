@@ -1,0 +1,53 @@
+{
+  "hypothesis_number": "H24",
+  "hypothesis_title": "Late-Session (15:30-16:00) RV Predicts Next-Day Overnight Gap",
+  "classification": "intraday_primary",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "rho_late=0.328 > 0.10, p=0.0000; rho_fd=0.351",
+  "late_rv_spearman_wf": {
+    "full": {
+      "rho": 0.3279569483333223,
+      "p_nw": 2.091424833870168e-18,
+      "n": 556
+    },
+    "train": {
+      "rho": 0.24901127089001163,
+      "p_nw": 8.103788711788739e-06,
+      "n": 249
+    },
+    "val": {
+      "rho": 0.41977689791263845,
+      "p_nw": 4.03857366310903e-17,
+      "n": 247
+    },
+    "holdout": {
+      "rho": 0.14798555154209506,
+      "p_nw": 0.30068501236284806,
+      "n": 60
+    }
+  },
+  "fd_rv_spearman_wf": {
+    "full": {
+      "rho": 0.3513698182606447,
+      "p_nw": 1.472673989572967e-21,
+      "n": 562
+    },
+    "train": {
+      "rho": 0.27533007439468554,
+      "p_nw": 3.446398878825938e-07,
+      "n": 252
+    },
+    "val": {
+      "rho": 0.40207862525800414,
+      "p_nw": 2.1812177644286932e-14,
+      "n": 250
+    },
+    "holdout": {
+      "rho": 0.21261461517088084,
+      "p_nw": 0.1026473156792006,
+      "n": 60
+    }
+  },
+  "phase1_alignment": "extends",
+  "notes": "Phase 1 used full-day OHLC range as proxy. Phase 2 uses actual 1m last-30-min RV and 1m gap."
+}

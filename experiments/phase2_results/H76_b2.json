@@ -1,0 +1,133 @@
+{
+  "hypothesis_number": "H76",
+  "hypothesis_title": "Gap Days in Backwardation Fill More Frequently Than in Contango",
+  "classification": "hybrid",
+  "phase2_verdict": "inconclusive",
+  "phase2_verdict_reason": "fill_diff=0.006, p_boot=0.9985, p_fisher=0.5168, mixed",
+  "n_total_gap_days": 222,
+  "n_backwardation": 103,
+  "n_contango": 119,
+  "fill_by_close": {
+    "fill_rate_backw": 0.3592,
+    "fill_rate_cont": 0.3529,
+    "diff": 0.0063,
+    "p_fisher": 0.5168,
+    "p_bootstrap": 0.9985,
+    "ci_95_boot": [
+      0.0,
+      0.0
+    ]
+  },
+  "fill_by_1130": {
+    "fill_rate_backw": 0.2233,
+    "fill_rate_cont": 0.1849,
+    "diff": 0.0384
+  },
+  "time_to_fill_mw": {
+    "n_a": 37,
+    "n_b": 42,
+    "stat": 656.5,
+    "p": 0.1191829514694564,
+    "cliff_d": -0.15508365508365507,
+    "median_a": 73.0,
+    "median_b": 91.5,
+    "diff": -18.5
+  },
+  "first_2h_range_mw": {
+    "n_a": 103,
+    "n_b": 119,
+    "stat": 8849.0,
+    "p": 6.017980349184725e-09,
+    "cliff_d": 0.44390960267602186,
+    "median_a": 0.011771,
+    "median_b": 0.00866,
+    "diff": 0.003111000000000001
+  },
+  "segmentation_direction_x_regime": {
+    "up_backwardation": {
+      "n": 60,
+      "fill_rate_close": 0.35,
+      "fill_rate_1130": 0.21666666666666667
+    },
+    "up_contango": {
+      "n": 72,
+      "fill_rate_close": 0.375,
+      "fill_rate_1130": 0.2222222222222222
+    },
+    "down_backwardation": {
+      "n": 43,
+      "fill_rate_close": 0.37209302325581395,
+      "fill_rate_1130": 0.23255813953488372
+    },
+    "down_contango": {
+      "n": 47,
+      "fill_rate_close": 0.3191489361702128,
+      "fill_rate_1130": 0.1276595744680851
+    }
+  },
+  "gap_size_control": {
+    "small": {
+      "n_backw": 55,
+      "n_cont": 81,
+      "fill_rate_backw": 0.4909090909090909,
+      "fill_rate_cont": 0.41975308641975306,
+      "fill_diff": 0.07115600448933784
+    },
+    "medium": {
+      "n_backw": 37,
+      "n_cont": 36,
+      "fill_rate_backw": 0.1891891891891892,
+      "fill_rate_cont": 0.2222222222222222,
+      "fill_diff": -0.03303303303303301
+    },
+    "large": {
+      "n_backw": 11,
+      "n_cont": 2,
+      "fill_diff": null,
+      "note": "n<5 flagged"
+    }
+  },
+  "walk_forward_fill_diff": {
+    "full": {
+      "n_backw": 103,
+      "n_cont": 119,
+      "fill_rate_backw": 0.3592233009708738,
+      "fill_rate_cont": 0.35294117647058826,
+      "fill_diff": 0.006282124500285535
+    },
+    "train": {
+      "n_backw": 35,
+      "n_cont": 53,
+      "fill_rate_backw": 0.34285714285714286,
+      "fill_rate_cont": 0.33962264150943394,
+      "fill_diff": 0.003234501347708918
+    },
+    "val": {
+      "n_backw": 50,
+      "n_cont": 51,
+      "fill_rate_backw": 0.38,
+      "fill_rate_cont": 0.37254901960784315,
+      "fill_diff": 0.0074509803921568585
+    },
+    "holdout": {
+      "n_backw": 18,
+      "n_cont": 15,
+      "fill_rate_backw": 0.3333333333333333,
+      "fill_rate_cont": 0.3333333333333333,
+      "fill_diff": 0.0
+    }
+  },
+  "walk_forward_consistency": "mixed",
+  "n_positive_splits": 2,
+  "phase1_vs_phase2_comparison": {
+    "phase1_fill_rate_backw": 0.404,
+    "phase1_fill_rate_cont": 0.272,
+    "phase1_diff": 0.132,
+    "phase2_fill_rate_backw": 0.3592,
+    "phase2_fill_rate_cont": 0.3529,
+    "phase2_diff": 0.0063,
+    "definition_change": "Phase 1 used dist_to_prev < dist_to_open (EOD proxy). Phase 2 uses 1m touch/cross of prior session close."
+  },
+  "phase1_alignment": "weakened",
+  "notes": "Fill defined as: for gap-up, any 1m bar low \u2264 prev_session_last_1m_close; for gap-down, any high \u2265 prev_close."
+}

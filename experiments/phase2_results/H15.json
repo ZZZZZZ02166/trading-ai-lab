@@ -1,0 +1,46 @@
+{
+  "hypothesis_number": "H15",
+  "hypothesis_title": "First-Hour Realised Vol Predicts Full-Day Realised Vol With Positive Bias",
+  "classification": "intraday_primary",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "mean_bias=0.0590 > 0.02, p_wilcoxon=0.0000",
+  "bias_walk_forward": {
+    "full": {
+      "n": 563,
+      "mean_bias": 0.058964624754827555,
+      "median_bias": 0.053555641466042844,
+      "pct_positive": 0.9591474245115453,
+      "p_wilcoxon": 1.4075747190448219e-84
+    },
+    "train": {
+      "n": 252,
+      "mean_bias": 0.052558621514119525,
+      "median_bias": 0.04838621928723294,
+      "pct_positive": 0.9603174603174603,
+      "p_wilcoxon": 3.729304783373825e-40
+    },
+    "val": {
+      "n": 250,
+      "mean_bias": 0.059273175040617375,
+      "median_bias": 0.05318660172841346,
+      "pct_positive": 0.948,
+      "p_wilcoxon": 1.842167579380319e-36
+    },
+    "holdout": {
+      "n": 61,
+      "mean_bias": 0.08416421893861394,
+      "median_bias": 0.07735394403877849,
+      "pct_positive": 1.0,
+      "p_wilcoxon": 5.555823681751392e-12
+    }
+  },
+  "conditional_fh_exceeds_iv": {
+    "n": 170,
+    "mean_bias": 0.10089970992239806,
+    "median_bias": 0.093663635820022,
+    "pct_positive": 0.9941176470588236,
+    "p_wilcoxon": 9.072974225471851e-29
+  },
+  "phase1_alignment": "extends",
+  "notes": "Phase 1 tested vol clustering (supported). Phase 2 tests the bias claim directly from 1m data."
+}

@@ -1,0 +1,55 @@
+{
+  "hypothesis_number": "H15",
+  "signal_strength_tier": "core-strong",
+  "tier_rationale": "Phase 2 rho=0.618 all-dates, rho=0.508 high-cov; consistent splits",
+  "role": "intraday_confirmation",
+  "signal_availability": "10:30_ET",
+  "signal": "fh_rv = annualized realized vol from 1m bars 09:30-10:29 (60 bars)",
+  "primary_outcome": "aw_range (10:30-11:59, core 1.5h)",
+  "secondary_outcome": "aw_ext_range (10:30-12:59, extended 2.5h \u2014 reference only)",
+  "outcome_type": "range_left_move_done",
+  "n_total": 563,
+  "primary_spearman_aw_core": {
+    "rho": 0.6960281706468971,
+    "p_nw": 5.4168332215644595e-132,
+    "n": 563
+  },
+  "walk_forward_spearman_aw_core": {
+    "splits": {
+      "full": {
+        "rho": 0.6960281706468971,
+        "p_nw": 5.4168332215644595e-132,
+        "n": 563
+      },
+      "train": {
+        "rho": 0.6380021041375624,
+        "p_nw": 8.214460451334826e-39,
+        "n": 252
+      },
+      "val": {
+        "rho": 0.7338223011568185,
+        "p_nw": 6.24977310108087e-67,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.5582760444209411,
+        "p_nw": 2.6189925400911925e-13,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "secondary_spearman_aw_extended": {
+    "rho": 0.6921359858011676,
+    "p_nw": 1.493487780719441e-129,
+    "n": 563
+  },
+  "secondary_spearman_range_left_pct": {
+    "rho": -0.06220888422105299,
+    "p_nw": 0.13823654930397034,
+    "n": 563
+  },
+  "phase3_verdict": "supported_trading_useful",
+  "verdict_reason": "rho_aw_core=0.696, p_nw=0.0000, sign_ok=True"
+}

@@ -1,0 +1,136 @@
+{
+  "hypothesis_number": "H99",
+  "hypothesis_title": "EOD Bid-Ask Spread Percentile \u2192 Next-Session Range",
+  "classification": "hybrid",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "rho=0.304, p_nw=0.0000, partial_p_vs_iv30=0.0230, consistent",
+  "CONTAMINATION_WARNING": "Phase 1 used hv_20_cc.shift(-1) which incorporates returns from days t-18 to t+1. Phase 1 SUPPORTED verdict is almost certainly a false positive due to regime smoothing. Phase 2 uses next_day_range = (high-low)/close shift(-1) as the clean outcome. A REJECTED verdict here is expected and informative, not a design failure.",
+  "contamination_side_by_side": {
+    "phase1_outcome_hv20_shift1": {
+      "outcome_description": "hv_20_cc.shift(-1) \u2014 20-day smoothed HV, incorporates returns t-18..t+1 (CONTAMINATED)",
+      "spearman": {
+        "rho": 0.3201631574394661,
+        "p_nw": 5.855873022292781e-07,
+        "n": 545
+      }
+    },
+    "phase2_outcome_next_day_range": {
+      "outcome_description": "next_day_range = (high-low)/close shift(-1) \u2014 clean next-session observation",
+      "spearman": {
+        "rho": 0.3040941360293615,
+        "p_nw": 3.4453553949055604e-09,
+        "n": 544
+      }
+    }
+  },
+  "primary_spearman_wf": {
+    "splits": {
+      "full": {
+        "rho": 0.3040941360293615,
+        "p_nw": 3.4453553949055604e-09,
+        "n": 544
+      },
+      "train": {
+        "rho": 0.18210363761673856,
+        "p_nw": 0.0246906547704419,
+        "n": 233
+      },
+      "val": {
+        "rho": 0.39134353182118764,
+        "p_nw": 2.0901731234210972e-07,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.3961679155955293,
+        "p_nw": 0.00025303593156890305,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "binary_mw_top_vs_bottom_20pct": {
+    "splits": {
+      "full": {
+        "n_a": 112,
+        "n_b": 198,
+        "stat": 15896.0,
+        "p": 1.1381125210588882e-10,
+        "cliff_d": 0.43362193362193363,
+        "median_a": 0.014362612950447438,
+        "median_b": 0.010140732270364893,
+        "diff": 0.004221880680082545
+      },
+      "train": {
+        "n_a": 53,
+        "n_b": 92,
+        "stat": 2951.0,
+        "p": 0.017682783647753327,
+        "cliff_d": 0.21041837571780148,
+        "median_a": 0.013054997649673121,
+        "median_b": 0.010867048506542697,
+        "diff": 0.002187949143130424
+      },
+      "val": {
+        "n_a": 39,
+        "n_b": 104,
+        "stat": 3206.0,
+        "p": 4.7171379389715496e-08,
+        "cliff_d": 0.5808678500986193,
+        "median_a": 0.017883829829630524,
+        "median_b": 0.009500375147748215,
+        "diff": 0.00838345468188231
+      },
+      "holdout": {
+        "n_a": 20,
+        "n_b": 2,
+        "stat": null,
+        "p": null,
+        "cliff_d": null,
+        "median_a": 0.015604784220520581,
+        "median_b": 0.008921611340030394,
+        "diff": null
+      }
+    },
+    "consistency": "mixed",
+    "n_positive_splits": 2
+  },
+  "intraday_expression": {
+    "next_30m": {
+      "rho": 0.33891644353410927,
+      "p_nw": 1.2265515283248316e-11,
+      "n": 543
+    },
+    "next_60m": {
+      "rho": 0.316959716670384,
+      "p_nw": 8.953213223772623e-10,
+      "n": 543
+    },
+    "next_120m": {
+      "rho": 0.3040142198025788,
+      "p_nw": 1.7054279489176715e-08,
+      "n": 543
+    }
+  },
+  "partial_spearman_vs_iv30d": {
+    "partial_rho": 0.09740137762938628,
+    "partial_p": 0.022963185489807237,
+    "n": 545,
+    "method": "residual_ols"
+  },
+  "partial_spearman_vs_prior_range": {
+    "partial_rho": 0.20531333210771963,
+    "partial_p": 1.3403809703889636e-06,
+    "n": 545,
+    "method": "residual_ols"
+  },
+  "multivariate_ols_hac": {
+    "r2": 0.44774768743829463,
+    "spread_rank_beta": 0.00029542614167665646,
+    "spread_rank_p": 0.796307604285636,
+    "iv30d_beta": 0.11061014165263491,
+    "prior_range_beta": 0.21486604309917876
+  },
+  "phase1_alignment": "confirmed",
+  "notes": "Primary outcome: next_day_range (clean). hv_5_cc_fwd omitted (shift alignment risk). hv_20_cc stored as phase1_proxy_contaminated reference only."
+}

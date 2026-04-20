@@ -1,0 +1,168 @@
+{
+  "hypothesis_number": "H70",
+  "hypothesis_title": "Big-Range Day Tends to Be Followed by Another Big-Range Day",
+  "classification": "eod_primary",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "rho=0.479, p_nw=0.0000, mixed, monotonic=True",
+  "n_mature_rows": 313,
+  "n_immature_rows": 192,
+  "n_train_mature": 0,
+  "burn_in_warning": true,
+  "transition_matrix_row_normalized": {
+    "1": {
+      "1": 0.462,
+      "2": 0.267,
+      "3": 0.159,
+      "4": 0.113,
+      "5": 0.032
+    },
+    "2": {
+      "1": 0.262,
+      "2": 0.233,
+      "3": 0.254,
+      "4": 0.145,
+      "5": 0.065
+    },
+    "3": {
+      "1": 0.108,
+      "2": 0.267,
+      "3": 0.238,
+      "4": 0.226,
+      "5": 0.161
+    },
+    "4": {
+      "1": 0.108,
+      "2": 0.167,
+      "3": 0.19,
+      "4": 0.29,
+      "5": 0.258
+    },
+    "5": {
+      "1": 0.062,
+      "2": 0.067,
+      "3": 0.159,
+      "4": 0.226,
+      "5": 0.484
+    }
+  },
+  "quintile_gradient": {
+    "Q1": {
+      "n": 65,
+      "median_next_range": 0.009077963688145086
+    },
+    "Q2": {
+      "n": 60,
+      "median_next_range": 0.011290263057069838
+    },
+    "Q3": {
+      "n": 63,
+      "median_next_range": 0.011938258063490534
+    },
+    "Q4": {
+      "n": 62,
+      "median_next_range": 0.014715753545683129
+    },
+    "Q5": {
+      "n": 62,
+      "median_next_range": 0.01936236723497862
+    }
+  },
+  "is_monotonic": true,
+  "continuous_spearman_wf": {
+    "splits": {
+      "full": {
+        "rho": 0.47864638071064197,
+        "p_nw": 1.8579356643566564e-14,
+        "n": 311
+      },
+      "train": {
+        "rho": null,
+        "p_nw": null,
+        "n": 0
+      },
+      "val": {
+        "rho": 0.5142755984611935,
+        "p_nw": 1.5996513545885805e-13,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.17709669440883158,
+        "p_nw": 0.05411575754575951,
+        "n": 61
+      }
+    },
+    "consistency": "mixed",
+    "n_positive_splits": 2
+  },
+  "binary_mw_q5_vs_rest_wf": {
+    "splits": {
+      "full": {
+        "n_a": 70,
+        "n_b": 493,
+        "stat": 26141.0,
+        "p": 1.5091727818521302e-12,
+        "cliff_d": 0.514981164879745,
+        "median_a": 0.01880880250006168,
+        "median_b": 0.011377980364656398,
+        "diff": 0.007430822135405281
+      },
+      "train": {
+        "n_a": 0,
+        "n_b": 252,
+        "stat": null,
+        "p": null,
+        "cliff_d": null,
+        "median_a": null,
+        "median_b": 0.011541841444822983,
+        "diff": null
+      },
+      "val": {
+        "n_a": 57,
+        "n_b": 193,
+        "stat": 8859.0,
+        "p": 1.2768223768054578e-12,
+        "cliff_d": 0.6105808562857922,
+        "median_a": 0.019483816374021537,
+        "median_b": 0.010632776003900767,
+        "diff": 0.00885104037012077
+      },
+      "holdout": {
+        "n_a": 13,
+        "n_b": 48,
+        "stat": 326.0,
+        "p": 0.40603416154567057,
+        "cliff_d": 0.04487179487179487,
+        "median_a": 0.015472779369627581,
+        "median_b": 0.014580302791709762,
+        "diff": 0.0008924765779178192
+      }
+    },
+    "consistency": "mixed",
+    "n_positive_splits": 2
+  },
+  "partial_spearman_vs_iv30d": {
+    "partial_rho": 0.11024142228234972,
+    "partial_p": 0.05173056743602853,
+    "n": 312,
+    "method": "residual_ols"
+  },
+  "intraday_expression": {
+    "next_30m": {
+      "rho": 0.45887279723022173,
+      "p_nw": 1.3822985223488919e-14,
+      "n": 310
+    },
+    "next_60m": {
+      "rho": 0.4884126003686219,
+      "p_nw": 1.2939357922923142e-17,
+      "n": 310
+    },
+    "next_120m": {
+      "rho": 0.4784969152086196,
+      "p_nw": 1.088741967873481e-16,
+      "n": 310
+    }
+  },
+  "phase1_alignment": "extends",
+  "notes": "Signal: prior_range_pct via daily_range.shift(1).rolling(252,min_periods=60).rank(pct=True). Mature flag requires 252 observations."
+}

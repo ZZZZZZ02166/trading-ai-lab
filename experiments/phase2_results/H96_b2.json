@@ -1,0 +1,152 @@
+{
+  "hypothesis_number": "H96",
+  "hypothesis_title": "Forward Vol Inversion (30\u219260d) Predicts Larger Multi-Session Range",
+  "classification": "eod_primary",
+  "phase2_verdict": "inconclusive",
+  "phase2_verdict_reason": "Redundancy gate failed: H96 REDUNDANT with H44: agreement_rate=100.0% \u2014 signals nearly identical in practice",
+  "n_inverted": 191,
+  "n_normal": 374,
+  "pct_inverted": 0.3380530973451327,
+  "h44_agreement_rate": 1.0,
+  "spearman_5d_wf": {
+    "splits": {
+      "full": {
+        "rho": -0.5385934175263861,
+        "p_nw": 4.061280522726929e-15,
+        "n": 560
+      },
+      "train": {
+        "rho": -0.2740965368715239,
+        "p_nw": 0.020524391716402,
+        "n": 252
+      },
+      "val": {
+        "rho": -0.714847789564633,
+        "p_nw": 3.4353721797797506e-26,
+        "n": 250
+      },
+      "holdout": {
+        "rho": -0.3428281398997201,
+        "p_nw": 0.0318374014577876,
+        "n": 58
+      }
+    },
+    "consistency": "inconsistent",
+    "n_positive_splits": 0
+  },
+  "spearman_1d_wf": {
+    "splits": {
+      "full": {
+        "rho": -0.5106315734120759,
+        "p_nw": 4.546870746669315e-25,
+        "n": 563
+      },
+      "train": {
+        "rho": -0.3072625740216248,
+        "p_nw": 2.947353247933267e-05,
+        "n": 252
+      },
+      "val": {
+        "rho": -0.670972783564537,
+        "p_nw": 9.5436247408075e-33,
+        "n": 250
+      },
+      "holdout": {
+        "rho": -0.44320465362242195,
+        "p_nw": 9.98333537361743e-06,
+        "n": 61
+      }
+    },
+    "consistency": "inconsistent",
+    "n_positive_splits": 0
+  },
+  "binary_mw_5d_wf": {
+    "splits": {
+      "full": {
+        "n_a": 186,
+        "n_b": 374,
+        "stat": 54109.0,
+        "p": 4.238821669570419e-27,
+        "cliff_d": 0.5556609740670462,
+        "median_a": 0.015714370647209555,
+        "median_b": 0.01144076178362892,
+        "diff": 0.004273608863580636
+      },
+      "train": {
+        "n_a": 71,
+        "n_b": 181,
+        "stat": 8501.0,
+        "p": 3.3542822600423676e-05,
+        "cliff_d": 0.32300988249941637,
+        "median_a": 0.013527588351349113,
+        "median_b": 0.011590499802348952,
+        "diff": 0.0019370885490001613
+      },
+      "val": {
+        "n_a": 84,
+        "n_b": 166,
+        "stat": 12143.0,
+        "p": 5.143270715462815e-22,
+        "cliff_d": 0.7416810097532989,
+        "median_a": 0.01735359984040209,
+        "median_b": 0.010326046552392245,
+        "diff": 0.007027553288009844
+      },
+      "holdout": {
+        "n_a": 31,
+        "n_b": 27,
+        "stat": 532.0,
+        "p": 0.03907770071162446,
+        "cliff_d": 0.2712066905615293,
+        "median_a": 0.01571094628746319,
+        "median_b": 0.013917422062126789,
+        "diff": 0.0017935242253364
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "quintile_gradient": {
+    "Q1": {
+      "n": 112,
+      "median_5d_range": 0.017109218531549196
+    },
+    "Q2": {
+      "n": 112,
+      "median_5d_range": 0.0146010928677081
+    },
+    "Q3": {
+      "n": 112,
+      "median_5d_range": 0.012146279781811155
+    },
+    "Q4": {
+      "n": 112,
+      "median_5d_range": 0.011416733758352064
+    },
+    "Q5": {
+      "n": 112,
+      "median_5d_range": 0.010192578171424644
+    }
+  },
+  "mandatory_h44_redundancy_test": {
+    "partial_spearman_h96_given_h44": {
+      "partial_rho": -0.0669476759473272,
+      "partial_p": 0.1135338764825805,
+      "n": 560,
+      "method": "residual_ols"
+    },
+    "nested_ols_hac": {
+      "model_A_r2": 0.2736483673223937,
+      "model_B_r2": 0.35321201631714405,
+      "h96_beta": 0.49179504957792686,
+      "h96_beta_tstat": 2.79783746925512,
+      "h96_beta_p": 0.005144599305757014,
+      "h44_beta_in_B": 1.0783873856948007
+    },
+    "direction_agreement_rate": 1.0,
+    "conclusion": "H96 REDUNDANT with H44: agreement_rate=100.0% \u2014 signals nearly identical in practice",
+    "passed_gate": false
+  },
+  "phase1_alignment": "subsumed_or_inconclusive",
+  "notes": "range_5d_fwd verified: rolling(5).mean().shift(-5) = mean(range[t+1..t+5]). H44 redundancy gate mandatory before verdict."
+}

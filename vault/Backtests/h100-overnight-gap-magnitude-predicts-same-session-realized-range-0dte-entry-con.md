@@ -88,3 +88,44 @@ CI: Not available (insufficient_extra_metrics)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-05. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** intraday_primary  
+**Phase 2 Verdict:** ⚠️ INCONCLUSIVE  
+**Reason:** diff=0.0039, p=0.0000 — 1m gap precision tested  
+**Phase 1 Alignment:** extends
+
+> Phase 1 used EOD open/prev_close (inconclusive, diff=0.0039 vs 0.004 threshold). Phase 2 uses 1m first_bar_open vs prev_session last_close for precision.
+
+### Walk Forward Session
+
+| Split | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| full | 0.0039 | 0.0000 | 0.375 | 222 | 74 |
+| train | 0.0032 | 0.0016 | 0.324 | 88 | 41 |
+| val | 0.0042 | 0.0001 | 0.459 | 101 | 27 |
+| holdout | 0.0033 | 0.2406 | 0.192 | 33 | 6 |
+**Consistency:** consistent (3/3 splits positive)
+
+### Intraday Window Breakdown
+
+| Window | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| range_30m | 0.0020 | 0.0000 | 0.457 | 222 | 74 |
+| range_60m | 0.0025 | 0.0000 | 0.430 | 222 | 74 |
+| range_session | 0.0039 | 0.0000 | 0.375 | 222 | 74 |
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ✅ SUPPORTED — Trading Useful
+**Signal Strength Tier:** exploratory
+**Role:** intraday_early_gap_at_open
+**Signal:** |open_0930 - prev_close| / prev_close (gap magnitude)
+**Primary Outcome:** gap_fill_30 (binary)
+**n:** 401
+**Verdict Reason:** fisher_p_two_sided=0.0000, n=401

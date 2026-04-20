@@ -1,0 +1,122 @@
+{
+  "hypothesis_number": "H48",
+  "hypothesis_title": "High First-Hour RV Predicts Larger Afternoon Session Range",
+  "classification": "intraday_primary",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "diff=0.0035 > 0.003, p=0.0000 < 0.1, consistent",
+  "full_afternoon": {
+    "n_a": 281,
+    "n_b": 282,
+    "stat": 60845.0,
+    "p": 1.9663559171299963e-28,
+    "cliff_d": 0.5356755256051084,
+    "median_a": 0.008536478042770386,
+    "median_b": 0.004997378154421651,
+    "diff": 0.0035390998883487353
+  },
+  "full_session": {
+    "n_a": 281,
+    "n_b": 282,
+    "stat": 66390.0,
+    "p": 4.769182841556462e-44,
+    "cliff_d": 0.6756265616718407,
+    "median_a": 0.015063164226990153,
+    "median_b": 0.009055262131569708,
+    "diff": 0.006007902095420445
+  },
+  "walk_forward_afternoon": {
+    "splits": {
+      "full": {
+        "n_a": 281,
+        "n_b": 282,
+        "stat": 60845.0,
+        "p": 1.9663559171299963e-28,
+        "cliff_d": 0.5356755256051084,
+        "median_a": 0.008536478042770386,
+        "median_b": 0.004997378154421651,
+        "diff": 0.0035390998883487353
+      },
+      "train": {
+        "n_a": 101,
+        "n_b": 151,
+        "stat": 10699.0,
+        "p": 2.9915233478195e-08,
+        "cliff_d": 0.40305553734181365,
+        "median_a": 0.008141454912393384,
+        "median_b": 0.005627618230454798,
+        "diff": 0.0025138366819385865
+      },
+      "val": {
+        "n_a": 130,
+        "n_b": 120,
+        "stat": 12712.0,
+        "p": 4.050153540883105e-18,
+        "cliff_d": 0.6297435897435898,
+        "median_a": 0.008906141657736788,
+        "median_b": 0.004246356769257166,
+        "diff": 0.004659784888479622
+      },
+      "holdout": {
+        "n_a": 50,
+        "n_b": 11,
+        "stat": 529.0,
+        "p": 9.900362610834194e-07,
+        "cliff_d": 0.9236363636363636,
+        "median_a": 0.008507229704651412,
+        "median_b": 0.0034054935567422303,
+        "diff": 0.005101736147909181
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "walk_forward_session": {
+    "splits": {
+      "full": {
+        "n_a": 281,
+        "n_b": 282,
+        "stat": 66390.0,
+        "p": 4.769182841556462e-44,
+        "cliff_d": 0.6756265616718407,
+        "median_a": 0.015063164226990153,
+        "median_b": 0.009055262131569708,
+        "diff": 0.006007902095420445
+      },
+      "train": {
+        "n_a": 101,
+        "n_b": 151,
+        "stat": 11406.0,
+        "p": 1.3132898899402535e-11,
+        "cliff_d": 0.4957707691298931,
+        "median_a": 0.013839551549249521,
+        "median_b": 0.010268544255817625,
+        "diff": 0.003571007293431896
+      },
+      "val": {
+        "n_a": 130,
+        "n_b": 120,
+        "stat": 14159.0,
+        "p": 4.416564793309395e-29,
+        "cliff_d": 0.8152564102564103,
+        "median_a": 0.016756478389150647,
+        "median_b": 0.008227813166350482,
+        "diff": 0.008528665222800165
+      },
+      "holdout": {
+        "n_a": 50,
+        "n_b": 11,
+        "stat": 514.0,
+        "p": 3.837407131974691e-06,
+        "cliff_d": 0.8690909090909091,
+        "median_a": 0.015568579254833164,
+        "median_b": 0.008601669171489777,
+        "diff": 0.0069669100833433875
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "fh_rv_median": 0.17475397153659958,
+  "phase1_alignment": "extends",
+  "notes": "Phase 1 stripped RP-Long conditioning. Phase 2 tests unconditional: high fh_rv \u2192 larger afternoon range."
+}

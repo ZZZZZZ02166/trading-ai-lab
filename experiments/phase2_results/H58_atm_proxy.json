@@ -1,0 +1,241 @@
+{
+  "hypothesis_number": "H58",
+  "proxy_label": "H58_atm_proxy",
+  "original_h58_status": "BLOCKED \u2014 full chain intraday volume unavailable (iVol 403 Forbidden); this is a proxy/feasibility study only",
+  "data_fidelity_label": "atm_chain_proxy",
+  "data_fidelity_warning": "Proxy coverage is highly variable: median=53.1%, CV=0.3499, min=2.2%. Some dates capture <5% of total chain flow. Results reflect near-ATM option flow only and cannot be generalized to full-chain PCR. This study is exploratory.",
+  "signal_timing": "optionVolume at 10:00 bar = cumulative first-30-min flow (09:30:00\u201309:59:59). Bar-start semantics confirmed (09:30 bar = 0). Outcome entry: Databento 1m open at 10:01 ET. Outcome exit: 15:59 close. 1-minute gap between signal finalization and outcome entry \u2014 no lookahead.",
+  "verdict_all_dates": "inconclusive",
+  "verdict_all_dates_reason": "rho=0.862, p_nw=0.0000, same_sign=False",
+  "verdict_high_coverage": "inconclusive",
+  "verdict_high_coverage_reason": "rho=0.825, p_nw=4.9e-136, n=171 \u2014 but ALL qualifying dates are in 2025. Train split (2024) has 0 dates. Cannot satisfy same_sign_train_val requirement.",
+  "final_verdict": "inconclusive",
+  "final_verdict_reason": "[high_coverage primary] rho=0.825 on 2025 data only \u2014 train split has 0 qualifying dates (chain intraday files for 2024 do not reach \u22654C + \u22654P per day threshold). Cannot validate temporal consistency across splits. The rho=0.86 likely reflects intraday momentum (option flow tracks first-30-min direction, which persists into the rest of day) rather than option flow leading price. INCONCLUSIVE.",
+  "diagnostics": {
+    "monotonicity_check": {
+      "n_files_checked": 189,
+      "n_files_with_resets": 1,
+      "pct_files_with_resets": 0.0053,
+      "n_dates_sampled": 20,
+      "n_dates_missing_10am_bar": 0,
+      "n_dates_missing_0955_fallback": 0,
+      "monotonicity_ok": true
+    },
+    "proxy_coverage": {
+      "n_dates_audited": 190,
+      "coverage_pct_min": 0.0223,
+      "coverage_pct_p25": 0.3887,
+      "coverage_pct_median": 0.5307,
+      "coverage_pct_p75": 0.6393,
+      "coverage_pct_max": 0.7269,
+      "coverage_pct_mean": 0.4939,
+      "coverage_pct_std": 0.1728,
+      "coverage_pct_cv": 0.3499,
+      "n_dates_below_10pct": 5,
+      "n_dates_below_20pct": 16
+    },
+    "n_qualifying_all": 187,
+    "n_qualifying_high_coverage": 171,
+    "high_coverage_threshold": 0.2,
+    "min_qualifying_for_primary_verdict": 80
+  },
+  "analysis_all_dates": {
+    "label": "all_dates",
+    "n": 187,
+    "n_call_heavy": 85,
+    "n_put_heavy": 50,
+    "continuous_spearman": {
+      "rho": 0.8617259844600472,
+      "p_nw": 1.3772040960785827e-206,
+      "n": 187
+    },
+    "hac_ols": {
+      "beta": 0.027994938861338886,
+      "p": 3.864260729622422e-09,
+      "r2": 0.4382890071554033,
+      "n": 187
+    },
+    "quintile_table": {
+      "Q1": {
+        "n": 38,
+        "median_rod": -0.008614717345262216,
+        "mean_rod": -0.011603775985181674
+      },
+      "Q2": {
+        "n": 37,
+        "median_rod": -0.0016553035269437377,
+        "mean_rod": -0.0015764739519441553
+      },
+      "Q3": {
+        "n": 37,
+        "median_rod": 0.0006890459363957356,
+        "mean_rod": 0.0008267986952752053
+      },
+      "Q4": {
+        "n": 37,
+        "median_rod": 0.00329995814687221,
+        "mean_rod": 0.0028606051510758146
+      },
+      "Q5": {
+        "n": 38,
+        "median_rod": 0.007893502909720098,
+        "mean_rod": 0.010769496663237557
+      }
+    },
+    "binary_mw": {
+      "n_a": 85,
+      "n_b": 50,
+      "stat": 4148.0,
+      "p": 3.100558681837735e-20,
+      "cliff_d": 0.952,
+      "median_a": 0.004721179520916259,
+      "median_b": -0.006352973385240089,
+      "diff": 0.011074152906156348,
+      "p_bootstrap": 0.0,
+      "ci_95_boot": [
+        0.009685505199478289,
+        0.013950122646166548
+      ],
+      "n_call_heavy": 85,
+      "n_put_heavy": 50
+    },
+    "sensitivity": {
+      "45/55": {
+        "n_call_heavy": 123,
+        "n_put_heavy": 85,
+        "median_ch": 0.0032854685657964277,
+        "median_ph": -0.004050131816405211,
+        "diff": 0.007335600382201639
+      },
+      "40/60": {
+        "n_call_heavy": 137,
+        "n_put_heavy": 102,
+        "median_ch": 0.0027711732393210474,
+        "median_ph": -0.0028230319813437686,
+        "diff": 0.005594205220664816
+      },
+      "35/65": {
+        "n_call_heavy": 143,
+        "n_put_heavy": 116,
+        "median_ch": 0.002558425584255753,
+        "median_ph": -0.0021403813507864084,
+        "diff": 0.004698806935042162
+      }
+    },
+    "walk_forward": {
+      "train": {
+        "rho": null,
+        "p_nw": null,
+        "n": 0,
+        "n_qualifying": 0
+      },
+      "val": {
+        "rho": 0.8617259844600472,
+        "p_nw": 1.3772040960785827e-206,
+        "n": 187,
+        "n_qualifying": 187
+      },
+      "same_sign_train_val": false
+    }
+  },
+  "analysis_high_coverage": {
+    "label": "high_coverage",
+    "n": 171,
+    "n_call_heavy": 83,
+    "n_put_heavy": 36,
+    "continuous_spearman": {
+      "rho": 0.8248998008015936,
+      "p_nw": 4.8605647099161475e-136,
+      "n": 171
+    },
+    "hac_ols": {
+      "beta": 0.018568978069859667,
+      "p": 6.583204838372721e-80,
+      "r2": 0.6658722337979137,
+      "n": 171
+    },
+    "quintile_table": {
+      "Q1": {
+        "n": 35,
+        "median_rod": -0.005310056373886087,
+        "mean_rod": -0.0052278774656079234
+      },
+      "Q2": {
+        "n": 34,
+        "median_rod": -0.0009192172220932747,
+        "mean_rod": -0.0006359521811503273
+      },
+      "Q3": {
+        "n": 34,
+        "median_rod": 0.0012946602045194465,
+        "mean_rod": 0.0011105243798286897
+      },
+      "Q4": {
+        "n": 34,
+        "median_rod": 0.003581937144474727,
+        "mean_rod": 0.0033963960424052545
+      },
+      "Q5": {
+        "n": 34,
+        "median_rod": 0.007628612003434234,
+        "mean_rod": 0.008137602516753887
+      }
+    },
+    "binary_mw": {
+      "n_a": 83,
+      "n_b": 36,
+      "stat": 2886.0,
+      "p": 8.283123888187344e-16,
+      "cliff_d": 0.9317269076305221,
+      "median_a": 0.004600607561151214,
+      "median_b": -0.005176310493868417,
+      "diff": 0.00977691805501963,
+      "p_bootstrap": 0.0,
+      "ci_95_boot": [
+        0.00818171665618374,
+        0.011364554811021844
+      ],
+      "n_call_heavy": 83,
+      "n_put_heavy": 36
+    },
+    "sensitivity": {
+      "45/55": {
+        "n_call_heavy": 121,
+        "n_put_heavy": 71,
+        "median_ch": 0.003176691729323411,
+        "median_ph": -0.002952941782409441,
+        "diff": 0.006129633511732852
+      },
+      "40/60": {
+        "n_call_heavy": 135,
+        "n_put_heavy": 88,
+        "median_ch": 0.002717623532226773,
+        "median_ph": -0.0019682468622465336,
+        "diff": 0.004685870394473306
+      },
+      "35/65": {
+        "n_call_heavy": 141,
+        "n_put_heavy": 102,
+        "median_ch": 0.0025499975943419433,
+        "median_ph": -0.0015463249841588303,
+        "diff": 0.004096322578500774
+      }
+    },
+    "walk_forward": {
+      "train": {
+        "rho": null,
+        "p_nw": null,
+        "n": 0,
+        "n_qualifying": 0
+      },
+      "val": {
+        "rho": 0.8248998008015936,
+        "p_nw": 4.8605647099161475e-136,
+        "n": 171,
+        "n_qualifying": 171
+      },
+      "same_sign_train_val": false
+    }
+  },
+  "interpretation_note": "The rho=0.86 is extraordinarily high for a financial signal. This almost certainly reflects intraday momentum: option flow in the first 30 min tracks the price direction of the first 30 min, and intraday momentum persists into the rest-of-day. This is not an option-flow-leads-price effect (H58 as designed) but a direction-continuation effect. To isolate true option-flow prediction, one would need to measure flow BEFORE the open or compare flow vs underlying direction divergences."
+}

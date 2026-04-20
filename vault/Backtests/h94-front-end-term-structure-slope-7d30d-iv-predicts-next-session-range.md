@@ -87,3 +87,63 @@ CI: Not available (insufficient_extra_metrics)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-05. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** hybrid  
+**Phase 2 Verdict:** ✅ SUPPORTED  
+**Reason:** diff=0.0042 > 0.003, p=0.0000 < 0.1, consistent  
+**Phase 1 Alignment:** confirmed
+
+> Phase 1 used EOD daily range. Phase 2 validates 7d/30d slope signal vs 1m intraday range windows.
+
+### Walk Forward Session
+
+| Split | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| full | 0.0042 | 0.0000 | 0.445 | 217 | 345 |
+| train | 0.0030 | 0.0000 | 0.416 | 93 | 159 |
+| val | 0.0077 | 0.0000 | 0.550 | 92 | 158 |
+| holdout | 0.0005 | 0.3807 | 0.047 | 32 | 28 |
+**Consistency:** consistent (3/3 splits positive)
+
+### Intraday Window Breakdown
+
+| Window | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| range_30m | 0.0021 | 0.0000 | 0.407 | 217 | 345 |
+| range_60m | 0.0025 | 0.0000 | 0.402 | 217 | 345 |
+| range_session | 0.0042 | 0.0000 | 0.445 | 217 | 345 |
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ⏰ TOO LATE FOR STYLE
+**Signal Strength Tier:** core-fragile
+**Role:** premarket_framing
+**Signal:** IVX_7d - IVX_30d (continuous); binary IVX_7d > IVX_30d
+**Primary Outcome:** w150_range
+**n:** 562
+**Verdict Reason:** rho=0.418, p_nw=0.0000, peak=w210, sign_ok=True
+
+| Split | rho | p_nw | n |
+|---|---|---|---|
+| full | 0.418 | 0.0000 | 562 |
+| train | 0.303 | 0.0001 | 251 |
+| val | 0.546 | 0.0000 | 250 |
+| holdout | 0.191 | 0.0640 | 61 |
+**Consistency:** consistent (3/3)
+
+**Effect by window (rho vs signal):**
+
+| Window | rho | p_nw |
+|---|---|---|
+| w30 | 0.375 | 0.0000 |
+| w60 | 0.400 | 0.0000 |
+| w120 | 0.417 | 0.0000 |
+| w150 | 0.418 | 0.0000 |
+| w210 | 0.434 | 0.0000 |
+**Peak window:** w210 | **Early enough for style:** False

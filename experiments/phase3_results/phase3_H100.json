@@ -1,0 +1,42 @@
+{
+  "hypothesis_number": "H100",
+  "signal_strength_tier": "exploratory",
+  "tier_rationale": "Phase 2 barely above threshold; expect weak result",
+  "role": "intraday_early_gap_at_open",
+  "signal_availability": "9:31_ET",
+  "signal": "|open_0930 - prev_close| / prev_close (gap magnitude)",
+  "primary_outcome": "gap_fill_30 (binary)",
+  "outcome_type": "fill_continuation",
+  "n_gap_days": 401,
+  "gap_magnitude_median": 0.005536250125409232,
+  "fisher_big_vs_small_gap_vs_fill_30": {
+    "table": [
+      [
+        8,
+        192
+      ],
+      [
+        57,
+        144
+      ]
+    ],
+    "p_two_sided": 9.408633391438628e-12,
+    "p_greater": 0.9999999999994543,
+    "p_less": 5.391397617402177e-12,
+    "rate_a": 0.04,
+    "rate_b": 0.2836,
+    "n_total": 401
+  },
+  "secondary_spearman_w30_range": {
+    "rho": 0.28458499274202553,
+    "p_nw": 2.13386662234191e-09,
+    "n": 401
+  },
+  "secondary_spearman_w120_range": {
+    "rho": 0.22748315777719882,
+    "p_nw": 1.8351312897250588e-05,
+    "n": 401
+  },
+  "phase3_verdict": "supported_trading_useful",
+  "verdict_reason": "fisher_p_two_sided=0.0000, n=401"
+}

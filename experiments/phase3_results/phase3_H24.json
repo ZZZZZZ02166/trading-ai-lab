@@ -1,0 +1,101 @@
+{
+  "hypothesis_number": "H24",
+  "signal_strength_tier": "core-fragile",
+  "tier_rationale": "Phase 2 holdout rho=0.148, p=0.30; weakens in 2026 Q1",
+  "role": "premarket_framing_post_gap_context",
+  "signal_availability": "pre_open_prior_close",
+  "signal": "late_rv = annualized realized vol 15:30-15:59 (prior day); binary: > rolling 252d median",
+  "primary_outcome": "gap_fill_30 / gap_fill_60 (binary fill within 30/60 min after open)",
+  "outcome_type": "fill_continuation",
+  "phase3_note": "Gap is known at 9:31. Phase 3 tests whether prior-day late_rv helps interpret what happens AFTER the gap is known: fill vs extend in the first 30-60 min. Overnight gap magnitude retained only as secondary reference.",
+  "n_gap_days_with_signal": 396,
+  "fisher_late_rv_high_vs_gap_fill_30": {
+    "table": [
+      [
+        36,
+        157
+      ],
+      [
+        29,
+        174
+      ]
+    ],
+    "p_two_sided": 0.2780848801994875,
+    "p_greater": 0.14986390329050667,
+    "p_less": 0.9046847666954687,
+    "rate_a": 0.1865,
+    "rate_b": 0.1429,
+    "n_total": 396
+  },
+  "fisher_late_rv_high_vs_gap_fill_60": {
+    "table": [
+      [
+        52,
+        141
+      ],
+      [
+        56,
+        147
+      ]
+    ],
+    "p_two_sided": 0.9104818131915198,
+    "p_greater": 0.6010288870910601,
+    "p_less": 0.4878997675854492,
+    "rate_a": 0.2694,
+    "rate_b": 0.2759,
+    "n_total": 396
+  },
+  "secondary_spearman_w30_range": {
+    "rho": 0.4521701406501968,
+    "p_nw": 1.7822934944658783e-18,
+    "n": 396
+  },
+  "secondary_spearman_w60_range": {
+    "rho": 0.4950711077229587,
+    "p_nw": 2.241173832008129e-25,
+    "n": 396
+  },
+  "secondary_spearman_w30_return": {
+    "rho": 0.0258063207079564,
+    "p_nw": 0.5952060956038068,
+    "n": 396
+  },
+  "secondary_spearman_w60_return": {
+    "rho": 0.015060788673006894,
+    "p_nw": 0.7598974762710231,
+    "n": 396
+  },
+  "walk_forward_spearman_w30_return": {
+    "splits": {
+      "full": {
+        "rho": 0.0258063207079564,
+        "p_nw": 0.5952060956038068,
+        "n": 396
+      },
+      "train": {
+        "rho": -0.01911104711162311,
+        "p_nw": 0.8053186313802969,
+        "n": 171
+      },
+      "val": {
+        "rho": 0.09985327470092278,
+        "p_nw": 0.14920204748896468,
+        "n": 177
+      },
+      "holdout": {
+        "rho": -0.10660008684324793,
+        "p_nw": 0.41781156860490354,
+        "n": 48
+      }
+    },
+    "consistency": "inconsistent",
+    "n_positive_splits": 1
+  },
+  "secondary_reference_gap_magnitude": {
+    "rho": 0.3279569483333223,
+    "p_nw": 2.091424833870454e-18,
+    "n": 556
+  },
+  "phase3_verdict": "rejected",
+  "verdict_reason": "fisher_p30=0.2781, w30_return_sign_ok=False, n=396"
+}

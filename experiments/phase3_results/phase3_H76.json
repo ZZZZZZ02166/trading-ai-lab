@@ -1,0 +1,70 @@
+{
+  "hypothesis_number": "H76",
+  "signal_strength_tier": "exploratory",
+  "tier_rationale": "Phase 2 fill_diff negligible; first_2h_range Cliff's d=0.44 survived",
+  "role": "hybrid_preopen_plus_gap",
+  "signal_availability": "9:31_ET",
+  "signal": "bkwd_binary (iv_30d > iv_60d, prior day) \u00d7 overnight_gap_dir",
+  "primary_outcome": "gap_fill_30 (binary)",
+  "outcome_type": "fill_continuation",
+  "n_gap_days": 401,
+  "fisher_bkwd_vs_gap_fill_30": {
+    "table": [
+      [
+        25,
+        126
+      ],
+      [
+        40,
+        210
+      ]
+    ],
+    "p_two_sided": 0.8895415393897725,
+    "p_greater": 0.4942316766116053,
+    "p_less": 0.6153220766069571,
+    "rate_a": 0.1656,
+    "rate_b": 0.16,
+    "n_total": 401
+  },
+  "grid_4cell_bkwd_x_gapdir": {
+    "bkwd_gap_up": {
+      "n": 84,
+      "fill_rate_30": 0.131
+    },
+    "bkwd_gap_down": {
+      "n": 67,
+      "fill_rate_30": 0.209
+    },
+    "contango_gap_up": {
+      "n": 155,
+      "fill_rate_30": 0.2065
+    },
+    "contango_gap_down": {
+      "n": 95,
+      "fill_rate_30": 0.0842
+    }
+  },
+  "logistic_regression": {
+    "n": 401,
+    "bkwd_coef": 1.6761305904075694,
+    "bkwd_p": 0.0015155927011670752,
+    "gap_up_coef": 0.9578488567998321,
+    "gap_up_p": 0.03152698571415489,
+    "bkwd_x_gapup_coef": -1.3997879199786174,
+    "bkwd_x_gapup_p": 0.03781781988717666,
+    "gap_magnitude_coef": -595.7835342101558,
+    "gap_magnitude_p": 5.344271954460515e-09,
+    "pseudo_r2": 0.24899007532977024,
+    "note": "gap_magnitude included as control to isolate bkwd x gap_dir from gap-size confound"
+  },
+  "secondary_cliff_d_w60_range": {
+    "cliff_d": 0.4981721854304636,
+    "n_bkwd": 151,
+    "n_cont": 250
+  },
+  "secondary_cliff_d_w120_range": {
+    "cliff_d": 0.5256158940397351
+  },
+  "phase3_verdict": "rejected",
+  "verdict_reason": "fisher_p_two_sided=0.8895, logit_bkwd_p=0.0015155927011670752, n=401"
+}

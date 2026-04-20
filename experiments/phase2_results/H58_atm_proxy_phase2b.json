@@ -1,0 +1,372 @@
+{
+  "study": "H58-ATM-PROXY Phase 2B",
+  "proxy_label": "H58_atm_proxy_phase2b",
+  "original_h58_status": "BLOCKED \u2014 full-chain intraday volume unavailable (iVol 403). This is a proxy study only.",
+  "phase2a_finding": "Raw Spearman rho=0.86 between ATM call_pct and rod_return \u2014 suspected momentum-proxy contamination.",
+  "phase2b_purpose": "Test incremental value of call_pct beyond first-30-min underlying price action.",
+  "internal_split": {
+    "train": "2025-04-01 to 2025-08-31",
+    "val": "2025-09-01 to 2025-12-31",
+    "note": "All qualifying dates are in 2025 (2024 chain files <4C+4P per day). Internal split uses 2025 only."
+  },
+  "price_controls": [
+    "first_30m_return",
+    "first_30m_range",
+    "overnight_gap"
+  ],
+  "verdict_all_dates": "supported",
+  "verdict_all_dates_reason": "call_pct survives price controls: beta_p=0.0000, partial_rho=0.931 (p=0.0000), same_sign_train_val=True",
+  "verdict_high_coverage": "supported",
+  "verdict_high_coverage_reason": "call_pct survives price controls: beta_p=0.0000, partial_rho=0.917 (p=0.0000), same_sign_train_val=True",
+  "final_verdict": "supported",
+  "final_verdict_reason": "[high_coverage primary] call_pct survives price controls: beta_p=0.0000, partial_rho=0.917 (p=0.0000), same_sign_train_val=True",
+  "recommendation": "H58-ATM-PROXY Phase 2B shows genuine incremental value beyond early price action. Consider a Phase 3 study with a cleaner option-flow measure. Original H58 remains BLOCKED (full chain unavailable).",
+  "analysis_all_dates": {
+    "label": "all_dates",
+    "n": 184,
+    "n_train": 103,
+    "n_val": 81,
+    "raw_spearman": {
+      "rho": 0.8644526208318082,
+      "p_nw": 7.055773334542987e-215,
+      "n": 184
+    },
+    "model_A_baseline": {
+      "n": 184,
+      "betas": {
+        "const": -0.0029280149596227017,
+        "first_30m_return": 0.15791022442933372,
+        "first_30m_range": 0.5358346694088979,
+        "overnight_gap": -0.08784719276663983
+      },
+      "pvalues": {
+        "const": 0.09400587086232134,
+        "first_30m_return": 0.5723999754430371,
+        "first_30m_range": 0.12054694140421951,
+        "overnight_gap": 0.5130089551619221
+      },
+      "r2": 0.053260992272897933,
+      "r2_adj": 0.03748200881077968
+    },
+    "model_B_full": {
+      "n": 184,
+      "betas": {
+        "const": -0.019608329103561188,
+        "first_30m_return": -0.5543572321819459,
+        "first_30m_range": 0.5572819444587439,
+        "overnight_gap": -0.14622218614514115,
+        "call_pct": 0.03080655857966137
+      },
+      "pvalues": {
+        "const": 4.994478326084705e-09,
+        "first_30m_return": 0.0058897485140555015,
+        "first_30m_range": 0.08292240995987583,
+        "overnight_gap": 0.04531844381979363,
+        "call_pct": 2.731304069233779e-13
+      },
+      "r2": 0.5098093879207529,
+      "r2_adj": 0.49885540776255743
+    },
+    "delta_r2": 0.456548395647855,
+    "call_pct_beta": 0.03080655857966137,
+    "call_pct_p_hac": 2.731304069233779e-13,
+    "partial_spearman": {
+      "partial_rho": 0.931292019032575,
+      "partial_p": 9.586909014086124e-82,
+      "n": 184,
+      "method": "rank_ols_residual"
+    },
+    "residual_spearman": {
+      "rho": 0.7967579125811486,
+      "p_nw": 3.2113269036271583e-140,
+      "n": 184,
+      "interpretation": "Spearman(call_pct, residual_rod_return) after partialling out price controls"
+    },
+    "conditional_quintile_table": {
+      "up_30m": {
+        "n_days": 98,
+        "quintiles": {
+          "Q1": {
+            "n": 14,
+            "median_rod": -0.012207516553783156,
+            "mean_rod": -0.020447744715147813
+          },
+          "Q2": {
+            "n": 12,
+            "median_rod": -0.004340621474640604,
+            "mean_rod": -0.004187778074371381
+          },
+          "Q3": {
+            "n": 19,
+            "median_rod": -0.0014917873182375637,
+            "mean_rod": -0.0005012105360190338
+          },
+          "Q4": {
+            "n": 25,
+            "median_rod": 0.0021681502121568396,
+            "mean_rod": 0.0016471258570865655
+          },
+          "Q5": {
+            "n": 28,
+            "median_rod": 0.006735379813281874,
+            "mean_rod": 0.010683186972960442
+          }
+        }
+      },
+      "down_30m": {
+        "n_days": 86,
+        "quintiles": {
+          "Q1": {
+            "n": 23,
+            "median_rod": -0.005955174366858262,
+            "mean_rod": -0.0065302195292090935
+          },
+          "Q2": {
+            "n": 25,
+            "median_rod": -2.3728357760337824e-05,
+            "mean_rod": -0.00041441502153040523
+          },
+          "Q3": {
+            "n": 17,
+            "median_rod": 0.0022579387072273866,
+            "mean_rod": 0.002369106824988601
+          },
+          "Q4": {
+            "n": 12,
+            "median_rod": 0.006039210808848328,
+            "mean_rod": 0.005904239175497216
+          },
+          "Q5": {
+            "n": 9,
+            "median_rod": 0.01104003080938836,
+            "mean_rod": 0.011390393896067151
+          }
+        }
+      }
+    },
+    "internal_split": {
+      "train": {
+        "n": 103,
+        "raw_spearman": {
+          "rho": 0.8749176294864474,
+          "p_nw": 4.015361764784966e-108,
+          "n": 103
+        },
+        "partial_spearman": {
+          "partial_rho": 0.9435048104379916,
+          "partial_p": 2.9757386592292906e-50,
+          "n": 103,
+          "method": "rank_ols_residual"
+        },
+        "model_B_call_pct_beta": 0.034763948043317644,
+        "model_B_call_pct_p": 2.3782972272970735e-06,
+        "model_A_r2": 0.08051799183353214,
+        "model_B_r2": 0.48244807364316145,
+        "residual_spearman": {
+          "rho": 0.7608729077889559,
+          "p_nw": 1.969058558841853e-74,
+          "n": 103
+        }
+      },
+      "val": {
+        "n": 81,
+        "raw_spearman": {
+          "rho": 0.8533875338753386,
+          "p_nw": 9.228656188514322e-118,
+          "n": 81
+        },
+        "partial_spearman": {
+          "partial_rho": 0.9244805781391147,
+          "partial_p": 7.918605965148116e-35,
+          "n": 81,
+          "method": "rank_ols_residual"
+        },
+        "model_B_call_pct_beta": 0.027213606819685463,
+        "model_B_call_pct_p": 8.042665079406239e-16,
+        "model_A_r2": 0.050115780287685485,
+        "model_B_r2": 0.7170219839003289,
+        "residual_spearman": {
+          "rho": 0.8700542005420054,
+          "p_nw": 6.0704598697035864e-117,
+          "n": 81
+        }
+      }
+    },
+    "same_sign_partial_train_val": "True",
+    "same_sign_residual_train_val": "True"
+  },
+  "analysis_high_coverage": {
+    "label": "high_coverage",
+    "n": 168,
+    "n_train": 92,
+    "n_val": 76,
+    "raw_spearman": {
+      "rho": 0.8279493422284764,
+      "p_nw": 1.841924454503762e-141,
+      "n": 168
+    },
+    "model_A_baseline": {
+      "n": 168,
+      "betas": {
+        "const": -0.0012964728480395443,
+        "first_30m_return": -0.0010668510042342039,
+        "first_30m_range": 0.5025300079835253,
+        "overnight_gap": -0.10868482805478456
+      },
+      "pvalues": {
+        "const": 0.21932408411243998,
+        "first_30m_return": 0.9938420457577598,
+        "first_30m_range": 0.02651244811063487,
+        "overnight_gap": 0.18580950198092017
+      },
+      "r2": 0.0867968941117222,
+      "r2_adj": 0.07009195924791223
+    },
+    "model_B_full": {
+      "n": 168,
+      "betas": {
+        "const": -0.012525386161135315,
+        "first_30m_return": -0.5886100350702173,
+        "first_30m_range": 0.21114713851144873,
+        "overnight_gap": -0.1293675132998483,
+        "call_pct": 0.02228057322852526
+      },
+      "pvalues": {
+        "const": 4.0547397324611226e-62,
+        "first_30m_return": 4.794528789754329e-14,
+        "first_30m_range": 0.025146897100750642,
+        "overnight_gap": 7.014159073435414e-05,
+        "call_pct": 6.462076435809454e-130
+      },
+      "r2": 0.8473725167890009,
+      "r2_adj": 0.8436270570783015
+    },
+    "delta_r2": 0.7605756226772787,
+    "call_pct_beta": 0.02228057322852526,
+    "call_pct_p_hac": 6.462076435809454e-130,
+    "partial_spearman": {
+      "partial_rho": 0.9165068004312593,
+      "partial_p": 5.943018627513943e-68,
+      "n": 168,
+      "method": "rank_ols_residual"
+    },
+    "residual_spearman": {
+      "rho": 0.8203719357565514,
+      "p_nw": 4.7867988671747406e-138,
+      "n": 168,
+      "interpretation": "Spearman(call_pct, residual_rod_return) after partialling out price controls"
+    },
+    "conditional_quintile_table": {
+      "up_30m": {
+        "n_days": 87,
+        "quintiles": {
+          "Q1": {
+            "n": 9,
+            "median_rod": -0.00792712949286054,
+            "mean_rod": -0.008254450808512193
+          },
+          "Q2": {
+            "n": 12,
+            "median_rod": -0.0025485217640619316,
+            "mean_rod": -0.0025800732122565942
+          },
+          "Q3": {
+            "n": 19,
+            "median_rod": -0.0004211754033566134,
+            "mean_rod": 2.268249030563082e-05
+          },
+          "Q4": {
+            "n": 22,
+            "median_rod": 0.0026605854168314956,
+            "mean_rod": 0.0022588542804212104
+          },
+          "Q5": {
+            "n": 25,
+            "median_rod": 0.006624690976514338,
+            "mean_rod": 0.0069665976202011115
+          }
+        }
+      },
+      "down_30m": {
+        "n_days": 81,
+        "quintiles": {
+          "Q1": {
+            "n": 25,
+            "median_rod": -0.004170377831237039,
+            "mean_rod": -0.004360596824865454
+          },
+          "Q2": {
+            "n": 21,
+            "median_rod": 0.00032926660196876226,
+            "mean_rod": 0.0006359711596388767
+          },
+          "Q3": {
+            "n": 15,
+            "median_rod": 0.0022579387072273866,
+            "mean_rod": 0.002399689226359526
+          },
+          "Q4": {
+            "n": 11,
+            "median_rod": 0.005598755832037258,
+            "mean_rod": 0.005851927665482473
+          },
+          "Q5": {
+            "n": 9,
+            "median_rod": 0.01104003080938836,
+            "mean_rod": 0.011390393896067151
+          }
+        }
+      }
+    },
+    "internal_split": {
+      "train": {
+        "n": 92,
+        "raw_spearman": {
+          "rho": 0.8308956121017832,
+          "p_nw": 2.8039146417159084e-65,
+          "n": 92
+        },
+        "partial_spearman": {
+          "partial_rho": 0.934774902516838,
+          "partial_p": 3.1568899329959914e-42,
+          "n": 92,
+          "method": "rank_ols_residual"
+        },
+        "model_B_call_pct_beta": 0.02428265509791032,
+        "model_B_call_pct_p": 6.501600936285205e-72,
+        "model_A_r2": 0.1801431197525366,
+        "model_B_r2": 0.881959876724009,
+        "residual_spearman": {
+          "rho": 0.8243761848249925,
+          "p_nw": 6.343599913055452e-83,
+          "n": 92
+        }
+      },
+      "val": {
+        "n": 76,
+        "raw_spearman": {
+          "rho": 0.8275051264524949,
+          "p_nw": 3.6520998734271256e-81,
+          "n": 76
+        },
+        "partial_spearman": {
+          "partial_rho": 0.9075051264524948,
+          "partial_p": 1.3501341841107478e-29,
+          "n": 76,
+          "method": "rank_ols_residual"
+        },
+        "model_B_call_pct_beta": 0.020709541026194288,
+        "model_B_call_pct_p": 3.5262451603566397e-122,
+        "model_A_r2": 0.030395170579261443,
+        "model_B_r2": 0.8802032253188604,
+        "residual_spearman": {
+          "rho": 0.8209979494190021,
+          "p_nw": 5.0850140154474934e-67,
+          "n": 76
+        }
+      }
+    },
+    "same_sign_partial_train_val": "True",
+    "same_sign_residual_train_val": "True"
+  }
+}

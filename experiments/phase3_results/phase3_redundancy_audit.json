@@ -1,0 +1,106 @@
+{
+  "run_date": "2026-04-20",
+  "n_observations": 311,
+  "signals_tested": [
+    "H44_iv_spread_30_60",
+    "H94_ivx_spread_7_30",
+    "H97_iv_velocity_5d",
+    "H70_range_pct_rank",
+    "H99_spread_pct_rank"
+  ],
+  "pairwise_signal_correlation_matrix": {
+    "H44_iv_spread_30_60": {
+      "H44_iv_spread_30_60": 1.0,
+      "H94_ivx_spread_7_30": 0.674,
+      "H97_iv_velocity_5d": 0.414,
+      "H70_range_pct_rank": 0.738,
+      "H99_spread_pct_rank": 0.492
+    },
+    "H94_ivx_spread_7_30": {
+      "H44_iv_spread_30_60": 0.674,
+      "H94_ivx_spread_7_30": 1.0,
+      "H97_iv_velocity_5d": 0.269,
+      "H70_range_pct_rank": 0.568,
+      "H99_spread_pct_rank": 0.349
+    },
+    "H97_iv_velocity_5d": {
+      "H44_iv_spread_30_60": 0.414,
+      "H94_ivx_spread_7_30": 0.269,
+      "H97_iv_velocity_5d": 1.0,
+      "H70_range_pct_rank": 0.423,
+      "H99_spread_pct_rank": 0.222
+    },
+    "H70_range_pct_rank": {
+      "H44_iv_spread_30_60": 0.738,
+      "H94_ivx_spread_7_30": 0.568,
+      "H97_iv_velocity_5d": 0.423,
+      "H70_range_pct_rank": 1.0,
+      "H99_spread_pct_rank": 0.383
+    },
+    "H99_spread_pct_rank": {
+      "H44_iv_spread_30_60": 0.492,
+      "H94_ivx_spread_7_30": 0.349,
+      "H97_iv_velocity_5d": 0.222,
+      "H70_range_pct_rank": 0.383,
+      "H99_spread_pct_rank": 1.0
+    }
+  },
+  "partial_spearman_vs_w150_range": {
+    "H44_iv_spread_30_60": {
+      "partial_spearman_vs_w150_range": {
+        "partial_rho": 0.4330515506690177,
+        "partial_p": 1.1999083741483784e-15,
+        "n": 311,
+        "method": "residual_ols"
+      },
+      "strongest_correlated_signal": "H70_range_pct_rank",
+      "signal_signal_rho": 0.738,
+      "flagged_redundant": false
+    },
+    "H94_ivx_spread_7_30": {
+      "partial_spearman_vs_w150_range": {
+        "partial_rho": 0.13833986260601758,
+        "partial_p": 0.01462327268458186,
+        "n": 311,
+        "method": "residual_ols"
+      },
+      "strongest_correlated_signal": "H44_iv_spread_30_60",
+      "signal_signal_rho": 0.674,
+      "flagged_redundant": false
+    },
+    "H97_iv_velocity_5d": {
+      "partial_spearman_vs_w150_range": {
+        "partial_rho": 0.16802996816480895,
+        "partial_p": 0.0029541318540295984,
+        "n": 311,
+        "method": "residual_ols"
+      },
+      "strongest_correlated_signal": "H70_range_pct_rank",
+      "signal_signal_rho": 0.423,
+      "flagged_redundant": false
+    },
+    "H70_range_pct_rank": {
+      "partial_spearman_vs_w150_range": {
+        "partial_rho": 0.13147973797802656,
+        "partial_p": 0.02037274357160059,
+        "n": 311,
+        "method": "residual_ols"
+      },
+      "strongest_correlated_signal": "H44_iv_spread_30_60",
+      "signal_signal_rho": 0.738,
+      "flagged_redundant": false
+    },
+    "H99_spread_pct_rank": {
+      "partial_spearman_vs_w150_range": {
+        "partial_rho": 0.14396288288000766,
+        "partial_p": 0.01102693318158315,
+        "n": 311,
+        "method": "residual_ols"
+      },
+      "strongest_correlated_signal": "H44_iv_spread_30_60",
+      "signal_signal_rho": 0.492,
+      "flagged_redundant": false
+    }
+  },
+  "interpretation": "flagged_redundant=True: |partial_rho| < 0.07 AND strongest signal-signal rho > 0.50. Composite signal (Phase 3B) should only include non-redundant survivors."
+}

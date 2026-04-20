@@ -87,3 +87,43 @@ CI: [0.7366, 0.8037] (fisher_z_transform)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-01. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** intraday_primary  
+**Phase 2 Verdict:** ✅ SUPPORTED  
+**Reason:** mean_bias=0.0590 > 0.02, p_wilcoxon=0.0000  
+**Phase 1 Alignment:** extends
+
+> Phase 1 tested vol clustering (supported). Phase 2 tests the bias claim directly from 1m data.
+
+### Bias Walk-Forward (fh_rv − fd_rv)
+
+| Split | mean_bias | pct_positive | p_wilcoxon |
+|---|---|---|---|
+| full | 0.0590 | 95.91% | 0.0000 |
+| train | 0.0526 | 96.03% | 0.0000 |
+| val | 0.0593 | 94.80% | 0.0000 |
+| holdout | 0.0842 | 100.00% | 0.0000 |
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ✅ SUPPORTED — Trading Useful
+**Signal Strength Tier:** core-strong
+**Role:** intraday_confirmation
+**Signal:** fh_rv = annualized realized vol from 1m bars 09:30-10:29 (60 bars)
+**Primary Outcome:** aw_range (10:30-11:59, core 1.5h)
+**n:** 563
+**Verdict Reason:** rho_aw_core=0.696, p_nw=0.0000, sign_ok=True
+
+| Split | rho | p_nw | n |
+|---|---|---|---|
+| full | 0.696 | 0.0000 | 563 |
+| train | 0.638 | 0.0000 | 252 |
+| val | 0.734 | 0.0000 | 250 |
+| holdout | 0.558 | 0.0000 | 61 |
+**Consistency:** consistent (3/3)

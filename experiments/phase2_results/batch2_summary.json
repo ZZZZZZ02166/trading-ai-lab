@@ -1,0 +1,21 @@
+{
+  "run_date": "2026-04-19",
+  "batch": [
+    "H58",
+    "H70",
+    "H76",
+    "H96",
+    "H99"
+  ],
+  "verdicts": {
+    "H58": "blocked",
+    "H70": "supported",
+    "H76": "inconclusive",
+    "H96": "inconclusive",
+    "H99": "supported"
+  },
+  "n_supported": 2,
+  "n_rejected": 0,
+  "n_inconclusive": 2,
+  "n_blocked": 1
+}

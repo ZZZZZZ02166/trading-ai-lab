@@ -1,0 +1,119 @@
+{
+  "hypothesis_number": "H44",
+  "signal_strength_tier": "core-strong",
+  "tier_rationale": "Phase 2 Cliff's d=0.551; robust across train/val/holdout",
+  "role": "premarket_framing",
+  "signal_availability": "pre_open",
+  "signal": "iv_30d - iv_60d (continuous); binary iv_30d > iv_60d",
+  "primary_outcome": "w150_range",
+  "outcome_type": "expansion_compression",
+  "n_total": 562,
+  "primary_spearman": {
+    "rho": 0.487193685794813,
+    "p_nw": 7.390123921438805e-22,
+    "n": 562
+  },
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.487193685794813,
+        "p_nw": 7.390123921438805e-22,
+        "n": 562
+      },
+      "train": {
+        "rho": 0.2829922215898311,
+        "p_nw": 0.0003357689016849208,
+        "n": 251
+      },
+      "val": {
+        "rho": 0.6363331253300052,
+        "p_nw": 6.463511856258874e-29,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.3629825489159174,
+        "p_nw": 1.0850916406337799e-05,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "walk_forward_mw_binary": {
+    "splits": {
+      "full": {
+        "n_a": 188,
+        "n_b": 374,
+        "stat": 54248.0,
+        "p": 7.652528817171384e-26,
+        "cliff_d": 0.5430651951302765,
+        "median_a": 0.011993662114634089,
+        "median_b": 0.00789202256560508,
+        "diff": 0.004101639549029009
+      },
+      "train": {
+        "n_a": 71,
+        "n_b": 180,
+        "stat": 8810.0,
+        "p": 3.006692865379342e-06,
+        "cliff_d": 0.37871674491392804,
+        "median_a": 0.010423905489923476,
+        "median_b": 0.007955247222243535,
+        "diff": 0.002468658267679941
+      },
+      "val": {
+        "n_a": 84,
+        "n_b": 166,
+        "stat": 11670.0,
+        "p": 3.3734015825919e-18,
+        "cliff_d": 0.6738382099827883,
+        "median_a": 0.014266816691563326,
+        "median_b": 0.007491079383791481,
+        "diff": 0.006775737307771845
+      },
+      "holdout": {
+        "n_a": 33,
+        "n_b": 28,
+        "stat": 664.0,
+        "p": 0.00354197191072724,
+        "cliff_d": 0.43722943722943725,
+        "median_a": 0.013862969874700164,
+        "median_b": 0.008734681915506307,
+        "diff": 0.005128287959193857
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "window_rhos": {
+    "w30": {
+      "rho": 0.46716777491641126,
+      "p_nw": 3.410255702399121e-19,
+      "n": 562
+    },
+    "w60": {
+      "rho": 0.4714199359578658,
+      "p_nw": 2.1335204530392178e-20,
+      "n": 562
+    },
+    "w120": {
+      "rho": 0.4810218280101167,
+      "p_nw": 2.9266085819484177e-21,
+      "n": 562
+    },
+    "w150": {
+      "rho": 0.487193685794813,
+      "p_nw": 7.390123921438805e-22,
+      "n": 562
+    },
+    "w210": {
+      "rho": 0.4925547664154912,
+      "p_nw": 1.0174364789582037e-22,
+      "n": 562
+    }
+  },
+  "peak_window": "w210",
+  "early_enough_for_style": false,
+  "phase3_verdict": "too_late_for_style",
+  "verdict_reason": "rho=0.487, p_nw=0.0000, peak=w210, sign_ok=True"
+}

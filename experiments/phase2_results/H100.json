@@ -1,0 +1,91 @@
+{
+  "hypothesis_number": "H100",
+  "hypothesis_title": "Overnight Gap (1m precision) \u2192 Same-Session Intraday Range",
+  "classification": "intraday_primary",
+  "phase2_verdict": "inconclusive",
+  "phase2_verdict_reason": "diff=0.0039, p=0.0000 \u2014 1m gap precision tested",
+  "n_large_gap": 222,
+  "n_small_gap": 74,
+  "pct_days_large_gap": 0.395,
+  "median_gap_pct": 0.00397,
+  "intraday_windows": {
+    "range_30m": {
+      "n_a": 222,
+      "n_b": 74,
+      "stat": 11971.0,
+      "p": 1.917056672961618e-09,
+      "cliff_d": 0.4573898222546871,
+      "median_a": 0.00612748335348955,
+      "median_b": 0.004108870746629634,
+      "diff": 0.002018612606859916
+    },
+    "range_60m": {
+      "n_a": 222,
+      "n_b": 74,
+      "stat": 11749.0,
+      "p": 1.486321926656968e-08,
+      "cliff_d": 0.4303627952276601,
+      "median_a": 0.008124989138544772,
+      "median_b": 0.005580001321970531,
+      "diff": 0.002544987816574241
+    },
+    "range_session": {
+      "n_a": 222,
+      "n_b": 74,
+      "stat": 11294.0,
+      "p": 6.844545999406807e-07,
+      "cliff_d": 0.3749695641587533,
+      "median_a": 0.013419576963724537,
+      "median_b": 0.009556668016881192,
+      "diff": 0.003862908946843345
+    }
+  },
+  "walk_forward_session": {
+    "splits": {
+      "full": {
+        "n_a": 222,
+        "n_b": 74,
+        "stat": 11294.0,
+        "p": 6.844545999406807e-07,
+        "cliff_d": 0.3749695641587533,
+        "median_a": 0.013419576963724537,
+        "median_b": 0.009556668016881192,
+        "diff": 0.003862908946843345
+      },
+      "train": {
+        "n_a": 88,
+        "n_b": 41,
+        "stat": 2389.0,
+        "p": 0.0015560251184370815,
+        "cliff_d": 0.32427937915742794,
+        "median_a": 0.012862786665813204,
+        "median_b": 0.009640357441563578,
+        "diff": 0.0032224292242496264
+      },
+      "val": {
+        "n_a": 101,
+        "n_b": 27,
+        "stat": 1989.0,
+        "p": 0.00013094713744883288,
+        "cliff_d": 0.45874587458745875,
+        "median_a": 0.013720423472240987,
+        "median_b": 0.009547440530773072,
+        "diff": 0.0041729829414679145
+      },
+      "holdout": {
+        "n_a": 33,
+        "n_b": 6,
+        "stat": 118.0,
+        "p": 0.2406217328817948,
+        "cliff_d": 0.1919191919191919,
+        "median_a": 0.014315356034163984,
+        "median_b": 0.010988868123562215,
+        "diff": 0.003326487910601769
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "phase1_alignment": "extends",
+  "notes": "Phase 1 used EOD open/prev_close (inconclusive, diff=0.0039 vs 0.004 threshold). Phase 2 uses 1m first_bar_open vs prev_session last_close for precision."
+}

@@ -1,0 +1,10 @@
+{
+  "hypothesis_number": "H58",
+  "hypothesis_title": "First-30-Minute Option Volume Direction Predicts Rest-of-Day Price Direction",
+  "classification": "blocked_feasibility_first",
+  "phase2_verdict": "blocked",
+  "phase2_verdict_reason": "data/raw/chains/ contains ~4045 files for ~563 trading days = ~7 contracts/day. Constructing an honest call/put volume ratio requires the full option chain (all strikes, all expirations) at 5-min granularity. No full-chain volume feed has been fetched from iVolatility BackendPlus. A Databento underlying-bar proxy would test a different hypothesis. H58 remains blocked until a full intraday chain volume feed is confirmed available.",
+  "condition_to_unblock": "Confirm iVolatility BackendPlus provides full intraday QQQ option chain volume at 5-min bars for all strikes/expirations. If yes, design the data fetch first.",
+  "phase1_verdict": "insufficient_data",
+  "phase1_n_observations": 0
+}

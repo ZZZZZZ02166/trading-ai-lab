@@ -1,0 +1,89 @@
+{
+  "hypothesis_number": "H94",
+  "hypothesis_title": "Front-End Term Structure (7d/30d) Backwardation \u2192 Next-Session Range",
+  "classification": "hybrid",
+  "phase2_verdict": "supported",
+  "phase2_verdict_reason": "diff=0.0042 > 0.003, p=0.0000 < 0.1, consistent",
+  "intraday_windows": {
+    "range_30m": {
+      "n_a": 217,
+      "n_b": 345,
+      "stat": 52683.0,
+      "p": 2.0251680633176555e-16,
+      "cliff_d": 0.4074133440192346,
+      "median_a": 0.006612470341125633,
+      "median_b": 0.004530049327203862,
+      "diff": 0.002082421013921771
+    },
+    "range_60m": {
+      "n_a": 217,
+      "n_b": 345,
+      "stat": 52475.0,
+      "p": 5.032503848504899e-16,
+      "cliff_d": 0.40185667534896147,
+      "median_a": 0.00858523002932055,
+      "median_b": 0.006077828684103705,
+      "diff": 0.002507401345216846
+    },
+    "range_session": {
+      "n_a": 217,
+      "n_b": 345,
+      "stat": 54076.0,
+      "p": 3.3334094074763715e-19,
+      "cliff_d": 0.4446269952581313,
+      "median_a": 0.014538708772838088,
+      "median_b": 0.01031692515171956,
+      "diff": 0.004221783621118528
+    }
+  },
+  "walk_forward_session": {
+    "splits": {
+      "full": {
+        "n_a": 217,
+        "n_b": 345,
+        "stat": 54076.0,
+        "p": 3.3334094074763715e-19,
+        "cliff_d": 0.4446269952581313,
+        "median_a": 0.014538708772838088,
+        "median_b": 0.01031692515171956,
+        "diff": 0.004221783621118528
+      },
+      "train": {
+        "n_a": 93,
+        "n_b": 159,
+        "stat": 10470.0,
+        "p": 1.8038845395971476e-08,
+        "cliff_d": 0.41610874416717386,
+        "median_a": 0.013492282541771854,
+        "median_b": 0.010484663659046866,
+        "diff": 0.0030076188827249887
+      },
+      "val": {
+        "n_a": 92,
+        "n_b": 158,
+        "stat": 11265.0,
+        "p": 2.1166936793405795e-13,
+        "cliff_d": 0.5499449642267474,
+        "median_a": 0.01751285610438185,
+        "median_b": 0.009774614747859813,
+        "diff": 0.0077382413565220375
+      },
+      "holdout": {
+        "n_a": 32,
+        "n_b": 28,
+        "stat": 469.0,
+        "p": 0.3806567097052271,
+        "cliff_d": 0.046875,
+        "median_a": 0.014755670704911749,
+        "median_b": 0.01430106176011179,
+        "diff": 0.0004546089447999592
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "median_slope_7_30": 0.9693290606359285,
+  "pct_backwardation": 0.38543516873889877,
+  "phase1_alignment": "confirmed",
+  "notes": "Phase 1 used EOD daily range. Phase 2 validates 7d/30d slope signal vs 1m intraday range windows."
+}

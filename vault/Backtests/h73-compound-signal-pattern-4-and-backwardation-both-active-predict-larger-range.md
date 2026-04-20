@@ -90,3 +90,20 @@ CI: Not available (insufficient_extra_metrics)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-05. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** hybrid  
+**Phase 2 Verdict:** ❌ REJECTED  
+**Reason:** diff=-0.0017 ≤ 0  
+**Phase 1 Alignment:** extends
+
+> n_compound typically small (~20-40). Bootstrap used instead of walk-forward when n < 40.
+
+### Block Bootstrap Result
+
+- Observed diff: nan
+- p_bootstrap (greater): 0.2680
+- 95% CI: [nan, nan]

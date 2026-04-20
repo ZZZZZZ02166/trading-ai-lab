@@ -1,0 +1,119 @@
+{
+  "hypothesis_number": "H97",
+  "signal_strength_tier": "core-fragile",
+  "tier_rationale": "Phase 2 holdout n=14; statistically underpowered in holdout",
+  "role": "premarket_framing",
+  "signal_availability": "pre_open",
+  "signal": "iv_30d.pct_change(5) prior day (continuous); binary > 0",
+  "primary_outcome": "w150_range",
+  "outcome_type": "expansion_compression",
+  "n_total": 557,
+  "primary_spearman": {
+    "rho": 0.33111899314740595,
+    "p_nw": 1.1576803770292152e-10,
+    "n": 557
+  },
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.33111899314740595,
+        "p_nw": 1.1576803770292152e-10,
+        "n": 557
+      },
+      "train": {
+        "rho": 0.3164097593219177,
+        "p_nw": 1.8665267650452354e-06,
+        "n": 246
+      },
+      "val": {
+        "rho": 0.3521048336773388,
+        "p_nw": 2.9010785687885346e-05,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.07202538339502908,
+        "p_nw": 0.623927259580304,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "walk_forward_mw_binary": {
+    "splits": {
+      "full": {
+        "n_a": 285,
+        "n_b": 272,
+        "stat": 51729.0,
+        "p": 8.458307546526486e-12,
+        "cliff_d": 0.33459752321981423,
+        "median_a": 0.010422728406351289,
+        "median_b": 0.007921978329248269,
+        "diff": 0.0025007500771030197
+      },
+      "train": {
+        "n_a": 125,
+        "n_b": 121,
+        "stat": 9973.0,
+        "p": 1.565380906891989e-05,
+        "cliff_d": 0.31874380165289257,
+        "median_a": 0.009770340259579501,
+        "median_b": 0.007577788065592977,
+        "diff": 0.0021925521939865243
+      },
+      "val": {
+        "n_a": 120,
+        "n_b": 130,
+        "stat": 10908.0,
+        "p": 5.326670942201797e-08,
+        "cliff_d": 0.3984615384615385,
+        "median_a": 0.011168222715258655,
+        "median_b": 0.0076937662543897795,
+        "diff": 0.003474456460868875
+      },
+      "holdout": {
+        "n_a": 40,
+        "n_b": 21,
+        "stat": 389.0,
+        "p": 0.6433842474774218,
+        "cliff_d": -0.07380952380952381,
+        "median_a": 0.011141668780876359,
+        "median_b": 0.011342744320634406,
+        "diff": -0.0002010755397580475
+      }
+    },
+    "consistency": "mixed",
+    "n_positive_splits": 2
+  },
+  "window_rhos": {
+    "w30": {
+      "rho": 0.2832216351761639,
+      "p_nw": 6.225039149070419e-08,
+      "n": 557
+    },
+    "w60": {
+      "rho": 0.32178998794362323,
+      "p_nw": 1.5635663044527202e-10,
+      "n": 557
+    },
+    "w120": {
+      "rho": 0.3293063007172301,
+      "p_nw": 2.3303000117721214e-10,
+      "n": 557
+    },
+    "w150": {
+      "rho": 0.33111899314740595,
+      "p_nw": 1.1576803770292152e-10,
+      "n": 557
+    },
+    "w210": {
+      "rho": 0.31359794309684585,
+      "p_nw": 4.917339300910654e-09,
+      "n": 557
+    }
+  },
+  "peak_window": "w150",
+  "early_enough_for_style": true,
+  "phase3_verdict": "supported_trading_useful",
+  "verdict_reason": "rho=0.331, p_nw=0.0000, peak=w150, sign_ok=True"
+}

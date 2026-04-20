@@ -111,3 +111,46 @@ CI: [0.1613, 0.3170] (fisher_z_transform)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-05. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** intraday_primary  
+**Phase 2 Verdict:** ✅ SUPPORTED  
+**Reason:** rho_late=0.328 > 0.10, p=0.0000; rho_fd=0.351  
+**Phase 1 Alignment:** extends
+
+> Phase 1 used full-day OHLC range as proxy. Phase 2 uses actual 1m last-30-min RV and 1m gap.
+
+### Late Rv Spearman Wf
+
+| Split | rho | p_nw | n |
+|---|---|---|---|
+| full | 0.328 | 0.0000 | 556 |
+| train | 0.249 | 0.0000 | 249 |
+| val | 0.420 | 0.0000 | 247 |
+| holdout | 0.148 | 0.3007 | 60 |
+
+### Fd Rv Spearman Wf
+
+| Split | rho | p_nw | n |
+|---|---|---|---|
+| full | 0.351 | 0.0000 | 562 |
+| train | 0.275 | 0.0000 | 252 |
+| val | 0.402 | 0.0000 | 250 |
+| holdout | 0.213 | 0.1026 | 60 |
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ❌ REJECTED
+**Signal Strength Tier:** core-fragile
+**Role:** premarket_framing_post_gap_context
+**Signal:** late_rv = annualized realized vol 15:30-15:59 (prior day); binary: > rolling 252d median
+**Primary Outcome:** gap_fill_30 / gap_fill_60 (binary fill within 30/60 min after open)
+**n:** 396
+**Verdict Reason:** fisher_p30=0.2781, w30_return_sign_ok=False, n=396
+
+> ℹ️ Gap is known at 9:31. Phase 3 tests whether prior-day late_rv helps interpret what happens AFTER the gap is known: fill vs extend in the first 30-60 min. Overnight gap magnitude retained only as secondary reference.

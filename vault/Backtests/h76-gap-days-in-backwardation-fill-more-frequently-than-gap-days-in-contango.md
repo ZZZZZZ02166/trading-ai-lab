@@ -87,3 +87,75 @@ CI: Not available (insufficient_extra_metrics)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-05. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+
+## Phase 2 — Intraday Robustness (Batch 2)
+
+**Verdict: INCONCLUSIVE**
+fill_diff=0.006, p_boot=0.9985, p_fisher=0.5168, mixed
+
+**Critical finding:** Phase 1 fill rate diff=0.132 collapsed to **0.006** when fill is measured using 1m bars (exact intraday touch of prior close). The Phase 1 result was entirely an artifact of the loose EOD fill proxy.
+
+### Fill Rate Comparison (1m-bar corrected definition)
+
+| Metric | Backwardation | Contango | Diff | p |
+|---|---|---|---|---|
+| Fill by Close | 0.359 | 0.353 | 0.006 | Fisher: 0.5168, Boot: 0.9985 |
+| Fill by 11:30 | 0.223 | 0.185 | 0.038 | n/a |
+
+Total gap days: 222 (backw: 103, contango: 119)
+
+### Gap Direction × Regime Fill Rates
+
+| Cell | n | Fill by Close | Fill by 11:30 |
+|---|---|---|---|
+| up_backwardation | 60 | 0.350 | 0.217 |
+| up_contango | 72 | 0.375 | 0.222 |
+| down_backwardation | 43 | 0.372 | 0.233 |
+| down_contango | 47 | 0.319 | 0.128 |
+
+**Note:** No consistent backwardation advantage across any direction/regime cell.
+
+### Gap Size Control
+
+| Size | n_backw | n_cont | Fill diff |
+|---|---|---|---|
+| small | 55 | 81 | 0.071 |
+| medium | 37 | 36 | -0.033 |
+| large | 11 | 2 | n<5 flagged |
+
+**Small gaps:** backw fills 7% more (0.491 vs 0.420), but this is the only consistent sub-group.
+
+### Time-to-Fill (filled days only)
+
+Mann-Whitney on minutes from 09:30 to first fill — backw median: 73.0 min vs contango: 91.5 min
+p=0.1192, Cliff's d=-0.155 (backwardation fills ~18 min faster, not significant)
+
+### First 2-Hour Range: Backwardation vs Contango
+
+Backwardation shows materially larger 2h range: median=0.01177 vs 0.00866, p<0.001, Cliff's d=0.444. This suggests backwardation days are more volatile, not better gap-fillers.
+
+### Walk-Forward Fill Rate
+
+| Split | n_backw | n_cont | fill_rate_backw | fill_rate_cont | diff |
+|---|---|---|---|---|---|
+| full | 103 | 119 | 0.359 | 0.353 | 0.006 |
+| train | 35 | 53 | 0.343 | 0.340 | 0.003 |
+| val | 50 | 51 | 0.380 | 0.373 | 0.007 |
+| holdout | 18 | 15 | 0.333 | 0.333 | 0.000 |
+
+**Consistency:** mixed — fill diff hovers near 0 in every split.
+
+**Conclusion:** H76's Phase 1 result does not replicate with a rigorous fill definition. The hypothesis as stated (backwardation → higher gap fill rate) is not supported. The correct finding is that **backwardation gap days have larger early-session ranges**, which is a different (and separately testable) phenomenon.
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ❌ REJECTED
+**Signal Strength Tier:** exploratory
+**Role:** hybrid_preopen_plus_gap
+**Signal:** bkwd_binary (iv_30d > iv_60d, prior day) × overnight_gap_dir
+**Primary Outcome:** gap_fill_30 (binary)
+**n:** 401
+**Verdict Reason:** fisher_p_two_sided=0.8895, logit_bkwd_p=0.0015155927011670752, n=401

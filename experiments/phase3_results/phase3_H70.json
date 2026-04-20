@@ -1,0 +1,76 @@
+{
+  "hypothesis_number": "H70",
+  "signal_strength_tier": "core-fragile/no-train",
+  "tier_rationale": "252-day burn-in leaves NO train split. Val+holdout only.",
+  "role": "premarket_framing",
+  "signal_availability": "pre_open",
+  "signal": "prior_day_range.rolling(252, min_periods=252).rank(pct=True). Global computation, no split leakage.",
+  "primary_outcome": "w150_range",
+  "outcome_type": "day_quality_framing",
+  "n_total": 311,
+  "n_train_after_burnin": 0,
+  "burn_in_warning": "252-day rolling window consumes all 2024 training data. n_train=0 (all NaN due to burn-in). Phase 3 conclusions are out-of-sample only (val + holdout). No in-sample reference period. Treat with additional caution.",
+  "primary_spearman": {
+    "rho": 0.5243354676594539,
+    "p_nw": 2.7257414345661336e-18,
+    "n": 311
+  },
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.5243354676594539,
+        "p_nw": 2.7257414345661336e-18,
+        "n": 311
+      },
+      "train": {
+        "rho": null,
+        "p_nw": null,
+        "n": 0
+      },
+      "val": {
+        "rho": 0.5645343518745422,
+        "p_nw": 2.2091797374614665e-17,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.11471486640966275,
+        "p_nw": 0.2633901009694417,
+        "n": 61
+      }
+    },
+    "consistency": "mixed",
+    "n_positive_splits": 2
+  },
+  "walk_forward_note": "Train split = NaN by design (burn-in). Sign consistency assessed from val+holdout only.",
+  "window_rhos": {
+    "w30": {
+      "rho": 0.5598470111117613,
+      "p_nw": 2.467235569104138e-26,
+      "n": 311
+    },
+    "w60": {
+      "rho": 0.558057866482483,
+      "p_nw": 8.905577208683456e-26,
+      "n": 311
+    },
+    "w120": {
+      "rho": 0.5296233430995428,
+      "p_nw": 2.0801918325821847e-19,
+      "n": 311
+    },
+    "w150": {
+      "rho": 0.5243354676594539,
+      "p_nw": 2.7257414345661336e-18,
+      "n": 311
+    },
+    "w210": {
+      "rho": 0.5323116639455227,
+      "p_nw": 1.2344369382946347e-19,
+      "n": 311
+    }
+  },
+  "peak_window": "w30",
+  "early_enough_for_style": true,
+  "phase3_verdict": "supported_trading_useful",
+  "verdict_reason": "rho=0.524, p_nw=0.0000, peak=w30, val_rho=0.565, holdout_rho=0.115"
+}

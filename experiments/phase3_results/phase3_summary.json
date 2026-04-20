@@ -1,0 +1,96 @@
+{
+  "run_date": "2026-04-20",
+  "hypotheses": {
+    "H15": {
+      "signal_strength_tier": "core-strong",
+      "role": "intraday_confirmation",
+      "primary_outcome": "aw_range (10:30-11:59, core 1.5h)",
+      "phase3_verdict": "supported_trading_useful",
+      "verdict_reason": "rho_aw_core=0.696, p_nw=0.0000, sign_ok=True"
+    },
+    "H24": {
+      "signal_strength_tier": "core-fragile",
+      "role": "premarket_framing_post_gap_context",
+      "primary_outcome": "gap_fill_30 / gap_fill_60 (binary fill within 30/60 min after open)",
+      "phase3_verdict": "rejected",
+      "verdict_reason": "fisher_p30=0.2781, w30_return_sign_ok=False, n=396"
+    },
+    "H44": {
+      "signal_strength_tier": "core-strong",
+      "role": "premarket_framing",
+      "primary_outcome": "w150_range",
+      "phase3_verdict": "too_late_for_style",
+      "verdict_reason": "rho=0.487, p_nw=0.0000, peak=w210, sign_ok=True"
+    },
+    "H48": {
+      "signal_strength_tier": "core-strong",
+      "role": "intraday_confirmation",
+      "primary_outcome": "aw_range (10:30-11:59, core 1.5h)",
+      "phase3_verdict": "supported_trading_useful",
+      "verdict_reason": "cliff_d_aw_core=0.672, p=0.0000, sign_ok=True"
+    },
+    "H53": {
+      "signal_strength_tier": "exploratory",
+      "role": "premarket_framing",
+      "primary_outcome": "w150_expansion",
+      "phase3_verdict": "rejected",
+      "verdict_reason": "cliff_d=0.042, p=0.4660, sign_ok=True"
+    },
+    "H70": {
+      "signal_strength_tier": "core-fragile/no-train",
+      "role": "premarket_framing",
+      "primary_outcome": "w150_range",
+      "phase3_verdict": "supported_trading_useful",
+      "verdict_reason": "rho=0.524, p_nw=0.0000, peak=w30, val_rho=0.565, holdout_rho=0.115"
+    },
+    "H76": {
+      "signal_strength_tier": "exploratory",
+      "role": "hybrid_preopen_plus_gap",
+      "primary_outcome": "gap_fill_30 (binary)",
+      "phase3_verdict": "rejected",
+      "verdict_reason": "fisher_p_two_sided=0.8895, logit_bkwd_p=0.0015155927011670752, n=401"
+    },
+    "H94": {
+      "signal_strength_tier": "core-fragile",
+      "role": "premarket_framing",
+      "primary_outcome": "w150_range",
+      "phase3_verdict": "too_late_for_style",
+      "verdict_reason": "rho=0.418, p_nw=0.0000, peak=w210, sign_ok=True"
+    },
+    "H97": {
+      "signal_strength_tier": "core-fragile",
+      "role": "premarket_framing",
+      "primary_outcome": "w150_range",
+      "phase3_verdict": "supported_trading_useful",
+      "verdict_reason": "rho=0.331, p_nw=0.0000, peak=w150, sign_ok=True"
+    },
+    "H99": {
+      "signal_strength_tier": "core-fragile",
+      "role": "premarket_framing_caution_overlay",
+      "primary_outcome": "w150_range",
+      "phase3_verdict": "supported_trading_useful",
+      "verdict_reason": "rho_range=0.300, p_nw=0.0000, peak=w30, sign_ok=True"
+    },
+    "H100": {
+      "signal_strength_tier": "exploratory",
+      "role": "intraday_early_gap_at_open",
+      "primary_outcome": "gap_fill_30 (binary)",
+      "phase3_verdict": "supported_trading_useful",
+      "verdict_reason": "fisher_p_two_sided=0.0000, n=401"
+    }
+  },
+  "redundancy_flags": {
+    "H44_iv_spread_30_60": false,
+    "H94_ivx_spread_7_30": false,
+    "H97_iv_velocity_5d": false,
+    "H70_range_pct_rank": false,
+    "H99_spread_pct_rank": false
+  },
+  "counts": {
+    "supported_trading_useful": 6,
+    "too_late_for_style": 2,
+    "inconclusive": 0,
+    "rejected": 3,
+    "insufficient_data": 0
+  }
+}

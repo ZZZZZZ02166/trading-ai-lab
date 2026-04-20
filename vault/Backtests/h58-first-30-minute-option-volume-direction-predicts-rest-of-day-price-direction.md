@@ -76,3 +76,110 @@ CI: Not available (mean_std_not_in_extra_metrics)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2025-04-01 → 2025-12-31. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+## H58-ATM-PROXY — Feasibility Study (Phase 2 Extension)
+
+**⚠️ This is NOT the original H58 test.** Original H58 (full-chain PCR) remains BLOCKED.
+This is an ATM-centric proxy study using the sparse contract subset in `data/raw/chains/`.
+
+### Coverage Audit
+
+| Metric | Value |
+|---|---|
+| Dates audited | 190 |
+| Coverage min | 2.2% |
+| Coverage 25th pct | 38.9% |
+| Coverage median | 53.1% |
+| Coverage 75th pct | 63.9% |
+| Coverage max | 72.7% |
+| CV (std/mean) | 0.3499 |
+| Dates below 20% | 16 |
+
+**Monotonicity:** 1 files with resets out of 189 checked.
+Missing 10:00 bar (used 09:55 fallback): 0 dates.
+
+### Signal Timing
+
+- Signal: `optionVolume` at 10:00 bar = cumulative first-30-min flow (09:30–09:59:59, bar-start semantics confirmed)
+- Entry: Databento 1m **open at 10:01 ET** (1 min gap after signal is finalized)
+- Exit: Databento 1m **close at 15:59 ET**
+
+### Verdicts
+
+| Dataset | n | Verdict | Continuous Spearman |
+|---|---|---|---|
+| all_dates | 187 | INCONCLUSIVE | rho=0.8617259844600472, p_nw=1.3772040960785827e-206, n=187 |
+| high_coverage (≥20%) | 171 | INCONCLUSIVE | rho=0.8248998008015936, p_nw=4.8605647099161475e-136, n=171 |
+| **Final** | — | **INCONCLUSIVE** | — |
+
+### Walk-Forward Spearman
+
+| Split | all_dates rho | all_dates p_nw | high_cov rho | high_cov p_nw |
+|---|---|---|---|---|
+| train | n/a | n/a | n/a | n/a |
+| val | 0.862 | 0.0000 | 0.825 | 0.0000 |
+
+### Binary Comparison (call_pct > 0.60 vs < 0.40)
+
+n_call_heavy=83, n_put_heavy=36, 
+diff=0.00977691805501963, p=8.283123888187344e-16, Cliff's d=0.9317269076305221
+
+**Conclusion:** ATM-centric proxy coverage is highly variable (CV≈0.49). Results are exploratory. Original H58 (full-chain PCR) remains BLOCKED.
+
+## H58-ATM-PROXY Phase 2B — Momentum Control Test
+
+**Purpose:** Test whether ATM option flow adds incremental value beyond first-30-min price action.
+**Original H58:** Still BLOCKED (full-chain PCR unavailable).
+
+### Internal 2025 Split
+| Split | all_dates n | high_cov n |
+|---|---|---|
+| Train (Apr–Aug 2025) | 103 | 92 |
+| Val   (Sep–Dec 2025) | 81   | 76 |
+
+### Price-Action Controls
+Controls: `first_30m_return`, `first_30m_range`, `overnight_gap`
+
+#### Model A — Baseline (price controls only)
+| all_dates | n=184, R²=0.0533 |
+| high_coverage | n=168, R²=0.0868 |
+
+#### Model B — Baseline + call_pct
+| Dataset | call_pct beta | p (HAC) | ΔR² | Verdict |
+|---|---|---|---|---|
+| all_dates | 0.0308 | 0.0000 | 0.4565 | SUPPORTED |
+| high_coverage | 0.0223 | 0.0000 | 0.7606 | SUPPORTED |
+
+#### Partial Spearman (call_pct | rod_return, controlling for price controls)
+| Dataset | partial_rho | p | same_sign_train_val |
+|---|---|---|---|
+| all_dates | 0.931 | 0.0000 | True |
+| high_coverage | 0.917 | 0.0000 | True |
+
+#### Residual Spearman (call_pct vs rod_return after removing price-control fit)
+| Dataset | residual_rho | p | same_sign_train_val |
+|---|---|---|---|
+| all_dates | 0.797 | 0.0000 | True |
+| high_coverage | 0.820 | 0.0000 | True |
+
+### Conditional Quintile Table (high_coverage, by first-30-min direction)
+
+| Direction | Q1 (put-heavy) n | median ROD | Q5 (call-heavy) n | median ROD |
+|---|---|---|---|---|
+| up_30m (n=87) | 9 | -0.0079 | 25 | 0.0066 |
+| down_30m (n=81) | 25 | -0.0042 | 9 | 0.0110 |
+
+### Final Summary
+
+**Raw Spearman (Phase 2A):** rho=0.86, p≈0 — likely momentum-proxy contamination
+**After price controls:** see table above
+
+| Dataset | Verdict |
+|---|---|
+| all_dates | SUPPORTED |
+| high_coverage | SUPPORTED |
+| **Final (Phase 2B)** | **SUPPORTED** |
+
+**[high_coverage primary] call_pct survives price controls: beta_p=0.0000, partial_rho=0.917 (p=0.0000), same_sign_train_val=True**
+
+**Recommendation:** H58-ATM-PROXY Phase 2B shows genuine incremental value beyond early price action. Consider a Phase 3 study with a cleaner option-flow measure. Original H58 remains BLOCKED (full chain unavailable).

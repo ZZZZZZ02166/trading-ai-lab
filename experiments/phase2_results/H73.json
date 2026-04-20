@@ -1,0 +1,31 @@
+{
+  "hypothesis_number": "H73",
+  "hypothesis_title": "Compound Signal (Pattern 4 AND Backwardation) \u2192 Larger Range Than Single Signal",
+  "classification": "hybrid",
+  "phase2_verdict": "rejected",
+  "phase2_verdict_reason": "diff=-0.0017 \u2264 0",
+  "n_compound": 33,
+  "n_single_only": 233,
+  "n_neither": 296,
+  "compound_vs_single": {
+    "n_a": 33,
+    "n_b": 233,
+    "stat": 3797.0,
+    "p": 0.5461931352116688,
+    "cliff_d": -0.012355312784497334,
+    "median_a": 0.012793624161073753,
+    "median_b": 0.014538708772838088,
+    "diff": -0.0017450846117643345
+  },
+  "bootstrap_result": {
+    "observed_diff": NaN,
+    "p_bootstrap_greater": 0.268,
+    "ci_95": [
+      NaN,
+      NaN
+    ]
+  },
+  "used_bootstrap_only": true,
+  "phase1_alignment": "extends",
+  "notes": "n_compound typically small (~20-40). Bootstrap used instead of walk-forward when n < 40."
+}

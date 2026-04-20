@@ -1,0 +1,66 @@
+{
+  "hypothesis_number": "H53",
+  "signal_strength_tier": "exploratory",
+  "tier_rationale": "Phase 2 p=0.155; likely to remain inconclusive",
+  "role": "premarket_framing",
+  "signal_availability": "pre_open",
+  "signal": "(iv_30d > iv_30d.shift(5)) AND (hv_20_cc < iv_30d * 0.8) \u2014 prior day binary",
+  "primary_outcome": "w150_expansion",
+  "outcome_type": "day_quality_framing",
+  "n_signal_days": 129,
+  "n_no_signal_days": 434,
+  "cliff_d_full": 0.042260565141285324,
+  "walk_forward_mw": {
+    "splits": {
+      "full": {
+        "n_a": 129,
+        "n_b": 434,
+        "stat": 29176.0,
+        "p": 0.46601709275819503,
+        "cliff_d": 0.042260565141285324,
+        "median_a": 0.009237265769332235,
+        "median_b": 0.00904948727901382,
+        "diff": 0.00018777849031841563
+      },
+      "train": {
+        "n_a": 43,
+        "n_b": 209,
+        "stat": 4486.0,
+        "p": 0.9871695356371349,
+        "cliff_d": -0.0016690775564704573,
+        "median_a": 0.008540954920423227,
+        "median_b": 0.008729368392058826,
+        "diff": -0.00018841347163559875
+      },
+      "val": {
+        "n_a": 52,
+        "n_b": 198,
+        "stat": 5024.0,
+        "p": 0.7901425744354256,
+        "cliff_d": -0.024087024087024088,
+        "median_a": 0.008576755718644321,
+        "median_b": 0.009221106161469879,
+        "diff": -0.0006443504428255576
+      },
+      "holdout": {
+        "n_a": 34,
+        "n_b": 27,
+        "stat": 413.0,
+        "p": 0.5088237252091341,
+        "cliff_d": -0.10021786492374728,
+        "median_a": 0.011109242082204838,
+        "median_b": 0.011342744320634406,
+        "diff": -0.00023350223842956777
+      }
+    },
+    "consistency": "inconsistent",
+    "n_positive_splits": 0
+  },
+  "spearman_vs_expansion": {
+    "rho": 0.038304327118083535,
+    "p_nw": 0.4746645784275296,
+    "n": 563
+  },
+  "phase3_verdict": "rejected",
+  "verdict_reason": "cliff_d=0.042, p=0.4660, sign_ok=True"
+}

@@ -1,0 +1,63 @@
+{
+  "hypothesis_number": "H48",
+  "signal_strength_tier": "core-strong",
+  "tier_rationale": "Phase 2 Cliff's d=0.536; direct afternoon range test",
+  "role": "intraday_confirmation",
+  "signal_availability": "10:30_ET",
+  "signal": "fh_rv > rolling 252d median of fh_rv (binary)",
+  "primary_outcome": "aw_range (10:30-11:59, core 1.5h)",
+  "secondary_outcome": "aw_ext_range (10:30-12:59, extended \u2014 reference only), range_left_pct",
+  "outcome_type": "range_left_move_done",
+  "n_total": 563,
+  "cliff_d_full_aw_core": 0.6717416553047518,
+  "walk_forward_mw_aw_core": {
+    "splits": {
+      "full": {
+        "n_a": 287,
+        "n_b": 276,
+        "stat": 66211.0,
+        "p": 2.997457441354366e-43,
+        "cliff_d": 0.6717416553047518,
+        "median_a": 0.00717319694868239,
+        "median_b": 0.00407545623156442,
+        "diff": 0.00309774071711797
+      },
+      "train": {
+        "n_a": 114,
+        "n_b": 138,
+        "stat": 12509.0,
+        "p": 7.565691748685567e-16,
+        "cliff_d": 0.5902618866005593,
+        "median_a": 0.006456466949430752,
+        "median_b": 0.004299990925280019,
+        "diff": 0.0021564760241507327
+      },
+      "val": {
+        "n_a": 124,
+        "n_b": 126,
+        "stat": 13531.0,
+        "p": 1.4752231663002533e-23,
+        "cliff_d": 0.732078853046595,
+        "median_a": 0.0076788526056591885,
+        "median_b": 0.0036260929323703264,
+        "diff": 0.004052759673288862
+      },
+      "holdout": {
+        "n_a": 49,
+        "n_b": 12,
+        "stat": 503.0,
+        "p": 0.00015508056124509962,
+        "cliff_d": 0.7108843537414966,
+        "median_a": 0.007685050175829862,
+        "median_b": 0.004808031589154721,
+        "diff": 0.002877018586675141
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "secondary_cliff_d_aw_ext": 0.6689642983386356,
+  "secondary_cliff_d_range_left_pct": -0.018671413422208755,
+  "phase3_verdict": "supported_trading_useful",
+  "verdict_reason": "cliff_d_aw_core=0.672, p=0.0000, sign_ok=True"
+}

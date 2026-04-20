@@ -89,3 +89,36 @@ CI: Not available (insufficient_extra_metrics)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-05. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** hybrid  
+**Phase 2 Verdict:** ⚠️ INCONCLUSIVE  
+**Reason:** diff=0.0008, p=0.1551, inconsistent  
+**Phase 1 Alignment:** partial
+
+> Pattern 4 (Passarelli): iv rising while rv flat signals hidden demand for vol. Phase 2 tests against actual intraday 1m range.
+
+### Walk Forward Session
+
+| Split | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| full | 0.0008 | 0.1551 | 0.062 | 111 | 451 |
+| train | 0.0013 | 0.0539 | 0.143 | 54 | 198 |
+| val | -0.0003 | 0.4686 | 0.008 | 43 | 207 |
+| holdout | -0.0019 | 0.6268 | -0.056 | 14 | 46 |
+**Consistency:** inconsistent (1/3 splits positive)
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ❌ REJECTED
+**Signal Strength Tier:** exploratory
+**Role:** premarket_framing
+**Signal:** (iv_30d > iv_30d.shift(5)) AND (hv_20_cc < iv_30d * 0.8) — prior day binary
+**Primary Outcome:** w150_expansion
+**n:** ?
+**Verdict Reason:** cliff_d=0.042, p=0.4660, sign_ok=True

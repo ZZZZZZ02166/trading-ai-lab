@@ -1,0 +1,29 @@
+{
+  "run_date": "2026-04-19",
+  "batch": [
+    "H15",
+    "H24",
+    "H44",
+    "H48",
+    "H53",
+    "H73",
+    "H94",
+    "H97",
+    "H100"
+  ],
+  "verdicts": {
+    "H15": "supported",
+    "H24": "supported",
+    "H44": "supported",
+    "H48": "supported",
+    "H53": "inconclusive",
+    "H73": "rejected",
+    "H94": "supported",
+    "H97": "supported",
+    "H100": "inconclusive"
+  },
+  "n_supported": 6,
+  "n_rejected": 1,
+  "n_inconclusive": 2,
+  "n_insufficient": 0
+}

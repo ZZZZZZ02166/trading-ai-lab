@@ -93,3 +93,54 @@ CI: [0.5550, 0.6591] (fisher_z_transform)
 - **Insufficient Data**: Required data was unavailable. No statistical verdict is possible.
 
 **Scope**: QQQ only, 2024-01-01 → 2026-04-01. Results may not generalise to other tickers, regimes, or time periods without further testing.
+
+---
+
+## Phase 2 — Intraday Robustness
+
+**Classification:** intraday_primary  
+**Phase 2 Verdict:** ✅ SUPPORTED  
+**Reason:** diff=0.0035 > 0.003, p=0.0000 < 0.1, consistent  
+**Phase 1 Alignment:** extends
+
+> Phase 1 stripped RP-Long conditioning. Phase 2 tests unconditional: high fh_rv → larger afternoon range.
+
+### Walk Forward Session
+
+| Split | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| full | 0.0060 | 0.0000 | 0.676 | 281 | 282 |
+| train | 0.0036 | 0.0000 | 0.496 | 101 | 151 |
+| val | 0.0085 | 0.0000 | 0.815 | 130 | 120 |
+| holdout | 0.0070 | 0.0000 | 0.869 | 50 | 11 |
+**Consistency:** consistent (3/3 splits positive)
+
+### Walk Forward Afternoon
+
+| Split | diff | p | cliff_d | n_a | n_b |
+|---|---|---|---|---|---|
+| full | 0.0035 | 0.0000 | 0.536 | 281 | 282 |
+| train | 0.0025 | 0.0000 | 0.403 | 101 | 151 |
+| val | 0.0047 | 0.0000 | 0.630 | 130 | 120 |
+| holdout | 0.0051 | 0.0000 | 0.924 | 50 | 11 |
+**Consistency:** consistent (3/3 splits positive)
+
+---
+
+## Phase 3 — Trading Utility Test
+
+**Verdict:** ✅ SUPPORTED — Trading Useful
+**Signal Strength Tier:** core-strong
+**Role:** intraday_confirmation
+**Signal:** fh_rv > rolling 252d median of fh_rv (binary)
+**Primary Outcome:** aw_range (10:30-11:59, core 1.5h)
+**n:** 563
+**Verdict Reason:** cliff_d_aw_core=0.672, p=0.0000, sign_ok=True
+
+| Split | Cliff's d | p | n_a | n_b |
+|---|---|---|---|---|
+| full | 0.672 | 0.0000 | 287 | 276 |
+| train | 0.590 | 0.0000 | 114 | 138 |
+| val | 0.732 | 0.0000 | 124 | 126 |
+| holdout | 0.711 | 0.0002 | 49 | 12 |
+**Consistency:** consistent (3/3)
