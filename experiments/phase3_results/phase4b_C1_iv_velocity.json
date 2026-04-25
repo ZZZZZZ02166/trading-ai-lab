@@ -1,0 +1,108 @@
+{
+  "hypothesis": "C1",
+  "label": "Intraday IV Velocity (9:30\u219210:00) \u2192 Afternoon Range",
+  "signal": "iv_vel_30 = (IV_10:00 - IV_9:30) / IV_9:30 for near-ATM call",
+  "outcome": "aw_range (10:30\u201311:59) primary; w150_range secondary",
+  "role": "EARLY WARNING (9:30\u201310:00)",
+  "n_total": 317,
+  "n_rising_iv": 311,
+  "n_falling_iv": 6,
+  "spearman_vs_aw_range": {
+    "rho": -0.0449,
+    "p_nw": 0.350539,
+    "n": 317
+  },
+  "spearman_vs_w150_range": {
+    "rho": -0.0014,
+    "p_nw": 0.976983,
+    "n": 317
+  },
+  "walk_forward_aw_range": {
+    "splits": {
+      "full": {
+        "rho": -0.0449,
+        "p_nw": 0.350539,
+        "n": 317
+      },
+      "train": {
+        "rho": -0.0922,
+        "p_nw": 0.455933,
+        "n": 78
+      },
+      "val": {
+        "rho": -0.022,
+        "p_nw": 0.661553,
+        "n": 239
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 0
+  },
+  "walk_forward_w150_range": {
+    "splits": {
+      "full": {
+        "rho": -0.0014,
+        "p_nw": 0.976983,
+        "n": 317
+      },
+      "train": {
+        "rho": -0.0871,
+        "p_nw": 0.399991,
+        "n": 78
+      },
+      "val": {
+        "rho": 0.0365,
+        "p_nw": 0.497129,
+        "n": 239
+      }
+    },
+    "consistency": "mixed",
+    "n_positive_splits": 1
+  },
+  "mw_rising_vs_falling_iv": {
+    "n_a": 311,
+    "n_b": 6,
+    "stat": 777.5,
+    "p": 0.48578,
+    "cliff_d": -0.1667,
+    "median_a": 2.57,
+    "median_b": 3.185
+  },
+  "window_rho": {
+    "w30_range": {
+      "rho": 0.115,
+      "p_nw": 0.030675,
+      "n": 317
+    },
+    "w60_range": {
+      "rho": 0.065,
+      "p_nw": 0.212638,
+      "n": 317
+    },
+    "w120_range": {
+      "rho": 0.017,
+      "p_nw": 0.734218,
+      "n": 317
+    },
+    "w150_range": {
+      "rho": -0.0014,
+      "p_nw": 0.976983,
+      "n": 317
+    },
+    "w210_range": {
+      "rho": -0.0145,
+      "p_nw": 0.772463,
+      "n": 317
+    }
+  },
+  "peak_window": "w30_range",
+  "early_enough_for_style": false,
+  "iv_vel_stats": {
+    "median": 0.5197,
+    "p25": 0.3628,
+    "p75": 0.826,
+    "pct_rising": 0.981
+  },
+  "holdout_note": "No holdout: chain data ends Dec 2025. Walk-forward train=2024, val=2025 only.",
+  "phase4b_verdict": "inconclusive"
+}

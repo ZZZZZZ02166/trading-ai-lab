@@ -1,0 +1,62 @@
+{
+  "hypothesis": "H-NEW-2",
+  "label": "RV Surprise Ratio \u2192 Range Persistence",
+  "signal": "w30_range / (iv_30d_prior / sqrt(252*13)). Ratio > 1 = realized > expected.",
+  "outcome": "aw_range (primary, 10:30\u201311:59); w150_range (secondary)",
+  "role": "BOTH (9:31 early read; confirmed at 10:00)",
+  "n_total": 562,
+  "primary_spearman_aw_range": {
+    "rho": 0.3764,
+    "p_nw": 5.690188087323805e-20,
+    "n": 562
+  },
+  "secondary_spearman_w150_range": {
+    "rho": 0.5872,
+    "p_nw": 4.777634608687587e-61,
+    "n": 562
+  },
+  "walk_forward_spearman_aw": {
+    "splits": {
+      "full": {
+        "rho": 0.3764,
+        "p_nw": 5.690188087323805e-20,
+        "n": 562
+      },
+      "train": {
+        "rho": 0.2611,
+        "p_nw": 3.2985376649369514e-05,
+        "n": 251
+      },
+      "val": {
+        "rho": 0.4807,
+        "p_nw": 4.776918631716884e-17,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.2434,
+        "p_nw": 0.0670477484080052,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "mw_high_vs_low_surprise": {
+    "n_a": 308,
+    "n_b": 9,
+    "stat": 1686.0,
+    "p": 0.26914305315833786,
+    "cliff_d": 0.21645021645021645,
+    "median_a": 0.0062544793946169176,
+    "median_b": 0.00415446503663013,
+    "diff": 0.0021000143579867877
+  },
+  "n_high_surprise": 308,
+  "n_low_surprise": 9,
+  "signal_stats": {
+    "median": 1.599,
+    "p25": 1.229,
+    "p75": 2.041
+  },
+  "phase4a_verdict": "supported_trading_useful"
+}

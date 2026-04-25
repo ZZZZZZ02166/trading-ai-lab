@@ -1,0 +1,47 @@
+{
+  "hypothesis": "H-NEW-5",
+  "label": "fh_rv \u00d7 Gap Magnitude \u2192 Afternoon Range (4-cell)",
+  "signal": "4-cell: {high/low fh_rv} \u00d7 {large/small gap}. At 10:30.",
+  "outcome": "aw_range (10:30\u201311:59)",
+  "role": "CONFIRMATION at 10:30",
+  "n_total": 562,
+  "fh_rv_median_threshold": 0.174628,
+  "gap_magnitude_median_threshold": 0.003967,
+  "four_cell_table": {
+    "high_fh_rv__large_gap": {
+      "n": 167,
+      "median_aw_range": 0.007207,
+      "mean_aw_range": 0.008559
+    },
+    "high_fh_rv__small_gap": {
+      "n": 114,
+      "median_aw_range": 0.007032,
+      "mean_aw_range": 0.007886
+    },
+    "low_fh_rv__large_gap": {
+      "n": 114,
+      "median_aw_range": 0.004123,
+      "mean_aw_range": 0.004507
+    },
+    "low_fh_rv__small_gap": {
+      "n": 167,
+      "median_aw_range": 0.003948,
+      "mean_aw_range": 0.004561
+    }
+  },
+  "mw_max_cell_vs_min_cell": {
+    "n_a": 167,
+    "n_b": 167,
+    "stat": 23875.0,
+    "p": 2.217071700397859e-29,
+    "cliff_d": 0.7121445731291908,
+    "median_a": 0.007206648714620637,
+    "median_b": 0.003948428686543184,
+    "diff": 0.0032582200280774536
+  },
+  "peak_cell": "high_fh_rv__large_gap",
+  "trough_cell": "low_fh_rv__small_gap",
+  "pattern_matches_hypothesis": true,
+  "expected_pattern": "max=high_fh_rv__large_gap, min=low_fh_rv__small_gap",
+  "phase4a_verdict": "supported_trading_useful"
+}

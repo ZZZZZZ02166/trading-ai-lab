@@ -1,0 +1,87 @@
+{
+  "hypothesis": "H-NEW-6",
+  "label": "High-Range Streak \u2192 Next-Day Expansion",
+  "signal": "Consecutive days with w150_range > rolling_252d_median. Pre-open.",
+  "outcome": "w150_range (next day's session range)",
+  "role": "EARLY WARNING / vol regime context (pre-open)",
+  "n_total": 563,
+  "primary_spearman_w150": {
+    "rho": 0.7883,
+    "p_nw": 2.165228604297939e-121,
+    "n": 563
+  },
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.7883,
+        "p_nw": 2.165228604297939e-121,
+        "n": 563
+      },
+      "train": {
+        "rho": 0.7131,
+        "p_nw": 4.1279082098999225e-38,
+        "n": 252
+      },
+      "val": {
+        "rho": 0.8481,
+        "p_nw": 4.338709461158831e-80,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.6577,
+        "p_nw": 8.291142960099558e-08,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "window_rhos": {
+    "w30": {
+      "rho": 0.5745,
+      "p_nw": 3.7419945955921184e-45,
+      "n": 563
+    },
+    "w60": {
+      "rho": 0.6581,
+      "p_nw": 1.4022268840320375e-65,
+      "n": 563
+    },
+    "w120": {
+      "rho": 0.7598,
+      "p_nw": 3.292786877127404e-99,
+      "n": 563
+    },
+    "w150": {
+      "rho": 0.7883,
+      "p_nw": 2.165228604297939e-121,
+      "n": 563
+    },
+    "w210": {
+      "rho": 0.7533,
+      "p_nw": 3.31563437860119e-101,
+      "n": 563
+    }
+  },
+  "peak_window": "w150",
+  "early_enough_for_style": true,
+  "mw_streak_ge3_vs_zero": {
+    "n_a": 137,
+    "n_b": 286,
+    "stat": 38164.0,
+    "p": 3.9688893831238706e-56,
+    "cliff_d": 0.9480373640957582,
+    "median_a": 0.013895077982580427,
+    "median_b": 0.006705927769813228,
+    "diff": 0.007189150212767199
+  },
+  "n_streak_ge3": 137,
+  "n_streak_zero": 286,
+  "partial_spearman_controlling_h70": {
+    "partial_rho": 0.7817,
+    "partial_p": 2.5138491600588293e-65,
+    "n": 311
+  },
+  "redundancy_note": "Flagged redundant if partial_rho < 0.07 after controlling for H70 range_pct_rank",
+  "phase4a_verdict": "supported_trading_useful"
+}

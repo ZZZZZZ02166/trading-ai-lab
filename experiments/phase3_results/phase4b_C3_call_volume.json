@@ -1,0 +1,62 @@
+{
+  "hypothesis": "C3",
+  "label": "Near-ATM Call Volume Accumulation (first 30 min) \u2192 Range",
+  "signal": "vol_acc_30 = total optionVolume at 10:00 minus volume at 9:30, across all near-ATM contracts; rank-normalized rolling 252d",
+  "outcome": "aw_range (10:30\u201311:59) primary",
+  "role": "EARLY WARNING (9:30\u201310:00)",
+  "n_total_raw": 317,
+  "n_after_normalization": 258,
+  "spearman_raw_vs_aw_range": {
+    "rho": -0.2759,
+    "p_nw": 0.000135,
+    "n": 317
+  },
+  "spearman_rank_vs_aw_range": {
+    "rho": -0.396,
+    "p_nw": 0.0,
+    "n": 258
+  },
+  "spearman_rank_vs_w150_range": {
+    "rho": -0.456,
+    "p_nw": 0.0,
+    "n": 258
+  },
+  "walk_forward_aw_range": {
+    "splits": {
+      "full": {
+        "rho": -0.396,
+        "p_nw": 0.0,
+        "n": 258
+      },
+      "train": {
+        "rho": null,
+        "p_nw": null,
+        "n": 19
+      },
+      "val": {
+        "rho": -0.4349,
+        "p_nw": 0.0,
+        "n": 239
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 0
+  },
+  "mw_top_q_vs_bot_q": {
+    "n_a": 124,
+    "n_b": 60,
+    "stat": 1445.0,
+    "p": 0.0,
+    "cliff_d": -0.6116,
+    "median_a": 2.295,
+    "median_b": 4.42
+  },
+  "vol_acc_stats": {
+    "median_raw": 93896,
+    "p25_raw": 48194,
+    "p75_raw": 143272
+  },
+  "normalization_note": "Rolling 252d rank (min 60 periods) reduces level-drift effects.",
+  "holdout_note": "No holdout: chain data ends Dec 2025.",
+  "phase4b_verdict": "inconclusive"
+}

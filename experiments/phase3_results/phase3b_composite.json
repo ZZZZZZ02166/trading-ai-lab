@@ -1,0 +1,326 @@
+{
+  "run_date": "2026-04-20",
+  "composites": {
+    "composite_eq5": {
+      "composite": "EqualWeight-5 (H44+H94+H97+H70+H99)",
+      "signals_included": [
+        "iv_spread_30_60",
+        "ivx_spread_7_30",
+        "iv_velocity_5d",
+        "range_pct_rank",
+        "spread_pct_rank"
+      ],
+      "n_total": 562,
+      "primary_spearman_w150": {
+        "rho": 0.5364,
+        "p_nw": 2.2309872260032512e-10,
+        "n": 562
+      },
+      "walk_forward_spearman": {
+        "train": {
+          "rho": 0.3772,
+          "p_nw": 0.0002941831931853365,
+          "n": 251
+        },
+        "val": {
+          "rho": 0.6615,
+          "p_nw": 4.298853126539196e-06,
+          "n": 250
+        },
+        "holdout": {
+          "rho": 0.2871,
+          "p_nw": 0.05633745437864417,
+          "n": 61
+        }
+      },
+      "sign_consistent_across_splits": true,
+      "mw_top_vs_bottom_quartile": {
+        "n_high": 141,
+        "n_low": 141,
+        "cliff_d": 0.7782,
+        "p": 1.3676678596358697e-29,
+        "median_high": 0.013383,
+        "median_low": 0.006609
+      },
+      "walk_forward_mw": {
+        "train": {
+          "n_high": 63,
+          "n_low": 63,
+          "cliff_d": 0.5702,
+          "p": 3.421583942475118e-08,
+          "median_high": 0.010861,
+          "median_low": 0.007373
+        },
+        "val": {
+          "n_high": 63,
+          "n_low": 63,
+          "cliff_d": 0.8886,
+          "p": 7.832409330734625e-18,
+          "median_high": 0.015138,
+          "median_low": 0.006015
+        },
+        "holdout": {
+          "n_high": 16,
+          "n_low": 16,
+          "cliff_d": 0.4844,
+          "p": 0.02045647096371648,
+          "median_high": 0.013249,
+          "median_low": 0.008735
+        }
+      },
+      "window_rhos": {
+        "w30": {
+          "rho": 0.5189,
+          "p_nw": 2.0934214369114735e-10,
+          "n": 562
+        },
+        "w60": {
+          "rho": 0.5349,
+          "p_nw": 1.6821648505761225e-10,
+          "n": 562
+        },
+        "w120": {
+          "rho": 0.5374,
+          "p_nw": 1.761749180070183e-10,
+          "n": 562
+        },
+        "w150": {
+          "rho": 0.5364,
+          "p_nw": 2.2309872260032512e-10,
+          "n": 562
+        },
+        "w210": {
+          "rho": 0.5409,
+          "p_nw": 2.2567357616238952e-10,
+          "n": 562
+        }
+      },
+      "peak_window": "w210",
+      "early_enough_for_style": false,
+      "phase3b_verdict": "too_late_for_style"
+    },
+    "composite_wt5": {
+      "composite": "PartialRho-Weighted-5 (H44+H94+H97+H70+H99)",
+      "signals_included": [
+        "iv_spread_30_60",
+        "ivx_spread_7_30",
+        "iv_velocity_5d",
+        "range_pct_rank",
+        "spread_pct_rank"
+      ],
+      "n_total": 311,
+      "primary_spearman_w150": {
+        "rho": 0.6469,
+        "p_nw": 3.91790823635965e-07,
+        "n": 311
+      },
+      "walk_forward_spearman": {
+        "train": {
+          "rho": null,
+          "p_nw": null,
+          "n": 0
+        },
+        "val": {
+          "rho": 0.6645,
+          "p_nw": 5.762649011904305e-06,
+          "n": 250
+        },
+        "holdout": {
+          "rho": 0.3277,
+          "p_nw": 0.03643692678631795,
+          "n": 61
+        }
+      },
+      "sign_consistent_across_splits": true,
+      "mw_top_vs_bottom_quartile": {
+        "n_high": 78,
+        "n_low": 78,
+        "cliff_d": 0.8573,
+        "p": 2.41713373847916e-20,
+        "median_high": 0.014585,
+        "median_low": 0.006263
+      },
+      "walk_forward_mw": {
+        "train": null,
+        "val": {
+          "n_high": 63,
+          "n_low": 63,
+          "cliff_d": 0.8503,
+          "p": 1.8534305999972978e-16,
+          "median_high": 0.015089,
+          "median_low": 0.006235
+        },
+        "holdout": {
+          "n_high": 16,
+          "n_low": 16,
+          "cliff_d": 0.6641,
+          "p": 0.001448973442889209,
+          "median_high": 0.013932,
+          "median_low": 0.008471
+        }
+      },
+      "window_rhos": {
+        "w30": {
+          "rho": 0.6452,
+          "p_nw": 1.9309413539031512e-07,
+          "n": 311
+        },
+        "w60": {
+          "rho": 0.6457,
+          "p_nw": 2.84622229107756e-07,
+          "n": 311
+        },
+        "w120": {
+          "rho": 0.6434,
+          "p_nw": 4.686168603210753e-07,
+          "n": 311
+        },
+        "w150": {
+          "rho": 0.6469,
+          "p_nw": 3.91790823635965e-07,
+          "n": 311
+        },
+        "w210": {
+          "rho": 0.6556,
+          "p_nw": 3.069602507668592e-07,
+          "n": 311
+        }
+      },
+      "peak_window": "w210",
+      "early_enough_for_style": false,
+      "phase3b_verdict": "too_late_for_style"
+    },
+    "composite_eq4": {
+      "composite": "EqualWeight-4 (H44+H97+H70+H99, excl H94)",
+      "signals_included": [
+        "iv_spread_30_60",
+        "iv_velocity_5d",
+        "range_pct_rank",
+        "spread_pct_rank"
+      ],
+      "n_total": 562,
+      "primary_spearman_w150": {
+        "rho": 0.5112,
+        "p_nw": 7.659964906856738e-10,
+        "n": 562
+      },
+      "walk_forward_spearman": {
+        "train": {
+          "rho": 0.3375,
+          "p_nw": 0.0007280131986544093,
+          "n": 251
+        },
+        "val": {
+          "rho": 0.6416,
+          "p_nw": 6.070965005975086e-06,
+          "n": 250
+        },
+        "holdout": {
+          "rho": 0.284,
+          "p_nw": 0.06111122573151893,
+          "n": 61
+        }
+      },
+      "sign_consistent_across_splits": true,
+      "mw_top_vs_bottom_quartile": {
+        "n_high": 141,
+        "n_low": 141,
+        "cliff_d": 0.7374,
+        "p": 9.654376101306897e-27,
+        "median_high": 0.012877,
+        "median_low": 0.006853
+      },
+      "walk_forward_mw": {
+        "train": {
+          "n_high": 63,
+          "n_low": 63,
+          "cliff_d": 0.5253,
+          "p": 3.693312148530817e-07,
+          "median_high": 0.010548,
+          "median_low": 0.007373
+        },
+        "val": {
+          "n_high": 63,
+          "n_low": 63,
+          "cliff_d": 0.8458,
+          "p": 2.6717402508415733e-16,
+          "median_high": 0.015089,
+          "median_low": 0.005921
+        },
+        "holdout": {
+          "n_high": 16,
+          "n_low": 16,
+          "cliff_d": 0.6719,
+          "p": 0.0012712042385466173,
+          "median_high": 0.013932,
+          "median_low": 0.008471
+        }
+      },
+      "window_rhos": {
+        "w30": {
+          "rho": 0.5071,
+          "p_nw": 3.5241088442435937e-10,
+          "n": 562
+        },
+        "w60": {
+          "rho": 0.5161,
+          "p_nw": 3.7588515117196137e-10,
+          "n": 562
+        },
+        "w120": {
+          "rho": 0.5126,
+          "p_nw": 5.987969271249621e-10,
+          "n": 562
+        },
+        "w150": {
+          "rho": 0.5112,
+          "p_nw": 7.659964906856738e-10,
+          "n": 562
+        },
+        "w210": {
+          "rho": 0.5088,
+          "p_nw": 1.178498932355932e-09,
+          "n": 562
+        }
+      },
+      "peak_window": "w60",
+      "early_enough_for_style": true,
+      "phase3b_verdict": "supported_trading_useful"
+    }
+  },
+  "quintile_table_best_composite": {
+    "composite": "composite_wt5",
+    "table": [
+      {
+        "quintile": 1,
+        "n": 63,
+        "median_w150_range": 0.006235,
+        "mean_w150_range": 0.007311
+      },
+      {
+        "quintile": 2,
+        "n": 62,
+        "median_w150_range": 0.007522,
+        "mean_w150_range": 0.007739
+      },
+      {
+        "quintile": 3,
+        "n": 62,
+        "median_w150_range": 0.009518,
+        "mean_w150_range": 0.010715
+      },
+      {
+        "quintile": 4,
+        "n": 62,
+        "median_w150_range": 0.011224,
+        "mean_w150_range": 0.012017
+      },
+      {
+        "quintile": 5,
+        "n": 62,
+        "median_w150_range": 0.015267,
+        "mean_w150_range": 0.017561
+      }
+    ]
+  }
+}

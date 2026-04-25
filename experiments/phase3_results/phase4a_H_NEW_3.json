@@ -1,0 +1,81 @@
+{
+  "hypothesis": "H-NEW-3",
+  "label": "Term Structure Velocity \u2192 Range Expansion",
+  "signal": "\u0394(iv_30d - iv_60d) day-over-day. Pre-open.",
+  "outcome": "w150_range (09:30\u201311:59)",
+  "role": "EARLY WARNING (pre-open)",
+  "n_total": 561,
+  "primary_spearman_w150": {
+    "rho": 0.1336,
+    "p_nw": 0.00038809203303023603,
+    "n": 561
+  },
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.1336,
+        "p_nw": 0.00038809203303023603,
+        "n": 561
+      },
+      "train": {
+        "rho": 0.1119,
+        "p_nw": 0.037426881791601065,
+        "n": 250
+      },
+      "val": {
+        "rho": 0.1177,
+        "p_nw": 0.06119011720936101,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.2546,
+        "p_nw": 0.006076274964306602,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "window_rhos": {
+    "w30": {
+      "rho": 0.1054,
+      "p_nw": 0.011934889321229976,
+      "n": 561
+    },
+    "w60": {
+      "rho": 0.1204,
+      "p_nw": 0.001861136473699932,
+      "n": 561
+    },
+    "w120": {
+      "rho": 0.135,
+      "p_nw": 0.0003533328165061758,
+      "n": 561
+    },
+    "w150": {
+      "rho": 0.1336,
+      "p_nw": 0.00038809203303023603,
+      "n": 561
+    },
+    "w210": {
+      "rho": 0.1218,
+      "p_nw": 0.0017174479809055668,
+      "n": 561
+    }
+  },
+  "peak_window": "w120",
+  "early_enough_for_style": true,
+  "mw_flip_vs_no_flip": {
+    "n_a": 283,
+    "n_b": 278,
+    "stat": 44393.0,
+    "p": 0.008445304743694157,
+    "cliff_d": 0.1285303912347154,
+    "median_a": 0.009703467462848659,
+    "median_b": 0.00855238273859197,
+    "diff": 0.0011510847242566895
+  },
+  "n_flip_days": 283,
+  "n_no_flip_days": 278,
+  "phase4a_verdict": "supported_trading_useful"
+}

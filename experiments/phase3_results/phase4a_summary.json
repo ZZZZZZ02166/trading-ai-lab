@@ -1,0 +1,44 @@
+{
+  "run_date": "2026-04-20",
+  "script": "31_run_phase4a.py",
+  "hypotheses": {
+    "H-NEW-1": {
+      "label": "Opening Range Efficiency \u2192 Afternoon Range",
+      "role": "BOTH (early warning partial at 9:45; confirmation at 10:00)",
+      "phase4a_verdict": "rejected"
+    },
+    "H-NEW-2": {
+      "label": "RV Surprise Ratio \u2192 Range Persistence",
+      "role": "BOTH (9:31 early read; confirmed at 10:00)",
+      "phase4a_verdict": "supported_trading_useful"
+    },
+    "H-NEW-3": {
+      "label": "Term Structure Velocity \u2192 Range Expansion",
+      "role": "EARLY WARNING (pre-open)",
+      "phase4a_verdict": "supported_trading_useful"
+    },
+    "H-NEW-4": {
+      "label": "Prior-Close Realized Vol \u2192 Opening Range (NOT gap fill)",
+      "role": "EARLY WARNING (pre-open, prior-session data)",
+      "phase4a_verdict": "too_late_for_style"
+    },
+    "H-NEW-5": {
+      "label": "fh_rv \u00d7 Gap Magnitude \u2192 Afternoon Range (4-cell)",
+      "role": "CONFIRMATION at 10:30",
+      "phase4a_verdict": "supported_trading_useful"
+    },
+    "H-NEW-6": {
+      "label": "High-Range Streak \u2192 Next-Day Expansion",
+      "role": "EARLY WARNING / vol regime context (pre-open)",
+      "phase4a_verdict": "supported_trading_useful"
+    }
+  },
+  "counts": {
+    "supported_trading_useful": 4,
+    "too_late_for_style": 1,
+    "inconclusive": 0,
+    "rejected": 1,
+    "redundant": 0,
+    "insufficient_data": 0
+  }
+}

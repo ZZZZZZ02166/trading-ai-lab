@@ -1,0 +1,113 @@
+{
+  "hypothesis": "H-NEW-4",
+  "label": "Prior-Close Realized Vol \u2192 Opening Range (NOT gap fill)",
+  "signal": "late_rv (15:30\u201315:59 prior day). Distinct from H24 which tested gap fill.",
+  "outcome_primary": "w30_range (9:30\u20139:59 opening range)",
+  "outcome_secondary": "fh_rv (9:30\u201310:29 first-hour RV)",
+  "role": "EARLY WARNING (pre-open, prior-session data)",
+  "n_w30": 556,
+  "n_fh": 556,
+  "spearman_vs_w30_range": {
+    "rho": 0.4996,
+    "p_nw": 3.469631925263112e-32,
+    "n": 556
+  },
+  "spearman_vs_fh_rv": {
+    "rho": 0.6265,
+    "p_nw": 9.158044012259677e-56,
+    "n": 556
+  },
+  "walk_forward_spearman_w30": {
+    "splits": {
+      "full": {
+        "rho": 0.4996,
+        "p_nw": 3.469631925263112e-32,
+        "n": 556
+      },
+      "train": {
+        "rho": 0.428,
+        "p_nw": 2.0576143133001354e-13,
+        "n": 248
+      },
+      "val": {
+        "rho": 0.6036,
+        "p_nw": 1.1246559615152463e-24,
+        "n": 247
+      },
+      "holdout": {
+        "rho": 0.402,
+        "p_nw": 0.0024946902574714495,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "walk_forward_spearman_fh": {
+    "splits": {
+      "full": {
+        "rho": 0.6265,
+        "p_nw": 9.158044012259677e-56,
+        "n": 556
+      },
+      "train": {
+        "rho": 0.6129,
+        "p_nw": 5.989856081798599e-29,
+        "n": 248
+      },
+      "val": {
+        "rho": 0.6877,
+        "p_nw": 2.6450761612239348e-34,
+        "n": 247
+      },
+      "holdout": {
+        "rho": 0.37,
+        "p_nw": 0.003108261687160261,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "window_rhos_vs_session_ranges": {
+    "w30": {
+      "rho": 0.4996,
+      "p_nw": 3.469631925263112e-32,
+      "n": 556
+    },
+    "w60": {
+      "rho": 0.5282,
+      "p_nw": 5.5889513107382864e-40,
+      "n": 556
+    },
+    "w120": {
+      "rho": 0.5242,
+      "p_nw": 2.360077188740338e-37,
+      "n": 556
+    },
+    "w150": {
+      "rho": 0.5235,
+      "p_nw": 1.1958005346825845e-36,
+      "n": 556
+    },
+    "w210": {
+      "rho": 0.53,
+      "p_nw": 1.0470091648185425e-38,
+      "n": 556
+    }
+  },
+  "peak_window": "w210",
+  "early_enough_for_style": false,
+  "mw_high_vs_low_prior_close_vol": {
+    "n_a": 278,
+    "n_b": 278,
+    "stat": 58346.0,
+    "p": 2.40065768396167e-25,
+    "cliff_d": 0.5099114952642203,
+    "median_a": 0.006597169732698938,
+    "median_b": 0.004254925602306087,
+    "diff": 0.0023422441303928513
+  },
+  "phase4a_verdict": "too_late_for_style",
+  "h24_distinction": "H24 tested late_rv \u2192 gap_fill_30/60 (Fisher, rejected p=0.278/0.910). This tests late_rv \u2192 w30_range and fh_rv (opening activity, not fill direction)."
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "4B",
+  "description": "Intraday options chain factor tests",
+  "data_coverage": "Jan 2024 \u2013 Dec 2025 (317 dates, no holdout)",
+  "hypotheses": {
+    "C1": {
+      "verdict": "inconclusive",
+      "file": "phase4b_C1_iv_velocity.json"
+    },
+    "C1b": {
+      "verdict": "inconclusive",
+      "file": "phase4b_C1b_iv_velocity_ultra.json"
+    },
+    "C3": {
+      "verdict": "inconclusive",
+      "file": "phase4b_C3_call_volume.json"
+    }
+  }
+}

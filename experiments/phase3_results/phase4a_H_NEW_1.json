@@ -1,0 +1,53 @@
+{
+  "hypothesis": "H-NEW-1",
+  "label": "Opening Range Efficiency \u2192 Afternoon Range",
+  "signal": "w30_range / rolling_252d_median(w30_range) \u2014 efficiency ratio at 10:00",
+  "outcome": "aw_range (10:30\u201311:59)",
+  "role": "BOTH (early warning partial at 9:45; confirmation at 10:00)",
+  "n_total": 504,
+  "primary_spearman_aw_range": {
+    "rho": 0.5589,
+    "p_nw": 5.399944992819382e-40,
+    "n": 504
+  },
+  "expected_sign": "negative (low efficiency \u2192 more remaining range)",
+  "walk_forward_spearman": {
+    "splits": {
+      "full": {
+        "rho": 0.5589,
+        "p_nw": 5.399944992819382e-40,
+        "n": 504
+      },
+      "train": {
+        "rho": 0.4282,
+        "p_nw": 3.685803429315353e-08,
+        "n": 193
+      },
+      "val": {
+        "rho": 0.6503,
+        "p_nw": 8.635931747262458e-36,
+        "n": 250
+      },
+      "holdout": {
+        "rho": 0.409,
+        "p_nw": 0.00018411429152081007,
+        "n": 61
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 3
+  },
+  "mw_low_vs_high_efficiency": {
+    "n_a": 252,
+    "n_b": 252,
+    "stat": 15059.0,
+    "p": 1.771380125756258e-24,
+    "cliff_d": -0.5257306626354246,
+    "median_a": 0.00425958055551285,
+    "median_b": 0.007152394273561784,
+    "diff": -0.002892813718048934
+  },
+  "mw_note": "median(aw_range) for low-efficiency days vs high-efficiency days",
+  "phase4a_verdict": "rejected",
+  "verdict_note": "Negative rho = low efficiency \u2192 more afternoon range. Positive = opposite."
+}

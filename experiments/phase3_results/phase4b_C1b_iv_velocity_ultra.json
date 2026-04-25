@@ -1,0 +1,55 @@
+{
+  "hypothesis": "C1b",
+  "label": "Ultra-early IV Velocity (9:30\u21929:45) \u2192 Afternoon Range",
+  "signal": "iv_vel_15 = (IV_9:45 - IV_9:30) / IV_9:30 for near-ATM call",
+  "outcome": "aw_range (10:30\u201311:59) primary",
+  "role": "EARLY WARNING (first 15 min)",
+  "n_total": 317,
+  "n_rising_iv": 313,
+  "n_falling_iv": 4,
+  "spearman_vs_aw_range": {
+    "rho": -0.0643,
+    "p_nw": 0.218437,
+    "n": 317
+  },
+  "spearman_vs_w150_range": {
+    "rho": -0.0334,
+    "p_nw": 0.525439,
+    "n": 317
+  },
+  "walk_forward_aw_range": {
+    "splits": {
+      "full": {
+        "rho": -0.0643,
+        "p_nw": 0.218437,
+        "n": 317
+      },
+      "train": {
+        "rho": -0.1029,
+        "p_nw": 0.42117,
+        "n": 78
+      },
+      "val": {
+        "rho": -0.0432,
+        "p_nw": 0.423496,
+        "n": 239
+      }
+    },
+    "consistency": "consistent",
+    "n_positive_splits": 0
+  },
+  "mw_rising_vs_falling_iv": {
+    "n_a": 313,
+    "n_b": 4,
+    "cliff_d": null,
+    "p": null
+  },
+  "iv_vel_stats": {
+    "median": 0.5566,
+    "p25": 0.4007,
+    "p75": 0.804,
+    "pct_rising": 0.987
+  },
+  "holdout_note": "No holdout: chain data ends Dec 2025.",
+  "phase4b_verdict": "inconclusive"
+}
