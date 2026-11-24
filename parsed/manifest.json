@@ -234,5 +234,85 @@
       "cards_generated": "2026-04-15T11:15:41.487175+00:00"
     },
     "errors": []
+  },
+  "3605e0c990fe": {
+    "doc_id": "3605e0c990fe",
+    "file_name": "Order-Flow-Trading-Setups-1.pdf",
+    "book_title": "Order Flow Trading Setups",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": true,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 161,
+      "poor_quality_pages": 10,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 195,
+      "chunk_count_summary": 70,
+      "card_count": 39,
+      "card_errors": 0,
+      "vision_pages": 136,
+      "vision_described_pages": 82,
+      "watermark_lines_filtered": 0,
+      "chapter_note_count": 17,
+      "concept_note_count": 19,
+      "hypotheses_proposed": 4
+    },
+    "timestamps": {
+      "extracted_at": "2026-11-22T17:19:55.262970+00:00",
+      "chunked_at": "2026-11-22T17:23:24.828102+00:00",
+      "cards_generated_at": "2026-11-22T17:29:48.242261+00:00",
+      "indexed_at": "2026-11-22T17:30:02.737800+00:00",
+      "study_notes_generated_at": "2026-11-22T17:29:48.242269+00:00",
+      "vault_exported_at": "2026-11-22T17:29:48.242268+00:00",
+      "hypotheses_generated_at": "2026-11-22T17:31:22.900337+00:00"
+    },
+    "errors": [],
+    "author": "Trader Dale"
+  },
+  "885b985763be": {
+    "doc_id": "885b985763be",
+    "file_name": "Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+    "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+    "status": {
+      "extracted": true,
+      "chunked": true,
+      "cards_generated": true,
+      "indexed": true,
+      "study_notes_generated": true,
+      "hypotheses_generated": true,
+      "vault_exported": true
+    },
+    "stats": {
+      "total_pages": 208,
+      "poor_quality_pages": 0,
+      "extraction_quality": "ok",
+      "chunk_count_retrieval": 344,
+      "chunk_count_summary": 121,
+      "card_count": 45,
+      "card_errors": 0,
+      "vision_pages": 107,
+      "vision_described_pages": 101,
+      "watermark_lines_filtered": 629,
+      "chapter_note_count": 22,
+      "concept_note_count": 20,
+      "hypotheses_proposed": 6
+    },
+    "timestamps": {
+      "extracted_at": "2026-11-22T17:19:58.356795+00:00",
+      "chunked_at": "2026-11-22T17:23:42.327959+00:00",
+      "cards_generated_at": "2026-11-22T17:29:48.269596+00:00",
+      "indexed_at": "2026-11-22T17:30:10.352622+00:00",
+      "study_notes_generated_at": "2026-11-22T17:29:48.269601+00:00",
+      "vault_exported_at": "2026-11-22T17:29:48.269600+00:00",
+      "hypotheses_generated_at": "2026-11-22T17:31:22.900345+00:00"
+    },
+    "errors": [],
+    "author": "Johannes Forthmann"
   }
 }

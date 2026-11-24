@@ -1,0 +1,21 @@
+---
+doc_id: "885b985763be"
+book_title: "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading"
+author: "Johannes Forthmann"
+file_path: "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf"
+page_start: 19
+page_end: 156
+tag: "point_of_control"
+---
+
+# Point of control
+
+- **TPO Measures Time at Price**. A market profile marks prices visited in successive time brackets, illustrated with half-hour letters. Wider rows show repeated visits across brackets. Its control price reflects the most TPO activity, which can differ from the price with the most executed volume. [PDF pp. 19–21](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=19)
+- **Volume Point of Control Is a Price Mode**. The VPOC is the price with the highest executed volume in the selected profile. Ordinary time-based volume shows how much traded in each time bar. A VPOC and time-based POC can therefore represent different prices in the same auction. [PDF p. 22](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=22)
+- **A Naked POC Is Still Untested**. Forthmann calls a prior control price that has not yet been revisited a naked POC. Price can later return to the level during a different auction. The actual reaction can be assessed with current profile and footprint context. [PDF pp. 23–26](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=23)
+- **Track Acceptance Versus Reentry at Prior Value**. The location of the open is only the first observation. Forthmann distinguishes an outside open that sustains activity beyond value from one that quickly returns inside. In balance, the prior control price can be an intermediate rotation reference. [PDF pp. 28–30](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=28)
+- **Compare Like Sessions Before Comparing Profiles**. Fixed profiles provide consistent daily, weekly or monthly windows. Forthmann checks main-session and 24-hour profiles separately because they can place the highest-volume node at different prices. He emphasizes recent references and uses older levels selectively. [PDF pp. 34–38](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=34)
+- **Range Auction Can Show Two Control Prices**. Forthmann profiles a defined range using both market and volume views. A TPO POC shows where time concentrated and VPOC shows where executions concentrated. Divergence identifies two reference prices to carry into the subsequent session. [PDF pp. 40–43](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=40)
+- **Developing POC Migration Tracks Moving Acceptance**. When new trades build sufficient size at another price, the developing volume POC can migrate. Forthmann reads sustained migration in the context of an existing move and fresh initiative. He gives less weight to an isolated shift inside an established range. [PDF pp. 45–50](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=45)
+- **Confirm a Footprint Impulse With Price Progress**. Forthmann checks whether price and successive local control prices advance after a first stack or large execution. If an opposing print cannot move price through an extreme, the next impulse can clarify which side is gaining initiative. A preidentified reference gives the sequence context. [PDF pp. 74–77](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=74)
+- **Weekly Profiles Can Supply Local Reference Levels**. Forthmann projects a weekly VPOC onto a faster crude chart to observe the next interaction. The gold and EUR/USD examples similarly use earlier structure before zooming into delta and footprints. The higher-timeframe reference and lower-timeframe trigger are separate inputs. [PDF pp. 149–156](../../../../books/Volume%20Profile%20%26%20Market%20Profile%20Order%20Flow%20for%20Next%20Gen%20Daytrading.pdf#page=149)

@@ -1,0 +1,1303 @@
+{
+  "doc_id": "3605e0c990fe",
+  "book_title": "Order Flow Trading Setups",
+  "author": "Trader Dale",
+  "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+  "file_name": "Order-Flow-Trading-Setups-1.pdf",
+  "total_pages": 161,
+  "pages": [
+    {
+      "page_num": 1,
+      "text": "[VISUAL CONTENT: The cover identifies Trader Dale as the author and juxtaposes a horizontal volume profile with a bid-by-ask footprint.]",
+      "char_count": 136,
+      "quality_status": "empty",
+      "needs_ocr": true,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 2,
+      "text": "Risk Disclosure\nFutures and Forex trading contains substantial risk and is not for every investor. An investor\ncould potentially lose all or more than their initial investment. Risk capital is money that can\nbe lost without jeopardizing one’s financial security or lifestyle. Only risk capital should be\nused for trading and only those with sufficient risk capital should consider trading. Past\nperformance is not necessarily indicative of future results.\nHypothetical Performance Disclosure\nHypothetical performance results have many inherent limitations, some of which are\ndescribed below. No representation is being made that any account will or is likely to achieve\nprofits or losses similar to those shown; in fact, there are frequently sharp differences\nbetween hypothetical performance results and the actual results subsequently achieved by\nany particular trading program. One of the limitations of hypothetical performance results is\nthat they are generally prepared with the benefit of hindsight. In addition, hypothetical\ntrading does not involve financial risk, and no hypothetical trading record can completely\naccount for the impact of financial risk of actual trading. For example, the ability to withstand\nlosses or to adhere to a particular trading program in spite of trading losses is a material point\nthat can also adversely affect actual trading results. There are numerous other factors related\nto the markets in general or to the implementation of any specific trading program that\ncannot be fully accounted for in the preparation of hypothetical performance results and all\nof which can adversely affect trading results. This book is for educational purposes only and\nthe opinions expressed are those of the author only. All trades presented should be\nconsidered hypothetical. None of the trades are traded in a live account.\nTestimonials\nTestimonials appearing in this publication may not be representative of other clients or\ncustomers and are not a guarantee of future performance or success.",
+      "char_count": 2019,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 3,
+      "text": "Contents\nE-book Download ....................................................................................................................... 7\nMy Story ..................................................................................................................................... 8\nWhy I Started Using Order Flow .............................................................................................. 10\nWhat Will You Learn? .............................................................................................................. 11\nImportant Notice ..................................................................................................................... 12\nSetting up Order Flow .............................................................................................................. 13\nNinjaTrader 8 Trading Platform ........................................................................................... 13\nOther Trading Platforms ...................................................................................................... 13\nData Feed for Order Flow .................................................................................................... 14\nCQG – Futures Data Feed ................................................................................................. 14\nWhere to Get Order Flow .................................................................................................... 15\nWhat Instruments Can You Trade with Order Flow? ........................................................... 16\nWhich Trading Instrument Should You Start With? ............................................................ 16\nOrder Flow: Forex vs. Futures .............................................................................................. 16\nTransferring Trading Levels from Currency Futures to Forex .............................................. 18\nOrder Flow – Market Participants............................................................................................ 19\nPassive vs. Active (Aggressive) Market Participants ............................................................ 19\nPassive Market Participants ................................................................................................. 20\nActive Market Participants .................................................................................................. 21\nActive and Passive in One Chart .......................................................................................... 22\nBigger Perspective (BONUS) ................................................................................................ 23\nOrder Flow – Basic Chart Description ...................................................................................... 24\nFootprints ............................................................................................................................. 24\nGreen/Red Cells ................................................................................................................... 25",
+      "char_count": 3084,
+      "quality_status": "low_quality",
+      "needs_ocr": true,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 4,
+      "text": "High Volume Nodes (HVN) ................................................................................................... 25\nDelta ..................................................................................................................................... 26\nEXAMPLE: Price and Delta Divergence ............................................................................ 27\nFootprint Summary .............................................................................................................. 29\nVolume Profile ..................................................................................................................... 31\nTD Order Flow – Special Features ............................................................................................ 32\nOrder Flow for Forex ............................................................................................................ 32\nVolume Clusters ................................................................................................................... 33\nMultiple High Volume Nodes (HVN) .................................................................................... 34\nImbalances ........................................................................................................................... 35\nStacked Imbalances.............................................................................................................. 36\nUnfinished Business ............................................................................................................. 37\nEXAMPLE: Unfinished Business ........................................................................................ 38\nTrades Filter ......................................................................................................................... 40\nCumulative Delta .................................................................................................................. 41\nEXAMPLE:  Cumulative Delta ........................................................................................... 42\nOrder Flow – Trading Workspace ............................................................................................ 43\nOrder Flow – Trading Setups ................................................................................................... 45\nTrading Setup #1: Volume Clusters ...................................................................................... 45\nVolume Clusters (within a TREND) ................................................................................... 45\nEXAMPLES: Volume Clusters (within a TREND) ............................................................... 48\nVolume Cluster (within a REJECTION) .............................................................................. 50\nEXAMPLES: Volume Clusters (within a REJECTION) ......................................................... 52\nTrading Setup #2: Multiple Nodes ....................................................................................... 54\nEXAMPLES: Multiple Nodes ............................................................................................. 56\nTrading setup #3: Trades Filter ............................................................................................ 59",
+      "char_count": 3303,
+      "quality_status": "low_quality",
+      "needs_ocr": true,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 5,
+      "text": "EXAMPLES: Trades Filter .................................................................................................. 61\nTrading setup #4: Stacked Imbalances ................................................................................ 64\nEXAMPLES: Stacked Imbalances ...................................................................................... 67\nTrading setup #5: Unfinished Business ................................................................................ 70\nTake Profit ........................................................................................................................ 71\nStop Loss .......................................................................................................................... 72\nConfirmation .................................................................................................................... 72\nWarning against Entering a Bad Trade ............................................................................ 73\nEXAMPLES: Unfinished Business ...................................................................................... 75\nOrder Flow – Confirmations ..................................................................................................... 79\nConfirmation Setup #1: Big Limit Orders ............................................................................. 80\nEXAMPLES: Big Limit Orders ............................................................................................ 83\nConfirmation Setup #2: Absorption ..................................................................................... 86\nEXAMPLES: Absorption .................................................................................................... 88\nConfirmation Setup #3: Aggressive Orders and Delta ......................................................... 91\nEXAMPLES: Aggressive Orders and Delta ........................................................................ 95\nConfirmation Setup #4: Cumulative Delta Divergence ........................................................ 98\nEXAMPLES: Cumulative Delta Divergence ..................................................................... 102\nTake Profit with Order Flow ................................................................................................... 104\nVolume-Based Take Profit ................................................................................................. 104\nEXAMPLES: Volume-Based Take Profit .......................................................................... 106\nTake Profit – Trailing .......................................................................................................... 109\nTrailing TP - Warning Signals .......................................................................................... 110\nEXAMPLES: Take Profit - Trailing .................................................................................... 112\nStop Loss with Order Flow ..................................................................................................... 114\nEXAMPLES: Stop Loss with Order Flow .......................................................................... 116",
+      "char_count": 3203,
+      "quality_status": "low_quality",
+      "needs_ocr": true,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 6,
+      "text": "How to Find Supports and Resistances with Volume Profile................................................. 120\nVolume Profile Introduction .............................................................................................. 120\nWhat Does Volume Profile Look Like? ............................................................................... 121\nHow is Volume Profile Different to Standard Volume Indicators in MT4?........................ 121\nWhat does Volume Profile Tell Us? ................................................................................... 122\nDifferent Volume Profile Shapes ....................................................................................... 124\nD-Shaped Profile ............................................................................................................ 124\nP-Shaped Profile ............................................................................................................. 125\nb-Shaped Profile ............................................................................................................. 126\nThin Profile ..................................................................................................................... 127\nWhat Makes Volume Profile Different to Other Trading Indicators? ................................ 128\nWhy Care about Volumes and What the Big Institutions Are Doing? ............................... 128\nVolume Profile – Trading Setups............................................................................................ 129\nVolume Profile Setup #1: Volume Accumulation Setup .................................................... 130\nThe Logic Behind Volume Accumulation Setup ............................................................. 131\nEXAMPLES: Volume Accumulation Setup ...................................................................... 134\nVolume Profile Setup #2: Trend Setup .............................................................................. 136\nThe Logic behind the Trend Setup: ................................................................................ 137\nEXAMPLES: Trend Setup ................................................................................................ 138\nVolume Profile Setup #3: Rejection Setup ......................................................................... 140\nEXAMPLES: Rejection Setup ........................................................................................... 143\nWhere to Get More Info about Volume Profile ..................................................................... 145\nLive Trading Examples - Link .................................................................................................. 145\nWhat to Do Next .................................................................................................................... 146\nAccelerate Your Learning! ...................................................................................................... 146\nThe Elite Pack ..................................................................................................................... 147",
+      "char_count": 3145,
+      "quality_status": "low_quality",
+      "needs_ocr": true,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 7,
+      "text": "The Order Flow Pack .......................................................................................................... 149\nJust a Few Testimonials on My Trading Courses ................................................................... 151\nGlossary .................................................................................................................................. 155\nThank you! ............................................................................................................................. 159",
+      "char_count": 533,
+      "quality_status": "low_quality",
+      "needs_ocr": true,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 8,
+      "text": "7\n\n\nE-book Download\nA quick note before we begin: If you purchased a printed black-and-white version of this book,\nthen I expect you will find some details in pictures a bit challenging to see and some text or\nnumbers too small and difficult to read.\nFor this reason, I uploaded an electronic version of the book (along with some Order Flow\nvideos) on a special webpage. This way, you will be able to check the pictures in color and\nhigh resolution. If needed, you can also zoom in to see the images better.\n\nLink: https://www.trader-dale.com/of-book/\nPassword: happy trading",
+      "char_count": 575,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 9,
+      "text": "8\n\nMy Story\nHello, my name is Dale, and I’ve been a full-time trader since 2008. I have always been very\npassionate about economics, finance, and trading. I got my university degree in finance before\nbecoming a certified portfolio manager and an investment manager, as well as getting my\nfinancial derivatives certification. Unlike most of the other trading \"gurus,\" I am proud to say\nthat I have a proper education and trading certifications. Of course, this is thanks to my\nparents, who supported me enormously in my studies and at the start of my career.\nFresh out of college, I started to work as a market analyst for a major brokerage. Most would\nbe grateful to have this position right out of college, but I didn’t really feel that way. I had two\nproblems with this job. The first one was that I didn’t like having a boss who told me what to\ndo. I always studied hard to be independent, not an employee. The second reason was that I\ndidn’t particularly appreciate how the company treated its customers. I think this is an issue\nwith most Forex brokers. They don’t really care if their clients make money or not. They are\nselfish and focus primarily on their fees. They feel no responsibility, and they don’t care about\ntheir clients’ best interests. I didn’t like being a tool in such a company, so I left.\nAfter I quit my job, I focused all my efforts on trading. I started by testing numerous trading\nstrategies, trying different trading approaches, backtesting various patterns, and anything\nelse you can think of for 12–15 hours every day.\nI was trading various instruments and using many different trading styles. I was trading stocks,\ninvestment certificates, and automated trading systems. Currently, my primary focus is on\nmanual currency trading.\nWhen I started trading currencies, I was under the impression that I needed to find a Holy\nGrail, which would make me a big pile of money quickly. I was searching for this Holy Grail\namong various trading indicators. I tried most of the standard indicators with many different\nsettings, but nothing worked, at least not in the long run.\nMy first tangible success was when I finally got rid of all the indicators and started anew with\nsimple Price Action. For the first time, I felt I was getting somewhere! The big \"eureka\nmoment\" came when I combined Price Action with Volume Profile.",
+      "char_count": 2347,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 10,
+      "text": "9\n\nAt first, I was trading only swing trades. I was working mostly on a daily time frame and, as\nyou can imagine, I did not have many trades. Still, this was the first time I felt confident about\nmy trading. I was also thrilled that I had finally found my way and that my trading had become\nconsistent.\nFor many people this would be enough, but I wanted to learn more and go further. I started\nto go much deeper, and I began to look for a method or a tool suitable for day trading on\nmuch faster time frames.",
+      "char_count": 508,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 11,
+      "text": "10\n\nWhy I Started Using Order Flow\nAt first, I was using Price Action and Volume Profile, but I wanted more, so I went into tape\nreading using DOM (Depth of Market). DOM is a feature that shows all the orders that appear\nin the market—including the “pending orders.”\nDOM (Depth of Market):\n\nThis seemed like the right way to go until I realized that most pending orders never get filled.\nThese orders are only placed in the market to move the price in the desired direction. When\nthe price comes close to them, they are, in most cases, withdrawn. Sort of like a carrot in front\nof a donkey, he remains in constant pursuit but never actually gets it.\nFor me, DOM was just full of noise and too hard to read. I knew there was a lot of useful info\nthere, but I needed something to help me read that crazy matrix. This is where the Order Flow\ncame into play.\nThe big advantage of using the Order Flow is that it prints orders that matter—orders that\nactually got filled (not the pending orders, which are often never filled). Order Flow also prints",
+      "char_count": 1044,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 12,
+      "text": "11\n\nthose orders in a way that is much easier to read as well as backtest. Exactly the thing I\nneeded!\nAt first, I started to use a third-party Order Flow software. After some time, I came up with a\nfew ideas for how the Order Flow could be improved by adding some specific and helpful\nfeatures. Long story short—I had a custom-made Order Flow developed with the additional\nfeatures built in!\nNow I use my Order Flow every day for my intraday trading. I prefer to use it with Price Action\nand Volume Profile as those show me the bigger picture. Still, there are others who prefer to\nuse Order Flow as a standalone indicator you build your trading around.\nWhat Will You Learn?\nThis book aims to give you precise, immediately actionable info without wasting your time on\nunnecessary filler and fluff. It’s the type of book I would love to have had when I started to\nlearn how to trade with the Order Flow. Here is what you can look forward to learning:\n• Choosing the right trading platform for Order Flow trading\n• NinjaTrader 8 platform – introduction\n• Choosing the right Order Flow software\n• Where to get data for Order Flow\n• The best instruments to trade with Order Flow\n• Order Flow – what it tells us\n• Order Flow – special features\n• How to set up Order Flow workspace\n• Order Flow – trading setups\n• Order Flow – confirmation setups\n• How to use Order Flow to determine your Take Profit and Stop Loss\n• How to use Order Flow for trade management\n• How to find strong institutional Supports and Resistances using Volume Profile\n• How to combine Order Flow with Volume Profile\nAll that in a straightforward way with many pictures and examples.",
+      "char_count": 1650,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 13,
+      "text": "12\n\nImportant Notice\nBefore we jump straight into it, I need to tell you that this is not a magic “get rich quick” guide.\nThe Order Flow is a fantastic tool, and the strategies I am going to show you are the best-\nproven strategies I know. BUT this alone won’t make you a great trader. Just like getting a\nnew Ferrari does not make you a better driver. You need to practice and you need hands-on\nexperience. You must spend time and energy learning to trade with the Order Flow yourself!\nHands-on experience cannot be learned from a book!\nSo, if you don’t mind that I won’t be giving you a “magic pill” (as it doesn’t exist), let‘s move\non to the first chapter!",
+      "char_count": 660,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 14,
+      "text": "13\n\nSetting up Order Flow\nNinjaTrader 8 Trading Platform\nThe trading platform I use for running Order Flow is NinjaTrader 8. I have been using\nNinjaTrader 8 for many years, and I highly recommend it.\nA significant advantage of NinjaTrader 8 is that it is a free platform. Yes, really. It has a free\nmode, which is without any restrictions and has all its functions enabled. I have never had a\nreason to switch to their paid version, which shows how cool the free version is.\nAlso, all the indicators I have developed for NinjaTrader 8 platform (Volume Profile, VWAP,\nand Order Flow) work with the free version.\nThe way I do it is that I do my analysis on the NinjaTrader 8 platform, but when it comes to\ntrade execution, I do it on another platform with my broker.\nThere is a shortlist of brokers that you can connect to NinjaTrader 8 and trade straight from\nthis platform, but, in my opinion, there are better and cheaper brokers around than those\nwho are supported by NinjaTrader 8. For this reason, I use the NT8 only for charting, and I\nexecute the trades elsewhere. This may seem like a disadvantage, but I believe that being able\nto choose your own broker is worth it.\nHere are some useful links for you:\nNinjaTrader 8 platform download: https://ninjatrader.com\nMy preferred broker: https://www.trader-dale.com/forex-brokers\n\nOther Trading Platforms\nA persistent question I get is whether Order Flow can run on the Metatrader 4 platform. While\nit may be possible, there are too many limitations and problems. MT4 is a 15+-year-old\nsoftware, and trying to run Order Flow there would be like placing an engine from a Ferrari\ninto an old, half-broken budget car thinking you would start winning races with it.",
+      "char_count": 1712,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 15,
+      "text": "14\n\nA lot of people also like using TradingView for their charting. It is a fine platform, but,\nunfortunately, you can’t run Order Flow there.\nThere are also some other charting platforms; one of the most famous (apart from\nNinjaTrader) is Sierra. This platform is not free, though; you need to pay monthly fees to use\nit.\n\nData Feed for Order Flow\nOrder Flow shows all executed Buy and Sell orders traded in the exchange. To see those\norders, you need an excellent data feed that gives you Bid and Ask data. Such data is often\nreferred to as “Level 1” data.\nThere is also “Level 2” data, but you won’t need that. Level 2 data includes market depth,\nwhich the Order Flow does not use (that is only useful, for example, when tape reading).\nSince Order Flow is best used with centralized markets, I suggest you use it with Futures data.\nMy recommended data provider is CQG.\n\nCQG – Futures Data Feed\nYou can get a free trial data feed connection here: https://ninjatrader.com/FreeLiveData\nThis trial CQG connection will expire after some time, and then you will have two options. The\nfirst option will be to create a new trial using a different email address. The second option will\nbe to start paying monthly fees for the data feed.\nI don’t think there is a better way to get free Futures data anywhere without limitations.\nIf you need a connection for any specific trading instrument, then the best way is to email\nNinjaTrader support directly and tell them what you need. They will help with any questions\nand give you a quote for that particular data feed connection.\nThey usually respond quickly, and they are very helpful overall. You can contact them via email\nhere: platformsupport@ninjatrader.com",
+      "char_count": 1702,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 16,
+      "text": "15\n\nWhere to Get Order Flow\nIf you search the internet, you will discover many Order Flow software options available. The\nprice ranges from around $100 to $5,000, with some costing even more!\nLet’s first talk about the cheap ones. As with many things in this world, here also applies: “You\nbuy cheap, you get cheap.” If you manage to purchase Order Flow for $100 somewhere on\nthe internet, don’t expect the functionality to be any good. You also can’t expect any help or\nservice from the software provider either.\nThe other extreme is Order Flow software for thousands of dollars. In my experience, those\nare full of many tweaks and features a real trader does not really need. They are there only\nto justify the high price. Also, in my experience, such software is often developed by coders\nwho are not real traders. They don’t know what an Order Flow trader really needs. Those guys\nusually code any feature they can think of (useful or not), and they add it to their software.\nThis way, their Order Flow looks full of cool features to justify the higher price.\nThe ideal solution is to get your Order Flow software from a real trader who developed it by\nworking hand in hand with the software developer.\nWhen I was working on my Order Flow software, I made sure of two things: First, the core of\nthe Order Flow was 100% working, was well optimized, and worked with various trading\ninstruments. Second, the unique features my Order Flow had were all useful and helpful in\nreal trading. My software has no redundant features or added black-box indicators, of which\nnobody really knows what they do or how they are calculated. I am really proud of the special\nfeatures we built into the software, and I cannot wait to show you later in this book!\nIf you decide to get my custom-made Order Flow software (along with further Order Flow\ntraining), you can get it here:\nhttps://www.trader-dale.com/order-flow-indicator-and-video-course/",
+      "char_count": 1932,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 17,
+      "text": "16\n\nWhat Instruments Can You Trade with Order Flow?\nOrder Flow is best used for day trading. The most popular markets are:\n• Currency Futures / Forex\n• Indices Futures (S&P 500, Nasdaq, Dow Jones, DAX…)\n• Oil, Metals (Gold…)\n• Stocks\nI use Order Flow mostly for currency Futures. As I mentioned before, I do my analysis on\nNinjaTrader 8 using currency Futures. I then execute the trades with my Forex broker in the\nspot Forex market.\n\nWhich Trading Instrument Should You Start With?\nI recommend starting with just one trading instrument, for example 6E (EUR Futures), and\nfocusing solely on that. The reason is that every trading instrument behaves differently. Every\ninstrument or market has a different average volume traded, different times when it is most\nactive, different reactions, etc. It takes a lot of time just to master one instrument!\nProfessional day traders often focus only on one trading instrument they have mastered and\nwhich they trade. When starting, I don’t see an advantage to choosing many markets as it will\njust complicate the learning process.\nI focus primarily on the 6E (EUR Futures). This is where I feel most comfortable and where I\nhave by far my best trading results.\n\nOrder Flow: Forex vs. Futures\n“Why do we need to use Futures instead of Forex?” That’s a good question I get quite often.\nThe distinction between these two is this:",
+      "char_count": 1366,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 18,
+      "text": "17\n\nFutures: Is centralized, which means that everybody on the planet sees the same price and\nvolumes traded. Most importantly, Futures allow us to see how much volume was traded on\nthe Bid as well as the Ask.\n\n\nForex: Is decentralized, which means that only people who use the same data feed provider\nsee the same price and volumes. Data from each data provider can differ a bit. Not too much,\nbut the difference is there. The main disadvantage to Futures is that Forex providers are\nunable to distinguish Bid and Ask (or if they do, they do it very badly). So, the best you can\nget is Total volume (= sum of Bid + Ask).",
+      "char_count": 621,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 19,
+      "text": "18\n\nTransferring Trading Levels from Currency Futures to Forex\nBecause I do my analysis on currency Futures but then execute my trades in the Forex market,\nI need to transfer my Support/Resistance levels from Futures to Forex.\nTransferring levels from EUR and AUD Futures to EUR/USD and AUD/USD (Forex) is pretty\nsimple. You place the two charts next to each other, visually compare, and then transfer the\nlevel from left to right. It is pretty simple to find the level because the correlation is virtually\n100 % (the charts look the same).\n\nTransferring levels gets more challenging with the CAD, JPY, and CHF Futures because the\ncorrelation is -100 %, which means the charts are inverse. Also, one pip on Futures doesn't\nequal one pip on Forex. With CAD, JPY, and CHF futures, I still transfer the levels \"visually,\"\nbut you need to imagine the Forex chart is reversed. It takes some time and effort to do this\na few times a day, but with some practice, you will be able to do it quickly. It’s very similar to\nlearning to ride a bike; once your brain gets it, it gets it!",
+      "char_count": 1073,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 20,
+      "text": "19\n\n\nOrder Flow – Market Participants\nMost people get confused when they open an Order Flow chart for the very first time. There\nis no shame in that. Order Flow shows so much information that it is easy to get overwhelmed\nif you don’t know what to look for! Don’t worry though; by the time you have finished this\nbook, you will be able to read Order Flow without getting a headache :)\nLet’s start by going through the basic stuff, like what Order Flow shows and how to read it.\n\nPassive vs. Active (Aggressive) Market Participants\nTo learn what is going on in the Order Flow chart, you first need to understand one\nfundamental thing: the distinction between passive and active market participants. This may\nsound like too much theory, but this piece of information is vital. If you are not sure you got\nit the first time, go through it again. If you don’t get this point now, you will be lost later.\nReady? Here we go!\n\n[VISUAL CONTENT: Side-by-side CAD futures and USD/CAD charts illustrate why an inverse currency quotation needs a separate price-level mapping.]",
+      "char_count": 1064,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 21,
+      "text": "20\n\nPassive Market Participants\nPassive market participants are traders who enter their trade with a limit (pending) order.\nThey do not chase the market. They wait for the price to come to them and then they enter\ntheir trades only for the price they want (or better).\nEvery subject in the market can be a passive participant. It does not matter if it is a bank, a\npension fund, a hedge fund, or a private trader like you or me. It is merely everybody who\nenters a trade with a limit order. If you place a limit order in your trading platform, you are a\npassive market participant.\nWhen the price hits the limit order you placed in the market, the order gets filled, and you\nget into the trade (you have just opened a trading position). This trading position will show\non the Order Flow footprint.\nIf you open a LONG position with a limit order, then it will appear on the BID side of the\nfootprint (on the left).\nIf you opened a SHORT position with a limit order, then it will appear on the ASK side of the\nfootprint (on the right).\n\nSo far, so good? This will make things a bit more complicated:\n\n[VISUAL CONTENT: The bid-and-ask schematic separates resting buy limits below the market from resting sell limits above it.]",
+      "char_count": 1223,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 22,
+      "text": "21\n\nActive Market Participants\nActive market participants are traders who enter their trades with market orders. If you press\na market Buy or Sell, then you are an active market participant. Your position will get filled\nimmediately.\nNo matter where the price currently is, no matter where exactly the trade is going to be filled,\naggressive participants just want in. Now! Even if this means risking a slippage (the trade\nwon’t open precisely at the price where they pressed the Buy/Sell).\nA market order is useful in situations where there is no time to wait to get your whole position\nfilled exactly at the price you wanted. For example, this could be when there is a quick price\nmovement that you don’t want to miss.\nIf you open a LONG position with a market order, it will appear on the ASK side of the\nfootprint (on the right).\nIf you open a SHORT position with a market order, it will appear on the BID side of the\nfootprint (on the left).\n\n[VISUAL CONTENT: The aggressive-order diagram places market buys on the ask and market sells on the bid.]",
+      "char_count": 1053,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 23,
+      "text": "22\n\nActive and Passive in One Chart\nThe distinction between passive and aggressive market participants is what makes so many\npeople confused. It is the main reason they cannot use Order Flow properly and struggle to\nmake money with it, which is why I stress the importance of this point!\nLet me give you two more pictures that sum this up. If you are not 100% confident with where\nthe passive and aggressive traders show on the footprint, then I suggest you print those\npictures where you can see them while trading.\nThe picture below shows two identical footprints and the two ways you can interpret them.\n\nLet me put all that into one footprint that sums this all up:\n\n[VISUAL CONTENT: The schematic pairs each executed aggressor with a passive counterparty on the same side of the footprint. Seeing bid or ask volume alone cannot tell which participant drove the reaction.]",
+      "char_count": 876,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 24,
+      "text": "23\n\nWhat the picture above says is this:\n• BID: Shows aggressive Sellers and passive Buyers.\n• ASK (Offer): Shows aggressive Buyers and passive Sellers.\nIf you understood this, then your first question will probably be, “How am I supposed to know\nif the number that just appeared on the ASK is from a passive Seller or an aggressive Buyer?”\nI am afraid you will not like the answer as there is no way to know with absolute certainty!\nThe good news is, in this book, I am going to teach you how to make a reasonable estimate,\nwhich will allow you to make the correct assumption in most cases. Not in all cases—I do not\nteach magic as I warned you already.\n\nBigger Perspective (BONUS)\nTo put things into a bigger perspective, let me show you one more thing. Maybe you have\nseen some Volume Profile indicators with two colors and the developers told you that one\ncolor shows Sellers and the other color shows Buyers. Like this one, for example:\n\nIf somebody tells you such a thing, then they clearly don’t know what they are talking about.\n\n[VISUAL CONTENT: The schematic pairs each executed aggressor with a passive counterparty on the same side of the footprint. Seeing bid or ask volume alone cannot tell which participant drove the reaction.]",
+      "char_count": 1243,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 25,
+      "text": "24\n\nBased on what I just taught you, you now know that when volumes appear on BID, they can\nbe both aggressive Sellers or passive Buyers. And when volumes appear on the ASK, they can\nbe both aggressive Buyers or passive Sellers! If somebody tells you that “green” means Buyers\nand “red” means Sellers, they are telling you a half-truth.\n\nOrder Flow – Basic Chart Description\nIn this chapter, I am going to describe standard Order Flow software and describe its primary\ninterface. You can apply this to most of the common Order Flow software as the core should\nbe the same for each of them.\n\nFootprints\nThe Order Flow does not show standard candles, but it shows FOOTPRINTS.\nA footprint shows not only Open, High, Low, Close as standard candles do, but it also shows\norders that got traded within that candle.\nOrders are placed on Bid or on Ask. When a BUYER enters a Long trade (with a market order),\nthen his position shows on the ASK side of the footprint. When a SELLER enters a Short trade\n(with a market order), his position shows on BID.\nThis is how the Order Flow chart is drawn:\n\n[VISUAL CONTENT: The chart opens each candle into price rows with separate executed bid and ask quantities.]",
+      "char_count": 1196,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 26,
+      "text": "25\n\nGreen/Red Cells\nInside every footprint there are green or red cells.\nThe cell is GREEN if the number on the Ask is larger than the number on the Bid.\nIt is RED when the Bid is larger than the Ask.\nSimply put, this represents the strength of Buyers versus Sellers.\nHowever, as you learned in the previous chapter, this is not always true, and there is much\nmore to it. But for the sake of keeping this part simple, let’s leave it at that and revisit it when\nwe talk about Order Flow strategies.\nUsually (not always), the bullish footprints are primarily green (stronger Buyers) and the\nbearish footprints are primarily red (stronger Sellers).\n\n\nHigh Volume Nodes (HVN)\nPossibly, the most important place in any footprint is the High Volume Node. It represents\nthe place where the heaviest volumes were traded, a place where the institutions were the\nmost active. It is marked by a black outline, making it easily visible at first sight.\nIf there are more Heavy Volume Nodes at the same price, in two or more consecutive\nfootprints, then my proprietary Order Flow software will make it in yellow. Price levels like\nthese represent Support/Resistance zones.\n\n[VISUAL CONTENT: The footprint highlights the price row with the greatest combined bid and ask volume inside a single bar.]",
+      "char_count": 1283,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 27,
+      "text": "26\n\n\nDelta\nBelow each footprint (the place could vary depending on the software you use) there is a\nnumber that is either green or red.\nIt is GREEN (positive) when more volume is executed at the Ask (in that whole footprint).\nIt is RED (negative) when more volume is executed at the Bid (in that whole footprint).\nThis essentially tells you who is stronger in that footprint—Buyers or Sellers. Bullish footprints\nhave a positive Delta (GREEN). Bearish footprints typically have a negative delta (RED). This\nholds true primarily in trending markets.\nIf there is a rotation, then you cannot rely on this as much. The reason is that in a rotation,\nbig institutions usually enter their trades both with market and pending orders. They combine\nthese two types of orders in an effort to mask their true intentions.",
+      "char_count": 808,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 28,
+      "text": "27\n\n\nWhat should grab your attention is when you see a bullish footprint with a negative Delta or\na bearish footprint with a positive Delta.\nA bullish footprint with a negative Delta tells you this: The price is rising, but Sellers are\nentering their Shorts and they are stronger than the Buyers.\nA bearish footprint with a positive Delta tells you this: The price is falling, but Buyers are\nentering their Longs and they are stronger than the sellers.\nBoth those scenarios represent a warning that a price reversal might happen (price reverses\nto follow Delta).\n\n\nEXAMPLE: Price and Delta Divergence\nLet me give you an example of a trade I had a couple of days ago on EUR Futures:\n1. I had identified a strong level of Resistance on the EUR/USD using Volume Profile. I\npublished this Resistance level a week ago publicly on my website.\n2. I waited almost a week until the price reached this Resistance.\n\n[VISUAL CONTENT: Labels point to the signed delta printed under adjacent footprints. The color of a candle and the sign of its delta can disagree.]",
+      "char_count": 1052,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 29,
+      "text": "28\n\n3. When it did, there was a strong uptrend the whole day. It would be risky to enter a\nShort trade from Resistance against this strong uptrend. For this reason, I used my\nOrder Flow software to identify precisely when Sellers started showing up around this\nResistance.\n4. In the Order Flow, I looked at 6E 12-20 instrument, which is EUR futures. It 100%\ncorrelates with EUR/USD (Forex), where I place my trades. The reason I looked at\nFutures was that I needed to see the separate Bid x Ask volumes and Delta (which\nForex does not show).\n5. When the price reached the volume-based Resistance, there was a significant\ndivergence between price and Delta. Price was rising, but Delta was falling! This meant\nthat even though the price was going up, strong and aggressive Sellers were jumping\nin more and more! This is one of my favorite trade confirmations, so I jumped in the\nShort trade.\n6. I took a 10 pip Take Profit quite easily. I didn’t want to try to take more out of this\nbecause the EUR was in a strong uptrend. Trading Shorts against a strong uptrend is\nrisky, so it was better to take a smaller profit and quit the trade.\nThis is what I saw when I entered the short trade (price rising, Delta negative).\n* BTW. This picture shows footprints with Total Volumes (sum of Bid + Ask).\n\n[VISUAL CONTENT: The euro futures resistance example aligns rising price with weakening delta before the reversal shown in the chart.]",
+      "char_count": 1428,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 30,
+      "text": "29\n\nThis was the reaction:\n\nThere was a bit more to this trade, which I will not mention here for the sake of simplicity.\nWhat I want you to focus on is the divergence between rising prices and falling Delta. That\nwas what predicted the turning of the price.\nIf you would like to see the whole trade and how it went in real-time, then you can watch the\nvideo where I recorded it all. It is on my website, and you can access it using the link and\npassword I gave you at the beginning of this book. Enjoy!\n\nFootprint Summary\nThe panel at the bottom of the Order Flow chart shows a summary of each footprint.\nYou can set it in any way you want to show only the information you need for your strategy.\nIt is best not to have too much summary info there and solely focus on the most important\nthings.\nHere is a picture that shows the whole summary panel:\n\n[VISUAL CONTENT: The euro futures resistance example aligns rising price with weakening delta before the reversal shown in the chart.]",
+      "char_count": 985,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 31,
+      "text": "30\n\n\nSuch a panel is quite standard for much Order Flow software. Developers like to boast of how\nmany useful things it shows. The truth is you won’t need all those features as they distract\nfrom the more critical aspects. I personally only use Delta, Cumulative Delta, and Volume. It\ngives me this quick overview info:\nDelta: Shows whether there were stronger Buyers or Sellers.\nCumulative Delta: Shows Delta changes throughout the whole day.\nVolume: Shows the accumulative volume of each footprint.\nThe screenshot below shows my summary settings:",
+      "char_count": 548,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 32,
+      "text": "31\n\nVolume Profile\nMy Order Flow software has its own Volume Profile. It is a Daily Volume Profile that shows\nthe volume distribution throughout the whole day.\nThis is a significant feature because it shows you the bigger picture, which is critical when\ntrading with Order Flow!\nThe BLUEISH/GREEN color on the Volume Profile represents orders traded on the Ask, and\nthe RED color represents orders traded on the Bid.\nCombining Volume Profile with Order Flow is my favorite intraday trading approach. I will talk\nmore about it later in this book.\n\n[VISUAL CONTENT: The daily histogram aggregates volume horizontally by price. The book's color convention separates bid- and ask-side executions in the bars.]",
+      "char_count": 705,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 33,
+      "text": "32\n\nTD Order Flow – Special Features\nHere I will continue describing more useful Order Flow features. But this time, the features\nwon’t be standard; instead, they are unique to my Order Flow software.\n\nOrder Flow for Forex\nOne of my Order Flow software's most unique features is that you can use it for trading Forex.\nThis is not very common because Order Flow is primarily used with centralized data (Futures).\nStill, NinjaTrader has a good Forex data feed with reliable volume information. We were able\nto use this and adjust the Order Flow to work even with Forex!\nThe Forex data they prove does not give Bid and Ask volume, only Total Volume (= sum of Bid\nand Ask). For this reason, you cannot use all the Order Flow functions when trading Forex\n(functions using Bid and Ask). Still, the Volume data is extremely useful, and the Order Flow\ngives you a tremendous edge even without separate Bid and Ask volume.\nOrder Flow used with Forex Volume data looks like this:\n\nEvery cell shows volumes that were traded at the given price level; the heavier the volume at\na given price point the darker the shade.",
+      "char_count": 1106,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 34,
+      "text": "33\n\nVolume Clusters\nWhen trading with the Order Flow, it is very important to pay attention to heavy volume areas\nas well as low volume areas. This would be almost impossible if you just looked at the numbers\nin each cell without having any visual help.\nFor this reason, I designed my software to recognize heavy volumes and use darker colors to\nmake the heavy volume areas stand out. This way, you can immediately identify heavy volume\nareas at a glance.\nWhen there is an area that is way darker than the surrounding areas, it marks a place where\nthe BIG trading institutions and their algorithms were most likely actively trading.\nThose are critical areas to keep track of as they often represent strong Support and Resistance\nzones.\n\nThose darker and lighter shades are also used on the Bid x Ask visualization as you can see in\nthe chart that follows.\n\n[VISUAL CONTENT: A boxed price band is darker than nearby rows in the total-volume footprint. The shade identifies relative activity inside the surrounding move.]",
+      "char_count": 1019,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 35,
+      "text": "34\n\nThe heavier the volumes the darker the color:\n\n\nMultiple High Volume Nodes (HVN)\nA very important place in every footprint is the High Volume Node. It is the place where most\nof the volumes got traded (Bid and Ask combined).\nAn extremely strong level is formed when two or more High Volume Nodes meet at the same\nprice in consecutive footprints. When two nodes meet, I call it a Double Node, when it is three\nnodes, then a Triple Node, etc…\nMy software automatically detects those Multiple HVNs and highlights them in yellow. This\nway, you can quickly identify them at first sight.\nThose Multiple HVNs are very significant in my Order Flow analysis because they often\nrepresent strong Support and Resistance zones.",
+      "char_count": 718,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 36,
+      "text": "35\n\n\nImbalances\nImbalances are a great way of tracking market sentiment. Only with Order Flow will you be\nable to see this type of market detail!\nAn Imbalance is when Buyers are way more aggressive than Sellers or when Sellers are more\naggressive than Buyers.\nIf Buyers are way more aggressive than Sellers (Ask is 300% or larger than the Bid), then the\nnumber on the Ask is printed in BLUE.\nIf Sellers are more aggressive than Buyers (Bid is 300% or larger than the Ask), then the\nnumber on the Bid is printed in BLUE.\nBid x Ask Order Flow is compared diagonally, which means that Imbalances are compared as\nshown below (this is also how you read the Order Flow footprint—diagonally):\n\n[VISUAL CONTENT: Arrows identify identical maximum-volume rows across successive footprints. The imbalance diagram then compares volumes diagonally across adjacent prices.]",
+      "char_count": 859,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 37,
+      "text": "36\n\n\nThe picture above shows two Imbalances. One Imbalance is in the second row and the other\none is in the third. The reason is: 13 is 300% or more than 2, and 61 is 300% or more than 14.\nYou will often see Imbalances at the start of a strong and aggressive trend and within the\ntrend itself.\n\n\nStacked Imbalances\nStacked Imbalances are three or more cells with imbalances on top of each other. Learning to\nspot these areas is extremely important to us traders because they often represent strong\nSupport and Resistance zones.\n\n[VISUAL CONTENT: A small numeric example compares 13 with 2 and 61 with 14 on diagonals. The highlighted selling cells in the footprint illustrate what an adjacent stack looks like.]",
+      "char_count": 711,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 38,
+      "text": "37\n\nStacked Imbalances are a sign that one side of the market (Buyers or Sellers) is dominating\nand in control. Those Buyers or Sellers are really strong, aggressive, and determined to push\nthe price their way.\nMy Order Flow software automatically highlights areas with Stacked Imbalances. Those areas\nrepresent strong Support and Resistance zones.\n\n\nUnfinished Business\nAnother unique feature of my Order Flow software is that it automatically detects Unfinished\nBusinesses (Failed Auctions).\nUnfinished Business represents a market imperfection. It shows that the high or low, which\nwas just formed, was not formed properly.\nWhat do I mean by “formed properly”?\nEvery footprint represents an auction process. This process needs to end in a certain way. A\nproperly formed high needs to have 0 contracts traded at the Bid, and a properly formed Low\nneeds to have 0 contracts traded on the Ask.",
+      "char_count": 893,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 39,
+      "text": "38\n\nWhen the market turns from a new low or high without this happening, it is called Unfinished\nBusiness (or a Failed Auction).\nIt is an imperfection that the market tends to fix. The price has a tendency to revisit such\nplaces and “finish the business.” You can think of these areas as a sort of magnet to the price.\nMy Order Flow automatically detects these areas and draws a line there. This line is left in\nplace until the price revisits it and fixes this market imperfection.\n\nLet me give you a live trading example from one of my recent trades on EUR Futures.\n\nEXAMPLE: Unfinished Business\nI was in a Short trade, and I was deciding whether to take a 10 pip profit or take a half profit\nat both 10 and 20 pips. Because there was Unfinished Business where the chart had previously\nturned, I decided to take just the 10 pip profit. It would have been risky to try to go for more\nbecause the Unfinished Business could work like a magnet and drive the price upwards\n(against my Short).\n\n[VISUAL CONTENT: The dotted horizontal lines mark prior footprint extremes where both sides traded, the author's unfinished-auction references.]",
+      "char_count": 1134,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 40,
+      "text": "39\n\nHere is a screenshot from the live session video:\n\nThe picture shows the Unfinished Business (the green dotted line) and a red arrow, which I\ndrew to demonstrate what could happen there.\nLater, the Unfinished Business did end up working as a magnet, and the price went upwards\nto test it as shown here:\n\nThis allowed me to quit the trade with a profit before the price would have turned against\nme.\n\n[VISUAL CONTENT: A prior unfinished extreme is marked ahead of price as a possible retest area in a trade-management example.]",
+      "char_count": 530,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 41,
+      "text": "40\n\nThe first thing many people think when they hear about Unfinished Business is that this is the\nHoly Grail. Unfortunately, it does not work like that. The reason is that the price could move\nquite a significant distance away from the Unfinished Business without actually testing it.\nIn my trading, I don’t rely on the Unfinished Business indicator too much. Instead of a Holy\nGrail, I consider it a small helper when making trading decisions as in the trade illustrated\nabove.\n\nTrades Filter\nThis unique feature filters out all the noise from the market and leaves only the biggest trades\n(trades of the BIG guys we want to track).\nIt makes the Order Flow easy to read, and you can be sure you won’t miss any significant\nmarket action! When the BIG guys are present, it will show on the Trades Filter.\nYou can set the Filter anyway you like—depending on how much “noise” you want to filter\nout. I personally prefer to set it in a way that only the most significant trading orders show.\nThis means that on EUR Futures (my favorite day trading instrument) I have the Trades Filter\nset to 25. This means it only shows executed trades that were 25+ contracts.\nYou may say that 25 contracts are not that much and you are right. But you need to consider\nthis: Institutions prefer to enter their trading positions using Iceberg orders. This means that\nthey open positions with multiple orders rather than with one single order like a retail trader.\nBut when there is not much time, and the institutions need to get into their trade quickly,\nthey don’t have the luxury of Iceberg orders and they need to enter their trades using bigger\nposition sizes. Those larger orders are the ones we track with the Trades Filter.\nLater in this book, I will show you an excellent trading strategy based solely on the Trades\nFilter.",
+      "char_count": 1813,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 42,
+      "text": "41\n\n\nCumulative Delta\nThis is a separate indicator, which is usually not a part of Order Flow software. But it works so\nnicely with the Order Flow that it would be a shame not to use these two together! For this\nreason, I decided to add this standalone indicator to my Order Flow software so you can use\nthem together.\nThe Cumulative Delta prints the difference between the Bid and Ask. You can think of it this\nway (even though it is not 100% correct, as you have already learned): Cumulative Delta\nidentifies the difference between Buyers and Sellers.\nIf there are more aggressive Buyers jumping in, then the Cumulative Delta is rising. If there\nare more aggressive Sellers than Buyers, then it is falling.\nIt is best to watch the Cumulative Delta around strong Support and Resistance zones. If strong\nBuyers or Sellers start to enter their trading positions there, then Delta will show you!\nWhat I really like is to look for divergences between price and Delta on the 1 Minute chart.",
+      "char_count": 986,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 43,
+      "text": "42\n\nEXAMPLE:  Cumulative Delta\nThe price is heading downwards, but the Cumulative Delta is going up. This tells me that even\nthough the price is going down, there are Buyers entering Long and the price will most likely\nreverse and turn upwards.\nIt is best to look for price x Delta divergences around Support and Resistance zones.\n\n[VISUAL CONTENT: The top panel shows a falling one-minute price path while the cumulative-delta panel rises through the same interval.]",
+      "char_count": 467,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 44,
+      "text": "43\n\nOrder Flow – Trading Workspace\nSince you now know what the Order Flow shows and you are familiar with its major features,\nlet me show you what my trading workspace looks like. You can set yours up exactly the same\nway as I have it. If you shoot me an email (contact@trader-dale.com) I can also send you my\nworkspaces so you don’t need to set them up yourself.\nLet me now show you what my Order Flow screen looks like:\n\nMy Order Flow screen shows four charts. Those charts are linked together so they always\nshow the same trading instrument.\n\nTop left chart: This one shows the bigger picture. It shows the 30 Minute footprint. The cells\nin each footprint show “total cell volume” (Bid + Ask). Below each footprint (the green or red\nnumber) is the footprint’s Delta.\nOn the left side, there is the Daily Volume Profile. In the summary below, I have Delta,\nCumulative Delta, and Volume.\nTop right chart: This one is a more detailed chart for spotting the orders as they are filled in\nthe market. I use it for trade entries and exits. It is a 5 Minute chart, which shows the Bid and\n\n[VISUAL CONTENT: The workspace example combines an execution footprint, slower footprint context, a daily volume profile, and a separate cumulative-delta view.]",
+      "char_count": 1245,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 45,
+      "text": "44\n\nAsk in each cell. Each footprint also has Delta printed below. The trade summary at the\nbottom shows Delta, Cumulative Delta, and Volume.\nBottom left chart: 30 Minute Order Flow chart with Trades Filter and Daily Volume Profile on\nthe left. I use this chart to filter out the noise and to look for the big trading orders.\nBottom right chart: Shows 1 Minute price chart at the top and 1 Minute Cumulative Delta\nchart at the bottom.\n\nThis workspace allows me to see all the important things that are going on in the market.\nI can see the big picture with the 30 Minute Volume chart and Trades Filter as well as the\nmore granular details on the 5 Minute Bid x Ask chart and on the Cumulative Delta chart.\n\n[VISUAL CONTENT: The workspace example combines an execution footprint, slower footprint context, a daily volume profile, and a separate cumulative-delta view.]",
+      "char_count": 867,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 46,
+      "text": "45\n\nOrder Flow – Trading Setups\nIn this section, I am going to show you five of my favorite Order Flow trading setups. You can\ntrade these as standalone setups, which means that they are strong just on their own. There\nis no need to combine them with any other setup, nor do you need to look for any additional\ntrading confirmation (you can do that, but it is not a must). Let’s get to it then!\n\nTrading Setup #1: Volume Clusters\nThis setup is based on trading significant areas of heavy volume (Volume Clusters), which\noccurred either in a trend or in a strong rejection of higher/lower prices.\nSuch heavy volume areas are places where the BIG guys (institutions) and their trading\nalgorithms placed a large portion of their orders.\nLet’s first talk about the situation when the Volume Cluster occurred within a trend.\n*This strategy does not use Bid x Ask, only the Volume setting. Because of this, you can trade\nit also on Forex (still, I recommend doing your analysis on Futures).\n\nVolume Clusters (within a TREND)\nThe exact steps to follow are:\n1. Set your Order Flow software to show Volumes (not Bid x Ask). This will make it way\neasier to identify heavy volume zones. This way, the Order Flow will show shades of\ngrey and the heavy volume areas will stand out more.\n2. Find a trend and look for dark grey areas (heavy Volume Clusters) that stand out.\nThose areas represent heavy volumes (institutional activity).\n3. You need to see the price move away from the Volume Cluster, making at least one or\ntwo whole footprints (candles) above or below the heavy volume area. I like to use\nthe 30 Minute footprint chart for this.\n4. Then you need to wait for a pullback. When the price returns back to this heavy\nvolume area, you enter your trade.",
+      "char_count": 1748,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 47,
+      "text": "46\n\n5. Your trade entry should be at the beginning of the Volume Cluster or at the place\nwhere the volumes were the heaviest (within that Volume Cluster).\n6. If the heavy volume area was formed in an uptrend, then you go Long. If it was formed\nin a downtrend, you would look to go Short.\n\n\nLOGIC BEHIND THIS\nLet me describe the logic behind this setup with the picture above. First, there was an\nuptrend, and Buyers were pushing the price upwards. Then they started to add massively\nto their Long positions (around 1.0880). We can see this place nicely with the Order\nFlow—that’s the Volume Cluster. From this place, the price continued to move upwards.\nThe Buyers were still dominating the market and they were pushing the price up. When\nthe price made it back into this Volume Cluster again, those Buyers wanted to defend their",
+      "char_count": 829,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 48,
+      "text": "47\n\nLong position, which they entered in the Volume Cluster. As a result, the Buyers began\naggressively buying again (with Market Orders) to push the price away from this critical\nlevel.\nAnother aspect that helped drive the price upwards from the Volume Cluster was Sellers\nclosing out their Short trades. When the price made the pullback to the Volume Cluster,\nit was the Sellers who drove it there. Likely, those Sellers knew about the strong Volume\nCluster around 1.0880. They knew that strong Buyers were adding to their Longs massively\nthere and that it was an important level for them. So, instead of risking a fight with strong\nBuyers, the Sellers quit their Short trades as the price reached the Volume Cluster. It’s\nimportant to understand that when Sellers close their Short trades, they need to close\nthem with a Long order. In this case, this added to the Longs of the aggressive Buyers who\nwere defending the Volume Cluster.\n\nTWO FACTORS\nIn the end, two factors drove the price upwards from the 1.0880 Volume Cluster:\n#1 factor: Buyers defending their Long Position\n#2 factor: Sellers quitting or closing out their Short Position\nWe can’t really tell which of these factors played a bigger role (because both Buyers and\nSellers used Buy Market Orders—the same orders). The important thing is that both these\nfactors were pushing the price the same way—upwards.\nThis kind of logic is also used in my other Order Flow trading setups. It does not apply only\nto the Volume Cluster setup.",
+      "char_count": 1496,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 49,
+      "text": "48\n\nEXAMPLES: Volume Clusters (within a TREND)\nLet me follow with a couple of examples of the Volume Cluster setup:\nExample #1: Volume Cluster (within a trend)\n\n\nExample #2: Volume Cluster (within a trend)\n\n[VISUAL CONTENT: The annotated examples box high-volume clusters inside one-way legs and trace horizontal lines to later retests. Both short and long variants are shown across these pages.]",
+      "char_count": 396,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 50,
+      "text": "49\n\nExample #3: Volume Cluster (within a trend)\n\n\nExample #4: Volume Cluster (within a trend)\n\n[VISUAL CONTENT: The annotated examples box high-volume clusters inside one-way legs and trace horizontal lines to later retests. Both short and long variants are shown across these pages.]",
+      "char_count": 284,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 51,
+      "text": "50\n\nVolume Cluster (within a REJECTION)\nThis is very similar to the previous trading setup. The only difference is that (in step 2) you\nlook for the significant Volume Cluster in a strong rejection of lower or higher prices (not in a\ntrend).\nA strong rejection of higher prices is when the price goes aggressively upwards and then it\nsuddenly turns and goes into a rapid sell-off (= higher prices got rejected). A rejection of lower\nprices is the same, only reversed.\nThe picture below shows a strong rejection of higher prices:\n\n\nHere is the complete guide step by step:\n1. Set your Order Flow software to show Volumes (not Bid x Ask). This will make it way\neasier to identify heavy volume zones. This way, the Order Flow will show in shades\nof grey and the heavy volume areas will stand out more.\n2. Find a strong rejection of higher or lower prices and look for dark grey areas (Volume\nClusters) that stand out. Those show heavy volumes (institutional activity).\n3. You need to see the price move away from the Volume Cluster making at least one or\ntwo whole footprints (candles) above or below this area. I like to use the 30 Minute\nfootprint chart for this.\n4. Then you need to wait for a pullback. When the price returns back to the Volume\nCluster, you enter your trade.\n\n[VISUAL CONTENT: The highlighted segment shows an upward probe followed by a sharp downward rejection. The cluster is sought inside that two-way event.]",
+      "char_count": 1430,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 52,
+      "text": "51\n\n5. If the Volume Cluster got formed in a rejection of lower prices, you look to go Long (in\nthe direction of the rejection). If there was a rejection of higher prices, you look to\ntake a Short trade.\n\nThe logic behind this setup is the same as with the Volume Clusters in a trend mentioned\nearlier. In this case, the strong Buyers entered much of their position in the Volume Cluster\ncreated during the initial rejection. As the price later retested this area, those Buyers were\ndefending their Longs and Sellers abandoned their Shorts.",
+      "char_count": 540,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 53,
+      "text": "52\n\nEXAMPLES: Volume Clusters (within a REJECTION)\nExample #1: Volume Cluster (within a rejection)\n\n\nExample #2: Volume Cluster (within a rejection)\n\n[VISUAL CONTENT: Footprint examples mark a cluster formed during a rejection and extend it to a later revisit. The first two shown are long examples following rejection of lower prices.]",
+      "char_count": 336,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 54,
+      "text": "53\n\nExample #3: Volume Cluster (within a rejection)\n\n\nExample #4: Volume Cluster (within a rejection)\n\n[VISUAL CONTENT: Footprint examples mark a cluster formed during a rejection and extend it to a later revisit. The first two shown are long examples following rejection of lower prices.]",
+      "char_count": 289,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 55,
+      "text": "54\n\nTrading Setup #2: Multiple Nodes\nThis setup is designed to track institutional trading activity using the High Volume Nodes\n(HVN). The HVN shows where the heaviest volumes were traded within one footprint by\ncreating a black outline around that cell.\n\nThis setup focuses on finding two consecutive footprints that have their HVNs at the same\nprice level—this is what I call the “Multiple Node.” This tells us that in both these footprints\nthe most important price level was the same. Therefore, we can assume that this level is\nimportant.\nIn this setup, the minimum number of footprints with HVNs next to each other is two. If there\nare more, then the level is even stronger.\nI look for the Multiple Nodes in these significant areas:\n• Within a trend\n• Before a trend\n• In a strong rejection of higher/lower prices\nThis trading setup does not use Bid x Ask, so you can apply it to spot Forex as well (I still\nrecommend Futures though).\n\nThe concrete steps to trading the Multiple Nodes setup are:\n1. Set your Order Flow so it shows Volumes (this is only my preference. You can also use\nBid x Ask setting). My preferred time frame is the 30 Minute chart.\n\n[VISUAL CONTENT: The footprint inset boxes the single highest-volume price row to show the node used in the consecutive-bar setup.]",
+      "char_count": 1290,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 56,
+      "text": "55\n\n2. Identify a place where there are more HVNs next to each other (= Multiple Node). This\nplace needs to form before the start of the trend, within a trend, or in a strong\nrejection of higher/lower prices.\n3. There need to be at least two whole footprints formed AFTER the Multiple Node was\nformed. Those footprints need to be completely above or below the Multiple Node.\n4. Wait for a pullback to the Multiple Node.\n5. Enter a trade. If the price hits the Multiple Node from above, then go Long. If the price\nhits the Multiple Node from below, then go Short. Trade only the first touch (first test).",
+      "char_count": 603,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 57,
+      "text": "56\n\nEXAMPLES: Multiple Nodes\nExample #1: Multiple Nodes (in a Trend)\n\n\nExample #2: Multiple Nodes (in a Trend)\n\n[VISUAL CONTENT: The examples group same-price nodes into trend, pre-trend, and rejection cases. Horizontal marks connect the original nodes to a later test.]",
+      "char_count": 270,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 58,
+      "text": "57\n\nExample #3: Multiple Nodes (before a Trend)\n\n\nExample #4: Multiple Nodes (before a Trend)\n\n[VISUAL CONTENT: The examples group same-price nodes into trend, pre-trend, and rejection cases. Horizontal marks connect the original nodes to a later test.]",
+      "char_count": 253,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 59,
+      "text": "58\n\nExample #5: Multiple Nodes (in a strong rejection of higher/lower prices)\n\n\nExample #6: Multiple Nodes (in a strong rejection of higher/lower prices)\n\n[VISUAL CONTENT: The examples group same-price nodes into trend, pre-trend, and rejection cases. Horizontal marks connect the original nodes to a later test.]",
+      "char_count": 313,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 60,
+      "text": "59\n\nTrading setup #3: Trades Filter\nThe Trades Filter setting is a unique feature of my Order Flow software. It enables you to filter\nout the market's noise and display only the largest trading orders (the BIG guys). This simple\nstrategy is based on following those big orders.\nYou can set the Trades Filter in the indicator settings to show only trades bigger than X lots.\nIn the picture below, I put the filter to 25, which means it will only show trades with more\nthan 25 lots executed with ONE order (as I mentioned earlier, it won’t catch the Iceberg\norders).\nI currently use this setting with currency Futures (mainly EUR futures – 6E):\n\n\nEvery trading instrument has its own specifics and different volumes. The 25 lot setting suits\ncurrency Futures, but it does not work, for example, on the ES (S&P 500 futures). There the\nnumber needs to be significantly higher—around 300 or more. Also, heavy volumes are\ntraded only in the US session, so you won’t get any signals during the EU or Asian session.\nYou need to adjust this number to the instrument you’re trading and, in some cases, the time\nof day you’re trading as well. A rule of thumb here is to set it to a number that gives you\naround 5–10 trading signals per day.\nLet’s now talk about the setup so all this becomes clearer.\n\n[VISUAL CONTENT: The software panel shows a configurable minimum execution size. The printed 25-lot example is for the author's currency-futures setup.]",
+      "char_count": 1443,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 61,
+      "text": "60\n\nThe setup is very similar to Setup #1: Volume Clusters. Here are the steps:\n1. Set your Order Flow to show Bid x Ask. Then enable the Trades Filter in the Indicator\nsettings and set the minimum trade size (for EUR Futures, I use 25 lots).\n2. Look for highlighted values (red/green) on the Trades Filter—values that are not 0.\nThose are big trading orders that work as strong Support and Resistance zones.\n3. You need to see the price move away from such an area first, making at least one or\ntwo whole footprints (candles) above or below this area. I like to use the 30 Minute\nfootprint for this.\n4. Then you need to wait for a pullback. When the price returns to this big order area,\nyou enter your trade.\n5. If the price hits this area from above, then you enter Long. If it makes a pullback from\nbelow, then you go Short. Green does not mean you go Long and red does not mean\nyou go Short!\n6. Trade only the first hit (first test). Don’t attempt to trade one trading level more than\nonce, as the probability of a 2nd successful reaction to the same level is smaller.\n\nYou can trade this setup as a standalone setup, or you can decide to trade it after you see the\nentry point gets confirmed by any of the “trade confirmation” setups taught in this book.\n*BTW – If you decide to use my Order Flow software, you will also receive my trading\nworkspaces. This way, you actually won’t need to set the Trades Filter yourself.",
+      "char_count": 1426,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 62,
+      "text": "61\n\nEXAMPLES: Trades Filter\nExample #1: Trades Filter\n\n\nExample #2: Trades Filter\n\n[VISUAL CONTENT: The filtered footprints suppress small executions and box surviving large prints. Arrows illustrate trades on revisits after price has separated from the marked area.]",
+      "char_count": 267,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 63,
+      "text": "62\n\nExample #3: Trades Filter\n\n\nExample #4: Trades Filter\n\n[VISUAL CONTENT: The filtered footprints suppress small executions and box surviving large prints. Arrows illustrate trades on revisits after price has separated from the marked area.]",
+      "char_count": 243,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 64,
+      "text": "63\n\nExample #5: Trades Filter\n\n\nExample #6: Trades Filter\n\n[VISUAL CONTENT: The filtered footprints suppress small executions and box surviving large prints. Arrows illustrate trades on revisits after price has separated from the marked area.]",
+      "char_count": 243,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 65,
+      "text": "64\n\nTrading setup #4: Stacked Imbalances\nAn Imbalance means that one side of the market is way stronger than the other. Either the\nBuyers are way stronger than the Sellers or the Sellers are much stronger than the Buyers.\nThis “strength” is measured by comparing the Bid and Ask. The default setting of my software\nis that if Bid is 300% or more than the Ask, it is marked (in blue color) as Selling Imbalance. If\nthe Ask is 300% or more than the Bid, it is a Buying Imbalance (also in blue).\nSelling Imbalances often occur in a downtrend and Buying Imbalances often show in an\nuptrend.\nSelling Imbalances occur at the Bid; Buying Imbalances occur at the Ask.\n\nYou have the option to turn on/off the imbalances as well as change the trigger percentage\nin my Order Flow software settings.\n\n[VISUAL CONTENT: Side-by-side footprints show selling stacks on the bid and buying stacks on the ask using the platform's diagonal comparison.]",
+      "char_count": 932,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 66,
+      "text": "65\n\n\nIf there are multiple Stacked Imbalances on top of each other, this represents a strong\nSupport/Resistance zone. It indicates that either Buyers or Sellers were really active and\nstrong at this place. It also implies that when the price comes back into this area again, it is\nlikely that those Strong Buyers/Sellers will become active again. We can expect that there will\nbe a reaction.\n\nThe way to trade this is very similar to the previous setups:\n1. Set your Order Flow to show Bid x Ask. Make sure you have the Imbalances turned\n“on” in the Indicator settings.\n2. If there are more than three Buying or Selling Imbalances stacked on top of each other\n(default setting, which you can change), then it represents a Stacked Imbalance and\nthis zone will automatically get highlighted. A Support zone created by Stacked Buying\nImbalances gets highlighted in green. A Resistance zone created by Stacked Selling\nImbalances gets highlighted in red.\n3. You need to see the price move away from these highlighted areas first, making at\nleast one or two whole footprints (candles) above or below it. I like to use the 30\nMinute footprint chart for this.",
+      "char_count": 1151,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 67,
+      "text": "66\n\n4. Then you need to wait for a pullback. When the price returns back to this Stacked\nImbalance zone, then you enter your trade.\n5. If the price hit this zone from above, then you enter Long. If it makes a pullback from\nbelow, then you go Short. An area highlighted in red = Resistance. An area highlighted\nin green = Support.\n6. Trade only the first hit (first test). Don’t attempt to trade one trading level more than\nonce as the probability of a second successful reaction to the same level is much lower.\n7. It is best to look for Stacked Imbalances within a trend or before a trend begins.\nAdditionally, it does not need to be a strong trend; a strong one-way price movement\nwill do.",
+      "char_count": 691,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 68,
+      "text": "67\n\nEXAMPLES: Stacked Imbalances\nExample #1: Stacked Imbalances\n\n\nExample #2: Stacked Imbalances\n\n[VISUAL CONTENT: The colored bands carry marked imbalance stacks forward as potential support or resistance. The examples show trade direction being assigned at the subsequent test.]",
+      "char_count": 280,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 69,
+      "text": "68\n\nExample #3: Stacked Imbalances\n\n\nExample #4: Stacked Imbalances\n\n[VISUAL CONTENT: The colored bands carry marked imbalance stacks forward as potential support or resistance. The examples show trade direction being assigned at the subsequent test.]",
+      "char_count": 251,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 70,
+      "text": "69\n\nExample #5: Stacked Imbalances\n\n\nExample #6: Stacked Imbalances\n\n[VISUAL CONTENT: The colored bands carry marked imbalance stacks forward as potential support or resistance. The examples show trade direction being assigned at the subsequent test.]",
+      "char_count": 251,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 71,
+      "text": "70\n\nTrading setup #5: Unfinished Business\nUnfinished Business represents a market imperfection. It shows that when the price changed\nits direction, the high or low it created did not form properly.\nThere is an Auction process when a new high/low is formed, and this process needs to end in\na certain way. A properly formed high needs to have 0 contracts traded at Bid, and a properly\nformed Low needs to have 0 contracts traded at Ask.\nWhen the market turns from a new low or high without this happening (Bid AND Ask are both\nmore than 0), it is called an Unfinished Business (or a Failed Auction).\nMy software makes this easy to spot by drawing a dotted green or red line there:\n\nNow I am going to show you a few tips for how you can use Unfinished Business. I don’t have\na trading setup based solely on trading Unfinished Business; instead, I use it primarily to\nsupport other trade setups.\nThe main thing to remember about Unfinished Business is that it works like a magnet. The\nprice is drawn towards it, and if it comes close, it is likely to move through it.\n\n[VISUAL CONTENT: The dotted level points to both bid and ask executions remaining at a footprint extreme, which Dale marks as unfinished.]",
+      "char_count": 1204,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 72,
+      "text": "71\n\nSo, if Unfinished Business works as a magnet, how do we use this information? There are\nseveral ways:\n• Take Profit\n• Stop Loss\n• Confirmation\n• Warning against bad trades\n\nTake Profit\nIf you are in a profitable trade and you are thinking about taking your profit, you can check if\nthe price is moving towards Unfinished Business. If it is, then you might remain in your\nposition a little bit longer until the price tests the Unfinished Business—because it should\nwork as a magnet. This can help you to stretch your Take Profit by a few pips. Be careful,\nthough, as there is no guarantee the market will test the Unfinished Business if it is too far\naway. This technique for extending your take profit works best if the price is already close to\nthe Unfinished Business.\n\nI was using this method in a live trading video, which you can find on the webpage I made for\nyou (https://www.trader-dale.com/of-book/)",
+      "char_count": 912,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 73,
+      "text": "72\n\nThis particular video is called “LIVE: Trading JPY Futures - Trailing Position and Delta\nDivergence.”\n\nStop Loss\nWhen you are deciding where to place your Stop Loss, bear in mind that Unfinished Business\nworks like a magnet. If you place your SL in a way that the Unfinished Business is behind it,\nthen if the price comes close to your SL, it will most likely shoot past it—to test the Unfinished\nBusiness.\n\nI am not saying I always stick to these rules regarding the Unfinished Business as this is not\nmy main trading strategy. I use Unfinished Business mostly to read the charts, feel what is\ngoing on, and make the best picture of what I expect to occur. No trade is perfect, and there\nwill always be something you won’t like. But you need to weigh the pros and cons and decide\nin the end whether the trade is worth taking the risk.\n\nConfirmation\nBearing in mind that Unfinished Business works as a magnet, you can also use it to confirm a\ntrend. Imagine you are in a Long position and the price goes upwards but then it reverses and",
+      "char_count": 1040,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 74,
+      "text": "73\n\nit starts going against you. Unfinished Business can help you identify whether this is most\nlikely just a pullback or if this is a change of a trend. If you see Unfinished Business at the top\nof the reversal, then the price probably turned temporarily. It will likely continue upwards\nagain to test the Unfinished Business (magnet).\n\n\nI also used this approach in the live trading session video called “LIVE: Trading JPY Futures -\nTrailing Position and Delta Divergence.” (https://www.trader-dale.com/of-book/)\n\nWarning against Entering a Bad Trade\nThe Unfinished Business can also warn you against entering a bad trade. Again, the logic is\nthat Unfinished Business works as a magnet, and if the price comes close, it will most likely\ntest it.\nSimply put, you don’t want to enter a Long trade when there is the Unfinished Business below\nand you don’t want to enter a Short trade when there is the Unfinished Business above your\nentry.\nWhy? Because Unfinished Business works as a magnet, and by entering such a trade you\nwould risk the price shooting past your trade entry to test the Unfinished Business.",
+      "char_count": 1108,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 75,
+      "text": "74\n\n\nBelow are some more examples of Unfinished Business. Notice how the price has the\ntendency to hit those areas and fix the market imperfection that Unfinished Business\nrepresents.",
+      "char_count": 183,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 76,
+      "text": "75\n\nEXAMPLES: Unfinished Business\nExample #1: Unfinished Business\n\n\nExample #2: Unfinished Business\n\n[VISUAL CONTENT: The figures extend unfinished-high or unfinished-low levels until a subsequent bar reaches them. Multiple levels and different waiting distances appear in the examples.]",
+      "char_count": 287,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 77,
+      "text": "76\n\nExample #3: Unfinished Business\n\n\nExample #4: Unfinished Business\n\n[VISUAL CONTENT: The figures extend unfinished-high or unfinished-low levels until a subsequent bar reaches them. Multiple levels and different waiting distances appear in the examples.]",
+      "char_count": 257,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 78,
+      "text": "77\n\nExample #5: Unfinished Business\n\n\nExample #6: Unfinished Business\n\n[VISUAL CONTENT: The figures extend unfinished-high or unfinished-low levels until a subsequent bar reaches them. Multiple levels and different waiting distances appear in the examples.]",
+      "char_count": 257,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 79,
+      "text": "78\n\nExample #7: Unfinished Business\n\n\nEven though I spent quite a lot of space talking about various uses of Unfinished Business, I\nwould still advise you to focus on the other setups first. Those are standalone and proven\ntrading setups. Unfinished Business is something extra—a bonus. It is an approach that only\nhelps you read the market and helps with your decision-making. Your trading should be based\non other strategies, and Unfinished Business should be used as an addition to that.\n\n[VISUAL CONTENT: The figures extend unfinished-high or unfinished-low levels until a subsequent bar reaches them. Multiple levels and different waiting distances appear in the examples.]",
+      "char_count": 678,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 80,
+      "text": "79\n\nOrder Flow – Confirmations\nConfirmation setups are not standard trading setups. You should not base your trading\nstrategy on them alone. Their strength lies in giving you a hint when the market is starting to\nreact to a Support/Resistance zone you found using one of your main trading setups. That\nwould be a setup based on Volume Profile or one of the setups I showed you in the previous\nchapter.\nThis is how it works:\nFirst, go through the chart and identify the Support and Resistance zones. You can do this\nwith Volume Profile, Order Flow main setups, or identify S/R zones another way you are\nfamiliar with.\nAfter that, mark those S/R zones in your chart. Then wait until the price makes it there. When\nit does, switch to Order Flow, and wait for a confirmation.\nIt is important to note that Support and Resistance are ZONES, NOT EXACT levels. When the\nprice reaches such a zone, you want to see a confirmation there, somewhere within that zone.\nSuch a confirmation tells you that the BIG guys (institutions) are starting to react there.\nThere are four confirmations I like to use. These can give you the final push to enter your\ntrade.\nI also like to use these confirmations when I am unsure whether or not to take a trade. This\ncan be, for example, because the price moves very quickly and aggressively against my trading\nlevel or the trading level is not really clear (not clear where exactly to place it). I also use\nconfirmations when my trading level is not particularly strong and I am not sure whether to\ntrade it or not.\nIn all such situations, Order Flow confirmation can help you decide whether to take the trade\nor skip it.\nThere are four confirmations I look for when the price reaches a significant Support or\nResistance zone. I look for: Big Limit Orders, Absorption, a sign of Aggressive Buyers/Sellers,\nand confirmation on the Cumulative Delta.",
+      "char_count": 1870,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 81,
+      "text": "80\n\nConfirmation Setup #1: Big Limit Orders\nWhen the price reaches a strong Support/Resistance zone, you need to see a sign of a reaction\nfirst. This sign could be a BIG institution jumping into the market.\nYou want to see somebody big who has been waiting around the S/R zone (like you have been)\nto jump in the trade.\nPassive traders who wait for the price to come to them use Limit orders. They don’t chase the\nmarket with aggressive Market orders. A Limit order is more suitable because they get filled\nfor the price THEY want.\nThe Limit Confirmation Strategy is quite simple. First, you identify a significant S/R zone (for\nexample, with Volume Profile). Then you wait and look for somebody big to jump in a trade\nthere.\n• To get a Resistance zone confirmed, you need to see a Limit Sell order appear.\n• To get a Support zone confirmed, you need to see a Limit Buy order appear.\n\nImportant: a Limit Sell shows on the Ask and a Limit Buy shows on the Bid.\n\n[VISUAL CONTENT: The two schematic footprints place a possible large passive seller at a stalled high and a possible large passive buyer at a stalled low.]",
+      "char_count": 1116,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 82,
+      "text": "81\n\nSteps to Limit Orders Confirmation Setup:\n1. Identify a strong Support/Resistance zone using your primary strategy (this could be\nVolume Profile, Order Flow, Price Action, etc.).\n2. When the price gets to that zone, open your Order Flow and wait for a big Limit order\n(unusually large volumes) to appear. For a Short trade confirmation, you want to see\na large number on the Ask. For a Long trade confirmation, it needs to appear on the\nBid.\n3. I prefer to look for such confirmations on a 5 Minute Bid x Ask Order Flow chart.\n4. An important fact to remember is that unusually large volume is different for each\ntrading instrument and each trading session! That’s why it is essential to start trading\nwith just one trading instrument. After you have mastered it, only then should you\nlook to add another.\n5. Enter your trade as soon as you identify the big Limit order. Sometimes it does not\nappear all at once, and it may take a few minutes until the whole order is placed.\n\nBelow is a EUR Futures, 5 Minute chart showing a Long trade confirmation. If this occurred in\na Support zone, it would be a confirmation to enter a Long trade immediately.",
+      "char_count": 1152,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 83,
+      "text": "82\n\nBelow is a EUR Futures, 5 Minute chart showing a Short trade confirmation. If this occurred\nin a Resistance zone, it would be a confirmation to enter a Short trade immediately.\n\n\nMore examples of the Limit order confirmation are below. To reiterate for emphasis, the\nconfirmation must appear around a Support/Resistance zone, NOT just anywhere! I will show\nyou how to identify S/R zones using Volume Profile later in this book.\n\n[VISUAL CONTENT: The resistance example marks an unusually large ask print at the top of an upward move and the subsequent downward response.]",
+      "char_count": 575,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 84,
+      "text": "83\n\nEXAMPLES: Big Limit Orders\nExample #1: Big Limit Orders\n\n\nExample #2: Big Limit Orders\n\n[VISUAL CONTENT: The chart examples box a conspicuous print at a local high or low and annotate the change in direction around that price.]",
+      "char_count": 231,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 85,
+      "text": "84\n\nExample #3: Big Limit Orders\n\n\nExample #4: Big Limit Orders\n\n[VISUAL CONTENT: The chart examples box a conspicuous print at a local high or low and annotate the change in direction around that price.]",
+      "char_count": 204,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 86,
+      "text": "85\n\nExample #5: Big Limit Orders\n\nExample #6: Big Limit Orders\n\n[VISUAL CONTENT: The chart examples box a conspicuous print at a local high or low and annotate the change in direction around that price.]",
+      "char_count": 203,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 87,
+      "text": "86\n\nConfirmation Setup #2: Absorption\nThis confirmation setup is similar to the Limit order setup, only a bit simpler.\nIn this case, the confirmation you want to see in a Support/Resistance zone is Buyers or Sellers\nwho absorb all the market momentum.\nImagine, for example, that Sellers are pushing the price downwards using aggressive Market\nSell orders. But then strong Buyers appear, and they absorb all the selling pressure—all the\nselling momentum. They buy everything the Sellers are selling. The price does not drop\nanymore, and heavy volumes start to appear. Those heavy volumes appear on the BID\n(aggressive Sellers) and ASK (aggressive Buyers).\nSo, when you see huge volumes traded on the Bid and Ask (both!) around some S/R zone,\nthen it is most likely the Absorption taking place. What is happening there is that the Selling\nor Buying pressure (momentum) is getting absorbed, making a price reversal likely. That’s the\nconfirmation you want to see!\n\n\nIt is also hard to provide an exact definition of the term “unusually large volumes” as they are\ndifferent for every trading instrument and trading session. With that said, a simple technique\nyou can use is to look at recent Order Flow footprints and determine an average cell volume.\nAn “unusually large” or “huge” volume would be volume way above this average.\n\n[VISUAL CONTENT: The two sketches show heavy prints at an extreme as buying fails at resistance or selling fails at support.]",
+      "char_count": 1452,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 88,
+      "text": "87\n\nAn important thing to keep in mind is that this large volume doesn’t appear all at once. It can\ntake a while before you can safely tell that the volumes you see jumping in are unusually large\ncompared to the average.\n\nSteps of the Absorption Setup:\n1. Identify a strong Support/Resistance zone using your main strategy (this could be\nVolume Profile strategies, Price Action strategy, etc.).\n2. When the price gets near that S/R zone, open your Order Flow chart and wait for\nunusually heavy volumes to appear on Bid and Ask (both!). The absorption needs to\nappear around the S/R zone. If it does, then the S/R zone is confirmed.\n3. Enter your trade as soon as you identify the Absorption. It may take a few minutes\nuntil all the orders on Bid and Ask are placed before you can safely tell that the market\nis absorbing the Buying/Selling pressure.\nI prefer to look for the Absorption on the 5 Minute chart or on a 30 Minute chart.",
+      "char_count": 932,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 89,
+      "text": "88\n\nEXAMPLES: Absorption\nExample #1: Absorption\n\n\nExample #2: Absorption\n\n[VISUAL CONTENT: Boxes identify heavy activity at one or more price rows as a push stalls. The subsequent swing provides context for the author's absorption reading.]",
+      "char_count": 240,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 90,
+      "text": "89\n\nExample #3: Absorption\n\n\nExample #4: Absorption\n\n[VISUAL CONTENT: Boxes identify heavy activity at one or more price rows as a push stalls. The subsequent swing provides context for the author's absorption reading.]",
+      "char_count": 219,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 91,
+      "text": "90\n\nExample #5: Absorption\n\n\nExample #6: Absorption\n\n[VISUAL CONTENT: Boxes identify heavy activity at one or more price rows as a push stalls. The subsequent swing provides context for the author's absorption reading.]",
+      "char_count": 219,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 92,
+      "text": "91\n\nConfirmation Setup #3: Aggressive Orders and Delta\nA really nice confirmation is when you spot aggressive market participants joining the party\naround a strong Support/Resistance zone.\nFor example, imagine the price moving upwards, entering a Resistance zone, and then\naggressive Sellers start to appear. This is a typical indication that the price will most likely turn\ndownwards.\nIf the price enters a Resistance zone and you see big volumes starting to appear on Bid, then\nit is a confirmation that aggressive Sellers are jumping in.\nIf the price enters a Support zone and you see big volumes starting to appear on Ask, then it\nis confirmation that aggressive Buyers are jumping in.\nAggressive Buyers show on Ask and aggressive Sellers show on Bid.\nIt looks like this:\n\n\nThose aggressive Buyers/Sellers reveal to you that they see the Support/Resistance as well as\nyou do and that they want to trade it. They don’t want to miss this trading opportunity. In\norder not to miss it, they need to enter their trade with a Market order. With a Market order\nthey can be 100% sure their trading order will get filled.\n\n[VISUAL CONTENT: The sketches put dominant bid activity at resistance and dominant ask activity at support when aggression flips toward the proposed trade.]",
+      "char_count": 1274,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 93,
+      "text": "92\n\nYou can look for aggressive Buyers or Sellers by reading individual cells within each footprint\n(for this, I prefer 5 Minute footprints). Another way to get a quick picture of what is going on\nin the footprint is the Delta.\n\nDelta\nDelta shows a sum of Bid and Ask for each footprint.\nIf the Delta below the footprint is negative, then more volumes were traded at the Bid. This\nmeans that aggressive Sellers dominated in that given footprint. The opposite goes for a\npositive Delta. A positive Delta tells us that there were more volumes traded on the Ask and\nthat aggressive Buyers dominated that footprint.\nDelta shows below each footprint with my Order Flow indicator either as a negative red\nnumber or as a positive green number.",
+      "char_count": 736,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 94,
+      "text": "93\n\nSteps to Aggressive Orders + Delta Setup:\n1. Identify a strong Support/Resistance zone using your main strategy (this could be a\nVolume Profile strategy, Price Action, etc.).\n2. When the price gets near that S/R zone, open your Order Flow chart (with Bid x Ask\ncell content and 5 Minute time frame) and look for aggressive orders.\nIf the price entered a Resistance zone, you want to see aggressive Sell orders (way\nlarger volumes on the Bid than the Ask). If the price reached Support, you want to see\naggressive Buy orders (way larger volumes on the Ask as compared to the Bid).\nIf Bid grows bigger than Ask or the other way around, it will also show on the Delta.  It\nmeans that aggressive Buyers or Sellers started to jump in.\nFor a Short trade confirmation, you want to see a negative Delta. For a Long trade\nconfirmation, you want to see a positive Delta.\n3. When you recognize that aggressive Buyers or Sellers have started to jump in and\nconfirmed your Support/Resistance zone, you can immediately enter your trade.",
+      "char_count": 1026,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 95,
+      "text": "94\n\nBONUS: Confirmation #1 or #2 Combined with Confirmation #3\nThe best scenario you can ask for is when there is a combination of two confirmations. The\nfirst confirmation you will see is either confirmation #1 (Limit order) or confirmation #2\n(Absorption). The confirmation that comes after is the one I have just shown you—the\n“Aggressive orders” confirmation.\nThis basically means that some large passive market participant was waiting for the\nSupport/Resistance to get hit. Then this big guy jumped in (Limit order or Absorption), which\ncaused a snowball effect and more people started to join in, this time more aggressively (with\nMarket orders) as they did not want to miss the opportunity.\nHere is an example:",
+      "char_count": 717,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 96,
+      "text": "95\n\nEXAMPLES: Aggressive Orders and Delta\nExample #1: Aggressive Orders and Delta\n\n\nExample #2: Aggressive Orders and Delta\n\n[VISUAL CONTENT: The examples connect clusters of aggressive prints and a delta sign change to a turn. One chart explicitly labels absorption before later aggressive sellers.]",
+      "char_count": 300,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 97,
+      "text": "96\n\nExample #3: Aggressive Orders and Delta\n\n\nExample #4: Aggressive Orders and Delta\n\n[VISUAL CONTENT: The examples connect clusters of aggressive prints and a delta sign change to a turn. One chart explicitly labels absorption before later aggressive sellers.]",
+      "char_count": 262,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 98,
+      "text": "97\n\nExample #5: Aggressive Orders and Delta\n\n[VISUAL CONTENT: The examples connect clusters of aggressive prints and a delta sign change to a turn. One chart explicitly labels absorption before later aggressive sellers.]",
+      "char_count": 220,
+      "quality_status": "empty",
+      "needs_ocr": true,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 99,
+      "text": "98\n\nConfirmation Setup #4: Cumulative Delta Divergence\nBefore I describe this strategy, let me first tell you the distinction between Delta and\nCumulative Delta.\nDelta = Ask – Bid.\nSimply put, Delta is the difference between Buyers and Sellers in each footprint.\nCumulative Delta is a sum of all Deltas since the beginning of the day. For example, if the 1st\nfootprint has Delta = 30, the 2nd footprint has Delta = 100, and the 3rd footprint has Delta = -\n50, then by the time the 3rd footprint finishes printing, the Cumulative Delta will be +80\n(30+100-50).\n\nHere is an example:\n\nAs you can see in the picture above, the Order Flow software automatically calculates the\nCumulative Delta in the summary panel below the chart. This is a standard feature included\nwith most Order Flow software.",
+      "char_count": 793,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 100,
+      "text": "99\n\nHowever, there is an easier way to display the Cumulative Delta. In my Order Flow software,\nyou can print Cumulative Delta on a 1 Minute line chart, and this is how it looks:\n\nI recommend opening a simple Price chart (1 Minute time frame) atop the Cumulative Delta\nline chart. This way, you can easily compare price and Cumulative Delta movement, allowing\nyou to spot divergences between the two much more easily. It looks like this:\n\n[VISUAL CONTENT: The examples compare a footprint summary to a separate one-minute cumulative-delta panel so the flow series can be aligned with price.]",
+      "char_count": 591,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 101,
+      "text": "100\n\nLet’s now talk about the strategy I like to use with the Cumulative Delta!\n\nStrategy Description\nThis strategy is a confirmation strategy—I use it only around strong Support/Resistance zones\nto confirm my trade entries. I do not use it as a standalone strategy (even though I know\npeople who quite successfully use it this way).\nA significant advantage of this strategy is that it is straightforward to interpret and, therefore,\nvery easy to use. Its simplicity and reliability is the reason why it’s so popular among my\nstudents.\n\nSteps to Cumulative Delta Confirmation Setup:\n1. Identify a strong Support/Resistance zone using your primary strategy (this could be a\nVolume Profile strategy, Price Action, etc.).\n2. When the price gets near that S/R zone, open your Cumulative Delta line chart (it is a\nseparate indicator in NinjaTrader 8 platform). Use it together with the 1 Minute Price chart.\n3. Wait for a divergence between Price and Cum. Delta to appear and then enter your trade.\nFor a Short trade confirmation, you want to see the price heading upwards whilst Cumulative\nDelta is heading down. This tells you that, even though the price is heading up, there is more\nactivity on the Bid (possibly Sellers) and that the price should turn downwards eventually—\nto correspond with the dropping Cumulative Delta.",
+      "char_count": 1322,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 102,
+      "text": "101\n\n\nFor a Long trade confirmation, you want to see the price heading downwards while\nCumulative Delta is heading up. This tells you that, even though the price is going down, there\nis more activity on Ask (possibly Buyers) and that the price should turn upwards eventually—\nto correspond with the rising Cumulative Delta.\n\nHere are some more examples of Price and Cumulative Delta divergence. If something like\nthis appears around an S/R zone, it is a confirmation to enter your trade.",
+      "char_count": 487,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 103,
+      "text": "102\n\nEXAMPLES: Cumulative Delta Divergence\nExample #1: Cumulative Delta Divergence\n\n\nExample #2: Cumulative Delta Divergence\n\n[VISUAL CONTENT: Paired price and cumulative-delta panels highlight disagreeing slopes before price turns. The marks are examples at selected reference levels.]",
+      "char_count": 286,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 104,
+      "text": "103\n\nExample #3: Cumulative Delta Divergence\n\n\nExample #4: Cumulative Delta Divergence\n\n[VISUAL CONTENT: Paired price and cumulative-delta panels highlight disagreeing slopes before price turns. The marks are examples at selected reference levels.]",
+      "char_count": 248,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 105,
+      "text": "104\n\nTake Profit with Order Flow\nIn this chapter, I am going to talk about using Order Flow to determine when and where to\nquit your winning trade. Order Flow is a very useful tool as it allows you to identify a good\nTake Profit, helps you maximize your gain and assists in trailing your position. It can also warn\nyou in advance if there is an impending risk that the market could turn against you.\n\nVolume-Based Take Profit\nLet me start by pointing out the most important message you should remember from this\nchapter: Take your profit in a heavy volume area.\nThe reason for this is that heavy volume areas often work as Support and Resistance zones.\nWhenever the price reaches a Support or Resistance zone, there is a risk that it will react to it\nand turn in the opposite direction. This is the reason why you should take your profit before\nsuch risk arises.\nTip #1: It is safer to take your profit a bit sooner—just a little bit before the heavy volume\narea. This reduces the risk that the market will turn against you at the last moment, causing\nyou to miss your Take Profit. This is because, in my experience, the price sometimes reacts a\nbit before it actually reaches the heavy volume area.\nTip #2: If the closest heavy volume area is too close to your trade entry and the risk would not\nbe worth it (too small Risk/Reward Ratio), then you have two options. The first option is not\nto take the trade. The second option is bolder—you take the trade, but you don’t quit it when\nit hits the closest heavy volume area. Instead, you close it just before it hits the next one.\nI use 30 Minute footprints to determine which heavy volume zones I should use to close my\nposition. This higher time frame allows me to see the bigger picture, which helps identify\nheavy volume zones easier.\nSince you don’t need Bid x Ask data, you can use this Take Profit placement strategy for Forex\ntrading as well.",
+      "char_count": 1899,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 106,
+      "text": "105\n\nHere is an example of how to determine a Take Profit for a Short trade:\n\n\nIn the picture above, you can see that the ideal volume-based Take Profit would be at 1.0800.\nThis is where heavy volumes were traded before; therefore, this area could work as a Support.\nWhen you are in a Short trade, you don’t want to risk that the price will react to such Support.\nThe best thing to do is to take your profit just a bit before the price reaches this level. As you\ncan see, the price reacted to this Support and turned upwards. If you didn’t close your Short\ntrade when it reached the heavy volume area, this would have ruined it.",
+      "char_count": 628,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 107,
+      "text": "106\n\nEXAMPLES: Volume-Based Take Profit\nExample #1: Volume-Based Take Profit\n\n\nExample #2: Volume-Based Take Profit\n\n[VISUAL CONTENT: The examples project a prior heavy-volume zone forward and mark a target at or around the near boundary in the direction of the open trade.]",
+      "char_count": 274,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 108,
+      "text": "107\n\nExample #3: Volume-Based Take Profit\n\n\nExample #4: Volume-Based Take Profit\n\n[VISUAL CONTENT: The examples project a prior heavy-volume zone forward and mark a target at or around the near boundary in the direction of the open trade.]",
+      "char_count": 239,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 109,
+      "text": "108\n\nExample #5: Volume-Based Take Profit\n\n\nExample #6: Volume-Based Take Profit\n\n[VISUAL CONTENT: The examples project a prior heavy-volume zone forward and mark a target at or around the near boundary in the direction of the open trade.]",
+      "char_count": 239,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 110,
+      "text": "109\n\nTake Profit – Trailing\nFor those who like to trail their Stop Loss, this section is for you. Being greedy does not usually\npay off in trading, but if you learn this Order Flow technique, it will help you recognize when\nyou can afford to be greedy.\nThe main idea behind trailing your Stop Loss using Order Flow is to trail it only when you see\naggressive market participants on your side.\nSo, to trail your Long position, you want to see aggressive Buyers. Why quit a Long trade when\naggressive Buyers are pushing the price higher and higher, right?\nThe same, only reversed, goes for a Short position: You can trail your Short if there are\naggressive Sellers actively pushing the price downward.\nHow can you tell if one side of the market is way more aggressive than the other? The easiest\nway is to look for Imbalances. When you are Long, you want to see Buying Imbalances. When\nyou are Short, you want to see Selling Imbalances.\nIf the price continues to move rapidly and it creates an Imbalance on the way, then you can\ntrail your position some more.\nImbalance = Sign of aggressive Buyers/Sellers.\n*Just to freshen up your memory: If the Bid is 300% or larger than the Ask, then it is a Selling\nImbalance. It is marked in blue and shows on Bid. If the Ask is 300% or larger than the Bid,\nthen it is a Buying Imbalance. This would also be marked blue and it shows on Ask.",
+      "char_count": 1377,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 111,
+      "text": "110\n\nI like to trail my trades using 5 Minute Bid x Ask footprints:\n\nI also use this trailing method in a live trading video, which you can find on the webpage I\nmade for you (https://www.trader-dale.com/of-book/).\nThis particular video is called “LIVE: Trading JPY Futures - Trailing Position and Delta\nDivergence.”\n\nTrailing TP - Warning Signals\nWhen should you stop trailing your position? It is best to stop trailing your position when you\nsee a warning signal that says the market momentum may have changed. What exactly is the\nwarning signal? It is essentially a trading signal that goes against your position. As an example,\nimagine you are in a Long position but one of the Order Flow setups says you should now go\nShort.\nThose signals are: Limit orders, Absorption, Aggressive orders going against you, or a\ndivergence between Price and Delta. Sounds familiar? Yea—those are the Order Flow setups\nI showed you before. If you spot any of those setups going against your position, it is high",
+      "char_count": 998,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 112,
+      "text": "111\n\ntime to quit your trade. This is especially true if you see any of them appear around a strong\nlevel of Support/Resistance or in a heavy volume zone.",
+      "char_count": 154,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 113,
+      "text": "112\n\nEXAMPLES: Take Profit - Trailing\nExample #1: Take Profit - Trailing\n\n\nExample #2: Take Profit - Trailing\n\n[VISUAL CONTENT: The trailing examples call attention to opposing imbalances and delta flips. A change in the footprint can flag loss of follow-through.]",
+      "char_count": 264,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 114,
+      "text": "113\n\nExample #3: Take Profit - Trailing\n\n\nExample #4: Take Profit - Trailing\n\n[VISUAL CONTENT: The trailing examples call attention to opposing imbalances and delta flips. A change in the footprint can flag loss of follow-through.]",
+      "char_count": 231,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 115,
+      "text": "114\n\nStop Loss with Order Flow\nThere are three methods of determining your Stop Loss location.\n1. Fixed SL: This is the simplest way to place your Stop Loss. It is the simplest because\nyour SL is always the same (for example, 10 pips). For all your trades, you just use the\nsame SL. An advantage of this is that you don’t need to think about each trade and its\nSL separately. A disadvantage is that this method does not adjust to changing market\nconditions. You can alter this Fixed SL from time to time when the market conditions\nchange dramatically. But still, it is not as flexible and does not reflect the current\nmarket conditions as well as the other two approaches.\n2. High/low of the Support/Resistance area: This means placing your SL at the high/low\nof the S/R resistance area you are trading. I best explain this using the examples below.\n3. Low volume area: This means placing your SL in a low volume area, which is located\nbehind a heavy volume area. The reason behind this is that heavy volume areas work\nas zones of Support/Resistance. The price should not go past them. If it does go past\na heavy volume area, then it is a sign of strong market momentum and there is no\nreason for staying in a trade that would go against that momentum. If a heavy volume\nzone fails to hold the price and it goes past it into the low volume area, it is time to\nquit your trade. For this approach, I use the 30 Minute chart with cell content: Volume.\nI don’t need to see Bid x Ask. At this point it is not important whether the volumes\nwere placed at Bid or Ask. What matters here is the total volume.\nMy preferred time frame for all these three approaches is the 30 Minute TF.\nWhich of the three approaches to choose though? I suggest you either stick with the first one\n(Fixed SL) or for each trade you pick one of the two remaining—the second or third depending\non the market situation (as there will be scenarios where you will be unable to use one of\nthem).\nYou always should have some rough idea of how wide your SL should be. With each of these\napproaches I suggest using your SL somewhere (roughly) within the 10–20% of average daily\nvolatility of the instrument you trade. You can measure the average volatility by ATR indicator\n(a free indicator is available in every trading platform).",
+      "char_count": 2294,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 116,
+      "text": "115\n\nFor example, if the average daily volatility of EUR/USD is 100 pips, then you want your SL\nsomewhere (roughly) between 10 and 20 pips. I am not talking just about the first approach\nhere (Fixed SL) but also about the other two.  The place which the second or third approach\npoints you to should also be somewhere roughly within the 10–20 pip range. If your SL\nmethod points you to a SL that would be outside of this range (either too tight or too wide),\nthen it is best to either skip the trade or use a fixed SL somewhere within the 10–20% range.\nThe reason for this is that it would be crazy having too wide an SL (this would lower your RRR\nsignificantly) or one that is too tight (high risk of SL being hit).\nWhat you should aim for is having an SL in a place that makes logical sense and that is also\nwithin 10–20% of the daily average range.",
+      "char_count": 851,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 117,
+      "text": "116\n\nEXAMPLES: Stop Loss with Order Flow\nHere are some more examples of SL placement (all based on the second and third approach)\nExample #1: SL Placement\n\n\nExample #2: SL Placement\n\n[VISUAL CONTENT: Charts locate stops beyond a marked support or resistance extreme, a heavy-volume band, or both. The separation between the setup line and stop is visible.]",
+      "char_count": 356,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 118,
+      "text": "117\n\nExample #3: SL Placement\n\n\nExample #4: SL Placement\n\n[VISUAL CONTENT: Charts locate stops beyond a marked support or resistance extreme, a heavy-volume band, or both. The separation between the setup line and stop is visible.]",
+      "char_count": 231,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 119,
+      "text": "118\n\nExample #5: SL Placement\n\n\nExample #6: SL Placement\n\n[VISUAL CONTENT: Charts locate stops beyond a marked support or resistance extreme, a heavy-volume band, or both. The separation between the setup line and stop is visible.]",
+      "char_count": 231,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 120,
+      "text": "119\n\nExample #7: SL Placement\n\n\nExample #8: SL Placement\n\n[VISUAL CONTENT: Charts locate stops beyond a marked support or resistance extreme, a heavy-volume band, or both. The separation between the setup line and stop is visible.]",
+      "char_count": 231,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 121,
+      "text": "120\n\nHow to Find Supports and Resistances with\nVolume Profile\n\nVolume Profile Introduction\nOrder Flow is a fantastic tool that works great if you use it around strong Support and\nResistance zones. You can use the Order Flow confirmation strategies to tell whether the price\nis really reacting to the S/R zone or if the S/R zone is most likely to fail.\nIn this section, I would like to show you how to identify such strong Support and Resistance\nzones using my favorite tool—Volume Profile.\nVolume Profile is my favorite tool for identifying strong S/R zones because it can show you\nthe bigger picture of what is going on in the chart. This complements the Order Flow, which\nshows more of the granular detail.\nIn the next chapters, I am going to teach you the Volume Profile basics and show you my\nfavorite Volume Profile setups. Those are setups that you can use to identify strong S/R zones\nfrom which you can later trade using the Order Flow confirmation setups.\n\nVOLUME PROFILE DEFINITION: Volume Profile is a trading indicator that shows Volume at\nPrice. It helps to identify where the big financial institutions put their money and helps to\nreveal their intentions.",
+      "char_count": 1170,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 122,
+      "text": "121\n\nWhat Does Volume Profile Look Like?\nVolume Profile can have many shapes depending on how the volumes get distributed\nthroughout the day. It is created using horizontal lines (it is a histogram). The thicker the\nprofile is the more volume was traded at the given level. If a profile is thin in some places, it\nmeans that there was not much volume traded there.\nHere is an example of what Volume Profile can look like:\n\n\nHow is Volume Profile Different to Standard Volume\nIndicators in MT4?\nVolume Profile shows volume at price. Standard volume indicators from MT4 (or any other\nsoftware) show volume during a specific time period.\nThat is a big difference!",
+      "char_count": 660,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 123,
+      "text": "122\n\nVolume Profile shows you what price levels are important for the big trading institutions.\nTherefore, it points you to strong Support and Resistance zones.\nStandard volume indicators only show WHEN there were big volumes traded. This tells you\nnothing about essential price levels (Support/Resistance zones).\nHere is a picture that compares volume at price (Volume Profile) and volume over a specific\ntime period (standard volume indicator).\n\n\nWhat does Volume Profile Tell Us?\nVolume Profile tells us how the volume was distributed over a given price range. This is very\nuseful information. Let me demonstrate with an example.",
+      "char_count": 632,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 124,
+      "text": "123\n\nYou can see two heavy volume zones in the picture below and one zone where the Volume\nProfile is thin.\n\nWhat does this particular picture tell us? It tells us that big financial institutions were\ninterested in trading in those two heavy volume zones. On the other hand, they did not really\ncare for trading too much in the middle zone where the volumes were weak.\nThis scenario could be a sign that big institutions were:\n1. Building up their huge selling positions in the heavy volume zone (1.1230 –1.1240).\n2. Manipulating the price to go into a sell-off (that’s the thin profile).\n3. And, finally, quitting their positions (or adding to them) in the heavy volume zone\naround 1.1205–1.1215.",
+      "char_count": 697,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 125,
+      "text": "124\n\nDifferent Volume Profile Shapes\nThere are many shapes a Volume Profile histogram can print and many different stories it can\ntell. However, the shapes and the stories behind them tend to repeat themselves, and in the\nend, it comes down to just a few basic shapes the Volume Profile can take:\n\nD-Shaped Profile\nIt corresponds with the letter “D” and this is the most common shape. It tells us that there is\na temporary balance in the market. Big financial institutions are building up their trading\npositions and they are getting ready for a big move.\n\n[VISUAL CONTENT: A broad central bulge illustrates a D profile and temporary two-sided balance.]",
+      "char_count": 653,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 126,
+      "text": "125\n\nP-Shaped Profile\nIt corresponds with the letter “P” and this is a sign of an uptrend. Aggressive institutional\nbuyers were pushing the price upwards; then the price found fair value and a rotation started.\nIn this rotation, heavy volumes were traded, and the market was getting ready for the next\nbig move. P-shaped profiles are usually seen in an uptrend or at the end of a downtrend.\n\n[VISUAL CONTENT: The P-shaped example places a thicker distribution above a narrow lower stem.]",
+      "char_count": 487,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 127,
+      "text": "126\n\nb-Shaped Profile\nIt corresponds with the letter “b” and is the exact opposite of P-shaped profile.\nb-shaped profiles are usually seen in a downtrend or at the end of an uptrend.\n\n[VISUAL CONTENT: The lowercase-b example puts the thick part of the distribution below its thinner upper portion.]",
+      "char_count": 298,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 128,
+      "text": "127\n\nThin Profile\nIt corresponds with the letter “I” (with little bumps in it).\nA thin profile means a strong trend. There is not much time for building up trading positions\nin an aggressive price movement. Only small Volume Clusters (sort of “bumps”) are created\nin this kind of profile.\nOne of my favorite trading strategies is based on those Volume Clusters!\n\n[VISUAL CONTENT: The strong move has a narrow profile with a few small protrusions at pauses in the trend.]",
+      "char_count": 470,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 129,
+      "text": "128\n\nWhat Makes Volume Profile Different to Other Trading\nIndicators?\nNo other indicator (apart from Order Flow, of course) can show you where the big trading\ninstitutions were likely buying/selling! Why? Because 99% of all standard indicators are\ncalculated only from two variables: Price and Time. Volume Profile gets calculated using three\nvariables—Price, Time, and Volume.\nIn other words, 99% of standard trading indicators only show you how the price was moving\nin the past. The only difference between those thousands of indicators is how they visualize\nit. It does not matter whether it is EMA, Bollinger bands, RSI, MACD, or any other indicator…\nAll those only show a different visualization of a price movement in the past (they are\ndelayed—they visualize something that has already happened).\nYES – they are pretty useless, which is the reason traders keep jumping from one to the other\nwithout having any real success.\nOn the other hand, Volume Profile points you to zones that were and will be important for\nbig trading institutions. Simply put – Volume Profile can show you what will happen in the\nfuture!\n\nWhy Care about Volumes and What the Big Institutions Are\nDoing?\nThere is a straightforward reason why we need to know what the big financial institutions are\ndoing. The reason is that they dominate, move, and manipulate the markets. It is they who\ndecide where the price will go, not you or I. We are too small.\nTake a look at following picture. It shows the 10 biggest banks and how much volume they\ncontrol. Together it is almost 65% of the market. Just 10 banks!\nIt is those guys who own this game. Those are the guys we need to track and follow. And how\ndo we follow them? By using Volume Profile to track their volumes.",
+      "char_count": 1745,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 130,
+      "text": "129\n\n\nVolume Profile – Trading Setups\nIn this chapter, I will show you my most favorite Volume Profile setups. You can use these\nsetups to identify strong Support and Resistance zones. When the price reaches these zones\nat some point in the future, you can use Order Flow to help you trade there!\nWhat you will find the most helpful for this will be the Order Flow confirmation strategies.\nThese will help you tell if the big market participants are active in those zones and if they are\ngoing to trade them. If the big guys start joining the party around a strong Volume Profile-\nbased S/R zone, then it will be a strong confirmation signal for you. Such a signal indicates\nthat the S/R is most likely going to work!\nThese Volume Profile setups can be used with any time frame. However, this book focuses on\nintraday trading, and for that, I suggest you use these setups with 30 Minute time frame. You\ncan also go to 15 Minute or 1 Hour, but I would not advise going past that.",
+      "char_count": 978,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 131,
+      "text": "130\n\nVolume Profile Setup #1: Volume Accumulation Setup\nThis is my favorite trading setup. It is based on the fact that big trading institutions first need\nto enter their huge trading positions before manipulating the market into a new trend. They\nenter their huge positions in a rotation. This is the only place where they can accumulate such\nlarge volume without being seen and without their intentions being recognised.\n\nYou can trade it in three steps:\n1. Look for a price rotation/tight channel that is followed by a strong uptrend (or a\ndowntrend). What happens in such a formation is that big institutions are\naccumulating their trading positions (in the rotation) and then they start the trend. A\nLong scenario looks like this:\n\n2. Use Volume Profile in the rotation area to identify where the heaviest volumes were.\nThe area where the heaviest volumes got traded is a strong Support (Long trade\nscenario).\n3. When the price enters this Support zone in the future, open your Order Flow and wait\nfor any of the confirmation setups to appear there. Jump in the trade as soon as it gets\nconfirmed on the Order Flow.\n\n[VISUAL CONTENT: The accumulation drawing profiles a narrow rotation and then marks the subsequent upward departure.]",
+      "char_count": 1239,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 132,
+      "text": "131\n\n\nThe Logic Behind Volume Accumulation Setup\nLet me now explain the logic behind this setup. There are two reasons (factors) why the price\nreacts to these volume zones so nicely. This reasoning also applies to all the other volume\nsetups I am going to show you later.\nReason #1: Strong Buyers/Sellers who were accumulating their positions are likely to defend\ntheir positions. As a result of this, when the price returns to the volume accumulation area,\nstrong Buyers/Sellers actively defend their positions.\nStrong Buyers start aggressively buying to drive the price upwards again to defend the level\nwhere they accumulated their Longs. Strong Sellers defend their Shorts positions by\naggressive selling, which moves the price lower again. Here is a picture to demonstrate this\n(a Long trade scenario):",
+      "char_count": 807,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 133,
+      "text": "132\n\n\nReason #2: Nobody wants to risk a fight with strong and aggressive Buyers/Sellers.\nLet me demonstrate this by using an example: First, strong Buyers accumulated their positions\nin a sideways rotation. Then they pushed the price aggressively upwards (this is the Long\nscenario of Setup #1). After that, the Buyers stopped pushing the price upwards for a while,\nand Sellers took over. They were pushing the price lower and lower, but when they\napproached the strong rotation where the aggressive Buyers had accumulated their massive\npositions, the Sellers stopped their selling activity and closed their positions. Why? Because\nthey didn’t want to risk a fight with strong and aggressive Buyers.\nWhen somebody who is in a Short position wants to close their position, he buys. So, when\nthose Sellers start to buy to get rid of their Short positions, they actually help to drive the\nprice upwards.",
+      "char_count": 900,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 134,
+      "text": "133\n\nLet me make this clearer with a picture:\n\nIt is the combination of these two factors that drives the price away from the\nSupport/Resistance zones.",
+      "char_count": 151,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 135,
+      "text": "134\n\nEXAMPLES: Volume Accumulation Setup\nExample #1: Volume Accumulation Setup\n\n\nExample #2: Volume Accumulation Setup\n\n[VISUAL CONTENT: The examples draw flexible profiles over pre-move rotations and carry their dominant-volume bands forward to potential retests.]",
+      "char_count": 265,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 136,
+      "text": "135\n\nExample #3: Volume Accumulation Setup\n\n\nExample #4: Volume Accumulation Setup\n\n[VISUAL CONTENT: The examples draw flexible profiles over pre-move rotations and carry their dominant-volume bands forward to potential retests.]",
+      "char_count": 229,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 137,
+      "text": "136\n\nVolume Profile Setup #2: Trend Setup\nThis is also one of my favorite Volume Profile setups. It is based on the fact that there is not\nmuch time for accumulating big trading positions when there is a trend. Sometimes, the trend\nmovement halts for a bit and some new and relatively big volumes get accumulated. Those\nvolumes show as a little “bump” on the otherwise thin Volume Profile. Those “bumps” are\ncalled Volume Clusters. Those Volume Clusters often work as strong Support and Resistance\nzones when the price gets back to them in the future. Here are exact steps on how to trade\nthis:\n1. Trade this setup when there is a strong trend. If there is an uptrend, you will want to\ntrade Longs. If it is a downtrend, then it is Shorts.\n2. When you have found a trend (in this case an uptrend), use Volume Profile to see how\nthe volume was distributed throughout the trend move.\n\n\n3. Look for significant Volume Clusters that were created within the trend. In the picture\nbelow, there is one significant Volume Cluster. The area where the volumes were the\nheaviest is a Support.",
+      "char_count": 1081,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 138,
+      "text": "137\n\n4. When the price enters this Support area, open your Order Flow and wait for any of\nthe confirmation setups to appear there. You jump in the trade as soon as it gets\nconfirmed on the OF.\n\n\nThe Logic behind the Trend Setup:\nThe logic behind this setup is that Buyers were pushing the price upwards and they were\nadding to their Long positions in the place where we now see the Volume Cluster. When the\nprice hits the Volume Cluster again, those Buyers are likely to become active again and begin\nto defend their Long positions they placed there earlier. This will push the price up from this\nVolume Cluster again.\nThe same two factors that help to move the price and which I mentioned with the Volume\nAccumulation setup apply here as well.",
+      "char_count": 744,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 139,
+      "text": "138\n\nEXAMPLES: Trend Setup\nExample #1: Trend Setup\n\n\nExample #2: Trend Setup\n\n[VISUAL CONTENT: The trend examples isolate a cluster inside a thinner profile and project it as support in an up move or resistance in a down move.]",
+      "char_count": 227,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 140,
+      "text": "139\n\nExample #3: Trend Setup\n\n\nExample #4: Trend Setup\n\n[VISUAL CONTENT: The trend examples isolate a cluster inside a thinner profile and project it as support in an up move or resistance in a down move.]",
+      "char_count": 205,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 141,
+      "text": "140\n\nVolume Profile Setup #3: Rejection Setup\nThis setup is based on finding a very strong rejection of either higher or lower prices and\napplying Flexible Volume Profile to it in order to spot strong Volume Clusters.\nThe key to trading this setup successfully is in identifying the strong rejection in the chart.\nSometimes, the strong rejection looks like a strong pin bar created at a swing point. However,\nsometimes it is not so clear and there is a different candle pattern. I don't care what pattern\nthere is because usually the pattern changes with the time frame (and I don't like being bound\nby a time frame). What matters the most is that the rejection is strong and that the\naggressiveness within it is evident.\nIn a Long trade scenario, I look for selling activity followed by a sudden price reversal and\nstrong buying activity. For example, like this:\n\n[VISUAL CONTENT: The chart highlights the section to profile around a sharp rejection. Multiple candles can define the event.]",
+      "char_count": 991,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 142,
+      "text": "141\n\nIn a Short trade scenario, I look for buying activity followed by sudden price reversal and\nstrong selling activity. For example, like this:\n\nWhen there is a strong price reversal, we get the information that one side of the market\nbecame very aggressive and strongly rejected some price level. When this happens, I am\ninterested in how the volumes were distributed within the rejection. In other words, I am\ninterested in the place where the heaviest volumes within the rejection were added to the\nmarket. The reason for that is that the place with the heaviest volumes marks the place where\nthe counterparty was the most aggressive—the place where the biggest fight was.\n\nHere is how to trade this:\n1. Use the Flexible Volume Profile to look into a strong rejection area to see where the\nvolumes were the heaviest. There needs to be a nice and strong Volume Cluster there.\n2. The area where the Volume Cluster got formed is a zone of S/R. Wait until the price\ncomes back there again. When it does, open the Order Flow software to look for a\ntrade confirmation.\n3. If there is a rejection of higher prices, then you want to enter a Short position.",
+      "char_count": 1153,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 143,
+      "text": "142\n\n If there is a rejection of lower prices, then you want to enter a Long position. See the\nexample below:\n\n\nThe Volume Profile Setup #3 is the most difficult setup to trade because sometimes it is hard\nto tell when the rejection was really strong and aggressive. Sometimes the rejection is pretty\nstrong but the distribution of volumes within the rejection is not easy to read—mostly when\nthere are stronger volume areas within the rejection itself. Because of this, it takes some time\nand practice to master this setup",
+      "char_count": 523,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 144,
+      "text": "143\n\nEXAMPLES: Rejection Setup\nHere are some more examples of the Rejection Setup.\nExample #1: Rejection Setup\n\n\nExample #2: Rejection Setup\n\n[VISUAL CONTENT: The rejection examples highlight the heaviest band inside the reversal and show later interactions with the resulting support or resistance zone.]",
+      "char_count": 305,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 145,
+      "text": "144\n\nExample #3: Rejection Setup\n\n\nExample #4: Rejection Setup\n\n[VISUAL CONTENT: The rejection examples highlight the heaviest band inside the reversal and show later interactions with the resulting support or resistance zone.]",
+      "char_count": 227,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 146,
+      "text": "145\n\nWhere to Get More Info about Volume Profile\nVolume Profile is a fantastic tool that definitely deserves more of your attention. As this\nbook’s main goal is to teach you Order Flow trading, I won’t go more in depth with Volume\nProfile. However, you can learn more about it on my website www.trader-dale.com. What\nyou will find there is a free copy of my book VOLUME PROFILE: The Insider’s Guide to Trading\navailable for you to download.\nIf you would like to go even deeper, I suggest you get my Order Flow Pack (available here:\nhttps://www.trader-dale.com/order-flow-indicator-and-video-course/). This pack includes:\n• Order Flow software\n• Volume Profile software\n• Extensive Order Flow and Volume Profile video training\nIf you would just like to get the Volume Profile software, you can get it on my website here:\n(https://www.trader-dale.com/volume-profile-forex-trading-course/)\n\nLive Trading Examples - Link\nI first planned to comment on some of my Order Flow + Volume Profile live trades here, but\nthe written format makes it quite difficult and not so effective. For this reason, I set up a\nspecial webpage for you where I uploaded a couple of live trading videos. You can see me\ntrading with Order Flow and Volume Profile in those videos using all the tips and approaches\nI showed you in this book. Here is the link:\nLink: https://www.trader-dale.com/of-book/\nPassword: happy trading",
+      "char_count": 1395,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 147,
+      "text": "146\n\nWhat to Do Next\nIn this book, I tried my best to explain my trading strategies and give you a good starting point\nfor using them independently. I hope you liked it and that you find the way of trading\nalongside the big trading institutions using Order Flow and Volume Profile as appealing as I\ndo. This book should give you the basics you need to start exploring more and, most\nimportantly, get some firsthand experience.\nTrading using the Order Flow is like driving a car. All the theory about driving is one thing, but\nactually driving a car is an experience you won’t be able to learn from a book. You actually\nneed to sit in the car and drive. This is what will make you a good driver, not reading books\nabout driving.\nThe actual process of driving (or trading) will also become way more natural when you start\ndoing it. I expect that after going through this Order Flow book, your head could feel a bit\ndizzy from the amount of information, especially if Order Flow is entirely new for you. There\nare just so many things to watch, so many nuances, so many things to remember, right? Well,\ntheoretically, yes. BUT when you start using Order Flow in your trading, many of these things\nwill become natural for you. In a short amount of time, reading the Order Flow will become\nway easier, and when you look at it, you will see a clear picture, not just a sum of cells,\nnumbers, and different shades of colors.\nWhat you need now is to practice the things you have learned. You need practice and hands-\non experience!\n\nAccelerate Your Learning!\nTo accelerate your learning and give you as much information as possible, I have created a\nnumber of special training courses. There are two in particular that I highly recommend\ngetting. They are called The Elite Pack and The Order Flow Pack. Each one of them focuses on\ndifferent things. Let me now tell you what those two training packs consist of and how they\ncan help you!",
+      "char_count": 1927,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 148,
+      "text": "147\n\nThe Elite Pack\nThe Elite Pack is ideal for you if you would like to perfect your trading with Volume Profile.\nThis Pack focuses on intraday, swing trading, and long-term investment trading with Price\nAction, Volume Profile, and VWAP.\nIt consists of four main parts:\n1. Volume Profile Video Course: a 15-hour-long video course on trading with Volume\nProfile, Price Action, and VWAP. It consists of an in-depth explanation of my favorite\nand proven trading strategies and includes hundreds of real trading examples.\n2. Dale’s Trading Levels: After you have gone through the whole video course, I suggest\nyou start following me in my everyday trading. Each day I will give you my personal\nintraday and swing trading levels, which are based on the strategies you learned. I\nexplain all my trading levels in a daily video, which you will get every day as well. This\nway, you will know what and how I am going to trade that day and the reasoning\nbehind my decisions.\nI think the best way to learn something is to follow somebody who has a lot of\nexperience. This is a very effective, proven, and fast way to learn!\n3. Volume Profile + VWAP Indicators: The Elite Pack includes a lifetime license to my\ncustom-made Volume Profile and VWAP indicators. Those indicators were developed\nby expert developers precisely to my needs. They are fast, precise, reliable, and\nversatile (you can use them for all trading instruments) and they have all the functions\nyou will need for successful trading.\n4. Community & Support: Apart from all this, you will also get access to my trading\ncommunity and trading forum, where you can discuss your trading with other\nmembers. It goes without saying that you will also get my personal unlimited email\nsupport. Whatever you need to help with, shoot me an email and I will do my best to\nhelp.\nBONUS: As a special bonus to all of this, our specially trained tech support will do the\ncomplete setup for you! They will install the trading platform with all my indicators, create\nworkspaces (exactly the same as I use), and connect you to a reliable data feed—for FREE.\nThis way, you will be able to start learning immediately, without any delays!",
+      "char_count": 2171,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 149,
+      "text": "148\n\n[VISUAL CONTENT: Promotional page for Trader Dale's Elite Pack.]",
+      "char_count": 69,
+      "quality_status": "empty",
+      "needs_ocr": true,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 150,
+      "text": "149\n\nThe Order Flow Pack\nThe Order Flow pack is ideal for you if you would like to perfect your Order Flow trading. If\nyou finished this book and liked what you learned here, I would definitely recommend\ncontinuing your learning with the Order Flow Pack.\nThe Order Flow pack consists of four main parts:\n1. Order Flow Video Course: A 12-hour long in-depth video course where I teach you all\nyou need to know to trade with Order Flow successfully. It covers Order Flow trading\nstrategies, entry and exit strategies, confirmation strategies, live trading, Order Flow\nsettings … simply put, all that you need to feel confident trading with the Order Flow!\nThe video course is a very practical and right-to-the-point guide. No fluff, just all the\nuseful info, put in a logical order, and all in one place.\n2. Order Flow and Delta Software: My custom-made software, which I developed for my\nown intraday trading. It is a versatile tool that you can use for all trading instruments\n(Forex included) and has many very useful and unique features and other OF software\nlacks. This software is constantly updated and new features are being added.\n3. Volume Profile Software: Order Flow combined with Volume Profile is a very powerful\ncombo. Use my custom-made Volume Profile indicator to see the big picture and to\nidentify strong institutional Support and Resistance zones. Then use Order Flow to\nconfirm your trade entry, pinpoint the best place to enter your trade, and manage\nyour trade like a professional, institutional trader!\n4. Lifetime Support: Getting the Order Flow pack will get you also my unlimited email\nsupport. Have questions regarding setups, settings, trades, or have you run into some\ntechnical difficulties? I am here to help!\nBONUS: Our specially trained tech support will do the complete Order Flow and Volume\nProfile setup for you! They will install the trading platform with all my indicators, create\nworkspaces (exactly the same as I use), and connect you to a reliable data feed. No need to\nread manuals; just jump right into learning and trading!",
+      "char_count": 2065,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 151,
+      "text": "150\n\n[VISUAL CONTENT: Promotional page for Trader Dale's Order Flow Pack.]",
+      "char_count": 74,
+      "quality_status": "empty",
+      "needs_ocr": true,
+      "extraction_mode": "vision_primary"
+    },
+    {
+      "page_num": 152,
+      "text": "151\n\nJust a Few Testimonials on My Trading Courses\nExcellent Content and Service\nAfter consuming hours of free content (all great I must add) I decided to buy the VP indicator\nfor MT4 and Dale’s online book. A great buy, but I soon realized I wanted to know more about\nOrder Flow and all the bits and bobs. Dale had a fresh approach and I was eager to learn more.\nBefore I purchased the Elite Pack I asked many questions. Dale and his team answered every\nsingle one in a timely manner and with a personal touch. I felt right at home. From our first\ninteraction the support has been unbelievable and the course content incredibly informative.\nI have learnt more in the past month than the last 36. The only thing I regret is not finding\nhim three years ago.\nDale is a straight shooter. Not promising you the Holy Grail of trading and will point out\nsuccesses and failures. It is refreshing!\n\nGreat Course, Great Indicators and Damn Good Value\nThere are many trading gurus to choose from. The challenge is finding one that is good, honest\nand knows what he is talking about. Trader Dale is one of those. He focuses on volume-based\ntrading methods rather than the traditional price and time methods. It is a different and very\ninteresting approach and one that has great potential for me. I have studied several different\ntrading styles and used several different markets. So far, none have worked as expected and\nthis is because they were all missing something. That something is volume. Trader Dale clearly\nexplains why volume is so important and how to use it. His teaching methods are clear and\nconcise and he explains everything you need to know. His indicators for MT4 and NT8 are top\nclass. The price he charges for his training and indicators is very reasonable. I have no\nhesitation in recommending him to anyone who really wants to understand the market better\nand to get the edge that will propel you forwards. This is not a get-rich-quick scheme. There\nis a lot to learn and understand, but Trader Dale does a fantastic job of explaining everything.\nHe gives you the theory and then shows real examples of how it works. He shows winners as\nwell as losses and uses different markets to prove that it works. Take the plunge and get the\nprofessional training and support you deserve—you will not regret it.",
+      "char_count": 2312,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 153,
+      "text": "152\n\nInvaluable, very insightful and clear training\nI couldn’t trade without Trader Dale’s Flexible Volume Profile or Order Flow. His explanations\nand training seem to cover every aspect of the volume profile or order flow and are very clear\nto understand. I was shocked when he explained something in his Order Flow training. For\nyears I’ve wanted to understand Order Flow and I watched hours of video and attended\ncountless webinars from individuals claiming they were going to teach how it works and no\none ever mentioned one simple point about something that shows up frequently in Order\nFlow throughout the day. Dale was only one who pointed it out and explained it very clearly\nand, for me, it made Order Flow immediately usable. I’ve never gotten the feeling he was\nholding something back for a future purchase, I do believe he shares all he knows and\nsincerely wants to see others succeed. Very rare.\n\nReliable and helpful person, professional and excellent services!\nI found Dale's wonderful book Volume Profile - The Insider’s Guide to Trading by chance. Only\nreading the beginning of his book I knew that was what I was looking for. Then the book led\nme to his website and training courses. He surprised me with his extreme helpfulness and\nkindness. Whenever I am confused, he's willing to help with all of his kindness and more than\nI expect. I've never met anyone who is kind-hearted and helpful like him. Moreover, not only\nhis invented Volume Profile indicator but his professional trading methods absolutely impress\nme. I do not know what words to say, but I would like to say: Thank God I found him as my\ntutor/ trainer/ advisor in trading. If you are interested in trading and would like to develop\nyour trading, please join him and you will never be disappointed.\n\nQuality individual that gives excellent training and market guidance\nI discovered Trader Dale's service a little over six months ago and have been absolutely thrilled\nwith the knowledge he has shared in that time. Because of the incredible market insights he\nshares with his members, along with the extensive training materials he provides, I have\nbecome a much improved trader.",
+      "char_count": 2162,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 154,
+      "text": "153\n\nAnd the best part is I can now trade with confidence and not with fear. Because of Trader\nDale's training and market analysis, which includes expected outcomes at well-defined\nVolume Profile levels, I can trade with total confidence.\nYes, there are losses, but because of the \"risk-controlled\" training plan he has shared, the\nlosses are minimal and rare compared to the successful trades and profits.\nI am so happy I found this service.\n\nTrader Dale—the most honest and reliable Trading School\nBased on my personal experience with the link trading market, I found the most reliable,\nhonest and simple trading ideas are located under Trader Dale webpages. Really it can be\nconsidered a Trading School especially for beginners. It can convert beginners to profitable\ntraders in a short period. My experience started early but within three months studying\nTrader Dale courses – VP, OF & VWAP – I converted my trial from Demo version to profitable\nlive trading, which I am happy with now. I need to express my thanks to Mr. Dale for his efforts\nand keen support of his site members. Really I highly recommend beginners to depend on\nTrader Dale’s website.\n\nUnique Style of Trading with Full Dedication in Teaching\nDale is a real trader who loves to trade and help people make a decent living out of trading. I\nhave been struggling to trade with a number of systems available in the market. I went to\ndifferent gurus even but could not discipline myself and my trading sucked big time.\nAfter learning from Dale about the Volume Profile, my trading results changed dramatically\nand I could literally stop over trading and count my profits. Though my progress is slow ’cause\nI already lost a lot of money and my capital is smaller in comparison to other traders, the gem\nI know from Dale now can definitely help me to build a fortune sooner or later. I believe that.\nSignificantly, the daily levels are really helpful for busy people like me, which makes trading\neasier and faster.",
+      "char_count": 1979,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 155,
+      "text": "154\n\nThanks, Dale, for your wonderful support. I don’t usually rate mentors in any review website,\nbut if my review counts and supports your program in any way, that is my small gesture of\nshowing gratitude for your hard work teaching me how to profit well.\n\nExcellent\nThere is not hype with this guy, none. It is very easy to understand, for me I have been trading\nand researching now for about two years and I already used the Volume Profile, but this guy\njust explained everything about TA and institutions and how they trade and the things that\ngo on behind the scenes that I assumed were the way he explains them, so this guy has\nbasically confirmed every suspicion I have had on how the market really moves and why. A\nlot of people since I have been learning TA go off the deep end with it, and they literally start\ntreating and thinking of the market like it will run all by itself without any people playing and\nit's just one big machine running on its own, or why 90% of all the TA bulls*** out there\ndoesn't work and the questions I have asked while learning this stuff and why so much didn't\nreally fit. Anyways, if anyone is at the point I am with not wanting to work for a firm, but\ndeeply desiring to learn how and why the markets really move, then follow this guy. And the\nplus side is when you fully understand that you literally have to follow big money and stop\nthinking you're going to really do something out there, you'll also be amazed at just how easy\ntrading really is. Thanks again, Dale, I have been waiting to find someone like you for about\ntwo years now.",
+      "char_count": 1583,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 156,
+      "text": "155\n\nGlossary\nAsk: Is displayed on the right side of the footprint. It shows how many contracts were traded\nthere with Market Buy order and also with Limit Sell order.\nBid: Is displayed on the left side of the footprint. It shows how many contracts were traded\nthere with Market Sell order and also with Limit Buy order.\n\nCumulative Delta: Sum of all Deltas of the current day. Its calculation starts every day anew.\nDelta: A difference between Bid and Ask. It is calculated as: Ask – Bid. Positive Delta indicates\nstrong buyers and negative Delta indicates strong sellers.",
+      "char_count": 573,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 157,
+      "text": "156\n\nFootprint: A box that represents a standard price “candle” with the Bid and Ask values\ndisplayed.\n\n\nHigh Volume Node (HVN): A black outline in every footprint pointing to the price where the\nheaviest volumes got traded (within that footprint).\n\n\nIceberg Order: When a big trading institution enters a position, they sometimes don’t enter\nit all at once with one order. Instead, their algorithms split the order into many small orders.\nFor example, instead of entering 10 contracts, they enter 1+1+1… They do this super quick.\nImbalance: If Ask is 300% or more than Bid, then it is a Buying Imbalance = Buyers are way\nstronger than Sellers. If Bid is 300% or more than Ask, then it is a Selling Imbalance = Sellers\nare way stronger than Buyers. Imbalances are marked in blue. Note that Bid and Ask are\ncompared diagonally from left to right!",
+      "char_count": 845,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 158,
+      "text": "157\n\nMultiple Node: Two or more High Volume Nodes next to each other. My software highlights\nthem in yellow. Multiple Nodes represent Support/Resistance zones.\n\n\nStacked Imbalance: Three or more Buying or Selling Imbalances on top of each other.\n\n\nStrong Rejection: Price goes aggressively one way and then suddenly reverses and goes\naggressively the other way.\n\n\nSupport/Resistance: A price level or zone in the chart where we expect that the price will\nreact to (bounce off) it.",
+      "char_count": 480,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 159,
+      "text": "158\n\nRisk Reward Ratio (RRR): Potential gain versus the potential loss of a trade. If you use Stop\nLoss = 10 pips and Take Profit = 10 pips, then RRR = 1. If you use SL = 10 pips and TP = 20 pips,\nthen RRR = 2.\nUnfinished Business: A market imperfection. When the market went one way then turned\nthe other way without having the high/low formed properly. A properly formed high needs\nto have 0 contracts traded at the Bid, and a properly formed Low needs to have 0 contracts\ntraded at the Ask.\n\nVolume Accumulation: An area (usually a price rotation area) where heavy volumes were\ntraded.\n\nVolume Cluster: Area in a chart where heavy volumes were traded. Often appears in a trend\nor in a Rejection.",
+      "char_count": 698,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "vision_supplement"
+    },
+    {
+      "page_num": 160,
+      "text": "159\n\nThank you!\nAt this place, I would like to thank you for reading my book. I hope you liked it, and that you\nfound it useful. I wish it helps you in achieving your financial goals and dreams no matter how\nbig they are!\n\nHappy trading!\n-Dale",
+      "char_count": 243,
+      "quality_status": "ok",
+      "needs_ocr": false,
+      "extraction_mode": "text"
+    },
+    {
+      "page_num": 161,
+      "text": "160\n\n[VISUAL CONTENT: Publisher page listing Trader Dale's Volume Profile and Order Flow books.]",
+      "char_count": 96,
+      "quality_status": "empty",
+      "needs_ocr": true,
+      "extraction_mode": "vision_primary"
+    }
+  ],
+  "extraction_quality": "ok",
+  "poor_quality_pages": 10,
+  "vision_pages": 136,
+  "extracted_at": "2026-11-22T17:19:55.261073",
+  "extractor_version": "1.1"
+}
