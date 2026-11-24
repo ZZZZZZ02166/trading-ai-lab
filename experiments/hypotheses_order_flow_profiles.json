@@ -1,0 +1,316 @@
+[
+  {
+    "hypothesis_id": "09eb550f-79f5-57d9-889f-9ef8f0a02d1d",
+    "source_card_ids": [
+      "7a897d6e-bba5-5599-a9e5-e340d159a02c",
+      "80316233-b845-5188-863a-45ebbcc8f74c",
+      "062b6be8-962a-5b98-843b-989629db43b3"
+    ],
+    "source_doc_ids": [
+      "3605e0c990fe",
+      "885b985763be"
+    ],
+    "title": "First Retests of Separated Volume Clusters",
+    "claim": "After a defined departure from an unusually high executed-volume band, a first retest predicts a higher probability of a favorable 15-minute excursion than a later retest of the same kind of band.",
+    "rationale": "Dale emphasizes first revisits after clearly separated footprints. Forthmann describes reactions at and around prior auction bands. The frequency of a turn can be tested without inferring whether an institution defended its inventory.",
+    "testability_notes": "Define the band from completed bars, then register separation and every later retest in order. Compare first and later retests matched by instrument, direction, time of day and volatility. Use one bounded horizon and report the number of unique levels.",
+    "tags": [
+      "volume_cluster",
+      "first_retest",
+      "volume_profile"
+    ],
+    "created_at": "2026-11-22T17:31:22.888362Z",
+    "model_used": "codex",
+    "data_required": "Historical futures trade prints or volume at price, timestamps and OHLC for a consistent regular session.",
+    "what_would_support": "Positive held-out difference in retest success and favorable excursion across matched groups.",
+    "what_would_reject": "An effect near zero, reversing in later periods, or explained by distance or time of day.",
+    "status": "proposed",
+    "source_refs": [
+      {
+        "card_id": "7a897d6e-bba5-5599-a9e5-e340d159a02c",
+        "chunk_id": "045c49cc-69cd-444b-a04c-1108ce9475ff",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 46,
+        "page_end": 50
+      },
+      {
+        "card_id": "80316233-b845-5188-863a-45ebbcc8f74c",
+        "chunk_id": "8115476e-b8ba-4cf4-924f-d28cef15b8fb",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 55,
+        "page_end": 59
+      },
+      {
+        "card_id": "062b6be8-962a-5b98-843b-989629db43b3",
+        "chunk_id": "44164a91-565b-47c9-b847-f70b7ab603ee",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 52,
+        "page_end": 54
+      }
+    ]
+  },
+  {
+    "hypothesis_id": "93409f37-3f85-5329-b48e-54f6332ef946",
+    "source_card_ids": [
+      "fca43d5f-f8a0-5b20-adf9-92b85c27a79d",
+      "f7237fab-e171-5c08-acce-aef82162f984"
+    ],
+    "source_doc_ids": [
+      "885b985763be"
+    ],
+    "title": "Prior Value Reentry and a Return to VPOC",
+    "claim": "Among sessions opening outside prior regular-session value, confirmed reentry predicts a higher probability of a subsequent prior VPOC touch than sessions still outside value at the same decision time.",
+    "rationale": "Forthmann separates outside acceptance from reentry and uses the prior control price as an interim reference. The study tests the nearer VPOC outcome before considering full value-area traversal.",
+    "testability_notes": "Predeclare the value-area algorithm, tick binning, reentry rule and comparison clock. Use the same starting time for outcome measurement and exclude VPOC touches that occurred before confirmation. Report conditional rates, base rates and uncertainty.",
+    "tags": [
+      "value_area",
+      "point_of_control",
+      "session_context"
+    ],
+    "created_at": "2026-11-22T17:31:22.888362Z",
+    "model_used": "codex",
+    "data_required": "Historical futures trade prints or reliable volume at price to construct value areas, plus regular-session intraday bars.",
+    "what_would_support": "Higher held-out VPOC touch rate after reentry at the matched decision time.",
+    "what_would_reject": "No incremental lift once gap size, distance to VPOC and time of day are matched.",
+    "status": "proposed",
+    "source_refs": [
+      {
+        "card_id": "fca43d5f-f8a0-5b20-adf9-92b85c27a79d",
+        "chunk_id": "c2e057ec-ef53-4fdb-9dde-69f0b73b2990",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 28,
+        "page_end": 30
+      },
+      {
+        "card_id": "f7237fab-e171-5c08-acce-aef82162f984",
+        "chunk_id": "c2e057ec-ef53-4fdb-9dde-69f0b73b2990",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 28,
+        "page_end": 30
+      }
+    ]
+  },
+  {
+    "hypothesis_id": "ced3e6cb-c536-596d-8b74-55868fbd21e3",
+    "source_card_ids": [
+      "d6151b03-c9d8-53e2-9e0c-008dde797e63",
+      "7556814f-177a-5eb7-a5f5-f1669ef0f0f0",
+      "7d98e1c4-2333-5d50-b6ae-7e6a79d43ba2"
+    ],
+    "source_doc_ids": [
+      "3605e0c990fe",
+      "885b985763be"
+    ],
+    "title": "Stalled Aggression With Later Initiative",
+    "claim": "At a predeclared price reference, heavy executed volume with limited price progress followed by opposite-side initiative predicts a larger favorable post-confirmation excursion than a comparable stall without a directional response.",
+    "rationale": "Both authors read passive absorption and subsequent initiative as distinct observations. This candidate tests whether the second stage carries incremental information at a mapped level.",
+    "testability_notes": "Register each stall with a trailing activity baseline and a small price-progress limit. Compare both groups after the same elapsed confirmation window. Report a price-only reclaim baseline and sensitivity to classification error and costs.",
+    "tags": [
+      "absorption",
+      "delta",
+      "trade_confirmation"
+    ],
+    "created_at": "2026-11-22T17:31:22.888362Z",
+    "model_used": "codex",
+    "data_required": "Exchange-aligned futures trade timestamps, aggressor classifications or a validated quote-based reconstruction, and completed bars.",
+    "what_would_support": "Incremental held-out improvement over stalled-volume and price-only baselines.",
+    "what_would_reject": "The apparent advantage disappears after the same decision clock and price-response baseline are applied.",
+    "status": "proposed",
+    "source_refs": [
+      {
+        "card_id": "d6151b03-c9d8-53e2-9e0c-008dde797e63",
+        "chunk_id": "09de14ff-9942-4f52-bf97-2b28570f2db2",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 95,
+        "page_end": 98
+      },
+      {
+        "card_id": "7556814f-177a-5eb7-a5f5-f1669ef0f0f0",
+        "chunk_id": "c5578610-5946-4af7-9128-c261ae35659e",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 87,
+        "page_end": 91
+      },
+      {
+        "card_id": "7d98e1c4-2333-5d50-b6ae-7e6a79d43ba2",
+        "chunk_id": "eada4243-9c07-4f3c-9b60-18ee73260311",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 78,
+        "page_end": 81
+      }
+    ]
+  },
+  {
+    "hypothesis_id": "5330eeb2-73db-556b-960c-5d04e66bd236",
+    "source_card_ids": [
+      "4434cf17-fe0e-5a0d-8dec-202cc3c2be59",
+      "b2edec64-1969-59b9-989f-1cbd6af20908",
+      "33d4232d-f7af-5d77-9725-37362509ac63"
+    ],
+    "source_doc_ids": [
+      "3605e0c990fe",
+      "885b985763be"
+    ],
+    "title": "Diagonal Imbalance Stacks at Reclaimed Levels",
+    "claim": "At a reclaimed prior-session or opening-range extreme, a same-side diagonal footprint stack in the reclaim direction predicts more continuation over the next 15 minutes than a reclaimed level with comparable price and volume but no stack.",
+    "rationale": "Dale specifies how the comparison is calculated, and Forthmann places stacks after failed breaks and tests them in the context of next-bar follow-through. Matching price-only reclaims isolates whether the footprint adds signal.",
+    "testability_notes": "Freeze the stack ratio, adjacency, zero-denominator handling and minimum size before testing. Determine the reclaim and stack using only completed bars, then start measuring the outcome at the next observable price. Use identical candidate selection for both groups.",
+    "tags": [
+      "stacked_imbalance",
+      "liquidity_sweep",
+      "trade_confirmation"
+    ],
+    "created_at": "2026-11-22T17:31:22.888362Z",
+    "model_used": "codex",
+    "data_required": "Exchange-level executions by price and aggressor side, prior-session reference levels and opening bars.",
+    "what_would_support": "Positive held-out improvement with a plausible range of fixed stack definitions.",
+    "what_would_reject": "No improvement over price-only reclaims, or a result that depends on retrospectively choosing the stack threshold.",
+    "status": "proposed",
+    "source_refs": [
+      {
+        "card_id": "4434cf17-fe0e-5a0d-8dec-202cc3c2be59",
+        "chunk_id": "c39f1e3a-118a-4ccb-9d27-b27375e5b03a",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 36,
+        "page_end": 37
+      },
+      {
+        "card_id": "b2edec64-1969-59b9-989f-1cbd6af20908",
+        "chunk_id": "c39f1e3a-118a-4ccb-9d27-b27375e5b03a",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 37,
+        "page_end": 38
+      },
+      {
+        "card_id": "33d4232d-f7af-5d77-9725-37362509ac63",
+        "chunk_id": "0fcaba3b-7b9e-4394-9ecb-f22c9869b4b0",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 113,
+        "page_end": 117
+      }
+    ]
+  },
+  {
+    "hypothesis_id": "290073ae-a424-54eb-9361-25b59c9e8a12",
+    "source_card_ids": [
+      "a7be728c-0070-5581-b396-ce4821dd80c5",
+      "3ec9fe7d-f1e8-5412-b1ae-995bb35577ae"
+    ],
+    "source_doc_ids": [
+      "885b985763be"
+    ],
+    "title": "Developing VPOC Migration After Initial Balance",
+    "claim": "Following an initial-balance range extension, a developing VPOC shift in the direction of the break predicts wider post-shift range extension than a comparable break with no shift.",
+    "rationale": "Forthmann treats moving acceptance after fresh directional initiative differently from a POC change inside rotation. Freezing every developing snapshot makes the sequence testable.",
+    "testability_notes": "Use a fixed initial-balance definition and live-equivalent profile updates and tie rules. Compare candidates with the same elapsed session time and comparable extension size. Start the outcome at the confirmed shift or matched comparison time.",
+    "tags": [
+      "initial_balance",
+      "point_of_control",
+      "trend_continuation"
+    ],
+    "created_at": "2026-11-22T17:31:22.888362Z",
+    "model_used": "codex",
+    "data_required": "Historical futures volume at price or raw trade prints with timestamps to recreate developing profiles and opening ranges.",
+    "what_would_support": "Higher post-decision favorable excursion for migration cases in held-out sessions.",
+    "what_would_reject": "No incremental effect over initial extension, contemporaneous price and elapsed trading time.",
+    "status": "proposed",
+    "source_refs": [
+      {
+        "card_id": "a7be728c-0070-5581-b396-ce4821dd80c5",
+        "chunk_id": "2d81898a-432c-4b97-b766-2e40ac41a16f",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 20,
+        "page_end": 21
+      },
+      {
+        "card_id": "3ec9fe7d-f1e8-5412-b1ae-995bb35577ae",
+        "chunk_id": "968de1f7-12e8-4378-b234-69fab54d571d",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 45,
+        "page_end": 50
+      }
+    ]
+  },
+  {
+    "hypothesis_id": "ce9d7537-4b8a-5c5c-9302-57c819fe0b36",
+    "source_card_ids": [
+      "6a657962-ff00-5945-85c5-42263a4a0e41",
+      "3a70bba7-1617-5dfb-b14e-ee5adafafeec",
+      "0af8600a-8e89-5823-93c4-a297cfa7ce96"
+    ],
+    "source_doc_ids": [
+      "3605e0c990fe",
+      "885b985763be"
+    ],
+    "title": "Unfinished Footprint Extremes and Revisits",
+    "claim": "Among equally distant footprint highs or lows, an extreme that still has executions on both sides predicts a higher chance of being revisited within 60 minutes than an extreme with the expected zero side.",
+    "rationale": "Dale provides a print-level definition and examples of revisits, as well as cases where price first travels away. Forthmann's weak-extreme concept supplies context but has a different operational definition.",
+    "testability_notes": "Label finished and unfinished extremes on bar close. Predeclare treatment of missing observations and zero quantities, and match by distance, swing type, price direction and session time. Count the first future touch and handle session-end censoring.",
+    "tags": [
+      "unfinished_auction",
+      "footprints",
+      "first_retest"
+    ],
+    "created_at": "2026-11-22T17:31:22.888362Z",
+    "model_used": "codex",
+    "data_required": "Historical futures footprints reconstructed from trade prints by side and price, with consistent completed bar boundaries.",
+    "what_would_support": "A higher matched revisit rate in later periods with the same footprint construction.",
+    "what_would_reject": "The difference disappears after matching distance and bar range, or reverses across sessions.",
+    "status": "proposed",
+    "source_refs": [
+      {
+        "card_id": "6a657962-ff00-5945-85c5-42263a4a0e41",
+        "chunk_id": "8353efce-cff6-43c9-b254-81a820153f75",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 38,
+        "page_end": 41
+      },
+      {
+        "card_id": "3a70bba7-1617-5dfb-b14e-ee5adafafeec",
+        "chunk_id": "045c9368-78bd-4754-a9b6-8e0e4a8ae1a7",
+        "doc_id": "3605e0c990fe",
+        "book_title": "Order Flow Trading Setups",
+        "file_path": "books/Order-Flow-Trading-Setups-1.pdf",
+        "page_start": 71,
+        "page_end": 74
+      },
+      {
+        "card_id": "0af8600a-8e89-5823-93c4-a297cfa7ce96",
+        "chunk_id": "39a74462-e82b-47a9-a835-25b79cd363fd",
+        "doc_id": "885b985763be",
+        "book_title": "Volume Profile, Market Profile, Order Flow: Next Generation of Daytrading",
+        "file_path": "books/Volume Profile & Market Profile Order Flow for Next Gen Daytrading.pdf",
+        "page_start": 58,
+        "page_end": 60
+      }
+    ]
+  }
+]
